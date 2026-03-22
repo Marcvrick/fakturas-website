@@ -1148,38 +1148,144 @@ footer a.rss-link:hover { color: var(--emerald); }
 footer .logo { color: #fff; }
 footer .logo span { color: var(--emerald); }
 
-/* RESPONSIVE */
+/* HAMBURGER MENU */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 200;
+  background: none;
+  border: none;
+}
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* RESPONSIVE — Tablet & Mobile */
 @media (max-width: 900px) {
+  /* Nav */
   nav { padding: 16px 24px; }
-  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--white);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    z-index: 150;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { font-size: 1.2rem; }
+
+  /* Hero */
   .hero { padding: 50px 24px 30px; }
   .hero h1 { font-size: 2.4rem; }
+  .hero-buttons { flex-direction: column; align-items: center; gap: 12px; }
+  .hero-buttons a { width: 100%; max-width: 300px; text-align: center; }
+  .float-emoji { display: none; }
+
+  /* Hero mockups */
   .hero-mockups { height: auto; display: flex; flex-direction: column; gap: 20px; align-items: center; }
   .mockup { position: relative !important; left: auto !important; right: auto !important; top: auto !important; transform: none !important; }
   .mockup-main { width: 100%; }
   .mockup-main:hover { transform: translateY(-6px) !important; }
   .mockup-phone { width: 200px; }
-  .mockup-chart { width: 260px; }
+  .mockup-chart { width: 100%; max-width: 300px; }
+
+  /* Mock table inside hero — stack on mobile */
+  .mock-table-header,
+  .mock-table-row {
+    grid-template-columns: 1.5fr 1fr 1fr;
+  }
+  .mock-table-header span:nth-child(2),
+  .mock-table-row span:nth-child(2) { display: none; }
+
+  /* Logo bar */
+  .logo-bar { padding: 30px 24px; }
+  .logo-bar-logos { gap: 24px; }
+  .logo-bar-logos span { font-size: 1.1rem; }
+
+  /* Stats */
   .stats-section { grid-template-columns: repeat(2, 1fr); margin: 40px 24px; }
-  .stat-block { border-right: none; border-bottom: 1px solid var(--border); }
+  .stat-block { border-right: none; border-bottom: 1px solid var(--border); padding: 24px 20px; }
+  .stat-block .stat-number { font-size: 1.8rem; }
+
+  /* Features */
   .features { padding: 60px 24px; }
   .features-grid { grid-template-columns: 1fr; }
   .features-header h2 { font-size: 2rem; }
+
+  /* Integration */
   .integration { padding: 60px 24px; }
-  .integration-inner { grid-template-columns: 1fr; }
+  .integration-inner { grid-template-columns: 1fr; gap: 40px; }
+  .integration-text h2 { font-size: 1.8rem; }
+  .notif-float { right: 0; top: -10px; font-size: 0.7rem; padding: 10px 12px; }
+
+  /* Testimonials */
+  .testimonials { padding: 60px 24px; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .testimonials-header h2 { font-size: 1.8rem; }
+
+  /* ROI */
   .roi-section { padding: 60px 24px; }
   .roi-cards { grid-template-columns: 1fr; }
   .roi-comparison { flex-direction: column; gap: 16px; padding: 24px; }
+  .roi-comp-val { font-size: 1.4rem; }
+  .roi-comp-arrow { transform: rotate(90deg); }
   .roi-insight { flex-direction: column; text-align: center; }
+  .roi-header h2 { font-size: 1.8rem; }
+
+  /* Pricing */
   .pricing { padding: 60px 24px; }
   .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
   .pricing-header h2 { font-size: 2rem; }
   .included-grid { grid-template-columns: 1fr; }
   .everything-included { padding: 24px; }
+
+  /* CTA */
   .cta-section { padding: 60px 24px; }
   .cta-section h2 { font-size: 2rem; }
   .cta-steps { flex-direction: column; gap: 24px; }
-  footer { flex-direction: column; gap: 12px; padding: 30px 24px; }
+
+  /* Footer */
+  footer { flex-direction: column; gap: 12px; padding: 30px 24px; text-align: center; }
+}
+
+/* RESPONSIVE — Small phones */
+@media (max-width: 480px) {
+  .hero h1 { font-size: 1.8rem; letter-spacing: -0.5px; }
+  .hero p { font-size: 1rem; }
+  .stats-section { grid-template-columns: 1fr; margin: 30px 16px; }
+  .stat-block .stat-number { font-size: 1.6rem; }
+  .features { padding: 40px 16px; }
+  .features-header h2 { font-size: 1.6rem; }
+  .integration { padding: 40px 16px; }
+  .integration-text h2 { font-size: 1.5rem; }
+  .testimonials { padding: 40px 16px; }
+  .pricing { padding: 40px 16px; }
+  .pricing-header h2 { font-size: 1.6rem; }
+  .roi-section { padding: 40px 16px; }
+  .cta-section { padding: 40px 16px; }
+  .cta-section h2 { font-size: 1.6rem; }
+  footer { padding: 24px 16px; }
+  .price-amount { font-size: 2.2rem; }
+  .roi-num { font-size: 2rem; }
+  .mock-stats { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -1188,6 +1294,9 @@ footer .logo span { color: var(--emerald); }
 <!-- NAV -->
 <nav>
   <div class="logo">fakturas<span>.</span>app</div>
+  <button class="hamburger" onclick="this.classList.toggle('active');document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
   <div class="nav-links">
     <a href="#features">Funciones</a>
     <a href="#how-it-works">Como funciona</a>
@@ -1644,5 +1753,13 @@ footer .logo span { color: var(--emerald); }
   <p>&copy; 2026 Fakturas.app — Hecho para contadores en Paraguay &nbsp;·&nbsp; <a href="https://fakturas.app/feed.xml" class="rss-link">RSS</a></p>
 </footer>
 
+<script>
+document.querySelectorAll('.nav-links a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.remove('open');
+    document.querySelector('.hamburger').classList.remove('active');
+  });
+});
+</script>
 </body>
 </html>
