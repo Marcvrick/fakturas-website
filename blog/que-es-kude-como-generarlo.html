@@ -450,6 +450,28 @@ footer .logo span { color: var(--emerald); }
   .glossary-table td, .glossary-table th { padding: 10px 12px; }
   footer { flex-direction: column; gap: 12px; padding: 30px 24px; }
 }
+
+/* PREV/NEXT NAV */
+.article-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 32px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.article-nav a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: var(--emerald-hover);
+  font-weight: 500;
+  transition: color 0.2s;
+  max-width: 48%;
+}
+.article-nav a:hover { text-decoration: underline; }
+.article-nav .nav-prev::before { content: "\2190 "; }
+.article-nav .nav-next { margin-left: auto; text-align: right; }
+.article-nav .nav-next::after { content: " \2192"; }
 </style>
 </head>
 <body>
@@ -923,8 +945,8 @@ footer .logo span { color: var(--emerald); }
 
   <!-- CTA -->
   <div class="cta-box">
-    <p>Fakturas.app genera el KuDE automaticamente cada vez que emitis un DTE aprobado. Formato A4, ticket termico o PDF: vos elegis. QR verificable, CDC completo, IVA desglosado.</p>
-    <a href="https://fakturas.app#pricing" class="btn-primary">Empezar gratis</a>
+    <p>Fakturas.app ayuda a estudios contables a recibir, organizar y exportar facturas de sus clientes. Todo desde un solo dashboard.</p>
+    <a href="https://fakturas.app#pricing" class="btn-primary">Conocer planes</a>
   </div>
 
   <!-- Related articles -->
@@ -933,6 +955,11 @@ footer .logo span { color: var(--emerald); }
     <a href="https://fakturas.app/blog/que-es-facturacion-electronica-paraguay">Que es la facturacion electronica en Paraguay? Guia completa</a>
     <a href="https://fakturas.app/blog/errores-comunes-sifen-soluciones">Errores comunes del SIFEN y como solucionarlos</a>
     <a href="https://fakturas.app/blog/nota-credito-electronica-nce-sifen">Nota de credito electronica (NCE) en el SIFEN</a>
+  </div>
+
+  <div class="article-nav">
+    <a href="https://fakturas.app/blog/certificado-digital-facturacion-electronica" class="nav-prev">Como obtener tu certificado digital</a>
+    <a href="https://fakturas.app/blog/proveedores-estado-facturacion-electronica" class="nav-next">Proveedores del Estado</a>
   </div>
 
 </article>

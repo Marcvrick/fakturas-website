@@ -85,7 +85,7 @@
       "name": "Cuanto cuesta Fakturas.app?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Desde $20/mes para hasta 20 clientes. Sin contrato anual. Podes probar gratis con hasta 10 contribuyentes para ver como funciona con tu estudio."
+        "text": "Los planes arrancan desde $20/mes. Consulta los detalles en fakturas.app."
       }
     }
   ]
@@ -489,6 +489,28 @@ footer .logo span { color: var(--emerald); }
 }
 .btn-primary:hover { background: var(--emerald-hover); color: #fff; }
 
+/* PREV/NEXT NAV */
+.article-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 32px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.article-nav a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: var(--emerald-hover);
+  font-weight: 500;
+  transition: color 0.2s;
+  max-width: 48%;
+}
+.article-nav a:hover { text-decoration: underline; }
+.article-nav .nav-prev::before { content: "\2190 "; }
+.article-nav .nav-next { margin-left: auto; text-align: right; }
+.article-nav .nav-next::after { content: " \2192"; }
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   nav { padding: 16px 24px; }
@@ -729,13 +751,18 @@ footer .logo span { color: var(--emerald); }
 
   <div class="faq-item">
     <div class="faq-question">Cuanto cuesta Fakturas.app?</div>
-    <div class="faq-answer">Desde $20/mes para hasta 20 clientes. Sin contrato anual. Podes probar gratis con hasta 10 contribuyentes para ver como funciona con tu estudio.</div>
+    <div class="faq-answer">Los planes arrancan desde $20/mes. Consulta los detalles en fakturas.app.</div>
   </div>
 
   <!-- CTA -->
   <div class="cta-box">
-    <p>Si queres ver como funciona con tus propios clientes, probalo gratis con hasta 10 contribuyentes. Sin contrato, sin compromiso.</p>
-    <a href="https://fakturas.app#pricing" class="btn-primary">Probar gratis</a>
+    <p>Fakturas.app ayuda a estudios contables a recibir, organizar y exportar facturas de sus clientes. Todo desde un solo dashboard.</p>
+    <a href="https://fakturas.app#pricing" class="btn-primary">Conocer planes</a>
+  </div>
+
+  <div class="article-nav">
+    <a href="https://fakturas.app/blog/que-es-facturacion-electronica-paraguay" class="nav-prev">Que es la facturacion electronica en Paraguay</a>
+    <a href="https://fakturas.app/blog/tipos-de-facturas-paraguay" class="nav-next">Los 5 tipos de facturas en Paraguay</a>
   </div>
 
 </div>

@@ -504,6 +504,28 @@ footer .logo span { color: var(--emerald); }
   .checklist-infographic { padding: 24px 16px; }
   .glossary-table { font-size: 0.85rem; }
 }
+
+/* PREV/NEXT NAV */
+.article-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 32px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.article-nav a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: var(--emerald-hover);
+  font-weight: 500;
+  transition: color 0.2s;
+  max-width: 48%;
+}
+.article-nav a:hover { text-decoration: underline; }
+.article-nav .nav-prev::before { content: "\2190 "; }
+.article-nav .nav-next { margin-left: auto; text-align: right; }
+.article-nav .nav-next::after { content: " \2192"; }
 </style>
 </head>
 <body>
@@ -857,8 +879,8 @@ footer .logo span { color: var(--emerald); }
 
   <!-- CTA -->
   <div class="cta-box">
-    <p>Gestionas la facturacion de proveedores del Estado? Fakturas.app te ayuda a recibir, procesar y exportar facturas de multiples clientes en un solo dashboard. Probalo gratis con hasta 10 contribuyentes.</p>
-    <a href="https://fakturas.app#pricing" class="btn-primary">Probar gratis</a>
+    <p>Fakturas.app ayuda a estudios contables a recibir, organizar y exportar facturas de sus clientes. Todo desde un solo dashboard.</p>
+    <a href="https://fakturas.app#pricing" class="btn-primary">Conocer planes</a>
   </div>
 
   <!-- RELATED ARTICLES -->
@@ -869,6 +891,11 @@ footer .logo span { color: var(--emerald); }
       <li><a href="https://fakturas.app/blog/certificado-digital-facturacion-electronica">Certificado digital para facturacion electronica: como obtenerlo</a></li>
       <li><a href="https://fakturas.app/blog/multas-sanciones-facturacion-electronica">Multas y sanciones por incumplimiento de facturacion electronica</a></li>
     </ul>
+  </div>
+
+  <div class="article-nav">
+    <a href="https://fakturas.app/blog/que-es-kude-como-generarlo" class="nav-prev">Que es el KuDE</a>
+    <a href="https://fakturas.app/blog/facturacion-electronica-multiples-clientes-contadores" class="nav-next">Facturacion electronica multiples clientes</a>
   </div>
 
 </div>

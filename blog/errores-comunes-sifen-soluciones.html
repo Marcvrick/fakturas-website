@@ -516,6 +516,28 @@ footer .logo span { color: var(--emerald); }
   .glossary-table { font-size: 0.8rem; }
   .glossary-table thead th, .glossary-table tbody td { padding: 8px 10px; }
 }
+
+/* PREV/NEXT NAV */
+.article-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 32px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.article-nav a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: var(--emerald-hover);
+  font-weight: 500;
+  transition: color 0.2s;
+  max-width: 48%;
+}
+.article-nav a:hover { text-decoration: underline; }
+.article-nav .nav-prev::before { content: "\2190 "; }
+.article-nav .nav-next { margin-left: auto; text-align: right; }
+.article-nav .nav-next::after { content: " \2192"; }
 </style>
 </head>
 <body>
@@ -1013,8 +1035,8 @@ footer .logo span { color: var(--emerald); }
 
   <!-- CTA -->
   <div class="cta-box">
-    <p>Mientras vos resolvés errores del SIFEN, deja que Fakturas.app se encargue de la recepcion y procesamiento de facturas de tus clientes. Probalo gratis con hasta 10 contribuyentes.</p>
-    <a href="https://fakturas.app#pricing" class="btn-primary">Probar gratis</a>
+    <p>Fakturas.app ayuda a estudios contables a recibir, organizar y exportar facturas de sus clientes. Todo desde un solo dashboard.</p>
+    <a href="https://fakturas.app#pricing" class="btn-primary">Conocer planes</a>
   </div>
 
   <!-- RELATED ARTICLES -->
@@ -1025,6 +1047,11 @@ footer .logo span { color: var(--emerald); }
       <li><a href="https://fakturas.app/blog/que-es-facturacion-electronica-paraguay">Que es la facturacion electronica en Paraguay: guia completa</a></li>
       <li><a href="https://fakturas.app/blog/facturacion-electronica-paraguay-estudios-contables">Facturacion electronica para estudios contables en 2026</a></li>
     </ul>
+  </div>
+
+  <div class="article-nav">
+    <a href="https://fakturas.app/blog/nota-credito-electronica-nce-sifen" class="nav-prev">Como emitir una NCE en el SIFEN</a>
+    <a href="https://fakturas.app/blog/certificado-digital-facturacion-electronica" class="nav-next">Como obtener tu certificado digital</a>
   </div>
 
 </div>

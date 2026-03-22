@@ -581,6 +581,27 @@ footer .logo span { color: var(--emerald); }
   .glossary-table { font-size: 0.8rem; }
   .glossary-table thead th, .glossary-table tbody td { padding: 10px 10px; }
 }
+/* PREV/NEXT NAV */
+.article-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 32px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.article-nav a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: var(--emerald-hover);
+  font-weight: 500;
+  transition: color 0.2s;
+  max-width: 48%;
+}
+.article-nav a:hover { text-decoration: underline; }
+.article-nav .nav-prev::before { content: "← "; }
+.article-nav .nav-next { margin-left: auto; text-align: right; }
+.article-nav .nav-next::after { content: " →"; }
 </style>
 </head>
 <body>
@@ -984,8 +1005,8 @@ footer .logo span { color: var(--emerald); }
 
   <!-- CTA -->
   <div class="cta-box">
-    <p><strong>Tus clientes emiten desde e-Kuatia, e-Kuatia'i, o todavia con papel?</strong> Fakturas.app procesa todos los formatos en un solo flujo. Proba gratis con hasta 10 contribuyentes.</p>
-    <a href="https://fakturas.app#pricing" class="btn-primary">Probar gratis</a>
+    <p>Fakturas.app ayuda a estudios contables a recibir, organizar y exportar facturas de sus clientes. Todo desde un solo dashboard.</p>
+    <a href="https://fakturas.app#pricing" class="btn-primary">Conocer planes</a>
   </div>
 
   <!-- RELATED ARTICLES -->
@@ -996,6 +1017,11 @@ footer .logo span { color: var(--emerald); }
       <li><a href="https://fakturas.app/blog/facturacion-electronica-paraguay-estudios-contables">Facturacion electronica para estudios contables</a></li>
       <li><a href="https://fakturas.app/blog/como-saber-grupo-sifen">Como saber en que grupo SIFEN estas</a></li>
     </ul>
+  </div>
+
+  <div class="article-nav">
+    <a href="https://fakturas.app/blog/multas-sanciones-facturacion-electronica" class="nav-prev">Multas y sanciones por no cumplir</a>
+    <a href="https://fakturas.app/blog/nota-credito-electronica-nce-sifen" class="nav-next">Como emitir una NCE en el SIFEN</a>
   </div>
 
 </div>

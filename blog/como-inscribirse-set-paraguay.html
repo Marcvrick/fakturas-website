@@ -609,6 +609,28 @@ footer .logo span { color: var(--emerald); }
   .cta-box { padding: 32px 20px; }
   footer { flex-direction: column; gap: 12px; padding: 30px 24px; }
 }
+
+/* PREV/NEXT NAV */
+.article-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 32px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.article-nav a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: var(--emerald-hover);
+  font-weight: 500;
+  transition: color 0.2s;
+  max-width: 48%;
+}
+.article-nav a:hover { text-decoration: underline; }
+.article-nav .nav-prev::before { content: "\2190 "; }
+.article-nav .nav-next { margin-left: auto; text-align: right; }
+.article-nav .nav-next::after { content: " \2192"; }
 </style>
 </head>
 <body>
@@ -848,9 +870,8 @@ footer .logo span { color: var(--emerald); }
 
   <!-- CTA -->
   <div class="cta-box">
-    <h3>Tenes clientes nuevos inscribiendose?</h3>
-    <p>Dales un sistema de facturacion desde el dia uno. Probalo gratis con hasta 10 contribuyentes. Sin contrato, sin compromiso.</p>
-    <a href="https://fakturas.app#pricing" class="btn-primary">Probar Fakturas.app gratis</a>
+    <p>Fakturas.app ayuda a estudios contables a recibir, organizar y exportar facturas de sus clientes. Todo desde un solo dashboard.</p>
+    <a href="https://fakturas.app#pricing" class="btn-primary">Conocer planes</a>
   </div>
 
   <!-- FAQ -->
@@ -886,6 +907,10 @@ footer .logo span { color: var(--emerald); }
       <li><a href="https://fakturas.app/blog/tipos-de-facturas-paraguay">Los 5 tipos de facturas en Paraguay: guia practica para contadores</a></li>
       <li><a href="https://fakturas.app/blog/factura-virtual-set-guia">Factura virtual del SET: guia paso a paso y como procesarlas mas rapido</a></li>
     </ul>
+  </div>
+
+  <div class="article-nav">
+    <a href="https://fakturas.app/blog/factura-virtual-set-guia" class="nav-prev">Factura virtual del SET</a>
   </div>
 
 </div>

@@ -542,6 +542,28 @@ footer .logo span { color: var(--emerald); }
 @media (max-width: 500px) {
   .icon-grid { grid-template-columns: 1fr; }
 }
+
+/* PREV/NEXT NAV */
+.article-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 32px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.article-nav a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: var(--emerald-hover);
+  font-weight: 500;
+  transition: color 0.2s;
+  max-width: 48%;
+}
+.article-nav a:hover { text-decoration: underline; }
+.article-nav .nav-prev::before { content: "\2190 "; }
+.article-nav .nav-next { margin-left: auto; text-align: right; }
+.article-nav .nav-next::after { content: " \2192"; }
 </style>
 </head>
 <body>
@@ -873,8 +895,8 @@ footer .logo span { color: var(--emerald); }
 
   <!-- CTA -->
   <div class="cta-box">
-    <p>Si procesas facturas de clientes todos los meses, escribinos. Fakturas.app lee QR de e-Kuatia y extrae datos de facturas preimpresas con OCR. Probalo gratis.</p>
-    <a href="https://fakturas.app#pricing" class="btn-primary">Probalo gratis</a>
+    <p>Fakturas.app ayuda a estudios contables a recibir, organizar y exportar facturas de sus clientes. Todo desde un solo dashboard.</p>
+    <a href="https://fakturas.app#pricing" class="btn-primary">Conocer planes</a>
   </div>
 
   <!-- RELATED ARTICLES -->
@@ -884,6 +906,11 @@ footer .logo span { color: var(--emerald); }
     <a href="https://fakturas.app/blog/tipos-de-facturas-paraguay">Los 5 tipos de facturas en Paraguay: guia practica para contadores</a>
     <a href="https://fakturas.app/blog/factura-virtual-set-guia">Factura virtual del SET: guia completa y como procesarlas sin perder horas</a>
     <a href="https://fakturas.app/blog/como-inscribirse-set-paraguay">Como inscribirse en el SET Paraguay: guia para contadores</a>
+  </div>
+
+  <div class="article-nav">
+    <a href="https://fakturas.app/blog/facturacion-electronica-multiples-clientes-contadores" class="nav-prev">Facturacion electronica multiples clientes</a>
+    <a href="https://fakturas.app/blog/facturacion-electronica-paraguay-estudios-contables" class="nav-next">Facturacion electronica para estudios contables</a>
   </div>
 
 </article>

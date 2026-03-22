@@ -504,6 +504,28 @@ footer .logo span { color: var(--emerald); }
   .hub-infographic { padding: 24px 16px; }
   .glossary-table { font-size: 0.85rem; }
 }
+
+/* PREV/NEXT NAV */
+.article-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 32px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.article-nav a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: var(--emerald-hover);
+  font-weight: 500;
+  transition: color 0.2s;
+  max-width: 48%;
+}
+.article-nav a:hover { text-decoration: underline; }
+.article-nav .nav-prev::before { content: "\2190 "; }
+.article-nav .nav-next { margin-left: auto; text-align: right; }
+.article-nav .nav-next::after { content: " \2192"; }
 </style>
 </head>
 <body>
@@ -891,8 +913,8 @@ footer .logo span { color: var(--emerald); }
 
   <!-- CTA -->
   <div class="cta-box">
-    <p>Gestionas la facturacion de multiples clientes? Fakturas.app te da un dashboard centralizado para recibir, procesar y exportar facturas de todos tus contribuyentes. Probalo gratis con hasta 10 clientes.</p>
-    <a href="https://fakturas.app#pricing" class="btn-primary">Probar gratis</a>
+    <p>Fakturas.app ayuda a estudios contables a recibir, organizar y exportar facturas de sus clientes. Todo desde un solo dashboard.</p>
+    <a href="https://fakturas.app#pricing" class="btn-primary">Conocer planes</a>
   </div>
 
   <!-- RELATED ARTICLES -->
@@ -903,6 +925,11 @@ footer .logo span { color: var(--emerald); }
       <li><a href="https://fakturas.app/blog/calendario-sifen-2026">Calendario SIFEN 2026: fechas de obligatoriedad por grupo</a></li>
       <li><a href="https://fakturas.app/blog/como-saber-grupo-sifen">Como saber en que grupo SIFEN estas</a></li>
     </ul>
+  </div>
+
+  <div class="article-nav">
+    <a href="https://fakturas.app/blog/proveedores-estado-facturacion-electronica" class="nav-prev">Proveedores del Estado</a>
+    <a href="https://fakturas.app/blog/que-es-facturacion-electronica-paraguay" class="nav-next">Que es la facturacion electronica en Paraguay</a>
   </div>
 
 </div>

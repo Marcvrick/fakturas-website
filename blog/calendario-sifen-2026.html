@@ -500,6 +500,27 @@ footer .logo span { color: var(--emerald); }
   .glossary-table { font-size: 0.8rem; }
   .glossary-table thead th, .glossary-table tbody td { padding: 8px 10px; }
 }
+/* PREV/NEXT NAV */
+.article-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 32px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.article-nav a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: var(--emerald-hover);
+  font-weight: 500;
+  transition: color 0.2s;
+  max-width: 48%;
+}
+.article-nav a:hover { text-decoration: underline; }
+.article-nav .nav-prev::before { content: "← "; }
+.article-nav .nav-next { margin-left: auto; text-align: right; }
+.article-nav .nav-next::after { content: " →"; }
 </style>
 </head>
 <body>
@@ -837,8 +858,8 @@ footer .logo span { color: var(--emerald); }
 
   <!-- CTA -->
   <div class="cta-box">
-    <p>Con mas grupos entrando al SIFEN cada mes, el volumen de facturas electronicas crece. Fakturas.app te ayuda a procesar facturas de todos tus clientes desde un solo lugar. Probalo gratis.</p>
-    <a href="https://fakturas.app#pricing" class="btn-primary">Probar gratis</a>
+    <p>Fakturas.app ayuda a estudios contables a recibir, organizar y exportar facturas de sus clientes. Todo desde un solo dashboard.</p>
+    <a href="https://fakturas.app#pricing" class="btn-primary">Conocer planes</a>
   </div>
 
   <!-- RELATED ARTICLES -->
@@ -850,6 +871,10 @@ footer .logo span { color: var(--emerald); }
       <li><a href="https://fakturas.app/blog/como-inscribirse-set-paraguay">Como inscribirse en el SET en Paraguay</a></li>
       <li><a href="https://fakturas.app/blog/como-saber-grupo-sifen">Como saber en que grupo del SIFEN estas</a></li>
     </ul>
+  </div>
+
+  <div class="article-nav">
+    <a href="https://fakturas.app/blog/como-saber-grupo-sifen" class="nav-next">Como saber en que grupo del SIFEN estas</a>
   </div>
 
 </div>

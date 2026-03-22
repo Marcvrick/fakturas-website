@@ -517,6 +517,28 @@ footer p {
 footer .logo { color: #fff; }
 footer .logo span { color: var(--emerald); }
 
+/* PREV/NEXT NAV */
+.article-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 32px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.article-nav a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: var(--emerald-hover);
+  font-weight: 500;
+  transition: color 0.2s;
+  max-width: 48%;
+}
+.article-nav a:hover { text-decoration: underline; }
+.article-nav .nav-prev::before { content: "\2190 "; }
+.article-nav .nav-next { margin-left: auto; text-align: right; }
+.article-nav .nav-next::after { content: " \2192"; }
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   nav { padding: 16px 24px; }
@@ -807,8 +829,8 @@ footer .logo span { color: var(--emerald); }
 
   <!-- CTA -->
   <div class="cta-box">
-    <p>Queres dejar de digitar? Proba Fakturas.app gratis con 10 clientes. Sin contrato.</p>
-    <a href="https://fakturas.app#pricing" class="btn-primary">Probalo gratis</a>
+    <p>Fakturas.app ayuda a estudios contables a recibir, organizar y exportar facturas de sus clientes. Todo desde un solo dashboard.</p>
+    <a href="https://fakturas.app#pricing" class="btn-primary">Conocer planes</a>
   </div>
 
   <!-- RELATED ARTICLES -->
@@ -818,6 +840,11 @@ footer .logo span { color: var(--emerald); }
     <a href="https://fakturas.app/blog/tipos-de-facturas-paraguay">Los 5 tipos de facturas en Paraguay: guia practica para contadores</a>
     <a href="https://fakturas.app/blog/que-es-facturacion-electronica-paraguay">Que es la facturacion electronica en Paraguay? Guia completa para contadores</a>
     <a href="https://fakturas.app/blog/como-inscribirse-set-paraguay">Como inscribirse en el SET Paraguay: guia para contadores</a>
+  </div>
+
+  <div class="article-nav">
+    <a href="https://fakturas.app/blog/tipos-de-facturas-paraguay" class="nav-prev">Los 5 tipos de facturas en Paraguay</a>
+    <a href="https://fakturas.app/blog/como-inscribirse-set-paraguay" class="nav-next">Como inscribirse en el SET Paraguay</a>
   </div>
 
 </article>
