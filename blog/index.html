@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Fakturas.app | Facturacion electronica en Paraguay</title>
+<meta name="description" content="Guias, tutoriales y novedades sobre facturacion electronica, SIFEN, e-Kuatia y cumplimiento tributario en Paraguay. Para contadores y estudios contables.">
+<meta name="keywords" content="blog facturacion electronica Paraguay, SIFEN guias, e-Kuatia tutorial, contadores Paraguay, Fakturas.app blog">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fakturas.app/blog/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fakturas.app/blog/">
+<meta property="og:title" content="Blog — Fakturas.app">
+<meta property="og:description" content="Guias, tutoriales y novedades sobre facturacion electronica, SIFEN y cumplimiento tributario en Paraguay.">
+<meta property="og:site_name" content="Fakturas.app">
+<meta property="og:locale" content="es_PY">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --emerald: #4edea3;
+  --emerald-dark: #003824;
+  --emerald-hover: #10b981;
+  --navy: #0d1321;
+  --navy-light: #191f2e;
+  --white: #ffffff;
+  --text: #1a1a2e;
+  --text-secondary: #5a6577;
+  --text-muted: #8b95a5;
+  --border: #e2e8f0;
+  --surface: #f1f5f3;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.6;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border);
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.5px;
+  text-decoration: none;
+}
+.logo span { color: var(--emerald); }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--text); font-weight: 600; }
+.nav-cta {
+  background: var(--emerald) !important;
+  color: var(--emerald-dark) !important;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-weight: 600 !important;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--emerald-hover) !important; }
+
+/* HEADER */
+.blog-header {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 24px 40px;
+  text-align: center;
+}
+.blog-header h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+}
+.blog-header p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* GRID */
+.articles-grid {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+.article-card {
+  display: block;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.article-card:first-child { border-top: 1px solid var(--border); }
+.article-card:hover { background: var(--surface); margin: 0 -16px; padding: 28px 16px; border-radius: 12px; border-color: transparent; }
+.article-card:hover + .article-card { border-top-color: transparent; }
+.card-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+.tag-sifen { background: #fef3c7; color: #92400e; }
+.tag-guia { background: #d1fae5; color: #065f46; }
+.tag-tutorial { background: #dbeafe; color: #1e40af; }
+.tag-comparacion { background: #fee2e2; color: #991b1b; }
+.tag-fiscal { background: #fef3c7; color: #92400e; }
+.tag-tecnico { background: #ede9fe; color: #5b21b6; }
+.tag-contadores { background: #e0f2fe; color: #0c4a6e; }
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+  line-height: 1.3;
+  letter-spacing: -0.3px;
+}
+.card-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+.card-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* FOOTER */
+footer {
+  padding: 40px 60px;
+  background: var(--navy);
+  border-top: 1px solid #242a39;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer p { color: #5a6577; font-size: 0.8rem; }
+footer .logo { color: #fff; }
+footer .logo span { color: var(--emerald); }
+
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .blog-header { padding: 40px 20px 24px; }
+  .blog-header h1 { font-size: 1.8rem; }
+  .articles-grid { padding: 0 20px 40px; }
+  footer { flex-direction: column; gap: 12px; padding: 30px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://fakturas.app" class="logo">fakturas<span>.</span>app</a>
+  <div class="nav-links">
+    <a href="https://fakturas.app#features">Funciones</a>
+    <a href="https://fakturas.app#how-it-works">Como funciona</a>
+    <a href="https://fakturas.app#pricing">Precios</a>
+    <a href="https://fakturas.app/blog/" class="active">Blog</a>
+    <a href="https://fakturas.app#cta">Contacto</a>
+    <a href="https://fakturas.app#pricing" class="nav-cta">Empezar gratis</a>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<div class="blog-header">
+  <h1>Blog</h1>
+  <p>Guias practicas sobre facturacion electronica, SIFEN y cumplimiento tributario en Paraguay.</p>
+</div>
+
+<!-- ARTICLES -->
+<div class="articles-grid">
+
+  <a href="calendario-sifen-2026" class="article-card">
+    <span class="card-tag tag-sifen">SIFEN 2026</span>
+    <div class="card-title">Calendario de obligatoriedad SIFEN 2026: fechas, grupos y plazos</div>
+    <div class="card-desc">Timeline completo de los 18 grupos obligados, desde enero hasta diciembre 2026. Con fechas exactas y que hacer en cada etapa.</div>
+    <div class="card-meta">22 marzo 2026 · 10 min</div>
+  </a>
+
+  <a href="como-saber-grupo-sifen" class="article-card">
+    <span class="card-tag tag-tutorial">TUTORIAL</span>
+    <div class="card-title">Como saber en que grupo del SIFEN estas y cuando debes empezar</div>
+    <div class="card-desc">Paso a paso para verificar tu grupo en el Buzon Tributario Marandu y en los anexos de la Resolucion DNIT.</div>
+    <div class="card-meta">22 marzo 2026 · 8 min</div>
+  </a>
+
+  <a href="multas-sanciones-facturacion-electronica" class="article-card">
+    <span class="card-tag tag-fiscal">FISCAL</span>
+    <div class="card-title">Multas y sanciones por no cumplir con la facturacion electronica en Paraguay</div>
+    <div class="card-desc">Montos, tipos de infracciones, procedimientos de control de la DNIT y como evitar sanciones.</div>
+    <div class="card-meta">22 marzo 2026 · 9 min</div>
+  </a>
+
+  <a href="ekuatia-vs-ekuatiai" class="article-card">
+    <span class="card-tag tag-comparacion">COMPARACION</span>
+    <div class="card-title">e-Kuatia vs e-Kuatia'i: cual sistema de facturacion electronica necesitas?</div>
+    <div class="card-desc">Guia de decision entre las dos plataformas de la DNIT. Quien califica para cada una, limites y cuando migrar.</div>
+    <div class="card-meta">22 marzo 2026 · 9 min</div>
+  </a>
+
+  <a href="nota-credito-electronica-nce-sifen" class="article-card">
+    <span class="card-tag tag-tecnico">TECNICO</span>
+    <div class="card-title">Como emitir una Nota de Credito Electronica (NCE) en el SIFEN</div>
+    <div class="card-desc">No podes borrar una factura en el SIFEN. Aprende a emitir una NCE correctamente, paso a paso.</div>
+    <div class="card-meta">22 marzo 2026 · 10 min</div>
+  </a>
+
+  <a href="errores-comunes-sifen-soluciones" class="article-card">
+    <span class="card-tag tag-tecnico">TECNICO</span>
+    <div class="card-title">Errores comunes al enviar documentos al SIFEN y como solucionarlos</div>
+    <div class="card-desc">Referencia de codigos de error: XML, certificado, CDC, plazos. Que significa cada rechazo y como corregirlo.</div>
+    <div class="card-meta">22 marzo 2026 · 12 min</div>
+  </a>
+
+  <a href="certificado-digital-facturacion-electronica" class="article-card">
+    <span class="card-tag tag-guia">GUIA</span>
+    <div class="card-title">Guia completa: como obtener tu certificado digital para facturar electronicamente</div>
+    <div class="card-desc">Proveedores autorizados, documentos necesarios, instalacion y renovacion. Todo sobre el certificado digital en Paraguay.</div>
+    <div class="card-meta">22 marzo 2026 · 9 min</div>
+  </a>
+
+  <a href="que-es-kude-como-generarlo" class="article-card">
+    <span class="card-tag tag-tecnico">TECNICO</span>
+    <div class="card-title">Que es el KuDE y como generarlo correctamente</div>
+    <div class="card-desc">La representacion grafica del documento electronico: campos obligatorios, QR, CDC y formatos de impresion.</div>
+    <div class="card-meta">22 marzo 2026 · 9 min</div>
+  </a>
+
+  <a href="proveedores-estado-facturacion-electronica" class="article-card">
+    <span class="card-tag tag-sifen">SIFEN 2026</span>
+    <div class="card-title">Proveedores del Estado: tu obligacion de facturar electronicamente desde enero 2026</div>
+    <div class="card-desc">Resolucion DNIT 41/2025, sin periodo de gracia. Que hacer si vendes al Estado y todavia no facturas electronicamente.</div>
+    <div class="card-meta">22 marzo 2026 · 8 min</div>
+  </a>
+
+  <a href="facturacion-electronica-multiples-clientes-contadores" class="article-card">
+    <span class="card-tag tag-contadores">CONTADORES</span>
+    <div class="card-title">Facturacion electronica para contadores que gestionan multiples clientes</div>
+    <div class="card-desc">Workflow centralizado, delegacion, operaciones en lote y estrategias de escalamiento para estudios contables.</div>
+    <div class="card-meta">22 marzo 2026 · 10 min</div>
+  </a>
+
+  <a href="que-es-facturacion-electronica-paraguay" class="article-card">
+    <span class="card-tag tag-guia">GUIA</span>
+    <div class="card-title">Que es la facturacion electronica en Paraguay? Guia completa 2026</div>
+    <div class="card-desc">SIFEN, DTE, KuDE, CDC: glosario completo y guia de facturacion electronica para contadores.</div>
+    <div class="card-meta">21 marzo 2026 · 10 min</div>
+  </a>
+
+  <a href="facturacion-electronica-paraguay-estudios-contables" class="article-card">
+    <span class="card-tag tag-contadores">CONTADORES</span>
+    <div class="card-title">Facturacion electronica en Paraguay: lo que tu estudio contable necesita saber en 2026</div>
+    <div class="card-desc">Impacto del SIFEN en estudios contables, preparacion practica y oportunidades para contadores.</div>
+    <div class="card-meta">21 marzo 2026 · 9 min</div>
+  </a>
+
+  <a href="tipos-de-facturas-paraguay" class="article-card">
+    <span class="card-tag tag-guia">GUIA</span>
+    <div class="card-title">Los 5 tipos de facturas en Paraguay: guia practica para contadores</div>
+    <div class="card-desc">Factura, autofactura, nota de credito, nota de debito y nota de remision. Cuando usar cada una.</div>
+    <div class="card-meta">21 marzo 2026 · 8 min</div>
+  </a>
+
+  <a href="factura-virtual-set-guia" class="article-card">
+    <span class="card-tag tag-tutorial">TUTORIAL</span>
+    <div class="card-title">Factura virtual del SET: guia completa y como procesarlas sin perder horas</div>
+    <div class="card-desc">Que es la factura virtual, como validarla y como automatizar su procesamiento.</div>
+    <div class="card-meta">21 marzo 2026 · 8 min</div>
+  </a>
+
+  <a href="como-inscribirse-set-paraguay" class="article-card">
+    <span class="card-tag tag-tutorial">TUTORIAL</span>
+    <div class="card-title">Como inscribirse en el SET Paraguay: guia para contadores</div>
+    <div class="card-desc">Requisitos, formularios y pasos para inscribir a tus clientes en la SET.</div>
+    <div class="card-meta">21 marzo 2026 · 7 min</div>
+  </a>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="https://fakturas.app" class="logo">fakturas<span>.</span>app</a>
+  <p>&copy; 2026 Fakturas.app — Hecho para contadores en Paraguay</p>
+</footer>
+
+</body>
+</html>
