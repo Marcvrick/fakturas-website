@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Fakturas.app Blog</title>
+  <link>https://fakturas.app/blog/</link>
+  <description>Guias practicas sobre facturacion electronica, SIFEN y cumplimiento tributario en Paraguay.</description>
+  <language>es</language>
+  <lastBuildDate>Sat, 22 Mar 2026 12:00:00 -0300</lastBuildDate>
+  <atom:link href="https://fakturas.app/feed.xml" rel="self" type="application/rss+xml"/>
+
+  <item>
+    <title>Calendario de obligatoriedad SIFEN 2026: fechas, grupos y plazos</title>
+    <link>https://fakturas.app/blog/calendario-sifen-2026</link>
+    <guid>https://fakturas.app/blog/calendario-sifen-2026</guid>
+    <pubDate>Sun, 22 Mar 2026 10:00:00 -0300</pubDate>
+    <description>Timeline completo de los 18 grupos obligados, desde enero hasta diciembre 2026. Con fechas exactas y que hacer en cada etapa.</description>
+  </item>
+
+  <item>
+    <title>Como saber en que grupo del SIFEN estas y cuando debes empezar</title>
+    <link>https://fakturas.app/blog/como-saber-grupo-sifen</link>
+    <guid>https://fakturas.app/blog/como-saber-grupo-sifen</guid>
+    <pubDate>Sun, 22 Mar 2026 10:00:00 -0300</pubDate>
+    <description>Paso a paso para verificar tu grupo en el Buzon Tributario Marandu y en los anexos de la Resolucion DNIT.</description>
+  </item>
+
+  <item>
+    <title>Multas y sanciones por no cumplir con la facturacion electronica en Paraguay</title>
+    <link>https://fakturas.app/blog/multas-sanciones-facturacion-electronica</link>
+    <guid>https://fakturas.app/blog/multas-sanciones-facturacion-electronica</guid>
+    <pubDate>Sun, 22 Mar 2026 10:00:00 -0300</pubDate>
+    <description>Montos, tipos de infracciones, procedimientos de control de la DNIT y como evitar sanciones.</description>
+  </item>
+
+  <item>
+    <title>e-Kuatia vs e-Kuatia'i: cual sistema de facturacion electronica necesitas?</title>
+    <link>https://fakturas.app/blog/ekuatia-vs-ekuatiai</link>
+    <guid>https://fakturas.app/blog/ekuatia-vs-ekuatiai</guid>
+    <pubDate>Sun, 22 Mar 2026 10:00:00 -0300</pubDate>
+    <description>Guia de decision entre las dos plataformas de la DNIT. Quien califica para cada una, limites y cuando migrar.</description>
+  </item>
+
+  <item>
+    <title>Como emitir una Nota de Credito Electronica (NCE) en el SIFEN</title>
+    <link>https://fakturas.app/blog/nota-credito-electronica-nce-sifen</link>
+    <guid>https://fakturas.app/blog/nota-credito-electronica-nce-sifen</guid>
+    <pubDate>Sun, 22 Mar 2026 10:00:00 -0300</pubDate>
+    <description>No podes borrar una factura en el SIFEN. Aprende a emitir una NCE correctamente, paso a paso.</description>
+  </item>
+
+  <item>
+    <title>Errores comunes al enviar documentos al SIFEN y como solucionarlos</title>
+    <link>https://fakturas.app/blog/errores-comunes-sifen-soluciones</link>
+    <guid>https://fakturas.app/blog/errores-comunes-sifen-soluciones</guid>
+    <pubDate>Sun, 22 Mar 2026 10:00:00 -0300</pubDate>
+    <description>Referencia de codigos de error: XML, certificado, CDC, plazos. Que significa cada rechazo y como corregirlo.</description>
+  </item>
+
+  <item>
+    <title>Guia completa: como obtener tu certificado digital para facturar electronicamente</title>
+    <link>https://fakturas.app/blog/certificado-digital-facturacion-electronica</link>
+    <guid>https://fakturas.app/blog/certificado-digital-facturacion-electronica</guid>
+    <pubDate>Sun, 22 Mar 2026 10:00:00 -0300</pubDate>
+    <description>Proveedores autorizados, documentos necesarios, instalacion y renovacion. Todo sobre el certificado digital en Paraguay.</description>
+  </item>
+
+  <item>
+    <title>Que es el KuDE y como generarlo correctamente</title>
+    <link>https://fakturas.app/blog/que-es-kude-como-generarlo</link>
+    <guid>https://fakturas.app/blog/que-es-kude-como-generarlo</guid>
+    <pubDate>Sun, 22 Mar 2026 10:00:00 -0300</pubDate>
+    <description>La representacion grafica del documento electronico: campos obligatorios, QR, CDC y formatos de impresion.</description>
+  </item>
+
+  <item>
+    <title>Proveedores del Estado: tu obligacion de facturar electronicamente desde enero 2026</title>
+    <link>https://fakturas.app/blog/proveedores-estado-facturacion-electronica</link>
+    <guid>https://fakturas.app/blog/proveedores-estado-facturacion-electronica</guid>
+    <pubDate>Sun, 22 Mar 2026 10:00:00 -0300</pubDate>
+    <description>Resolucion DNIT 41/2025, sin periodo de gracia. Que hacer si vendes al Estado y todavia no facturas electronicamente.</description>
+  </item>
+
+  <item>
+    <title>Facturacion electronica para contadores que gestionan multiples clientes</title>
+    <link>https://fakturas.app/blog/facturacion-electronica-multiples-clientes-contadores</link>
+    <guid>https://fakturas.app/blog/facturacion-electronica-multiples-clientes-contadores</guid>
+    <pubDate>Sun, 22 Mar 2026 10:00:00 -0300</pubDate>
+    <description>Workflow centralizado, delegacion, operaciones en lote y estrategias de escalamiento para estudios contables.</description>
+  </item>
+
+  <item>
+    <title>Que es la facturacion electronica en Paraguay? Guia completa 2026</title>
+    <link>https://fakturas.app/blog/que-es-facturacion-electronica-paraguay</link>
+    <guid>https://fakturas.app/blog/que-es-facturacion-electronica-paraguay</guid>
+    <pubDate>Fri, 21 Mar 2026 10:00:00 -0300</pubDate>
+    <description>SIFEN, DTE, KuDE, CDC: glosario completo y guia de facturacion electronica para contadores.</description>
+  </item>
+
+  <item>
+    <title>Facturacion electronica en Paraguay: lo que tu estudio contable necesita saber en 2026</title>
+    <link>https://fakturas.app/blog/facturacion-electronica-paraguay-estudios-contables</link>
+    <guid>https://fakturas.app/blog/facturacion-electronica-paraguay-estudios-contables</guid>
+    <pubDate>Fri, 21 Mar 2026 10:00:00 -0300</pubDate>
+    <description>Impacto del SIFEN en estudios contables, preparacion practica y oportunidades para contadores.</description>
+  </item>
+
+  <item>
+    <title>Los 5 tipos de facturas en Paraguay: guia practica para contadores</title>
+    <link>https://fakturas.app/blog/tipos-de-facturas-paraguay</link>
+    <guid>https://fakturas.app/blog/tipos-de-facturas-paraguay</guid>
+    <pubDate>Fri, 21 Mar 2026 10:00:00 -0300</pubDate>
+    <description>Factura, autofactura, nota de credito, nota de debito y nota de remision. Cuando usar cada una.</description>
+  </item>
+
+  <item>
+    <title>Factura virtual del SET: guia completa y como procesarlas sin perder horas</title>
+    <link>https://fakturas.app/blog/factura-virtual-set-guia</link>
+    <guid>https://fakturas.app/blog/factura-virtual-set-guia</guid>
+    <pubDate>Fri, 21 Mar 2026 10:00:00 -0300</pubDate>
+    <description>Que es la factura virtual, como validarla y como automatizar su procesamiento.</description>
+  </item>
+
+  <item>
+    <title>Como inscribirse en el SET Paraguay: guia para contadores</title>
+    <link>https://fakturas.app/blog/como-inscribirse-set-paraguay</link>
+    <guid>https://fakturas.app/blog/como-inscribirse-set-paraguay</guid>
+    <pubDate>Fri, 21 Mar 2026 10:00:00 -0300</pubDate>
+    <description>Requisitos, formularios y pasos para inscribir a tus clientes en la SET.</description>
+  </item>
+
+</channel>
+</rss>
