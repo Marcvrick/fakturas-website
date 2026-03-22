@@ -528,6 +528,19 @@ footer .logo span { color: var(--emerald); }
 .article-nav .nav-prev::before { content: "← "; }
 .article-nav .nav-next { margin-left: auto; text-align: right; }
 .article-nav .nav-next::after { content: " →"; }
+
+/* HERO ILLUSTRATION */
+.hero-illustration {
+  max-width: 760px;
+  margin: 0 auto 0;
+  padding: 0 24px;
+}
+.hero-illustration svg {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  display: block;
+}
 </style>
 </head>
 <body>
@@ -563,6 +576,51 @@ footer .logo span { color: var(--emerald); }
     <span>10 min de lectura</span>
   </div>
   <h1>Como emitir una Nota de Credito Electronica (NCE) en el SIFEN</h1>
+</div>
+
+<!-- HERO ILLUSTRATION -->
+<div class="hero-illustration">
+<svg viewBox="0 0 760 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="760" height="280" rx="16" fill="#f1f5f3"/>
+  <!-- Original invoice -->
+  <rect x="100" y="50" width="150" height="180" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="112" y="62" width="80" height="8" rx="2" fill="#0d1321" opacity="0.7"/>
+  <rect x="112" y="78" width="126" height="6" rx="1" fill="#e2e8f0"/>
+  <rect x="112" y="92" width="126" height="6" rx="1" fill="#e2e8f0"/>
+  <rect x="112" y="106" width="126" height="6" rx="1" fill="#e2e8f0"/>
+  <rect x="112" y="126" width="80" height="6" rx="1" fill="#e2e8f0"/>
+  <rect x="200" y="126" width="38" height="6" rx="1" fill="#0d1321" opacity="0.3"/>
+  <text x="175" y="165" text-anchor="middle" font-size="9" fill="#5a6577" font-family="Inter, sans-serif">FACTURA ORIGINAL</text>
+  <rect x="128" y="174" width="94" height="20" rx="4" fill="#d1fae5"/>
+  <text x="175" y="188" text-anchor="middle" font-size="8" fill="#065f46" font-family="Inter, sans-serif" font-weight="600">DTE-001-001-0000123</text>
+  <!-- X mark (can't delete) -->
+  <circle cx="250" cy="100" r="16" fill="#fee2e2"/>
+  <path d="M243 93 L257 107 M257 93 L243 107" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Arrow -->
+  <path d="M280 140 L380 140" stroke="#4edea3" stroke-width="2.5"/>
+  <polygon points="380,133 396,140 380,147" fill="#4edea3"/>
+  <text x="338" y="130" text-anchor="middle" font-size="8" fill="#5a6577" font-family="Inter, sans-serif">Emitir NCE</text>
+  <!-- NCE document -->
+  <rect x="410" y="50" width="150" height="180" rx="8" fill="white" stroke="#4edea3" stroke-width="2"/>
+  <rect x="410" y="50" width="150" height="30" rx="8" fill="#4edea3" opacity="0.15"/>
+  <rect x="410" y="72" width="150" height="8" fill="#4edea3" opacity="0.15"/>
+  <text x="485" y="71" text-anchor="middle" font-size="11" fill="#003824" font-family="Inter, sans-serif" font-weight="700">NOTA DE CREDITO</text>
+  <text x="430" y="100" font-size="9" fill="#5a6577" font-family="Inter, sans-serif">Ref:</text>
+  <text x="460" y="100" font-size="8" fill="#0d1321" font-family="Inter, sans-serif" font-weight="500">DTE-001-001-0000123</text>
+  <text x="430" y="118" font-size="9" fill="#5a6577" font-family="Inter, sans-serif">Motivo:</text>
+  <text x="475" y="118" font-size="8" fill="#0d1321" font-family="Inter, sans-serif" font-weight="500">Devolucion parcial</text>
+  <text x="430" y="136" font-size="9" fill="#5a6577" font-family="Inter, sans-serif">Monto:</text>
+  <text x="475" y="136" font-size="9" fill="#ef4444" font-family="Inter, sans-serif" font-weight="700">- Gs. 500.000</text>
+  <rect x="428" y="152" width="114" height="20" rx="4" fill="#d1fae5"/>
+  <text x="485" y="166" text-anchor="middle" font-size="8" fill="#065f46" font-family="Inter, sans-serif" font-weight="600">NCE-001-001-0000045</text>
+  <!-- Checkmark -->
+  <circle cx="548" cy="62" r="10" fill="#4edea3"/>
+  <path d="M543 62 L547 66 L554 58" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- SIFEN validated -->
+  <text x="485" y="210" text-anchor="middle" font-size="9" fill="#4edea3" font-family="Inter, sans-serif" font-weight="600">Validada por SIFEN</text>
+  <!-- Bottom note -->
+  <text x="380" y="262" text-anchor="middle" font-size="10" fill="#5a6577" font-family="Inter, sans-serif">No podes borrar una factura en el SIFEN — solo anularla con una NCE</text>
+</svg>
 </div>
 
 <!-- CHAPEAU -->

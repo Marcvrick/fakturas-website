@@ -521,6 +521,19 @@ footer .logo span { color: var(--emerald); }
 .article-nav .nav-prev::before { content: "← "; }
 .article-nav .nav-next { margin-left: auto; text-align: right; }
 .article-nav .nav-next::after { content: " →"; }
+
+/* HERO ILLUSTRATION */
+.hero-illustration {
+  max-width: 760px;
+  margin: 0 auto 0;
+  padding: 0 24px;
+}
+.hero-illustration svg {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  display: block;
+}
 </style>
 </head>
 <body>
@@ -556,6 +569,56 @@ footer .logo span { color: var(--emerald); }
     <span>10 min de lectura</span>
   </div>
   <h1>Calendario de obligatoriedad SIFEN 2026: fechas, grupos y plazos</h1>
+</div>
+
+<!-- HERO ILLUSTRATION -->
+<div class="hero-illustration">
+<svg viewBox="0 0 760 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="760" height="280" rx="16" fill="#f1f5f3"/>
+  <!-- Calendar grid -->
+  <rect x="80" y="40" width="600" height="200" rx="12" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="80" y="40" width="600" height="40" rx="12" fill="#0d1321"/>
+  <rect x="80" y="68" width="600" height="12" fill="#0d1321"/>
+  <text x="380" y="66" text-anchor="middle" font-size="16" fill="white" font-family="Inter, sans-serif" font-weight="700">CALENDARIO SIFEN 2026</text>
+  <!-- Month columns -->
+  <text x="130" y="100" text-anchor="middle" font-size="9" fill="#5a6577" font-family="Inter, sans-serif" font-weight="600">ENE</text>
+  <text x="180" y="100" text-anchor="middle" font-size="9" fill="#5a6577" font-family="Inter, sans-serif" font-weight="600">FEB</text>
+  <text x="230" y="100" text-anchor="middle" font-size="9" fill="#5a6577" font-family="Inter, sans-serif" font-weight="600">MAR</text>
+  <text x="280" y="100" text-anchor="middle" font-size="9" fill="#5a6577" font-family="Inter, sans-serif" font-weight="600">ABR</text>
+  <text x="330" y="100" text-anchor="middle" font-size="9" fill="#5a6577" font-family="Inter, sans-serif" font-weight="600">MAY</text>
+  <text x="380" y="100" text-anchor="middle" font-size="9" fill="#5a6577" font-family="Inter, sans-serif" font-weight="600">JUN</text>
+  <text x="430" y="100" text-anchor="middle" font-size="9" fill="#5a6577" font-family="Inter, sans-serif" font-weight="600">JUL</text>
+  <text x="480" y="100" text-anchor="middle" font-size="9" fill="#5a6577" font-family="Inter, sans-serif" font-weight="600">AGO</text>
+  <text x="530" y="100" text-anchor="middle" font-size="9" fill="#5a6577" font-family="Inter, sans-serif" font-weight="600">SEP</text>
+  <text x="580" y="100" text-anchor="middle" font-size="9" fill="#5a6577" font-family="Inter, sans-serif" font-weight="600">OCT</text>
+  <text x="630" y="100" text-anchor="middle" font-size="9" fill="#5a6577" font-family="Inter, sans-serif" font-weight="600">NOV</text>
+  <!-- Timeline bars for groups -->
+  <rect x="110" y="115" width="40" height="20" rx="4" fill="#ef4444" opacity="0.8"/>
+  <text x="130" y="129" text-anchor="middle" font-size="7" fill="white" font-family="Inter, sans-serif" font-weight="600">G11-12</text>
+  <rect x="210" y="115" width="40" height="20" rx="4" fill="#f97316" opacity="0.8"/>
+  <text x="230" y="129" text-anchor="middle" font-size="7" fill="white" font-family="Inter, sans-serif" font-weight="600">G13</text>
+  <rect x="310" y="115" width="40" height="20" rx="4" fill="#eab308" opacity="0.8"/>
+  <text x="330" y="129" text-anchor="middle" font-size="7" fill="white" font-family="Inter, sans-serif" font-weight="600">G14</text>
+  <rect x="410" y="115" width="40" height="20" rx="4" fill="#4edea3" opacity="0.8"/>
+  <text x="430" y="129" text-anchor="middle" font-size="7" fill="#003824" font-family="Inter, sans-serif" font-weight="600">G15</text>
+  <rect x="510" y="115" width="40" height="20" rx="4" fill="#3b82f6" opacity="0.8"/>
+  <text x="530" y="129" text-anchor="middle" font-size="7" fill="white" font-family="Inter, sans-serif" font-weight="600">G16</text>
+  <rect x="560" y="115" width="80" height="20" rx="4" fill="#8b5cf6" opacity="0.8"/>
+  <text x="600" y="129" text-anchor="middle" font-size="7" fill="white" font-family="Inter, sans-serif" font-weight="600">G17-18</text>
+  <!-- Estado arrow -->
+  <rect x="110" y="148" width="530" height="20" rx="4" fill="#0d1321" opacity="0.1"/>
+  <rect x="110" y="148" width="530" height="20" rx="4" fill="none" stroke="#0d1321" stroke-width="1" stroke-dasharray="4 2"/>
+  <text x="375" y="162" text-anchor="middle" font-size="8" fill="#0d1321" font-family="Inter, sans-serif" font-weight="600">Proveedores del Estado — obligatorio todo el ano</text>
+  <!-- Legend -->
+  <circle cx="160" cy="200" r="5" fill="#ef4444"/>
+  <text x="172" y="203" font-size="8" fill="#5a6577" font-family="Inter, sans-serif">Urgente</text>
+  <circle cx="240" cy="200" r="5" fill="#eab308"/>
+  <text x="252" y="203" font-size="8" fill="#5a6577" font-family="Inter, sans-serif">Proximo</text>
+  <circle cx="320" cy="200" r="5" fill="#4edea3"/>
+  <text x="332" y="203" font-size="8" fill="#5a6577" font-family="Inter, sans-serif">Preparar</text>
+  <circle cx="400" cy="200" r="5" fill="#3b82f6"/>
+  <text x="412" y="203" font-size="8" fill="#5a6577" font-family="Inter, sans-serif">Planificar</text>
+</svg>
 </div>
 
 <!-- CHAPEAU -->
