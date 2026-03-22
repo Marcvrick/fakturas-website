@@ -1287,7 +1287,11 @@ footer .logo span { color: var(--emerald); }
 
   /* ROI */
   .roi-section { padding: 60px 24px; }
-  .roi-cards { grid-template-columns: 1fr; }
+  .roi-cards { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .roi-card-item { padding: 16px 12px; }
+  .roi-num { font-size: 1.6rem; }
+  .roi-label { font-size: 0.7rem; }
+  .roi-detail { font-size: 0.6rem; }
   .roi-comparison { flex-direction: column; gap: 16px; padding: 24px; }
   .roi-comp-val { font-size: 1.4rem; }
   .roi-comp-arrow { transform: rotate(90deg); }
