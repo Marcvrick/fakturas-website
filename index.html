@@ -1199,21 +1199,55 @@ footer .logo span { color: var(--emerald); }
   .hero-buttons a { width: 100%; max-width: 300px; text-align: center; }
   .float-emoji { display: none; }
 
-  /* Hero mockups */
-  .hero-mockups { height: auto; display: flex; flex-direction: column; gap: 20px; align-items: center; }
-  .mockup { position: relative !important; left: auto !important; right: auto !important; top: auto !important; transform: none !important; }
-  .mockup-main { width: 100%; }
+  /* Hero mockups — horizontal row, scaled down */
+  .hero-mockups { height: auto; display: flex; flex-direction: row; gap: 8px; align-items: flex-start; justify-content: center; overflow-x: auto; padding-bottom: 10px; }
+  .mockup { position: relative !important; left: auto !important; right: auto !important; top: auto !important; transform: none !important; flex-shrink: 0; }
+  .mockup-main { width: 52%; min-width: 180px; order: 2; }
   .mockup-main:hover { transform: translateY(-6px) !important; }
-  .mockup-phone { width: 200px; }
-  .mockup-chart { width: 100%; max-width: 300px; }
+  .mockup-chart { width: 24%; min-width: 120px; order: 1; }
+  .mockup-phone { width: 18%; min-width: 90px; order: 3; }
 
-  /* Mock table inside hero — stack on mobile */
+  /* Mock elements inside hero — scale down */
+  .mock-topbar { padding: 6px 10px; }
+  .mock-topbar-title { font-size: 0.5rem; }
+  .mock-dot { width: 5px; height: 5px; }
+  .mock-body { padding: 8px; }
+  .mock-stats { gap: 4px; margin-bottom: 8px; }
+  .mock-stat-card { padding: 6px; }
+  .mock-stat-label { font-size: 0.45rem; }
+  .mock-stat-value { font-size: 0.7rem; }
+  .mock-stat-change { font-size: 0.45rem; }
   .mock-table-header,
   .mock-table-row {
     grid-template-columns: 1.5fr 1fr 1fr;
+    padding: 4px 8px;
+    font-size: 0.5rem;
   }
   .mock-table-header span:nth-child(2),
   .mock-table-row span:nth-child(2) { display: none; }
+  .mock-table-header { font-size: 0.45rem; }
+  .mock-badge { font-size: 0.4rem; padding: 1px 4px; }
+  /* Phone mockup scaled down */
+  .mock-phone-header { padding: 8px 8px 6px; }
+  .mock-phone-time { font-size: 0.5rem; margin-bottom: 4px; }
+  .mock-phone-greeting { font-size: 0.6rem; }
+  .mock-phone-sub { font-size: 0.45rem; }
+  .mock-phone-body { padding: 6px; }
+  .mock-phone-card { padding: 6px; margin-bottom: 4px; border-radius: 8px; }
+  .mock-phone-card-title { font-size: 0.45rem; margin-bottom: 2px; }
+  .mock-phone-card-value { font-size: 0.65rem; }
+  .mock-phone-card-sub { font-size: 0.4rem; }
+  .mock-phone-btn { padding: 5px; font-size: 0.5rem; border-radius: 6px; }
+  .mock-camera-icon { font-size: 0.7rem; }
+  /* Chart mockup scaled down */
+  .mock-chart-body { padding: 8px; }
+  .mock-chart-title { font-size: 0.5rem; }
+  .mock-chart-subtitle { font-size: 0.4rem; margin-bottom: 6px; }
+  .mock-chart-bars { height: 40px; gap: 3px; }
+  .mock-chart-labels span { font-size: 0.35rem; }
+  .mock-chart-legend { gap: 6px; margin-top: 4px; }
+  .mock-chart-legend-item { font-size: 0.4rem; }
+  .mock-chart-legend-dot { width: 4px; height: 4px; }
 
   /* Logo bar */
   .logo-bar { padding: 30px 24px; }
@@ -1250,10 +1284,18 @@ footer .logo span { color: var(--emerald); }
   .roi-insight { flex-direction: column; text-align: center; }
   .roi-header h2 { font-size: 1.8rem; }
 
-  /* Pricing */
+  /* Pricing — stay horizontal */
   .pricing { padding: 60px 24px; }
-  .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
+  .pricing-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; max-width: 100%; }
   .pricing-header h2 { font-size: 2rem; }
+  .pricing-card { padding: 16px 12px; }
+  .pricing-card-header h3 { font-size: 0.85rem; }
+  .pricing-desc { font-size: 0.65rem; margin-bottom: 12px; }
+  .price-amount { font-size: 1.6rem; }
+  .price-period { font-size: 0.7rem; }
+  .price-per-client { font-size: 0.6rem; }
+  .price-clients { font-size: 0.65rem; }
+  .pricing-popular { font-size: 0.55rem; padding: 3px 10px; top: -10px; }
   .included-grid { grid-template-columns: 1fr; }
   .everything-included { padding: 24px; }
 
@@ -1283,7 +1325,14 @@ footer .logo span { color: var(--emerald); }
   .cta-section { padding: 40px 16px; }
   .cta-section h2 { font-size: 1.6rem; }
   footer { padding: 24px 16px; }
-  .price-amount { font-size: 2.2rem; }
+  .price-amount { font-size: 1.3rem; }
+  .price-period { font-size: 0.6rem; }
+  .pricing-card { padding: 12px 8px; }
+  .pricing-card-header h3 { font-size: 0.75rem; }
+  .pricing-desc { font-size: 0.55rem; }
+  .price-per-client { font-size: 0.5rem; }
+  .price-clients { font-size: 0.55rem; }
+  .pricing-grid { gap: 6px; }
   .roi-num { font-size: 2rem; }
   .mock-stats { grid-template-columns: 1fr; }
 }
