@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Errores comunes al enviar documentos al SIFEN y como solucionarlos</title>
+<meta name="description" content="Guia de referencia para los errores mas comunes del SIFEN en Paraguay. Codigos de rechazo, errores de XML, certificado digital, CDC y como corregirlos paso a paso.">
+<meta name="keywords" content="errores SIFEN, rechazo DTE, validacion fallida, codigo error SIFEN, XML SIFEN, certificado digital Paraguay">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fakturas.app/blog/errores-comunes-sifen-soluciones">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://fakturas.app/blog/errores-comunes-sifen-soluciones">
+<meta property="og:title" content="Errores comunes al enviar documentos al SIFEN y como solucionarlos">
+<meta property="og:description" content="Guia de referencia para los errores mas comunes del SIFEN. Codigos de rechazo, errores de XML, certificado digital, CDC y soluciones practicas.">
+<meta property="og:site_name" content="Fakturas.app">
+<meta property="og:locale" content="es_PY">
+<meta property="article:published_time" content="2026-03-22">
+<meta property="article:author" content="Fakturas.app">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Errores comunes al enviar documentos al SIFEN y como solucionarlos">
+<meta name="twitter:description" content="Guia de referencia: codigos de rechazo SIFEN, errores de XML, certificado, CDC y soluciones paso a paso.">
+
+<!-- Article Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Errores comunes al enviar documentos al SIFEN y como solucionarlos",
+  "description": "Guia de referencia para los errores mas comunes del SIFEN en Paraguay. Codigos de rechazo, errores de XML, certificado digital, CDC y como corregirlos paso a paso.",
+  "url": "https://fakturas.app/blog/errores-comunes-sifen-soluciones",
+  "datePublished": "2026-03-22",
+  "dateModified": "2026-03-22",
+  "author": {"@type": "Organization", "name": "Fakturas.app", "url": "https://fakturas.app"},
+  "publisher": {"@type": "Organization", "name": "Fakturas.app", "url": "https://fakturas.app"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://fakturas.app/blog/errores-comunes-sifen-soluciones"},
+  "inLanguage": "es",
+  "keywords": ["errores SIFEN", "rechazo DTE", "validacion XML", "certificado digital", "CDC SIFEN"]
+}
+</script>
+
+<!-- FAQPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Que hago si mi DTE fue rechazado por el SIFEN?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Primero, revisa el codigo de error en la respuesta del SIFEN. Cada rechazo viene con un codigo especifico que indica el problema exacto. Corrige el campo o dato indicado en el XML, vuelve a firmar digitalmente el documento, y reenvialo. No necesitas generar un nuevo timbrado ni un nuevo numero de documento para el reenvio."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuanto tiempo tengo para enviar un DTE al SIFEN?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "72 horas desde la fecha y hora de emision del documento. Si se excede este plazo, el SIFEN rechaza el documento automaticamente. En ese caso, hay que emitir un nuevo DTE con fecha actual y transmitirlo dentro del plazo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mi certificado digital vencio, que hago?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Debes renovar tu certificado digital con un prestador autorizado por la DNIT antes de poder emitir nuevos DTE. Los documentos firmados con un certificado vencido seran rechazados automaticamente. Lleva tiempo el proceso de renovacion, asi que es recomendable iniciar la solicitud al menos un mes antes del vencimiento."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Por que el SIFEN rechaza mi documento por error de CDC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El CDC (Codigo de Control) es un identificador de 44 caracteres generado con un algoritmo especifico. Si algun dato de entrada cambia (numero de documento, fecha, RUC), el digito verificador no coincide y el SIFEN rechaza. Verifica que tu software calcule correctamente el modulo 11 y que no haya campos alterados despues de generar el CDC."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --emerald: #4edea3;
+  --emerald-dark: #003824;
+  --emerald-hover: #10b981;
+  --blue: #005BE2;
+  --gold: #FFC402;
+  --navy: #0d1321;
+  --navy-light: #191f2e;
+  --bg: #f8faf9;
+  --white: #ffffff;
+  --text: #1a1a2e;
+  --text-secondary: #5a6577;
+  --text-muted: #8b95a5;
+  --border: #e2e8f0;
+  --surface: #f1f5f3;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border);
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.5px;
+  text-decoration: none;
+}
+.logo span { color: var(--emerald); }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--text); font-weight: 600; }
+.nav-cta {
+  background: var(--emerald) !important;
+  color: var(--emerald-dark) !important;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-weight: 600 !important;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--emerald-hover) !important; }
+
+/* FOOTER */
+footer {
+  padding: 40px 60px;
+  background: var(--navy);
+  border-top: 1px solid #242a39;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer p {
+  color: #5a6577;
+  font-size: 0.8rem;
+}
+footer .logo { color: #fff; }
+footer .logo span { color: var(--emerald); }
+
+/* BREADCRUMBS */
+.breadcrumbs {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 24px 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.breadcrumbs a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+.breadcrumbs a:hover { color: var(--emerald-hover); }
+.breadcrumbs span { margin: 0 6px; }
+
+/* BLOG ARTICLE */
+.article-header {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 24px 0;
+}
+.article-header h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.article-meta {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.article-meta .tag {
+  background: var(--surface);
+  color: var(--emerald-hover);
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+.chapeau {
+  max-width: 736px;
+  margin: 0 auto;
+  padding: 20px 24px 0;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  border-left: 3px solid var(--emerald);
+  padding-left: 20px;
+}
+
+.article-body {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 24px 60px;
+}
+.article-body h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 48px;
+  margin-bottom: 16px;
+  letter-spacing: -0.3px;
+}
+.article-body h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 32px;
+  margin-bottom: 12px;
+}
+.article-body p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+.article-body ul, .article-body ol {
+  margin-bottom: 16px;
+  padding-left: 24px;
+}
+.article-body li {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+.article-body strong { color: var(--text); }
+.article-body a {
+  color: var(--emerald-hover);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.article-body a:hover { color: var(--text); }
+
+/* HIGHLIGHT BOX */
+.highlight-box {
+  background: var(--surface);
+  border-left: 4px solid var(--emerald);
+  border-radius: 0 12px 12px 0;
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+.highlight-box p {
+  margin-bottom: 8px;
+}
+.highlight-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* DEFINITION BLOCK */
+.definition-block {
+  background: #0a0f1a;
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin: 24px 0;
+}
+.definition-block h4 {
+  color: var(--emerald);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+.definition-block p {
+  color: #c8cdd5;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+.definition-block p:last-child { margin-bottom: 0; }
+.definition-block strong { color: #fff; }
+
+/* GLOSSARY TABLE */
+.glossary-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.glossary-table thead th {
+  background: var(--navy);
+  color: #fff;
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.glossary-table tbody td {
+  padding: 12px 16px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+}
+.glossary-table tbody tr:nth-child(even) {
+  background: var(--surface);
+}
+.glossary-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* SVG ILLUSTRATION */
+.article-illustration {
+  margin: 32px 0;
+  text-align: center;
+}
+.article-illustration svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ERROR CARD */
+.error-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 20px 0;
+}
+.error-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.error-badge {
+  background: #fef2f2;
+  color: #dc2626;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.error-card-header h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+.error-card p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+.error-card p:last-child { margin-bottom: 0; }
+.error-fix {
+  background: #ecfdf5;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-top: 12px;
+}
+.error-fix p {
+  color: var(--emerald-dark);
+  margin: 0;
+  font-size: 0.9rem;
+}
+.error-fix strong {
+  color: var(--emerald-dark);
+}
+
+/* NUMBERED TIPS */
+.numbered-tip {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  align-items: flex-start;
+}
+.numbered-tip .num {
+  min-width: 32px;
+  height: 32px;
+  background: var(--emerald);
+  color: var(--emerald-dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+.numbered-tip .tip-content h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.numbered-tip .tip-content p {
+  margin-bottom: 0;
+}
+
+/* FAQ SECTION */
+.faq-section {
+  margin-top: 48px;
+}
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  padding: 20px 0;
+}
+.faq-item:first-child { border-top: 1px solid var(--border); }
+.faq-question {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.faq-answer {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* CTA BOX */
+.cta-box {
+  background: var(--surface);
+  border: 2px solid var(--emerald);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  margin: 48px 0 0;
+}
+.cta-box p {
+  font-size: 1.05rem;
+  color: var(--text);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.btn-primary {
+  display: inline-block;
+  background: var(--emerald);
+  color: var(--emerald-dark);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-primary:hover { background: var(--emerald-hover); color: #fff; }
+
+/* RELATED ARTICLES */
+.related-articles {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+.related-articles h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+.related-articles ul {
+  list-style: none;
+  padding: 0;
+}
+.related-articles li {
+  margin-bottom: 10px;
+}
+.related-articles a {
+  font-size: 0.95rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .article-header { padding: 24px 20px 0; }
+  .article-header h1 { font-size: 1.8rem; }
+  .article-body { padding: 0 20px 40px; }
+  footer { flex-direction: column; gap: 12px; padding: 30px 24px; }
+  .glossary-table { font-size: 0.8rem; }
+  .glossary-table thead th, .glossary-table tbody td { padding: 8px 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://fakturas.app" class="logo">fakturas<span>.</span>app</a>
+  <div class="nav-links">
+    <a href="https://fakturas.app#features">Funciones</a>
+    <a href="https://fakturas.app#how-it-works">Como funciona</a>
+    <a href="https://fakturas.app#pricing">Precios</a>
+    <a href="https://fakturas.app/blog/" class="active">Blog</a>
+    <a href="https://fakturas.app#cta">Contacto</a>
+    <a href="https://fakturas.app#pricing" class="nav-cta">Empezar gratis</a>
+  </div>
+</nav>
+
+<!-- BREADCRUMBS -->
+<div class="breadcrumbs">
+  <a href="https://fakturas.app">Inicio</a>
+  <span>&rsaquo;</span>
+  <a href="https://fakturas.app/blog/">Blog</a>
+  <span>&rsaquo;</span>
+  Errores comunes al enviar documentos al SIFEN
+</div>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header">
+  <div class="article-meta">
+    <span class="tag">SIFEN</span>
+    <time datetime="2026-03-22">22 marzo 2026</time>
+    <span>&middot;</span>
+    <span>12 min de lectura</span>
+  </div>
+  <h1>Errores comunes al enviar documentos al SIFEN y como solucionarlos</h1>
+</div>
+
+<!-- CHAPEAU -->
+<div class="chapeau">
+  Tu DTE fue rechazado por el SIFEN. El mensaje de error es críptico, el plazo de 72 horas corre, y necesitas resolverlo ya. Esta guia cubre los errores mas frecuentes que devuelve el SIFEN al transmitir documentos electronicos, explica que significa cada uno en lenguaje claro, y te da la solucion concreta para cada caso. Guarda esta pagina como referencia.
+</div>
+
+<!-- SVG ILLUSTRATION: Diagnostic flowchart -->
+<div class="article-illustration">
+  <svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" style="max-width: 720px; width: 100%;">
+    <!-- Background -->
+    <rect width="720" height="340" rx="16" fill="#0a0f1a"/>
+
+    <!-- Title -->
+    <text x="360" y="30" text-anchor="middle" fill="#8b95a5" font-family="Inter, sans-serif" font-size="11" font-weight="600">DIAGNOSTICO DE RECHAZO SIFEN</text>
+
+    <!-- Start node -->
+    <rect x="280" y="45" width="160" height="36" rx="18" fill="#1a2030" stroke="#005BE2" stroke-width="2"/>
+    <text x="360" y="68" text-anchor="middle" fill="#005BE2" font-family="Inter, sans-serif" font-size="11" font-weight="700">Tu DTE fue rechazado?</text>
+
+    <!-- Vertical line from start -->
+    <line x1="360" y1="81" x2="360" y2="105" stroke="#5a6577" stroke-width="1.5"/>
+
+    <!-- Branch connector horizontal -->
+    <line x1="100" y1="105" x2="620" y2="105" stroke="#5a6577" stroke-width="1.5"/>
+
+    <!-- 4 vertical lines down to branches -->
+    <line x1="100" y1="105" x2="100" y2="130" stroke="#5a6577" stroke-width="1.5"/>
+    <line x1="275" y1="105" x2="275" y2="130" stroke="#5a6577" stroke-width="1.5"/>
+    <line x1="445" y1="105" x2="445" y2="130" stroke="#5a6577" stroke-width="1.5"/>
+    <line x1="620" y1="105" x2="620" y2="130" stroke="#5a6577" stroke-width="1.5"/>
+
+    <!-- Branch 1: Certificado -->
+    <rect x="25" y="130" width="150" height="50" rx="8" fill="#1a2030" stroke="#005BE2" stroke-width="1.5"/>
+    <text x="100" y="152" text-anchor="middle" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="600">Error de</text>
+    <text x="100" y="168" text-anchor="middle" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="600">certificado?</text>
+
+    <line x1="100" y1="180" x2="100" y2="205" stroke="#4edea3" stroke-width="1.5"/>
+    <polygon points="94,200 100,212 106,200" fill="#4edea3"/>
+
+    <rect x="25" y="215" width="150" height="75" rx="8" fill="#0a2918" stroke="#4edea3" stroke-width="1.5"/>
+    <text x="100" y="237" text-anchor="middle" fill="#4edea3" font-family="Inter, sans-serif" font-size="9" font-weight="700">SOLUCION</text>
+    <text x="100" y="255" text-anchor="middle" fill="#c8cdd5" font-family="Inter, sans-serif" font-size="9">Renovar certificado</text>
+    <text x="100" y="270" text-anchor="middle" fill="#c8cdd5" font-family="Inter, sans-serif" font-size="9">Verificar formato</text>
+    <text x="100" y="285" text-anchor="middle" fill="#c8cdd5" font-family="Inter, sans-serif" font-size="9">(.pfx / .p12)</text>
+
+    <!-- Branch 2: XML -->
+    <rect x="200" y="130" width="150" height="50" rx="8" fill="#1a2030" stroke="#005BE2" stroke-width="1.5"/>
+    <text x="275" y="152" text-anchor="middle" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="600">Error de</text>
+    <text x="275" y="168" text-anchor="middle" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="600">XML?</text>
+
+    <line x1="275" y1="180" x2="275" y2="205" stroke="#4edea3" stroke-width="1.5"/>
+    <polygon points="269,200 275,212 281,200" fill="#4edea3"/>
+
+    <rect x="200" y="215" width="150" height="75" rx="8" fill="#0a2918" stroke="#4edea3" stroke-width="1.5"/>
+    <text x="275" y="237" text-anchor="middle" fill="#4edea3" font-family="Inter, sans-serif" font-size="9" font-weight="700">SOLUCION</text>
+    <text x="275" y="255" text-anchor="middle" fill="#c8cdd5" font-family="Inter, sans-serif" font-size="9">Validar contra XSD</text>
+    <text x="275" y="270" text-anchor="middle" fill="#c8cdd5" font-family="Inter, sans-serif" font-size="9">Campos obligatorios</text>
+    <text x="275" y="285" text-anchor="middle" fill="#c8cdd5" font-family="Inter, sans-serif" font-size="9">Formato de datos</text>
+
+    <!-- Branch 3: CDC -->
+    <rect x="370" y="130" width="150" height="50" rx="8" fill="#1a2030" stroke="#005BE2" stroke-width="1.5"/>
+    <text x="445" y="152" text-anchor="middle" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="600">Error de</text>
+    <text x="445" y="168" text-anchor="middle" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="600">CDC?</text>
+
+    <line x1="445" y1="180" x2="445" y2="205" stroke="#4edea3" stroke-width="1.5"/>
+    <polygon points="439,200 445,212 451,200" fill="#4edea3"/>
+
+    <rect x="370" y="215" width="150" height="75" rx="8" fill="#0a2918" stroke="#4edea3" stroke-width="1.5"/>
+    <text x="445" y="237" text-anchor="middle" fill="#4edea3" font-family="Inter, sans-serif" font-size="9" font-weight="700">SOLUCION</text>
+    <text x="445" y="255" text-anchor="middle" fill="#c8cdd5" font-family="Inter, sans-serif" font-size="9">Recalcular modulo 11</text>
+    <text x="445" y="270" text-anchor="middle" fill="#c8cdd5" font-family="Inter, sans-serif" font-size="9">Verificar 44 digitos</text>
+    <text x="445" y="285" text-anchor="middle" fill="#c8cdd5" font-family="Inter, sans-serif" font-size="9">No duplicar CDC</text>
+
+    <!-- Branch 4: Plazo -->
+    <rect x="545" y="130" width="150" height="50" rx="8" fill="#1a2030" stroke="#005BE2" stroke-width="1.5"/>
+    <text x="620" y="152" text-anchor="middle" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="600">Error de</text>
+    <text x="620" y="168" text-anchor="middle" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="600">plazo?</text>
+
+    <line x1="620" y1="180" x2="620" y2="205" stroke="#4edea3" stroke-width="1.5"/>
+    <polygon points="614,200 620,212 626,200" fill="#4edea3"/>
+
+    <rect x="545" y="215" width="150" height="75" rx="8" fill="#0a2918" stroke="#4edea3" stroke-width="1.5"/>
+    <text x="620" y="237" text-anchor="middle" fill="#4edea3" font-family="Inter, sans-serif" font-size="9" font-weight="700">SOLUCION</text>
+    <text x="620" y="255" text-anchor="middle" fill="#c8cdd5" font-family="Inter, sans-serif" font-size="9">Emitir nuevo DTE</text>
+    <text x="620" y="270" text-anchor="middle" fill="#c8cdd5" font-family="Inter, sans-serif" font-size="9">con fecha actual</text>
+    <text x="620" y="285" text-anchor="middle" fill="#c8cdd5" font-family="Inter, sans-serif" font-size="9">Enviar en 72 hrs</text>
+
+    <!-- Bottom note -->
+    <text x="360" y="325" text-anchor="middle" fill="#5a6577" font-family="Inter, sans-serif" font-size="9">Cada rechazo SIFEN incluye un codigo de error especifico. Identifica la categoria y aplica la solucion correspondiente.</text>
+  </svg>
+</div>
+
+<!-- ARTICLE BODY -->
+<div class="article-body">
+
+  <h2>Como leer un mensaje de rechazo del SIFEN</h2>
+
+  <p>Cuando transmitis un DTE al SIFEN y la validacion falla, el Web Service devuelve una respuesta XML con un codigo de estado y un mensaje descriptivo. Entender la estructura de esta respuesta es el primer paso para resolver cualquier error.</p>
+
+  <p>La respuesta de rechazo tiene dos elementos clave: el <strong>codigo de respuesta</strong> (un numero que categoriza el tipo de error) y el <strong>mensaje de respuesta</strong> (una descripcion en texto del problema). A veces, el mensaje incluye el campo especifico que fallo y el valor esperado.</p>
+
+  <div class="definition-block">
+    <h4>Consejo practico</h4>
+    <p>Antes de buscar soluciones, copia el <strong>codigo de error exacto</strong> y el <strong>mensaje completo</strong>. No intentes adivinar el problema solo por el comportamiento. El codigo te dice precisamente que campo o validacion fallo. Si tu software de facturacion no te muestra el codigo, revisa los logs de la comunicacion con el Web Service.</p>
+  </div>
+
+  <p>Los errores se agrupan en categorias predecibles. Vamos a cubrir cada una con ejemplos reales y soluciones concretas. Si necesitas entender primero como funciona el <a href="https://fakturas.app/blog/que-es-facturacion-electronica-paraguay">sistema de facturacion electronica en Paraguay</a>, te recomendamos empezar por esa guia.</p>
+
+  <h2>1. Errores de estructura XML</h2>
+
+  <p>Son los mas comunes para quienes estan empezando con la facturacion electronica o migrando de un software a otro. El XML del DTE debe cumplir estrictamente con el esquema XSD definido por la DNIT.</p>
+
+  <div class="error-card">
+    <div class="error-card-header">
+      <span class="error-badge">XML</span>
+      <h4>Tags malformados o fuera de orden</h4>
+    </div>
+    <p><strong>Que significa:</strong> el XML tiene etiquetas sin cerrar, mal anidadas, o en un orden que no corresponde al esquema XSD. El parser del SIFEN es estricto: no tolera variaciones en la secuencia de elementos.</p>
+    <p><strong>Causa tipica:</strong> concatenacion manual de strings para armar el XML en vez de usar un generador de XML validado. Tambien ocurre cuando se copian fragmentos de un documento a otro sin respetar la estructura.</p>
+    <div class="error-fix">
+      <p><strong>Solucion:</strong> valida tu XML contra el esquema XSD oficial de la DNIT antes de enviarlo. Cualquier editor XML o libreria de programacion puede hacer esta validacion en milisegundos. Si el error persiste, compara tu XML linea por linea con un ejemplo valido de la documentacion tecnica del SIFEN.</p>
+    </div>
+  </div>
+
+  <div class="error-card">
+    <div class="error-card-header">
+      <span class="error-badge">XML</span>
+      <h4>Campos obligatorios faltantes</h4>
+    </div>
+    <p><strong>Que significa:</strong> uno o mas campos requeridos por el esquema no estan presentes en el XML. El SIFEN tiene campos que son obligatorios para todos los DTE y campos que son obligatorios segun el tipo de documento o la condicion de venta.</p>
+    <p><strong>Causa tipica:</strong> confundir campos opcionales con obligatorios, especialmente en el grupo gCamCond (condiciones de la operacion). Por ejemplo, si la condicion de pago es a credito (iCondOpe=2), el grupo gPagCred es obligatorio. Si es contado (iCondOpe=1), el grupo gPagCont es obligatorio.</p>
+    <div class="error-fix">
+      <p><strong>Solucion:</strong> revisa el Manual Tecnico del SIFEN, seccion de campos obligatorios por tipo de DTE. Presta atencion a las condiciones: muchos campos son "obligatorios si..." (obligatorios solo cuando otro campo tiene un valor especifico). Tu software debe implementar estas reglas condicionalmente.</p>
+    </div>
+  </div>
+
+  <div class="error-card">
+    <div class="error-card-header">
+      <span class="error-badge">XML</span>
+      <h4>Formato de datos incorrecto</h4>
+    </div>
+    <p><strong>Que significa:</strong> un campo tiene el tipo de dato equivocado. Ejemplo: un campo numerico con letras, una fecha en formato DD/MM/YYYY cuando el SIFEN espera YYYY-MM-DD, o un monto con coma decimal en vez de punto.</p>
+    <p><strong>Causa tipica:</strong> diferencias de formato entre el sistema local (que puede usar formatos paraguayos como DD/MM/YYYY o coma decimal) y el estandar XML del SIFEN (ISO 8601 para fechas, punto para decimales).</p>
+    <div class="error-fix">
+      <p><strong>Solucion:</strong> verifica que todas las fechas esten en formato YYYY-MM-DDTHH:MM:SS (ISO 8601), los montos usen punto decimal, y los campos numericos no contengan separadores de miles. Revisa especialmente los campos dFeEmiDE (fecha de emision) y los montos en gTotSub.</p>
+    </div>
+  </div>
+
+  <h2>2. Errores de certificado digital</h2>
+
+  <p>El certificado digital es el equivalente electronico de tu firma. Sin un certificado valido, ningun DTE puede ser transmitido. Estos errores son criticos porque no se resuelven editando el XML.</p>
+
+  <div class="error-card">
+    <div class="error-card-header">
+      <span class="error-badge">Certificado</span>
+      <h4>Certificado vencido</h4>
+    </div>
+    <p><strong>Que significa:</strong> tu certificado digital expiro. Los certificados tienen una fecha de validez (generalmente 1 o 2 anhos). Despues de esa fecha, el SIFEN rechaza automaticamente cualquier documento firmado con ese certificado.</p>
+    <p><strong>Causa tipica:</strong> falta de seguimiento de la fecha de vencimiento. Muchos contribuyentes se enteran cuando ya no pueden emitir facturas.</p>
+    <div class="error-fix">
+      <p><strong>Solucion:</strong> renueva tu certificado con un prestador de servicios de certificacion autorizado por la DNIT. El proceso puede tomar varios dias, asi que se recomienda iniciar la renovacion al menos un mes antes del vencimiento. Marca la fecha de vencimiento en tu calendario con un recordatorio anticipado.</p>
+    </div>
+  </div>
+
+  <div class="error-card">
+    <div class="error-card-header">
+      <span class="error-badge">Certificado</span>
+      <h4>Formato de certificado incorrecto</h4>
+    </div>
+    <p><strong>Que significa:</strong> el archivo del certificado no esta en el formato que espera tu software de facturacion. Los formatos comunes son .pfx (PKCS#12) y .p12. Algunos software tambien aceptan .pem o .cer, pero la clave privada necesita estar incluida para firmar.</p>
+    <p><strong>Causa tipica:</strong> exportar el certificado en un formato sin la clave privada, o usar un certificado de prueba en produccion.</p>
+    <div class="error-fix">
+      <p><strong>Solucion:</strong> asegurate de que el certificado incluya la clave privada (formato .pfx o .p12) y que la contrasena de acceso sea correcta. Si tu prestador te entrego un .cer (solo clave publica), solicitale el archivo completo con clave privada.</p>
+    </div>
+  </div>
+
+  <div class="error-card">
+    <div class="error-card-header">
+      <span class="error-badge">Certificado</span>
+      <h4>Firma digital no valida</h4>
+    </div>
+    <p><strong>Que significa:</strong> el XML fue modificado despues de firmarlo, o la firma se aplico incorrectamente. El SIFEN verifica la integridad de la firma: si un solo caracter del XML cambia despues de la firma, la validacion falla.</p>
+    <p><strong>Causa tipica:</strong> editar el XML manualmente despues de firmarlo (por ejemplo, para corregir un campo). Tambien puede ocurrir si el software no implementa correctamente el estandar XMLDSig.</p>
+    <div class="error-fix">
+      <p><strong>Solucion:</strong> nunca modifiques el XML despues de firmarlo. Si necesitas corregir algo, modifica el XML primero, luego firma, luego envia. Si el problema persiste, verifica que tu implementacion de XMLDSig use canonicalizacion C14N y el algoritmo de hash correcto (SHA-256).</p>
+    </div>
+  </div>
+
+  <h2>3. Errores de CDC (Codigo de Control)</h2>
+
+  <p>El CDC es un identificador unico de 44 caracteres que se genera con un algoritmo especifico. Cada caracter importa. Un error en el CDC impide la identificacion y rastreo del documento.</p>
+
+  <div class="error-card">
+    <div class="error-card-header">
+      <span class="error-badge">CDC</span>
+      <h4>Digito verificador incorrecto</h4>
+    </div>
+    <p><strong>Que significa:</strong> el ultimo digito del CDC (digito verificador, calculado con modulo 11) no coincide con los datos del documento. El SIFEN recalcula el digito verificador y lo compara con el que enviaste.</p>
+    <p><strong>Causa tipica:</strong> un campo de entrada cambio despues de generar el CDC (por ejemplo, se modifico el numero de documento o la fecha), pero el CDC no se regenero.</p>
+    <div class="error-fix">
+      <p><strong>Solucion:</strong> regenera el CDC completamente cada vez que modifiques cualquier dato del documento. Verifica que tu implementacion del modulo 11 use los factores correctos segun la especificacion de la DNIT. Nunca hardcodees o reutilices un CDC.</p>
+    </div>
+  </div>
+
+  <div class="error-card">
+    <div class="error-card-header">
+      <span class="error-badge">CDC</span>
+      <h4>CDC duplicado</h4>
+    </div>
+    <p><strong>Que significa:</strong> ya existe un DTE aprobado en el SIFEN con el mismo CDC. Cada CDC es unico en todo el sistema.</p>
+    <p><strong>Causa tipica:</strong> reenviar un documento que ya fue aprobado (tal vez por no haber recibido la confirmacion), o un error en la secuencia de numeracion que genera el mismo numero de documento dos veces.</p>
+    <div class="error-fix">
+      <p><strong>Solucion:</strong> consulta el estado del CDC original en el SIFEN. Si ya fue aprobado, no necesitas reenviarlo. Si es un problema de numeracion, corrige la secuencia en tu sistema para que genere numeros unicos. Antes de reenviar, siempre consulta si el documento ya existe.</p>
+    </div>
+  </div>
+
+  <h2>4. Errores de plazo de transmision</h2>
+
+  <p>El SIFEN establece un plazo maximo de <strong>72 horas</strong> entre la fecha de emision del documento (dFeEmiDE) y el momento de transmision al Web Service. Este plazo es estricto y no tiene excepciones automaticas.</p>
+
+  <div class="error-card">
+    <div class="error-card-header">
+      <span class="error-badge">Plazo</span>
+      <h4>Documento fuera de plazo (72 horas excedidas)</h4>
+    </div>
+    <p><strong>Que significa:</strong> pasaron mas de 72 horas entre la fecha de emision que figura en el DTE y el momento en que lo transmitiste al SIFEN. El sistema rechaza automaticamente cualquier documento fuera de este plazo.</p>
+    <p><strong>Causa tipica:</strong> emitir documentos offline y no sincronizar a tiempo. Tambien puede ocurrir si el reloj del servidor local esta desfasado con respecto al reloj del SIFEN, o si hubo problemas de conectividad prolongados.</p>
+    <div class="error-fix">
+      <p><strong>Solucion:</strong> no podes "arreglar" un DTE fuera de plazo. Necesitas emitir un nuevo DTE con fecha actual y transmitirlo dentro de las 72 horas. Para prevenir este error, configura tu sistema para que intente la transmision inmediata y tenga reintentos automaticos. Sincroniza el reloj del servidor con NTP.</p>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>Caso especial: contingencia.</strong> Si el SIFEN estuvo caido y no pudiste transmitir dentro del plazo, la DNIT puede habilitar un periodo de contingencia. En ese caso, los documentos emitidos durante la caida se transmiten despues con un codigo de contingencia que justifica el retraso. Consulta la resolucion vigente sobre contingencia del SIFEN.</p>
+  </div>
+
+  <h2>5. Errores de validacion de campos</h2>
+
+  <p>Estos son errores de logica de negocio: el XML esta bien formado y firmado correctamente, pero los datos no cumplen con las reglas fiscales del SIFEN.</p>
+
+  <div class="error-card">
+    <div class="error-card-header">
+      <span class="error-badge">Validacion</span>
+      <h4>Formato de RUC invalido</h4>
+    </div>
+    <p><strong>Que significa:</strong> el RUC del emisor o del receptor no cumple con el formato esperado. El RUC paraguayo tiene un formato especifico: numero base + digito verificador separado por guion (por ejemplo, 80012345-6).</p>
+    <p><strong>Causa tipica:</strong> incluir puntos de miles en el RUC, omitir el digito verificador, o usar un RUC de prueba en produccion.</p>
+    <div class="error-fix">
+      <p><strong>Solucion:</strong> el RUC debe ir sin puntos ni separadores de miles, con el digito verificador incluido. Verifica que el RUC este activo en el registro de la DNIT. Para receptores ocasionales (consumidor final), usa el RUC generico segun la normativa vigente.</p>
+    </div>
+  </div>
+
+  <div class="error-card">
+    <div class="error-card-header">
+      <span class="error-badge">Validacion</span>
+      <h4>Condicion de pago inconsistente (gCamCond)</h4>
+    </div>
+    <p><strong>Que significa:</strong> los campos del grupo gCamCond (condiciones comerciales de la operacion) tienen valores que se contradicen entre si. Por ejemplo: iCondOpe indica "contado" (1) pero el XML incluye el grupo gPagCred (pago a credito), o viceversa.</p>
+    <p><strong>Causa tipica:</strong> no mantener la coherencia entre el tipo de condicion de operacion y los subgrupos de pago. Tambien ocurre cuando se cambia la condicion de pago sin actualizar los subgrupos correspondientes.</p>
+    <div class="error-fix">
+      <p><strong>Solucion:</strong> si iCondOpe=1 (contado), incluí solo gPagCont. Si iCondOpe=2 (credito), incluí solo gPagCred con las cuotas y plazos. Nunca incluyas ambos grupos simultaneamente. Revisa que el monto total de pagos coincida con el total del documento.</p>
+    </div>
+  </div>
+
+  <div class="error-card">
+    <div class="error-card-header">
+      <span class="error-badge">Validacion</span>
+      <h4>Descuadre de montos (totales no coinciden)</h4>
+    </div>
+    <p><strong>Que significa:</strong> el SIFEN recalcula los totales a partir de los items y detecta una diferencia con los totales que declaraste en gTotSub. La suma de (cantidad x precio unitario) de los items, menos descuentos, mas IVA, debe coincidir exactamente con los campos de totales.</p>
+    <p><strong>Causa tipica:</strong> errores de redondeo, calcular el IVA sobre el total en vez de item por item, o no restar los descuentos antes de calcular el impuesto.</p>
+    <div class="error-fix">
+      <p><strong>Solucion:</strong> calcula el subtotal y el IVA item por item, luego suma. El SIFEN tolera una diferencia de redondeo minima (generalmente 1 guarani por item), pero cualquier diferencia mayor causa rechazo. Usa numeros enteros (guaranies sin decimales) para evitar problemas de redondeo. Verifica que los descuentos se apliquen antes del calculo del IVA.</p>
+    </div>
+  </div>
+
+  <h2>6. Errores de conectividad y red</h2>
+
+  <p>No todos los problemas son del XML. A veces la comunicacion con el Web Service del SIFEN falla por razones tecnicas.</p>
+
+  <div class="error-card">
+    <div class="error-card-header">
+      <span class="error-badge">Red</span>
+      <h4>Timeout o conexion rechazada</h4>
+    </div>
+    <p><strong>Que significa:</strong> tu sistema no pudo establecer conexion con el Web Service del SIFEN, o la conexion se interrumpio antes de recibir la respuesta.</p>
+    <p><strong>Causa tipica:</strong> el SIFEN esta en mantenimiento o con alta demanda, problemas de internet del lado del contribuyente, o firewall que bloquea la comunicacion SSL al endpoint del SIFEN.</p>
+    <div class="error-fix">
+      <p><strong>Solucion:</strong> implementa reintentos automaticos con intervalos crecientes (retry con backoff exponencial). Verifica que tu firewall permita conexiones HTTPS al endpoint del SIFEN. Si el problema persiste por horas, consulta el canal oficial de la DNIT para verificar si hay mantenimiento programado. Mientras tanto, tus documentos quedan en cola para reenvio.</p>
+    </div>
+  </div>
+
+  <div class="error-card">
+    <div class="error-card-header">
+      <span class="error-badge">Red</span>
+      <h4>Respuesta incompleta o ilegible</h4>
+    </div>
+    <p><strong>Que significa:</strong> el SIFEN respondio, pero la respuesta esta truncada o no se puede parsear como XML valido.</p>
+    <p><strong>Causa tipica:</strong> la conexion se corto durante la recepcion de la respuesta, o hay un proxy intermedio que modifica la respuesta.</p>
+    <div class="error-fix">
+      <p><strong>Solucion:</strong> no asumas que el documento fue rechazado. Consulta el estado del CDC en el SIFEN antes de reenviar. Si el documento ya fue aprobado y lo reenvias, vas a recibir un error de CDC duplicado. Primero consulta, despues decide si reenviar.</p>
+    </div>
+  </div>
+
+  <h2>Tabla de referencia rapida</h2>
+
+  <p>Para consulta rapida, esta tabla resume los errores mas frecuentes con su solucion en una linea:</p>
+
+  <table class="glossary-table">
+    <thead>
+      <tr>
+        <th>Categoria</th>
+        <th>Error</th>
+        <th>Solucion rapida</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>XML</strong></td>
+        <td>Tag malformado</td>
+        <td>Validar contra XSD antes de enviar</td>
+      </tr>
+      <tr>
+        <td><strong>XML</strong></td>
+        <td>Campo obligatorio faltante</td>
+        <td>Revisar Manual Tecnico, campos condicionales</td>
+      </tr>
+      <tr>
+        <td><strong>XML</strong></td>
+        <td>Formato de fecha incorrecto</td>
+        <td>Usar YYYY-MM-DDTHH:MM:SS (ISO 8601)</td>
+      </tr>
+      <tr>
+        <td><strong>Certificado</strong></td>
+        <td>Certificado vencido</td>
+        <td>Renovar con prestador autorizado</td>
+      </tr>
+      <tr>
+        <td><strong>Certificado</strong></td>
+        <td>Firma invalida</td>
+        <td>No modificar XML despues de firmar</td>
+      </tr>
+      <tr>
+        <td><strong>CDC</strong></td>
+        <td>Digito verificador incorrecto</td>
+        <td>Regenerar CDC con modulo 11</td>
+      </tr>
+      <tr>
+        <td><strong>CDC</strong></td>
+        <td>CDC duplicado</td>
+        <td>Consultar estado antes de reenviar</td>
+      </tr>
+      <tr>
+        <td><strong>Plazo</strong></td>
+        <td>72 horas excedidas</td>
+        <td>Emitir nuevo DTE con fecha actual</td>
+      </tr>
+      <tr>
+        <td><strong>Validacion</strong></td>
+        <td>RUC invalido</td>
+        <td>Sin puntos, con digito verificador</td>
+      </tr>
+      <tr>
+        <td><strong>Validacion</strong></td>
+        <td>gCamCond inconsistente</td>
+        <td>Alinear iCondOpe con subgrupo de pago</td>
+      </tr>
+      <tr>
+        <td><strong>Validacion</strong></td>
+        <td>Montos descuadrados</td>
+        <td>Calcular IVA item por item, sin decimales</td>
+      </tr>
+      <tr>
+        <td><strong>Red</strong></td>
+        <td>Timeout</td>
+        <td>Reintentar con backoff. Verificar firewall</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Buenas practicas para evitar rechazos</h2>
+
+  <p>La mayoria de los rechazos del SIFEN son prevenibles. Estas practicas reducen drasticamente la tasa de error:</p>
+
+  <div class="numbered-tip">
+    <div class="num">1</div>
+    <div class="tip-content">
+      <h4>Valida antes de enviar</h4>
+      <p>Toda transmision al SIFEN deberia ser precedida por una validacion local contra el XSD. Si tu XML no pasa la validacion local, no lo envies. Ahorra tiempo, ancho de banda y frustración.</p>
+    </div>
+  </div>
+
+  <div class="numbered-tip">
+    <div class="num">2</div>
+    <div class="tip-content">
+      <h4>Usa el entorno de pruebas primero</h4>
+      <p>El SIFEN tiene un entorno de test separado del de produccion. Proba todos los tipos de documento (factura, NCE, NDE) en test antes de ir a produccion. Los errores en test no tienen consecuencia fiscal. Si necesitas emitir una <a href="https://fakturas.app/blog/nota-credito-electronica-nce-sifen">Nota de Credito Electronica (NCE)</a>, probala primero en el entorno de test.</p>
+    </div>
+  </div>
+
+  <div class="numbered-tip">
+    <div class="num">3</div>
+    <div class="tip-content">
+      <h4>Implementa reintentos automaticos</h4>
+      <p>Los errores de red son inevitables. Tu sistema tiene que poder reintentar automaticamente (con intervalos crecientes) sin generar duplicados. Antes de cada reintento, consulta si el CDC ya existe en el SIFEN.</p>
+    </div>
+  </div>
+
+  <div class="numbered-tip">
+    <div class="num">4</div>
+    <div class="tip-content">
+      <h4>Monitorea el vencimiento del certificado</h4>
+      <p>Un certificado vencido paraliza toda tu operacion de facturacion electronica. Agenda la renovacion con 30 dias de anticipacion. No esperes al ultimo momento.</p>
+    </div>
+  </div>
+
+  <div class="numbered-tip">
+    <div class="num">5</div>
+    <div class="tip-content">
+      <h4>Loguea todo</h4>
+      <p>Guarda el XML enviado, la respuesta del SIFEN, el timestamp, y el codigo de resultado. Cuando un error ocurre, estos logs te dicen exactamente que paso. Sin logs, estas adivinando.</p>
+    </div>
+  </div>
+
+  <h2>Cuando el problema no es tuyo</h2>
+
+  <p>No todos los rechazos son causados por errores del contribuyente. El SIFEN, como cualquier sistema, tiene momentos de inestabilidad:</p>
+
+  <ul>
+    <li><strong>Mantenimiento programado:</strong> la DNIT anuncia ventanas de mantenimiento donde el servicio no esta disponible. Consulta los canales oficiales.</li>
+    <li><strong>Alta demanda:</strong> en fechas limite (fin de mes, vencimiento de declaraciones), el servicio puede saturarse. Los timeouts aumentan.</li>
+    <li><strong>Actualizaciones del esquema:</strong> cuando la DNIT actualiza el XSD o las reglas de validacion, los documentos que antes pasaban pueden ser rechazados. Mantene tu software actualizado.</li>
+  </ul>
+
+  <p>En estos casos, la solucion es esperar y reintentar. Tu sistema debe estar preparado para operar en modo offline temporalmente y sincronizar cuando el servicio se restablezca, siempre dentro del plazo de 72 horas. Entender el <a href="https://fakturas.app/blog/facturacion-electronica-paraguay-estudios-contables">contexto general de la facturacion electronica en Paraguay</a> ayuda a anticipar estos desafios.</p>
+
+  <!-- FAQ SECTION -->
+  <h2 class="faq-section">Preguntas frecuentes</h2>
+
+  <div class="faq-item">
+    <div class="faq-question">Que hago si mi DTE fue rechazado por el SIFEN?</div>
+    <div class="faq-answer">Revisa el codigo de error en la respuesta del SIFEN. Cada rechazo incluye un codigo especifico que indica el problema exacto. Corrige el campo o dato indicado, vuelve a firmar digitalmente, y reenvia. No necesitas un nuevo timbrado ni un nuevo numero de documento para el reenvio.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">Cuanto tiempo tengo para enviar un DTE al SIFEN?</div>
+    <div class="faq-answer">72 horas desde la fecha y hora de emision del documento (dFeEmiDE). Si se excede este plazo, el SIFEN rechaza automaticamente. Hay que emitir un nuevo DTE con fecha actual y transmitirlo dentro del plazo.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">Mi certificado digital vencio, que hago?</div>
+    <div class="faq-answer">Renueva tu certificado con un prestador autorizado por la DNIT. El proceso puede tomar varios dias. Los documentos firmados con un certificado vencido son rechazados automaticamente. Inicia la solicitud de renovacion al menos un mes antes del vencimiento.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">Por que el SIFEN rechaza mi documento por error de CDC?</div>
+    <div class="faq-answer">El CDC tiene 44 caracteres calculados con un algoritmo especifico (modulo 11). Si algun dato de entrada cambio despues de generar el CDC (numero de documento, fecha, RUC), el digito verificador no coincide. Regenera el CDC completamente cada vez que modifiques cualquier dato.</div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <p>Mientras vos resolvés errores del SIFEN, deja que Fakturas.app se encargue de la recepcion y procesamiento de facturas de tus clientes. Probalo gratis con hasta 10 contribuyentes.</p>
+    <a href="https://fakturas.app#pricing" class="btn-primary">Probar gratis</a>
+  </div>
+
+  <!-- RELATED ARTICLES -->
+  <div class="related-articles">
+    <h3>Articulos relacionados</h3>
+    <ul>
+      <li><a href="https://fakturas.app/blog/nota-credito-electronica-nce-sifen">Como emitir una Nota de Credito Electronica (NCE) en el SIFEN</a></li>
+      <li><a href="https://fakturas.app/blog/que-es-facturacion-electronica-paraguay">Que es la facturacion electronica en Paraguay: guia completa</a></li>
+      <li><a href="https://fakturas.app/blog/facturacion-electronica-paraguay-estudios-contables">Facturacion electronica para estudios contables en 2026</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="https://fakturas.app" class="logo">fakturas<span>.</span>app</a>
+  <p>&copy; 2026 Fakturas.app &mdash; Hecho para contadores en Paraguay</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Que es el KuDE y como generarlo correctamente</title>
+<meta name="description" content="Guia completa sobre el KuDE en Paraguay: que es, campos obligatorios, QR code, formato, como generarlo desde tu software y diferencia con el DTE. Para contadores 2026.">
+<meta name="keywords" content="KuDE, representacion grafica factura electronica, QR code SIFEN, KuDE Paraguay">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fakturas.app/blog/que-es-kude-como-generarlo">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://fakturas.app/blog/que-es-kude-como-generarlo">
+<meta property="og:title" content="Que es el KuDE y como generarlo correctamente en Paraguay">
+<meta property="og:description" content="KuDE: representacion grafica del DTE. Campos obligatorios, QR code, formato y errores comunes. Guia para contadores.">
+<meta property="og:site_name" content="Fakturas.app">
+<meta property="og:locale" content="es_PY">
+<meta property="article:published_time" content="2026-03-22">
+<meta property="article:author" content="Fakturas.app">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Que es el KuDE y como generarlo correctamente en Paraguay">
+<meta name="twitter:description" content="KuDE: representacion grafica del DTE. Campos obligatorios, QR code, formato y errores comunes.">
+
+<!-- Structured Data: Article -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Que es el KuDE y como generarlo correctamente",
+  "description": "Guia completa sobre el KuDE en Paraguay: que es, campos obligatorios, QR code, formato, como generarlo desde tu software y diferencia con el DTE.",
+  "url": "https://fakturas.app/blog/que-es-kude-como-generarlo",
+  "datePublished": "2026-03-22",
+  "dateModified": "2026-03-22",
+  "author": {"@type": "Organization", "name": "Fakturas.app", "url": "https://fakturas.app"},
+  "publisher": {"@type": "Organization", "name": "Fakturas.app", "url": "https://fakturas.app"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://fakturas.app/blog/que-es-kude-como-generarlo"}
+}
+</script>
+
+<!-- Structured Data: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Es obligatorio entregar el KuDE al cliente?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Si el receptor no esta adherido al SIFEN o si solicita una copia impresa, si, es obligatorio entregar el KuDE. Cuando ambas partes estan en el SIFEN, el DTE electronico es suficiente, pero el receptor puede solicitar el KuDE en cualquier momento."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "El KuDE tiene la misma validez legal que el DTE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. El documento con validez legal es el DTE (archivo XML firmado digitalmente). El KuDE es solo la representacion grafica del DTE. Sirve como comprobante visual y permite verificar la autenticidad del DTE a traves del QR code, pero no reemplaza al DTE."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "En que formato se debe imprimir el KuDE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El KuDE puede imprimirse en formato A4, carta o en formatos mas pequenos como rollo termico (80mm). Lo importante es que todos los campos obligatorios sean legibles, especialmente el QR code y el CDC. El formato especifico depende del tipo de negocio."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Que informacion contiene el QR code del KuDE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El QR code del KuDE contiene una URL que dirige al portal de verificacion del SIFEN, incluyendo el CDC (Codigo de Control del Documento). Al escanearlo, cualquier persona puede verificar la autenticidad y el estado del DTE en tiempo real."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Que significa KuDE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "KuDE es el acronimo de 'Kera Uhape Documento Electronico', que en guarani significa 'como se ve el documento electronico'. Es la representacion grafica imprimible de un Documento Tributario Electronico (DTE) del sistema SIFEN."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --emerald: #4edea3;
+  --emerald-dark: #003824;
+  --emerald-hover: #10b981;
+  --blue: #005BE2;
+  --gold: #FFC402;
+  --navy: #0d1321;
+  --navy-light: #191f2e;
+  --bg: #f8faf9;
+  --white: #ffffff;
+  --text: #1a1a2e;
+  --text-secondary: #5a6577;
+  --text-muted: #8b95a5;
+  --border: #e2e8f0;
+  --surface: #f1f5f3;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border);
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.5px;
+  text-decoration: none;
+}
+.logo span { color: var(--emerald); }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--text); font-weight: 600; }
+.nav-cta {
+  background: var(--emerald) !important;
+  color: var(--emerald-dark) !important;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-weight: 600 !important;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--emerald-hover) !important; }
+
+/* BREADCRUMBS */
+.breadcrumbs {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 20px 24px 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.breadcrumbs a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.breadcrumbs a:hover { color: var(--emerald-hover); }
+.breadcrumbs span { margin: 0 6px; }
+
+/* ARTICLE */
+.article-header {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 24px 0;
+}
+.article-header h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.article-meta time { font-weight: 500; }
+
+.article-body {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+.article-body h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin: 48px 0 16px;
+  color: var(--text);
+}
+.article-body h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 32px 0 12px;
+  color: var(--text);
+}
+.article-body p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.article-body ul, .article-body ol {
+  margin: 0 0 20px 20px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+.article-body li {
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+.article-body strong { color: var(--text); }
+.article-body a {
+  color: var(--emerald-hover);
+  text-decoration: none;
+  font-weight: 500;
+}
+.article-body a:hover { text-decoration: underline; }
+
+/* CHAPEAU */
+.chapeau {
+  font-size: 1.1rem !important;
+  color: var(--text) !important;
+  line-height: 1.7 !important;
+  margin-bottom: 32px !important;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* DEFINITION BLOCK */
+.definition-block {
+  background: var(--surface);
+  border-left: 4px solid var(--emerald);
+  border-radius: 0 10px 10px 0;
+  padding: 20px 24px;
+  margin: 24px 0;
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.75;
+}
+
+/* HIGHLIGHT BOX */
+.highlight-box {
+  background: var(--surface);
+  border-left: 4px solid var(--emerald);
+  border-radius: 0 10px 10px 0;
+  padding: 20px 24px;
+  margin: 24px 0;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.highlight-box strong { color: var(--text); }
+
+/* GLOSSARY TABLE */
+.glossary-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.glossary-table th {
+  background: var(--navy);
+  color: #fff;
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.glossary-table td {
+  padding: 14px 16px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.glossary-table tr:last-child td { border-bottom: none; }
+.glossary-table tr:nth-child(even) { background: var(--surface); }
+.glossary-table td:first-child {
+  font-weight: 700;
+  color: var(--emerald-hover);
+  white-space: nowrap;
+}
+
+/* FLOW STEPS */
+.flow-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 24px 0;
+}
+.flow-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 0;
+}
+.flow-step-number {
+  width: 36px;
+  height: 36px;
+  background: var(--emerald);
+  color: var(--emerald-dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+.flow-step-content {
+  flex: 1;
+}
+.flow-step-content strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+.flow-step-content span {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+.flow-connector {
+  width: 36px;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  color: var(--border);
+  font-size: 0.8rem;
+}
+
+/* SVG ILLUSTRATION */
+.svg-illustration {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+.svg-illustration svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* CTA BOX */
+.cta-box {
+  background: var(--navy);
+  border-radius: 14px;
+  padding: 36px;
+  text-align: center;
+  margin: 48px 0 24px;
+}
+.cta-box p {
+  color: #c9d1d9 !important;
+  font-size: 1.05rem !important;
+  margin-bottom: 20px !important;
+  line-height: 1.6 !important;
+}
+.cta-box .btn-primary {
+  display: inline-block;
+  background: var(--emerald);
+  color: var(--emerald-dark);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.cta-box .btn-primary:hover { background: var(--emerald-hover); color: #fff; }
+
+/* INTERNAL LINKS BOX */
+.related-articles {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 32px 0;
+  border: 1px solid var(--border);
+}
+.related-articles h4 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+.related-articles a {
+  display: block;
+  padding: 8px 0;
+  font-size: 0.9rem;
+  color: var(--emerald-hover);
+  text-decoration: none;
+  font-weight: 500;
+}
+.related-articles a:hover { text-decoration: underline; }
+
+/* FOOTER */
+footer {
+  padding: 40px 60px;
+  background: var(--navy);
+  border-top: 1px solid #242a39;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer p {
+  color: #5a6577;
+  font-size: 0.8rem;
+}
+footer .logo { color: #fff; }
+footer .logo span { color: var(--emerald); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .article-header { padding: 24px 20px 0; }
+  .article-header h1 { font-size: 1.8rem; }
+  .article-body { padding: 0 20px 40px; }
+  .glossary-table { font-size: 0.8rem; }
+  .glossary-table td, .glossary-table th { padding: 10px 12px; }
+  footer { flex-direction: column; gap: 12px; padding: 30px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://fakturas.app" class="logo">fakturas<span>.</span>app</a>
+  <div class="nav-links">
+    <a href="https://fakturas.app#features">Funciones</a>
+    <a href="https://fakturas.app#how-it-works">Como funciona</a>
+    <a href="https://fakturas.app#pricing">Precios</a>
+    <a href="https://fakturas.app/blog/" class="active">Blog</a>
+    <a href="https://fakturas.app#cta">Contacto</a>
+    <a href="https://fakturas.app#pricing" class="nav-cta">Empezar gratis</a>
+  </div>
+</nav>
+
+<!-- BREADCRUMBS -->
+<div class="breadcrumbs">
+  <a href="https://fakturas.app">Inicio</a>
+  <span>&rsaquo;</span>
+  <a href="https://fakturas.app/blog/">Blog</a>
+  <span>&rsaquo;</span>
+  Que es el KuDE y como generarlo
+</div>
+
+<!-- ARTICLE HEADER -->
+<header class="article-header">
+  <h1>Que es el KuDE y como generarlo correctamente</h1>
+  <div class="article-meta">
+    <time datetime="2026-03-22">22 marzo 2026</time>
+    <span>&middot;</span>
+    <span>10 min de lectura</span>
+  </div>
+</header>
+
+<!-- ARTICLE BODY -->
+<article class="article-body">
+
+  <!-- Chapeau -->
+  <p class="chapeau">
+    La factura electronica en Paraguay vive como un archivo XML en los servidores del SIFEN. Pero cuando tu cliente necesita un papel, un PDF o algo que pueda leer con los ojos, necesitas el KuDE. Esta guia explica que es exactamente, que campos debe contener, como se genera, y por que no es lo mismo que el DTE.
+  </p>
+
+  <!-- Section 1 -->
+  <h2>Que significa KuDE</h2>
+
+  <div class="definition-block">
+    <strong>KuDE</strong> = <strong>Kera Uhape Documento Electronico</strong>. En guarani, "kera uhape" significa "como se ve". Es decir: el KuDE es <strong>la representacion grafica</strong> (visual, imprimible) de un Documento Tributario Electronico (DTE). No es el documento en si, sino su version legible para humanos.
+  </div>
+
+  <p>Pensa en la relacion entre el DTE y el KuDE como la relacion entre una base de datos y un reporte impreso. La base de datos (DTE) es donde vive la informacion oficial. El reporte impreso (KuDE) es una forma de mostrar esa informacion de manera comprensible. Si necesitas un repaso sobre como funciona todo el sistema, consulta nuestra <a href="https://fakturas.app/blog/que-es-facturacion-electronica-paraguay">guia de facturacion electronica en Paraguay</a>.</p>
+
+  <!-- SVG ILLUSTRATION: Annotated KuDE diagram -->
+  <div class="svg-illustration">
+    <svg viewBox="0 0 440 560" width="440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama estructural del KuDE mostrando las secciones obligatorias: encabezado del emisor, datos del receptor, detalle de items, totales e IVA, codigo CDC y area QR">
+      <!-- Document outline -->
+      <rect x="100" y="20" width="240" height="420" rx="6" fill="#ffffff" stroke="#0d1321" stroke-width="2"/>
+
+      <!-- Header section -->
+      <rect x="110" y="30" width="220" height="55" rx="3" fill="#f1f5f3" stroke="#e2e8f0" stroke-width="1"/>
+      <text x="220" y="52" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="700" fill="#0d1321">NOMBRE DEL EMISOR</text>
+      <text x="220" y="64" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" fill="#5a6577">RUC: 80012345-6 | Timbrado: 12345678</text>
+      <text x="220" y="76" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" fill="#5a6577">Direccion del emisor, Asuncion</text>
+
+      <!-- Callout: Header -->
+      <line x1="100" y1="57" x2="50" y2="57" stroke="#4edea3" stroke-width="1.5"/>
+      <circle cx="46" cy="57" r="3" fill="#4edea3"/>
+      <text x="44" y="50" text-anchor="end" font-family="Inter, sans-serif" font-size="8" font-weight="600" fill="#0d1321">Datos del</text>
+      <text x="44" y="60" text-anchor="end" font-family="Inter, sans-serif" font-size="8" font-weight="600" fill="#0d1321">emisor</text>
+
+      <!-- Receptor section -->
+      <rect x="110" y="95" width="220" height="40" rx="3" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+      <text x="120" y="110" font-family="Inter, sans-serif" font-size="7" font-weight="600" fill="#0d1321">Receptor:</text>
+      <text x="120" y="122" font-family="Inter, sans-serif" font-size="7" fill="#5a6577">RUC: 4567890-1 | Empresa ABC S.A.</text>
+
+      <!-- Callout: Receptor -->
+      <line x1="340" y1="115" x2="390" y2="115" stroke="#4edea3" stroke-width="1.5"/>
+      <circle cx="394" cy="115" r="3" fill="#4edea3"/>
+      <text x="398" y="108" font-family="Inter, sans-serif" font-size="8" font-weight="600" fill="#0d1321">Datos del</text>
+      <text x="398" y="118" font-family="Inter, sans-serif" font-size="8" font-weight="600" fill="#0d1321">receptor</text>
+
+      <!-- Items section -->
+      <rect x="110" y="145" width="220" height="100" rx="3" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+      <text x="120" y="158" font-family="Inter, sans-serif" font-size="7" font-weight="700" fill="#0d1321">Cant.</text>
+      <text x="155" y="158" font-family="Inter, sans-serif" font-size="7" font-weight="700" fill="#0d1321">Descripcion</text>
+      <text x="280" y="158" font-family="Inter, sans-serif" font-size="7" font-weight="700" fill="#0d1321">P. Unit.</text>
+      <text x="310" y="158" font-family="Inter, sans-serif" font-size="7" font-weight="700" fill="#0d1321">Total</text>
+      <line x1="115" y1="162" x2="325" y2="162" stroke="#e2e8f0" stroke-width="0.5"/>
+      <text x="120" y="175" font-family="Inter, sans-serif" font-size="7" fill="#5a6577">2</text>
+      <text x="155" y="175" font-family="Inter, sans-serif" font-size="7" fill="#5a6577">Servicio contable mensual</text>
+      <text x="280" y="175" font-family="Inter, sans-serif" font-size="7" fill="#5a6577">500.000</text>
+      <text x="310" y="175" font-family="Inter, sans-serif" font-size="7" fill="#5a6577">1.000.000</text>
+      <text x="120" y="190" font-family="Inter, sans-serif" font-size="7" fill="#5a6577">1</text>
+      <text x="155" y="190" font-family="Inter, sans-serif" font-size="7" fill="#5a6577">Liquidacion IVA trimestral</text>
+      <text x="280" y="190" font-family="Inter, sans-serif" font-size="7" fill="#5a6577">350.000</text>
+      <text x="310" y="190" font-family="Inter, sans-serif" font-size="7" fill="#5a6577">350.000</text>
+      <text x="120" y="205" font-family="Inter, sans-serif" font-size="7" fill="#5a6577">5</text>
+      <text x="155" y="205" font-family="Inter, sans-serif" font-size="7" fill="#5a6577">Certificado digital (gestion)</text>
+      <text x="280" y="205" font-family="Inter, sans-serif" font-size="7" fill="#5a6577">80.000</text>
+      <text x="310" y="205" font-family="Inter, sans-serif" font-size="7" fill="#5a6577">400.000</text>
+
+      <!-- Callout: Items -->
+      <line x1="100" y1="190" x2="50" y2="190" stroke="#4edea3" stroke-width="1.5"/>
+      <circle cx="46" cy="190" r="3" fill="#4edea3"/>
+      <text x="44" y="183" text-anchor="end" font-family="Inter, sans-serif" font-size="8" font-weight="600" fill="#0d1321">Detalle</text>
+      <text x="44" y="193" text-anchor="end" font-family="Inter, sans-serif" font-size="8" font-weight="600" fill="#0d1321">de items</text>
+
+      <!-- Totals section -->
+      <rect x="110" y="255" width="220" height="55" rx="3" fill="#f1f5f3" stroke="#e2e8f0" stroke-width="1"/>
+      <text x="200" y="272" font-family="Inter, sans-serif" font-size="7" fill="#5a6577">Subtotal:</text>
+      <text x="310" y="272" text-anchor="end" font-family="Inter, sans-serif" font-size="7" fill="#5a6577">1.750.000 Gs</text>
+      <text x="200" y="285" font-family="Inter, sans-serif" font-size="7" fill="#5a6577">IVA 10%:</text>
+      <text x="310" y="285" text-anchor="end" font-family="Inter, sans-serif" font-size="7" fill="#5a6577">175.000 Gs</text>
+      <text x="200" y="300" font-family="Inter, sans-serif" font-size="7" font-weight="700" fill="#0d1321">TOTAL:</text>
+      <text x="310" y="300" text-anchor="end" font-family="Inter, sans-serif" font-size="8" font-weight="700" fill="#0d1321">1.750.000 Gs</text>
+
+      <!-- Callout: Totals -->
+      <line x1="340" y1="280" x2="390" y2="280" stroke="#4edea3" stroke-width="1.5"/>
+      <circle cx="394" cy="280" r="3" fill="#4edea3"/>
+      <text x="398" y="273" font-family="Inter, sans-serif" font-size="8" font-weight="600" fill="#0d1321">Totales</text>
+      <text x="398" y="283" font-family="Inter, sans-serif" font-size="8" font-weight="600" fill="#0d1321">e IVA</text>
+
+      <!-- CDC section -->
+      <rect x="110" y="320" width="220" height="30" rx="3" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+      <text x="220" y="333" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" font-weight="600" fill="#0d1321">CDC: 01800123456001001000000612026032214</text>
+      <text x="220" y="344" text-anchor="middle" font-family="Inter, sans-serif" font-size="5.5" fill="#8b95a5">1710b8d6a2f045c3b7e9...</text>
+
+      <!-- Callout: CDC -->
+      <line x1="100" y1="335" x2="50" y2="335" stroke="#4edea3" stroke-width="1.5"/>
+      <circle cx="46" cy="335" r="3" fill="#4edea3"/>
+      <text x="44" y="328" text-anchor="end" font-family="Inter, sans-serif" font-size="8" font-weight="600" fill="#0d1321">CDC +</text>
+      <text x="44" y="338" text-anchor="end" font-family="Inter, sans-serif" font-size="8" font-weight="600" fill="#0d1321">hash</text>
+
+      <!-- QR section -->
+      <rect x="180" y="360" width="80" height="70" rx="4" fill="#ffffff" stroke="#0d1321" stroke-width="1.5"/>
+      <!-- QR pattern (simplified) -->
+      <rect x="190" y="368" width="12" height="12" fill="#0d1321"/>
+      <rect x="238" y="368" width="12" height="12" fill="#0d1321"/>
+      <rect x="190" y="408" width="12" height="12" fill="#0d1321"/>
+      <rect x="206" y="384" width="8" height="8" fill="#0d1321"/>
+      <rect x="218" y="376" width="6" height="6" fill="#0d1321"/>
+      <rect x="228" y="390" width="8" height="8" fill="#0d1321"/>
+      <rect x="210" y="400" width="6" height="6" fill="#0d1321"/>
+      <rect x="222" y="406" width="10" height="10" fill="#0d1321"/>
+      <rect x="196" y="390" width="4" height="4" fill="#0d1321"/>
+      <rect x="238" y="398" width="6" height="6" fill="#0d1321"/>
+
+      <!-- Callout: QR -->
+      <line x1="340" y1="395" x2="390" y2="395" stroke="#4edea3" stroke-width="1.5"/>
+      <circle cx="394" cy="395" r="3" fill="#4edea3"/>
+      <text x="398" y="388" font-family="Inter, sans-serif" font-size="8" font-weight="600" fill="#0d1321">Codigo</text>
+      <text x="398" y="398" font-family="Inter, sans-serif" font-size="8" font-weight="600" fill="#0d1321">QR</text>
+
+      <!-- Title below -->
+      <text x="220" y="470" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0d1321">Estructura del KuDE</text>
+      <text x="220" y="486" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#5a6577">Secciones obligatorias de la representacion grafica</text>
+    </svg>
+  </div>
+
+  <!-- Section 2 -->
+  <h2>Cuando necesitas generar un KuDE</h2>
+
+  <p>No siempre necesitas imprimir o generar un KuDE. Estas son las situaciones donde es necesario:</p>
+
+  <ul>
+    <li><strong>El receptor no esta adherido al SIFEN.</strong> Si tu cliente no esta en el sistema de facturacion electronica, no puede recibir ni consultar el DTE directamente. El KuDE es la unica forma de entregarle un comprobante.</li>
+    <li><strong>El cliente solicita una copia impresa.</strong> Aunque ambas partes esten en el SIFEN, cualquier receptor tiene derecho a solicitar el KuDE como comprobante fisico.</li>
+    <li><strong>Operaciones presenciales.</strong> En puntos de venta fisicos (comercios, farmacias, restaurantes), el KuDE impreso en ticket termico es la practica habitual para entregar al consumidor final.</li>
+    <li><strong>Archivo interno.</strong> Algunas empresas imprimen el KuDE para sus archivos fisicos, aunque no sea obligatorio.</li>
+  </ul>
+
+  <div class="highlight-box">
+    <strong>Punto clave:</strong> Cuando emisor y receptor estan ambos en el SIFEN, el DTE electronico (XML) es el documento oficial. El KuDE es complementario, no obligatorio en ese caso, salvo que el receptor lo solicite expresamente.
+  </div>
+
+  <!-- Section 3 -->
+  <h2>Campos obligatorios del KuDE</h2>
+
+  <p>El KuDE debe contener toda la informacion relevante del DTE en un formato legible. Estos son los campos que no pueden faltar:</p>
+
+  <table class="glossary-table">
+    <thead>
+      <tr>
+        <th>Seccion</th>
+        <th>Campos obligatorios</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Encabezado (emisor)</td>
+        <td>Razon social o nombre del emisor, RUC, numero de timbrado, direccion del establecimiento, telefono, actividad economica, fecha y hora de emision del DTE</td>
+      </tr>
+      <tr>
+        <td>Datos del receptor</td>
+        <td>Nombre o razon social del receptor, RUC o CI del receptor (segun corresponda), direccion (cuando aplica)</td>
+      </tr>
+      <tr>
+        <td>Detalle de items</td>
+        <td>Descripcion de cada bien o servicio, cantidad, precio unitario, monto total por linea</td>
+      </tr>
+      <tr>
+        <td>Totales e IVA</td>
+        <td>Subtotal, desglose de IVA por tasa (10%, 5%, exenta), total general en guaranies</td>
+      </tr>
+      <tr>
+        <td>CDC</td>
+        <td>Codigo de Control del Documento: cadena alfanumerica de 44 caracteres que identifica de forma unica al DTE en el SIFEN</td>
+      </tr>
+      <tr>
+        <td>Hash de seguridad</td>
+        <td>Cadena criptografica que permite verificar la integridad del documento. Es un extracto de la firma digital del DTE</td>
+      </tr>
+      <tr>
+        <td>Codigo QR</td>
+        <td>QR que contiene la URL de verificacion del SIFEN con el CDC incluido. Permite la consulta publica del DTE</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Si alguno de estos campos falta o esta incorrecto, el KuDE no cumple con los requisitos del SIFEN. Tu software de facturacion deberia generarlos automaticamente a partir del DTE aprobado.</p>
+
+  <!-- Section 4 -->
+  <h2>El QR code: contenido y estructura</h2>
+
+  <p>El codigo QR del KuDE no es decorativo. Cumple una funcion critica: <strong>permitir la verificacion publica del DTE</strong>. Cualquier persona (el receptor, un auditor, un inspector de la DNIT) puede escanear el QR y verificar en tiempo real si ese documento electronico existe y es valido.</p>
+
+  <h3>Que contiene el QR</h3>
+
+  <p>El QR code codifica una URL que apunta al portal de consulta del SIFEN. Esa URL incluye el CDC (Codigo de Control del Documento) como parametro, lo que permite identificar el DTE especifico. Al acceder a la URL, el portal muestra:</p>
+
+  <ul>
+    <li>Estado del DTE (aprobado, cancelado, inutilizado)</li>
+    <li>Datos del emisor y receptor</li>
+    <li>Fecha de emision</li>
+    <li>Monto total</li>
+    <li>Tipo de documento (factura, nota de credito, etc.)</li>
+  </ul>
+
+  <div class="highlight-box">
+    <strong>Verificacion instantanea:</strong> El QR code convierte al KuDE en un documento verificable. Un cliente puede confirmar al instante que la factura que recibio es legitima y esta registrada en el sistema de la DNIT. Esta es una ventaja enorme sobre las facturas de papel tradicionales.
+  </div>
+
+  <h3>Requisitos tecnicos del QR</h3>
+
+  <p>El QR debe ser legible por cualquier lector estandar. Esto significa:</p>
+
+  <ul>
+    <li><strong>Tamano minimo:</strong> lo suficientemente grande para ser escaneado incluso en tickets termicos de 80mm. Se recomienda un minimo de 2cm x 2cm.</li>
+    <li><strong>Contraste:</strong> negro sobre fondo blanco, sin colores que dificulten la lectura.</li>
+    <li><strong>Nivel de correccion de errores:</strong> se recomienda nivel M (medio) o superior para tolerar pequenas imperfecciones de impresion.</li>
+  </ul>
+
+  <!-- Section 5 -->
+  <h2>El CDC: la clave de identificacion</h2>
+
+  <p>El <strong>CDC (Codigo de Control del Documento)</strong> es una cadena de 44 caracteres que identifica de forma unica cada DTE en el SIFEN. Es como el numero de serie del documento electronico. El CDC se compone de varios campos concatenados:</p>
+
+  <table class="glossary-table">
+    <thead>
+      <tr>
+        <th>Componente</th>
+        <th>Longitud</th>
+        <th>Descripcion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Tipo de DTE</td>
+        <td>2 digitos</td>
+        <td>Codigo del tipo de documento (01 = factura, 04 = autofactura, etc.)</td>
+      </tr>
+      <tr>
+        <td>RUC del emisor</td>
+        <td>8 digitos</td>
+        <td>RUC sin digito verificador, con ceros a la izquierda</td>
+      </tr>
+      <tr>
+        <td>DV</td>
+        <td>1 digito</td>
+        <td>Digito verificador del RUC</td>
+      </tr>
+      <tr>
+        <td>Establecimiento</td>
+        <td>3 digitos</td>
+        <td>Codigo del punto de expedicion</td>
+      </tr>
+      <tr>
+        <td>Punto de expedicion</td>
+        <td>3 digitos</td>
+        <td>Punto de emision dentro del establecimiento</td>
+      </tr>
+      <tr>
+        <td>Numero</td>
+        <td>7 digitos</td>
+        <td>Numero secuencial del documento</td>
+      </tr>
+      <tr>
+        <td>Tipo contribuyente</td>
+        <td>1 digito</td>
+        <td>1 = persona fisica, 2 = persona juridica</td>
+      </tr>
+      <tr>
+        <td>Fecha</td>
+        <td>8 digitos</td>
+        <td>Fecha de emision en formato YYYYMMDD</td>
+      </tr>
+      <tr>
+        <td>Tipo emision</td>
+        <td>1 digito</td>
+        <td>1 = normal, 2 = contingencia</td>
+      </tr>
+      <tr>
+        <td>Codigo seguridad</td>
+        <td>9 digitos</td>
+        <td>Codigo aleatorio de seguridad</td>
+      </tr>
+      <tr>
+        <td>Digito verificador CDC</td>
+        <td>1 digito</td>
+        <td>Digito de control calculado sobre los 43 caracteres anteriores</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>El CDC aparece impreso en el KuDE tanto en texto plano (para lectura humana) como codificado dentro del QR (para lectura automatica).</p>
+
+  <!-- Section 6 -->
+  <h2>Formatos de impresion del KuDE</h2>
+
+  <p>El SIFEN no impone un unico formato fisico para el KuDE. La eleccion depende del tipo de negocio y las necesidades del contribuyente:</p>
+
+  <h3>Formato A4 o carta</h3>
+  <p>Es el formato clasico para facturas de servicios profesionales, contratos o transacciones de alto valor. Ofrece amplio espacio para detalle de items, condiciones de pago y datos complementarios. Es el formato habitual para estudios contables y empresas de servicios.</p>
+
+  <h3>Formato ticket termico (80mm)</h3>
+  <p>Ideal para puntos de venta minoristas: supermercados, farmacias, restaurantes, gasolineras. Se imprime en rollos termicos estandar de 80mm de ancho. Todos los campos obligatorios deben ser legibles, incluyendo el QR code. La tipografia debe ser lo suficientemente grande para que el CDC pueda leerse sin lupa.</p>
+
+  <h3>Formato digital (PDF)</h3>
+  <p>Para enviar por email o WhatsApp. Es un PDF que reproduce el KuDE con todos los campos obligatorios. Es la opcion mas comun para facturas entre empresas que no comparten el SIFEN. El QR debe ser funcional (escaneable desde pantalla).</p>
+
+  <div class="highlight-box">
+    <strong>Independiente del formato:</strong> Todos los campos obligatorios deben estar presentes y ser legibles. Un KuDE en ticket termico con QR borroso o CDC ilegible no cumple con los requisitos.
+  </div>
+
+  <!-- Section 7 -->
+  <h2>Como generar el KuDE desde tu software</h2>
+
+  <p>El KuDE se genera automaticamente a partir de un DTE aprobado por el SIFEN. El flujo es el siguiente:</p>
+
+  <div class="flow-steps">
+    <div class="flow-step">
+      <div class="flow-step-number">1</div>
+      <div class="flow-step-content">
+        <strong>Crear el DTE</strong>
+        <span>Tu software genera el XML del documento tributario electronico con todos los datos de la transaccion.</span>
+      </div>
+    </div>
+    <div class="flow-connector">|</div>
+    <div class="flow-step">
+      <div class="flow-step-number">2</div>
+      <div class="flow-step-content">
+        <strong>Firmar digitalmente</strong>
+        <span>El sistema aplica tu certificado digital para firmar el XML. Esto garantiza autenticidad e integridad.</span>
+      </div>
+    </div>
+    <div class="flow-connector">|</div>
+    <div class="flow-step">
+      <div class="flow-step-number">3</div>
+      <div class="flow-step-content">
+        <strong>Enviar al SIFEN</strong>
+        <span>El DTE firmado se envia a los servidores de la DNIT para su validacion. El SIFEN responde con aprobacion o rechazo.</span>
+      </div>
+    </div>
+    <div class="flow-connector">|</div>
+    <div class="flow-step">
+      <div class="flow-step-number">4</div>
+      <div class="flow-step-content">
+        <strong>Generar el KuDE</strong>
+        <span>Solo despues de la aprobacion, tu software genera la representacion grafica (KuDE) con el CDC, QR code y hash de seguridad asignados por el SIFEN.</span>
+      </div>
+    </div>
+    <div class="flow-connector">|</div>
+    <div class="flow-step">
+      <div class="flow-step-number">5</div>
+      <div class="flow-step-content">
+        <strong>Imprimir o enviar</strong>
+        <span>Imprimis el KuDE en papel (A4 o ticket) o lo exportas como PDF para enviar por email o WhatsApp al receptor.</span>
+      </div>
+    </div>
+  </div>
+
+  <p>Con <a href="https://fakturas.app">Fakturas.app</a>, todo este proceso es transparente. Cuando creas una factura, el sistema se encarga de generar el DTE, firmarlo, enviarlo al SIFEN y producir el KuDE listo para imprimir o descargar como PDF.</p>
+
+  <!-- Section 8 -->
+  <h2>DTE vs. KuDE: validez legal</h2>
+
+  <p>Este punto genera confusion constante, asi que vamos a dejarlo claro:</p>
+
+  <table class="glossary-table">
+    <thead>
+      <tr>
+        <th>Aspecto</th>
+        <th>DTE (XML)</th>
+        <th>KuDE (grafico)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Formato</td>
+        <td>Archivo XML firmado digitalmente</td>
+        <td>Papel impreso, PDF o ticket</td>
+      </tr>
+      <tr>
+        <td>Validez legal</td>
+        <td>Es el documento oficial con plena validez tributaria</td>
+        <td>Es una representacion. No tiene validez tributaria autonoma</td>
+      </tr>
+      <tr>
+        <td>Donde vive</td>
+        <td>Servidores del SIFEN + tu sistema</td>
+        <td>En manos del receptor (papel o PDF)</td>
+      </tr>
+      <tr>
+        <td>Verificable</td>
+        <td>Si, por firma digital y validacion del SIFEN</td>
+        <td>Si, a traves del QR code que apunta al DTE original</td>
+      </tr>
+      <tr>
+        <td>Modificable</td>
+        <td>No. Cualquier cambio invalida la firma digital</td>
+        <td>El contenido no, pero el formato visual puede ajustarse</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="definition-block">
+    <strong>En resumen:</strong> El DTE es la fuente de verdad. El KuDE es su reflejo visual. Si hay discrepancia entre el KuDE impreso y el DTE en el SIFEN, prevalece siempre el DTE. Por eso el QR code es tan importante: permite al receptor verificar que lo que tiene en papel coincide con lo registrado electronicamente.
+  </div>
+
+  <!-- Section 9 -->
+  <h2>Errores comunes al generar el KuDE</h2>
+
+  <p>Estos son los problemas que vemos con mas frecuencia en estudios contables y empresas:</p>
+
+  <h3>1. QR code no escaneable</h3>
+  <p>El QR se imprime demasiado pequeno o con baja resolucion, especialmente en tickets termicos. Un QR que no puede escanearse anula la funcion de verificacion del KuDE. Asegurate de que tu impresora tenga la resolucion adecuada y que el tamano del QR sea suficiente.</p>
+
+  <h3>2. CDC truncado o ilegible</h3>
+  <p>Los 44 caracteres del CDC deben estar completos y legibles. En impresiones termicas, la tipografia pequena puede hacer que algunos caracteres se confundan (0 con O, 1 con l). Usa fuentes monoespaciadas para el CDC.</p>
+
+  <h3>3. Generar el KuDE antes de la aprobacion del SIFEN</h3>
+  <p>Algunos sistemas generan un "borrador" del KuDE antes de recibir la aprobacion del SIFEN. Si el DTE es rechazado, ese KuDE no tiene validez. El KuDE solo debe generarse y entregarse despues de confirmar la aprobacion del DTE. Lee mas sobre los <a href="https://fakturas.app/blog/errores-comunes-sifen-soluciones">errores comunes del SIFEN</a> para evitar otros problemas frecuentes.</p>
+
+  <h3>4. Datos del emisor desactualizados</h3>
+  <p>Si cambiaste de direccion, razon social o timbrado y no actualizaste tu software, el KuDE mostrara datos incorrectos. Aunque el DTE en el SIFEN este correcto, un KuDE con datos viejos genera desconfianza y posibles observaciones.</p>
+
+  <h3>5. No incluir el desglose de IVA</h3>
+  <p>Algunos KuDE muestran solo el total, sin desglosar las tasas de IVA (10%, 5%, exenta). El desglose es obligatorio y su ausencia puede generar problemas en la verificacion. Si necesitas emitir una <a href="https://fakturas.app/blog/nota-credito-electronica-nce-sifen">nota de credito electronica</a>, el desglose del KuDE original es fundamental para el proceso.</p>
+
+  <!-- Section 10 -->
+  <h2>Buenas practicas para el KuDE</h2>
+
+  <ul>
+    <li><strong>Proba tu impresion antes de usar en produccion.</strong> Imprime un KuDE de prueba y escanea el QR con tu celular. Si funciona, estas listo.</li>
+    <li><strong>Usa fuentes legibles.</strong> Para el cuerpo del KuDE, fuentes sans-serif de al menos 8pt. Para el CDC, fuentes monoespaciadas de al menos 7pt.</li>
+    <li><strong>Mantene actualizados tus datos fiscales.</strong> Cada vez que cambies timbrado, direccion o razon social, actualiza tu software inmediatamente.</li>
+    <li><strong>Guarda una copia digital.</strong> Aunque entregues el KuDE impreso, conserva el PDF en tu sistema. Facilita reimpresiones y auditorias.</li>
+    <li><strong>No confies solo en el KuDE.</strong> El documento oficial es el DTE. El KuDE es una herramienta de consulta. Si necesitas demostrar la validez de una transaccion, referi siempre al DTE en el SIFEN.</li>
+  </ul>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <p>Fakturas.app genera el KuDE automaticamente cada vez que emitis un DTE aprobado. Formato A4, ticket termico o PDF: vos elegis. QR verificable, CDC completo, IVA desglosado.</p>
+    <a href="https://fakturas.app#pricing" class="btn-primary">Empezar gratis</a>
+  </div>
+
+  <!-- Related articles -->
+  <div class="related-articles">
+    <h4>Articulos relacionados</h4>
+    <a href="https://fakturas.app/blog/que-es-facturacion-electronica-paraguay">Que es la facturacion electronica en Paraguay? Guia completa</a>
+    <a href="https://fakturas.app/blog/errores-comunes-sifen-soluciones">Errores comunes del SIFEN y como solucionarlos</a>
+    <a href="https://fakturas.app/blog/nota-credito-electronica-nce-sifen">Nota de credito electronica (NCE) en el SIFEN</a>
+  </div>
+
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <a href="https://fakturas.app" class="logo">fakturas<span>.</span>app</a>
+  <p>&copy; 2026 Fakturas.app &mdash; Hecho para contadores en Paraguay</p>
+</footer>
+
+</body>
+</html>

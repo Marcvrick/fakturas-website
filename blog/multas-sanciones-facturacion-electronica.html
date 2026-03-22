@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multas y sanciones por no cumplir con la facturacion electronica en Paraguay</title>
+<meta name="description" content="Guia completa sobre multas y sanciones del SIFEN en Paraguay. Tipos de infracciones, montos, procedimientos de auditoria DNIT y como evitar penalidades.">
+<meta name="keywords" content="multas SIFEN, sanciones facturacion electronica, incumplimiento DNIT, multas Paraguay, infracciones tributarias Paraguay">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fakturas.app/blog/multas-sanciones-facturacion-electronica">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://fakturas.app/blog/multas-sanciones-facturacion-electronica">
+<meta property="og:title" content="Multas y sanciones por incumplimiento de facturacion electronica en Paraguay">
+<meta property="og:description" content="Tipos de infracciones, montos de multas, auditorias DNIT y como ponerse en regla antes de la fiscalizacion.">
+<meta property="og:site_name" content="Fakturas.app">
+<meta property="og:locale" content="es_PY">
+<meta property="article:published_time" content="2026-03-22">
+<meta property="article:author" content="Fakturas.app">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Multas y sanciones: facturacion electronica en Paraguay">
+<meta name="twitter:description" content="Infracciones, montos y como evitar sanciones del SIFEN. Guia para contribuyentes y contadores.">
+
+<!-- Article Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Multas y sanciones por no cumplir con la facturacion electronica en Paraguay",
+  "description": "Guia completa sobre multas y sanciones del SIFEN en Paraguay. Tipos de infracciones, montos, procedimientos de auditoria DNIT y como evitar penalidades.",
+  "url": "https://fakturas.app/blog/multas-sanciones-facturacion-electronica",
+  "datePublished": "2026-03-22",
+  "dateModified": "2026-03-22",
+  "author": {"@type": "Organization", "name": "Fakturas.app", "url": "https://fakturas.app"},
+  "publisher": {"@type": "Organization", "name": "Fakturas.app", "url": "https://fakturas.app"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://fakturas.app/blog/multas-sanciones-facturacion-electronica"}
+}
+</script>
+
+<!-- FAQPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Que pasa si no emito factura electronica estando obligado en Paraguay?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La DNIT puede aplicar multas que van desde 50.000 Gs hasta 354.890.000 Gs dependiendo de la gravedad. No emitir DTE estando en un grupo obligado se considera una infraccion grave que puede derivar en clausura temporal del establecimiento."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuanto tiempo tengo para transmitir un DTE al SIFEN?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El plazo maximo es de 72 horas desde la emision del documento. Si se transmite fuera de plazo, el documento puede ser rechazado y el contribuyente se expone a sanciones por transmision extemporanea."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "La DNIT realmente fiscaliza el cumplimiento del SIFEN?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Si. En 2025, la DNIT realizo 21.377 procedimientos de control y 431 auditorias fiscales. La fiscalizacion se intensifica cada anho a medida que mas grupos ingresan al SIFEN."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Puedo regularizarme si ya estoy en infraccion?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Si. La DNIT permite la regularizacion voluntaria antes de que se inicie un procedimiento formal. En muchos casos, regularizarse a tiempo evita multas o reduce significativamente el monto. Lo importante es no esperar a que llegue la notificacion."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Los proveedores del Estado tienen reglas distintas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Si. Desde el 2 de enero de 2026, la Resolucion DNIT 41/2025 obliga a todos los proveedores, contratistas y consultores del Estado a emitir DTE. No cumplir puede significar la exclusion de licitaciones y contratos publicos ademas de las multas tributarias."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --emerald: #4edea3;
+  --emerald-dark: #003824;
+  --emerald-hover: #10b981;
+  --blue: #005BE2;
+  --gold: #FFC402;
+  --navy: #0d1321;
+  --navy-light: #191f2e;
+  --bg: #f8faf9;
+  --white: #ffffff;
+  --text: #1a1a2e;
+  --text-secondary: #5a6577;
+  --text-muted: #8b95a5;
+  --border: #e2e8f0;
+  --surface: #f1f5f3;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border);
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.5px;
+  text-decoration: none;
+}
+.logo span { color: var(--emerald); }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--text); font-weight: 600; }
+.nav-cta {
+  background: var(--emerald) !important;
+  color: var(--emerald-dark) !important;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-weight: 600 !important;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--emerald-hover) !important; }
+
+/* FOOTER */
+footer {
+  padding: 40px 60px;
+  background: var(--navy);
+  border-top: 1px solid #242a39;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer p {
+  color: #5a6577;
+  font-size: 0.8rem;
+}
+footer .logo { color: #fff; }
+footer .logo span { color: var(--emerald); }
+
+/* BREADCRUMBS */
+.breadcrumbs {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 24px 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.breadcrumbs a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+.breadcrumbs a:hover { color: var(--emerald-hover); }
+.breadcrumbs span { margin: 0 6px; }
+
+/* BLOG ARTICLE */
+.article-header {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 24px 0;
+}
+.article-header h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.article-meta {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.article-meta .tag {
+  background: var(--surface);
+  color: var(--emerald-hover);
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+.chapeau {
+  max-width: 736px;
+  margin: 0 auto;
+  padding: 20px 24px 0;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  border-left: 3px solid var(--emerald);
+  padding-left: 20px;
+}
+
+.article-body {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 24px 60px;
+}
+.article-body h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 48px;
+  margin-bottom: 16px;
+  letter-spacing: -0.3px;
+}
+.article-body h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 32px;
+  margin-bottom: 12px;
+}
+.article-body p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+.article-body ul, .article-body ol {
+  margin-bottom: 16px;
+  padding-left: 24px;
+}
+.article-body li {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+.article-body strong { color: var(--text); }
+.article-body a {
+  color: var(--emerald-hover);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.article-body a:hover { color: var(--text); }
+
+/* HIGHLIGHT BOX */
+.highlight-box {
+  background: var(--surface);
+  border-left: 4px solid var(--emerald);
+  border-radius: 0 12px 12px 0;
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+.highlight-box p {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+}
+.highlight-box p + p {
+  margin-top: 12px;
+}
+
+/* DEFINITION BLOCK */
+.definition-block {
+  background: #f0f4ff;
+  border-left: 4px solid var(--blue);
+  border-radius: 0 12px 12px 0;
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+.definition-block strong {
+  color: var(--blue);
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.definition-block p {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+}
+
+/* GLOSSARY TABLE */
+.glossary-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 0.9rem;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.glossary-table thead th {
+  background: var(--navy);
+  color: #fff;
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.glossary-table tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.glossary-table tbody tr:nth-child(even) {
+  background: var(--surface);
+}
+.glossary-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* MYTH CARD */
+.myth-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 16px 0;
+}
+.myth-label {
+  display: inline-block;
+  background: #fee2e2;
+  color: #b91c1c;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 3px 10px;
+  border-radius: 50px;
+  margin-bottom: 10px;
+}
+.myth-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.myth-card p {
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+/* RISK METER SVG */
+.risk-meter-container {
+  margin: 40px 0;
+  text-align: center;
+}
+.risk-meter-container svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* FLOW STEPS */
+.flow-steps {
+  margin: 24px 0;
+}
+.flow-step {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  align-items: flex-start;
+}
+.flow-step-number {
+  min-width: 32px;
+  height: 32px;
+  background: var(--emerald);
+  color: var(--emerald-dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+.flow-step-content h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.flow-step-content p {
+  margin-bottom: 0;
+}
+
+/* NUMBERED LIST STYLED */
+.numbered-tip {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  align-items: flex-start;
+}
+.numbered-tip .num {
+  min-width: 32px;
+  height: 32px;
+  background: var(--emerald);
+  color: var(--emerald-dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+.numbered-tip .tip-content h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.numbered-tip .tip-content p {
+  margin-bottom: 0;
+}
+
+/* FAQ SECTION */
+.faq-section {
+  margin-top: 48px;
+}
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  padding: 20px 0;
+}
+.faq-item:first-child { border-top: 1px solid var(--border); }
+.faq-question {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.faq-answer {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* CTA BOX */
+.cta-box {
+  background: var(--surface);
+  border: 2px solid var(--emerald);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  margin: 48px 0 0;
+}
+.cta-box p {
+  font-size: 1.05rem;
+  color: var(--text);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.btn-primary {
+  display: inline-block;
+  background: var(--emerald);
+  color: var(--emerald-dark);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-primary:hover { background: var(--emerald-hover); color: #fff; }
+
+/* RELATED ARTICLES */
+.related-articles {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+.related-articles h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+.related-articles ul {
+  list-style: none;
+  padding: 0;
+}
+.related-articles li {
+  margin-bottom: 10px;
+}
+.related-articles a {
+  font-size: 0.95rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .article-header { padding: 24px 20px 0; }
+  .article-header h1 { font-size: 1.8rem; }
+  .article-body { padding: 0 20px 40px; }
+  footer { flex-direction: column; gap: 12px; padding: 30px 24px; }
+  .glossary-table { font-size: 0.8rem; }
+  .glossary-table thead th, .glossary-table tbody td { padding: 10px 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://fakturas.app" class="logo">fakturas<span>.</span>app</a>
+  <div class="nav-links">
+    <a href="https://fakturas.app#features">Funciones</a>
+    <a href="https://fakturas.app#how-it-works">Como funciona</a>
+    <a href="https://fakturas.app#pricing">Precios</a>
+    <a href="https://fakturas.app/blog/" class="active">Blog</a>
+    <a href="https://fakturas.app#cta">Contacto</a>
+    <a href="https://fakturas.app#pricing" class="nav-cta">Empezar gratis</a>
+  </div>
+</nav>
+
+<!-- BREADCRUMBS -->
+<div class="breadcrumbs">
+  <a href="https://fakturas.app">Inicio</a>
+  <span>&rsaquo;</span>
+  <a href="https://fakturas.app/blog/">Blog</a>
+  <span>&rsaquo;</span>
+  Multas y sanciones facturacion electronica
+</div>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header">
+  <div class="article-meta">
+    <span class="tag">Cumplimiento SIFEN</span>
+    <span>22 marzo 2026</span>
+    <span>10 min de lectura</span>
+  </div>
+  <h1>Multas y sanciones por no cumplir con la facturacion electronica en Paraguay</h1>
+</div>
+
+<!-- CHAPEAU -->
+<div class="chapeau">
+  La facturacion electronica ya no es un proyecto piloto. Con mas de 21.000 procedimientos de control ejecutados por la DNIT en 2025, las consecuencias de no cumplir son concretas: multas, clausuras y exclusion de contratos publicos. Esta guia detalla que infracciones existen, cuanto cuestan, y como ponerse en regla antes de que llegue la fiscalizacion.
+</div>
+
+<!-- ARTICLE BODY -->
+<div class="article-body">
+
+  <!-- SVG RISK METER ILLUSTRATION -->
+  <div class="risk-meter-container">
+    <svg viewBox="0 0 400 520" xmlns="http://www.w3.org/2000/svg" style="max-width: 420px;">
+      <!-- Background -->
+      <rect width="400" height="520" rx="16" fill="#0a0f1a"/>
+
+      <!-- Title -->
+      <text x="200" y="36" text-anchor="middle" fill="#ffffff" font-family="Inter, sans-serif" font-size="14" font-weight="700">SEMAFORO DE CUMPLIMIENTO SIFEN</text>
+
+      <!-- GREEN ZONE -->
+      <rect x="30" y="60" width="340" height="120" rx="12" fill="#062e1f" stroke="#4edea3" stroke-width="1.5"/>
+      <circle cx="66" cy="120" r="24" fill="#4edea3" opacity="0.2"/>
+      <circle cx="66" cy="120" r="14" fill="#4edea3"/>
+      <text x="100" y="90" fill="#4edea3" font-family="Inter, sans-serif" font-size="11" font-weight="700" text-transform="uppercase" letter-spacing="1">CUMPLIMIENTO TOTAL</text>
+      <text x="100" y="110" fill="#a0b8ab" font-family="Inter, sans-serif" font-size="10.5">DTE emitidos en plazo</text>
+      <text x="100" y="126" fill="#a0b8ab" font-family="Inter, sans-serif" font-size="10.5">XML valido, certificados vigentes</text>
+      <text x="100" y="142" fill="#a0b8ab" font-family="Inter, sans-serif" font-size="10.5">Transmision dentro de 72 hs</text>
+      <rect x="100" y="152" width="120" height="20" rx="10" fill="#4edea3" opacity="0.15"/>
+      <text x="160" y="166" text-anchor="middle" fill="#4edea3" font-family="Inter, sans-serif" font-size="10" font-weight="700">SIN MULTAS</text>
+
+      <!-- YELLOW ZONE -->
+      <rect x="30" y="200" width="340" height="130" rx="12" fill="#2a2510" stroke="#FFC402" stroke-width="1.5"/>
+      <circle cx="66" cy="265" r="24" fill="#FFC402" opacity="0.2"/>
+      <circle cx="66" cy="265" r="14" fill="#FFC402"/>
+      <text x="100" y="228" fill="#FFC402" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1">CUMPLIMIENTO PARCIAL</text>
+      <text x="100" y="248" fill="#b8a86a" font-family="Inter, sans-serif" font-size="10.5">Transmision fuera de plazo (>72 hs)</text>
+      <text x="100" y="264" fill="#b8a86a" font-family="Inter, sans-serif" font-size="10.5">Errores menores en XML</text>
+      <text x="100" y="280" fill="#b8a86a" font-family="Inter, sans-serif" font-size="10.5">Certificado proximo a vencer</text>
+      <rect x="100" y="295" width="200" height="20" rx="10" fill="#FFC402" opacity="0.15"/>
+      <text x="200" y="309" text-anchor="middle" fill="#FFC402" font-family="Inter, sans-serif" font-size="10" font-weight="700">MULTAS: 50.000 - 3.500.000 Gs</text>
+
+      <!-- RED ZONE -->
+      <rect x="30" y="350" width="340" height="130" rx="12" fill="#2a1010" stroke="#e05555" stroke-width="1.5"/>
+      <circle cx="66" cy="415" r="24" fill="#e05555" opacity="0.2"/>
+      <circle cx="66" cy="415" r="14" fill="#e05555"/>
+      <text x="100" y="378" fill="#e05555" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1">INCUMPLIMIENTO GRAVE</text>
+      <text x="100" y="398" fill="#b86a6a" font-family="Inter, sans-serif" font-size="10.5">No emitir DTE estando obligado</text>
+      <text x="100" y="414" fill="#b86a6a" font-family="Inter, sans-serif" font-size="10.5">Certificado digital vencido</text>
+      <text x="100" y="430" fill="#b86a6a" font-family="Inter, sans-serif" font-size="10.5">Reincidencia en infracciones</text>
+      <rect x="100" y="445" width="240" height="20" rx="10" fill="#e05555" opacity="0.15"/>
+      <text x="220" y="459" text-anchor="middle" fill="#e05555" font-family="Inter, sans-serif" font-size="10" font-weight="700">MULTAS: 3.500.000 - 354.890.000 Gs + CLAUSURA</text>
+
+      <!-- Footer -->
+      <text x="200" y="502" text-anchor="middle" fill="#5a6577" font-family="Inter, sans-serif" font-size="9">Montos referenciales basados en la Ley 6380/2019 y resoluciones DNIT vigentes</text>
+    </svg>
+  </div>
+
+  <!-- SECTION 1 -->
+  <h2>El marco sancionatorio: que dice la ley</h2>
+
+  <p>El regimen sancionatorio para la facturacion electronica en Paraguay se sustenta en la <strong>Ley 6380/2019</strong> (Ley de Modernizacion y Simplificacion Tributaria), el <strong>Decreto 3107/2019</strong> que reglamenta el SIFEN, y las resoluciones complementarias de la DNIT. No es un regimen nuevo: se construye sobre las infracciones tributarias ya existentes, pero aplicadas ahora al contexto electronico.</p>
+
+  <p>La diferencia clave con la era del papel: en el sistema electronico, la DNIT tiene trazabilidad completa. Sabe exactamente quien emitio, cuando transmitio, y si el documento es valido. No hay zona gris. O cumpliste, o quedo registrado que no.</p>
+
+  <div class="definition-block">
+    <strong>Principio fundamental</strong>
+    <p>La facturacion electronica no crea infracciones nuevas. Aplica las mismas sanciones tributarias existentes, pero con un nivel de deteccion mucho mas alto. Lo que antes podia pasar desapercibido, ahora queda registrado automaticamente en los sistemas de la DNIT.</p>
+  </div>
+
+  <!-- SECTION 2 -->
+  <h2>Tipos de infracciones y sus consecuencias</h2>
+
+  <p>Las infracciones relacionadas con la facturacion electronica se dividen en varias categorias. Cada una tiene su propio nivel de gravedad y rango de sancion. Si no conoces los detalles del sistema SIFEN, te recomendamos primero leer nuestra <a href="https://fakturas.app/blog/que-es-facturacion-electronica-paraguay">guia sobre facturacion electronica en Paraguay</a>.</p>
+
+  <h3>1. No emitir Documentos Tributarios Electronicos (DTE)</h3>
+
+  <p>Esta es la infraccion mas grave. Si tu grupo ya esta obligado a emitir DTE y seguis emitiendo facturas preimpresas o virtuales, la DNIT puede sancionar con multas que escalan rapidamente. No se trata de una preferencia: es una obligacion legal con fecha definida.</p>
+
+  <p>La sancion base por no emitir comprobantes puede llegar hasta <strong>354.890.000 Gs</strong> (equivalente a 100 jornales minimos para actividades diversas no especificadas). En la practica, el monto depende del volumen de operaciones no documentadas y de si es la primera vez o una reincidencia.</p>
+
+  <h3>2. Transmision fuera de plazo (mas de 72 horas)</h3>
+
+  <p>El SIFEN permite emitir un DTE en modo contingencia (sin conexion) pero exige que el documento se transmita a los servidores de la DNIT dentro de las <strong>72 horas</strong> siguientes. Pasado ese plazo, el documento puede ser rechazado.</p>
+
+  <p>Un DTE rechazado por transmision tardia es como si nunca se hubiera emitido. Eso significa que la operacion queda sin respaldo fiscal, lo que genera una infraccion por no emision. La cadena es rapida: retraso de transmision se convierte en documento invalido, que se convierte en infraccion.</p>
+
+  <h3>3. XML con estructura invalida</h3>
+
+  <p>Cada DTE es un archivo XML que debe cumplir con el esquema definido por la DNIT. Campos faltantes, formatos incorrectos, errores en el calculo del IVA, o inconsistencias en los datos del receptor provocan el rechazo automatico del documento.</p>
+
+  <p>Un XML rechazado no es solo un problema tecnico. Si el contribuyente no corrige y retransmite dentro del plazo, queda en la misma situacion que si no hubiera emitido el documento. Los softwares certificados por la DNIT minimizan este riesgo, pero la responsabilidad es del contribuyente.</p>
+
+  <h3>4. Certificado digital vencido o invalido</h3>
+
+  <p>Todo DTE requiere firma digital. El certificado digital tiene fecha de vencimiento. Si vence y el contribuyente sigue operando sin renovarlo, todos los documentos emitidos despues de la fecha de vencimiento son invalidos.</p>
+
+  <p>La renovacion del certificado no es automatica. Hay que solicitarla con anticipacion. Y si tu certificado vence un viernes, no podes emitir nada valido hasta que lo renueves. Los dias sin facturacion valida cuentan como dias sin emision.</p>
+
+  <h3>5. No conservar los documentos electronicos</h3>
+
+  <p>La Ley 6380/2019 exige conservar los registros tributarios durante <strong>5 anhos</strong> desde la fecha de la operacion. Esto incluye los XML de los DTE, las respuestas de validacion del SIFEN, y los KuDE generados. No tener estos archivos disponibles ante una auditoria es una infraccion independiente.</p>
+
+  <!-- TABLE -->
+  <h2>Tabla de infracciones y rangos de multa</h2>
+
+  <table class="glossary-table">
+    <thead>
+      <tr>
+        <th>Infraccion</th>
+        <th>Gravedad</th>
+        <th>Rango de multa</th>
+        <th>Otras consecuencias</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>No emitir DTE estando obligado</td>
+        <td><strong style="color: #e05555;">Grave</strong></td>
+        <td>Hasta 354.890.000 Gs</td>
+        <td>Clausura temporal, exclusion de licitaciones</td>
+      </tr>
+      <tr>
+        <td>Transmision fuera de 72 hs</td>
+        <td><strong style="color: #FFC402;">Media</strong></td>
+        <td>50.000 - 3.500.000 Gs</td>
+        <td>Rechazo del DTE</td>
+      </tr>
+      <tr>
+        <td>XML invalido (errores recurrentes)</td>
+        <td><strong style="color: #FFC402;">Media</strong></td>
+        <td>50.000 - 3.500.000 Gs</td>
+        <td>Documentos sin validez fiscal</td>
+      </tr>
+      <tr>
+        <td>Certificado digital vencido</td>
+        <td><strong style="color: #e05555;">Grave</strong></td>
+        <td>Hasta 354.890.000 Gs</td>
+        <td>Imposibilidad de emitir DTE</td>
+      </tr>
+      <tr>
+        <td>No conservar registros (5 anhos)</td>
+        <td><strong style="color: #FFC402;">Media</strong></td>
+        <td>50.000 - 3.500.000 Gs</td>
+        <td>Presuncion de irregularidad en auditoria</td>
+      </tr>
+      <tr>
+        <td>Reincidencia en cualquier infraccion</td>
+        <td><strong style="color: #e05555;">Grave</strong></td>
+        <td>Doble de la multa anterior</td>
+        <td>Clausura definitiva posible</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box">
+    <p><strong>Nota importante:</strong> los montos de multa se expresan en jornales minimos, que se ajustan periodicamente. Los valores en guaranies indicados en esta tabla corresponden a los jornales vigentes en 2026. Verificar siempre el jornal minimo actualizado al momento de la consulta.</p>
+  </div>
+
+  <!-- SECTION: DNIT AUDIT -->
+  <h2>La DNIT fiscaliza en serio: los numeros de 2025</h2>
+
+  <p>Una pregunta que muchos contribuyentes se hacen: la DNIT realmente fiscaliza, o estas normas son solo teoria? Los datos de 2025 responden claramente.</p>
+
+  <p>Durante 2025, la DNIT ejecuto <strong>21.377 procedimientos de control</strong> y <strong>431 auditorias fiscales</strong> completas. No son numeros menores. Los procedimientos de control incluyen verificaciones de emision, cruces de datos entre compradores y vendedores, y controles automatizados sobre la transmision de DTE al SIFEN.</p>
+
+  <p>Las auditorias fiscales son mas exhaustivas: revisan periodos completos, comparan declaraciones juradas con documentos emitidos, y verifican la coherencia entre lo reportado y lo registrado en el sistema electronico. Con el SIFEN, la DNIT tiene acceso directo a cada DTE emitido. El cruce de datos es automatico.</p>
+
+  <div class="highlight-box">
+    <p><strong>Dato clave:</strong> la diferencia entre fiscalizacion con papel y fiscalizacion con SIFEN es que el sistema electronico permite controles masivos automatizados. La DNIT ya no necesita visitar cada negocio. Puede detectar inconsistencias a escala desde sus servidores.</p>
+  </div>
+
+  <!-- SECTION: ESCALATION -->
+  <h2>Como escalan las penalidades para reincidentes</h2>
+
+  <p>El regimen tributario paraguayo contempla un esquema progresivo para los infractores reincidentes. No es lo mismo cometer una infraccion por primera vez que repetirla.</p>
+
+  <div class="flow-steps">
+    <div class="flow-step">
+      <div class="flow-step-number">1</div>
+      <div class="flow-step-content">
+        <h4>Primera infraccion</h4>
+        <p>Se aplica la multa base segun el tipo de infraccion. En muchos casos, si el contribuyente regulariza su situacion antes de la resolucion del procedimiento, puede obtener una reduccion del monto.</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-step-number">2</div>
+      <div class="flow-step-content">
+        <h4>Segunda infraccion (mismo tipo)</h4>
+        <p>La multa se duplica respecto a la primera sancion. Si la primera fue de 1.500.000 Gs, la segunda parte de 3.000.000 Gs. El mensaje es claro: corregir a tiempo.</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-step-number">3</div>
+      <div class="flow-step-content">
+        <h4>Tercera infraccion y siguientes</h4>
+        <p>Ademas de la multa incrementada, la DNIT puede disponer la <strong>clausura temporal del establecimiento</strong> (3 a 10 dias habiles). En casos extremos, la clausura puede ser definitiva. Tambien puede suspender la habilitacion para emitir DTE, lo que paraliza la operacion comercial.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: STATE SUPPLIERS -->
+  <h2>Proveedores del Estado: obligacion reforzada (Res. DNIT 41/2025)</h2>
+
+  <p>Desde el <strong>2 de enero de 2026</strong>, la Resolucion DNIT 41/2025 establece que todos los proveedores, contratistas y consultores del Estado paraguayo deben emitir DTE para documentar sus operaciones con entidades publicas. No hay excepciones por tamano o volumen de facturacion.</p>
+
+  <p>Para estos contribuyentes, las consecuencias del incumplimiento van mas alla de las multas tributarias:</p>
+
+  <ul>
+    <li><strong>Exclusion de licitaciones:</strong> no estar habilitado para emitir DTE impide participar en procesos de contratacion publica.</li>
+    <li><strong>Rechazo de facturas:</strong> las entidades del Estado no pueden aceptar comprobantes que no sean DTE validos, lo que implica que el proveedor no cobra.</li>
+    <li><strong>Inhabilitacion en el SICP:</strong> el Sistema de Informacion de Contrataciones Publicas puede registrar el incumplimiento, afectando la reputacion comercial del proveedor.</li>
+  </ul>
+
+  <p>Si tu estudio contable tiene clientes que son proveedores del Estado, este es el punto mas urgente. No se trata de una fecha futura: la obligacion ya esta vigente. Para conocer las fechas de los demas grupos, consulta el <a href="https://fakturas.app/blog/calendario-sifen-2026">calendario SIFEN 2026</a>.</p>
+
+  <!-- MYTHS -->
+  <h2>Mitos sobre las multas del SIFEN</h2>
+
+  <div class="myth-card">
+    <span class="myth-label">Mito</span>
+    <h4>"Si estoy en un grupo que todavia no es obligatorio, no me pueden multar"</h4>
+    <p><strong>Realidad:</strong> es cierto que no te multan por no emitir DTE si tu grupo aun no fue convocado. Pero si ya adheriste voluntariamente al SIFEN, tenes que cumplir con todas las obligaciones desde el momento de la adhesion. Y si tus proveedores ya emiten DTE, necesitas poder procesar esos documentos correctamente.</p>
+  </div>
+
+  <div class="myth-card">
+    <span class="myth-label">Mito</span>
+    <h4>"Las multas son solo para empresas grandes"</h4>
+    <p><strong>Realidad:</strong> el regimen sancionatorio se aplica a todos los contribuyentes obligados, independientemente de su tamano. Un pequeno comerciante que no emite DTE estando en un grupo obligado se expone a las mismas categorias de infraccion. Lo que varia es el monto final, que depende del volumen de operaciones.</p>
+  </div>
+
+  <div class="myth-card">
+    <span class="myth-label">Mito</span>
+    <h4>"Si transmito tarde pero antes de que me fiscalicen, no pasa nada"</h4>
+    <p><strong>Realidad:</strong> el SIFEN registra automaticamente la fecha y hora de cada transmision. Si transmitiste fuera de las 72 horas, quedo registrado en el sistema, independientemente de si te fiscalizan o no en ese momento. Esa informacion puede usarse en una auditoria futura.</p>
+  </div>
+
+  <!-- SECTION: HOW TO GET COMPLIANT -->
+  <h2>Como ponerse en regla antes de la fiscalizacion</h2>
+
+  <p>La buena noticia: la DNIT generalmente prioriza la regularizacion sobre la sancion, especialmente en las primeras etapas de implementacion. Pero eso no va a durar para siempre. Para saber si tu grupo ya esta obligado, revisa <a href="https://fakturas.app/blog/como-saber-grupo-sifen">como saber en que grupo SIFEN estas</a>.</p>
+
+  <div class="numbered-tip">
+    <div class="num">1</div>
+    <div class="tip-content">
+      <h4>Verifica tu grupo y fecha limite</h4>
+      <p>Entra al Buzon Tributario Marandu con tu RUC y verificar si estas incluido en alguno de los grupos obligatorios (11 a 18). Si ya paso tu fecha limite, necesitas actuar inmediatamente.</p>
+    </div>
+  </div>
+
+  <div class="numbered-tip">
+    <div class="num">2</div>
+    <div class="tip-content">
+      <h4>Obtene o renova tu certificado digital</h4>
+      <p>Sin certificado digital vigente, no podes firmar DTE. El tramite puede demorar dias, asi que no lo dejes para ultimo momento. Verificar la fecha de vencimiento de tu certificado actual es un control basico que deberia hacerse trimestralmente.</p>
+    </div>
+  </div>
+
+  <div class="numbered-tip">
+    <div class="num">3</div>
+    <div class="tip-content">
+      <h4>Elegir e implementar un software certificado</h4>
+      <p>La emision de DTE requiere un software homologado por la DNIT. Las opciones van desde la plataforma gratuita <strong>e-Kuatia'i</strong> (para pequenos contribuyentes) hasta soluciones como <strong>e-Kuatia</strong> con integracion via API para operaciones de mayor volumen.</p>
+    </div>
+  </div>
+
+  <div class="numbered-tip">
+    <div class="num">4</div>
+    <div class="tip-content">
+      <h4>Hacer pruebas en el ambiente de test del SIFEN</h4>
+      <p>La DNIT ofrece un ambiente de pruebas donde podes enviar DTE de prueba sin consecuencias fiscales. Usalo. Es mejor descubrir errores de XML en el ambiente de test que en produccion, donde un documento rechazado tiene implicancias reales.</p>
+    </div>
+  </div>
+
+  <div class="numbered-tip">
+    <div class="num">5</div>
+    <div class="tip-content">
+      <h4>Organiza la recepcion de facturas de tus proveedores</h4>
+      <p>Aunque no emitas DTE, vas a recibirlos de tus proveedores. Necesitas un sistema para procesar esos documentos, verificar su validez, y registrar los creditos fiscales correctamente. Si manejas multiples clientes, una herramienta como <a href="https://fakturas.app">Fakturas.app</a> simplifica ese procesamiento.</p>
+    </div>
+  </div>
+
+  <!-- FAQ SECTION -->
+  <h2 class="faq-section">Preguntas frecuentes</h2>
+
+  <div class="faq-item">
+    <div class="faq-question">Que pasa si no emito factura electronica estando obligado?</div>
+    <div class="faq-answer">La DNIT puede aplicar multas que van desde 50.000 Gs hasta 354.890.000 Gs dependiendo de la gravedad. No emitir DTE estando en un grupo obligado se considera una infraccion grave que puede derivar en clausura temporal del establecimiento.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">Cuanto tiempo tengo para transmitir un DTE al SIFEN?</div>
+    <div class="faq-answer">El plazo maximo es de 72 horas desde la emision del documento. Si se transmite fuera de plazo, el documento puede ser rechazado y el contribuyente se expone a sanciones por transmision extemporanea.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">La DNIT realmente fiscaliza el cumplimiento del SIFEN?</div>
+    <div class="faq-answer">Si. En 2025, la DNIT realizo 21.377 procedimientos de control y 431 auditorias fiscales. La fiscalizacion se intensifica cada anho a medida que mas grupos ingresan al SIFEN.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">Puedo regularizarme si ya estoy en infraccion?</div>
+    <div class="faq-answer">Si. La DNIT permite la regularizacion voluntaria antes de que se inicie un procedimiento formal. En muchos casos, regularizarse a tiempo evita multas o reduce significativamente el monto. Lo importante es no esperar a que llegue la notificacion.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">Los proveedores del Estado tienen reglas distintas?</div>
+    <div class="faq-answer">Si. Desde el 2 de enero de 2026, la Resolucion DNIT 41/2025 obliga a todos los proveedores, contratistas y consultores del Estado a emitir DTE. No cumplir puede significar la exclusion de licitaciones y contratos publicos ademas de las multas tributarias.</div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <p><strong>No emitimos DTE, pero te ayudamos a procesar los que recibis.</strong> Si tu estudio contable necesita organizar y exportar las facturas electronicas de tus clientes, proba Fakturas.app gratis con hasta 10 contribuyentes.</p>
+    <a href="https://fakturas.app#pricing" class="btn-primary">Probar gratis</a>
+  </div>
+
+  <!-- RELATED ARTICLES -->
+  <div class="related-articles">
+    <h3>Articulos relacionados</h3>
+    <ul>
+      <li><a href="https://fakturas.app/blog/calendario-sifen-2026">Calendario SIFEN 2026: fechas de obligatoriedad por grupo</a></li>
+      <li><a href="https://fakturas.app/blog/como-saber-grupo-sifen">Como saber en que grupo SIFEN estas</a></li>
+      <li><a href="https://fakturas.app/blog/que-es-facturacion-electronica-paraguay">Que es la facturacion electronica en Paraguay</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="https://fakturas.app" class="logo">fakturas<span>.</span>app</a>
+  <p>&copy; 2026 Fakturas.app — Hecho para contadores en Paraguay</p>
+</footer>
+
+</body>
+</html>

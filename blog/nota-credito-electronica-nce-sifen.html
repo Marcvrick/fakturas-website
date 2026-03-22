@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Como emitir una Nota de Credito Electronica (NCE) en el SIFEN</title>
+<meta name="description" content="Guia paso a paso para emitir una Nota de Credito Electronica (NCE) en el SIFEN. Cuando usarla, campos requeridos, estructura XML y errores comunes.">
+<meta name="keywords" content="nota de credito electronica, NCE SIFEN, anular factura electronica Paraguay, credito fiscal, DTE Paraguay">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fakturas.app/blog/nota-credito-electronica-nce-sifen">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://fakturas.app/blog/nota-credito-electronica-nce-sifen">
+<meta property="og:title" content="Como emitir una Nota de Credito Electronica (NCE) en el SIFEN">
+<meta property="og:description" content="Guia paso a paso para emitir una NCE en Paraguay. Cuando usarla, campos obligatorios, estructura XML y como evitar rechazos.">
+<meta property="og:site_name" content="Fakturas.app">
+<meta property="og:locale" content="es_PY">
+<meta property="article:published_time" content="2026-03-22">
+<meta property="article:author" content="Fakturas.app">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Como emitir una Nota de Credito Electronica (NCE) en el SIFEN">
+<meta name="twitter:description" content="Guia paso a paso para emitir una NCE en Paraguay. Campos obligatorios, estructura XML y errores comunes.">
+
+<!-- Article Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Como emitir una Nota de Credito Electronica (NCE) en el SIFEN",
+  "description": "Guia paso a paso para emitir una Nota de Credito Electronica (NCE) en el SIFEN. Cuando usarla, campos requeridos, estructura XML y errores comunes.",
+  "url": "https://fakturas.app/blog/nota-credito-electronica-nce-sifen",
+  "datePublished": "2026-03-22",
+  "dateModified": "2026-03-22",
+  "author": {"@type": "Organization", "name": "Fakturas.app", "url": "https://fakturas.app"},
+  "publisher": {"@type": "Organization", "name": "Fakturas.app", "url": "https://fakturas.app"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://fakturas.app/blog/nota-credito-electronica-nce-sifen"},
+  "inLanguage": "es",
+  "keywords": ["nota de credito electronica", "NCE SIFEN", "anular factura electronica", "credito fiscal Paraguay"]
+}
+</script>
+
+<!-- FAQPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Se puede anular una factura electronica en el SIFEN?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Los DTE en el SIFEN son inmutables: una vez aprobados, no se pueden eliminar ni modificar. Para corregir o anular una factura electronica, hay que emitir una Nota de Credito Electronica (NCE) que referencia el CDC de la factura original."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Que datos necesito para emitir una NCE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Necesitas el CDC (Codigo de Control) de la factura original, el motivo de la nota de credito (devolucion, descuento, error de precio, anulacion), los montos a acreditar, y los datos del receptor que coincidan con la factura original."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuanto tiempo tengo para emitir una NCE despues de detectar un error?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No hay un plazo legal estricto para emitir la NCE desde la deteccion del error. Sin embargo, la NCE debe transmitirse al SIFEN dentro de las 72 horas de su emision, igual que cualquier DTE. Lo recomendable es emitirla lo antes posible para mantener los registros contables al dia."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Una NCE afecta el credito fiscal del comprador?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Si. La NCE reduce el credito fiscal IVA del receptor en el monto acreditado. Si la factura original generaba credito fiscal, la NCE lo disminuye proporcionalmente. El receptor debe ajustar su liquidacion de IVA en el periodo correspondiente."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Puedo emitir una NCE parcial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Si. La NCE puede ser por el total de la factura original (anulacion completa) o por un monto parcial (devolucion de algunos items, descuento posterior, correccion de precio en un solo producto). El monto de la NCE no puede exceder el monto de la factura original."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --emerald: #4edea3;
+  --emerald-dark: #003824;
+  --emerald-hover: #10b981;
+  --blue: #005BE2;
+  --gold: #FFC402;
+  --navy: #0d1321;
+  --navy-light: #191f2e;
+  --bg: #f8faf9;
+  --white: #ffffff;
+  --text: #1a1a2e;
+  --text-secondary: #5a6577;
+  --text-muted: #8b95a5;
+  --border: #e2e8f0;
+  --surface: #f1f5f3;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border);
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.5px;
+  text-decoration: none;
+}
+.logo span { color: var(--emerald); }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--text); font-weight: 600; }
+.nav-cta {
+  background: var(--emerald) !important;
+  color: var(--emerald-dark) !important;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-weight: 600 !important;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--emerald-hover) !important; }
+
+/* FOOTER */
+footer {
+  padding: 40px 60px;
+  background: var(--navy);
+  border-top: 1px solid #242a39;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer p {
+  color: #5a6577;
+  font-size: 0.8rem;
+}
+footer .logo { color: #fff; }
+footer .logo span { color: var(--emerald); }
+
+/* BREADCRUMBS */
+.breadcrumbs {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 24px 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.breadcrumbs a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+.breadcrumbs a:hover { color: var(--emerald-hover); }
+.breadcrumbs span { margin: 0 6px; }
+
+/* BLOG ARTICLE */
+.article-header {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 24px 0;
+}
+.article-header h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.article-meta {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.article-meta .tag {
+  background: var(--surface);
+  color: var(--emerald-hover);
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+.chapeau {
+  max-width: 736px;
+  margin: 0 auto;
+  padding: 20px 24px 0;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  border-left: 3px solid var(--emerald);
+  padding-left: 20px;
+}
+
+.article-body {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 24px 60px;
+}
+.article-body h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 48px;
+  margin-bottom: 16px;
+  letter-spacing: -0.3px;
+}
+.article-body h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 32px;
+  margin-bottom: 12px;
+}
+.article-body p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+.article-body ul, .article-body ol {
+  margin-bottom: 16px;
+  padding-left: 24px;
+}
+.article-body li {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+.article-body strong { color: var(--text); }
+.article-body a {
+  color: var(--emerald-hover);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.article-body a:hover { color: var(--text); }
+
+/* HIGHLIGHT BOX */
+.highlight-box {
+  background: var(--surface);
+  border-left: 4px solid var(--emerald);
+  border-radius: 0 12px 12px 0;
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+.highlight-box p {
+  margin-bottom: 8px;
+}
+.highlight-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* DEFINITION BLOCK */
+.definition-block {
+  background: #0a0f1a;
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin: 24px 0;
+}
+.definition-block h4 {
+  color: var(--emerald);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+.definition-block p {
+  color: #c8cdd5;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+.definition-block p:last-child { margin-bottom: 0; }
+.definition-block strong { color: #fff; }
+
+/* FLOW STEPS */
+.flow-steps {
+  margin: 32px 0;
+}
+.flow-step {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  align-items: flex-start;
+}
+.flow-step-number {
+  min-width: 36px;
+  height: 36px;
+  background: var(--emerald);
+  color: var(--emerald-dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.flow-step-content h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.flow-step-content p {
+  margin-bottom: 0;
+}
+
+/* GLOSSARY TABLE */
+.glossary-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.glossary-table thead th {
+  background: var(--navy);
+  color: #fff;
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.glossary-table tbody td {
+  padding: 12px 16px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+}
+.glossary-table tbody tr:nth-child(even) {
+  background: var(--surface);
+}
+.glossary-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* SVG ILLUSTRATION */
+.article-illustration {
+  margin: 32px 0;
+  text-align: center;
+}
+.article-illustration svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* KEY TERMS BOX */
+.key-terms {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 24px 0;
+}
+.key-terms h3 {
+  margin-top: 0;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--emerald-hover);
+  margin-bottom: 12px;
+}
+.key-terms dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px 16px;
+}
+.key-terms dt {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+.key-terms dd {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* FAQ SECTION */
+.faq-section {
+  margin-top: 48px;
+}
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  padding: 20px 0;
+}
+.faq-item:first-child { border-top: 1px solid var(--border); }
+.faq-question {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.faq-answer {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* CTA BOX */
+.cta-box {
+  background: var(--surface);
+  border: 2px solid var(--emerald);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  margin: 48px 0 0;
+}
+.cta-box p {
+  font-size: 1.05rem;
+  color: var(--text);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.btn-primary {
+  display: inline-block;
+  background: var(--emerald);
+  color: var(--emerald-dark);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-primary:hover { background: var(--emerald-hover); color: #fff; }
+
+/* RELATED ARTICLES */
+.related-articles {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+.related-articles h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+.related-articles ul {
+  list-style: none;
+  padding: 0;
+}
+.related-articles li {
+  margin-bottom: 10px;
+}
+.related-articles a {
+  font-size: 0.95rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .article-header { padding: 24px 20px 0; }
+  .article-header h1 { font-size: 1.8rem; }
+  .article-body { padding: 0 20px 40px; }
+  footer { flex-direction: column; gap: 12px; padding: 30px 24px; }
+  .glossary-table { font-size: 0.8rem; }
+  .glossary-table thead th, .glossary-table tbody td { padding: 8px 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://fakturas.app" class="logo">fakturas<span>.</span>app</a>
+  <div class="nav-links">
+    <a href="https://fakturas.app#features">Funciones</a>
+    <a href="https://fakturas.app#how-it-works">Como funciona</a>
+    <a href="https://fakturas.app#pricing">Precios</a>
+    <a href="https://fakturas.app/blog/" class="active">Blog</a>
+    <a href="https://fakturas.app#cta">Contacto</a>
+    <a href="https://fakturas.app#pricing" class="nav-cta">Empezar gratis</a>
+  </div>
+</nav>
+
+<!-- BREADCRUMBS -->
+<div class="breadcrumbs">
+  <a href="https://fakturas.app">Inicio</a>
+  <span>&rsaquo;</span>
+  <a href="https://fakturas.app/blog/">Blog</a>
+  <span>&rsaquo;</span>
+  Nota de Credito Electronica (NCE) en el SIFEN
+</div>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header">
+  <div class="article-meta">
+    <span class="tag">SIFEN</span>
+    <time datetime="2026-03-22">22 marzo 2026</time>
+    <span>&middot;</span>
+    <span>10 min de lectura</span>
+  </div>
+  <h1>Como emitir una Nota de Credito Electronica (NCE) en el SIFEN</h1>
+</div>
+
+<!-- CHAPEAU -->
+<div class="chapeau">
+  En el SIFEN, las facturas electronicas son inmutables. Una vez aprobadas por la DNIT, no se pueden borrar, modificar ni "anular" como se hacia con las facturas preimpresas. Si cometiste un error de precio, tu cliente devolvio mercaderia, o necesitas cancelar una operacion, el unico camino es emitir una Nota de Credito Electronica (NCE). Esta guia explica cuando usarla, que campos son obligatorios, y como evitar que el SIFEN la rechace.
+</div>
+
+<!-- SVG ILLUSTRATION -->
+<div class="article-illustration">
+  <svg viewBox="0 0 720 260" xmlns="http://www.w3.org/2000/svg" style="max-width: 720px; width: 100%;">
+    <!-- Background -->
+    <rect width="720" height="260" rx="16" fill="#0a0f1a"/>
+
+    <!-- Left: Factura original (error state) -->
+    <rect x="40" y="40" width="160" height="180" rx="10" fill="#1a2030" stroke="#e74c5a" stroke-width="2"/>
+    <text x="120" y="70" text-anchor="middle" fill="#e74c5a" font-family="Inter, sans-serif" font-size="11" font-weight="700">FACTURA ORIGINAL</text>
+    <text x="120" y="90" text-anchor="middle" fill="#e74c5a" font-family="Inter, sans-serif" font-size="10">(DTE)</text>
+    <rect x="60" y="105" width="120" height="8" rx="3" fill="#2a3040"/>
+    <rect x="60" y="120" width="90" height="8" rx="3" fill="#2a3040"/>
+    <rect x="60" y="135" width="105" height="8" rx="3" fill="#2a3040"/>
+    <rect x="60" y="155" width="120" height="8" rx="3" fill="#2a3040"/>
+    <!-- X mark -->
+    <line x1="145" y1="170" x2="175" y2="200" stroke="#e74c5a" stroke-width="3" stroke-linecap="round"/>
+    <line x1="175" y1="170" x2="145" y2="200" stroke="#e74c5a" stroke-width="3" stroke-linecap="round"/>
+    <text x="120" y="210" text-anchor="middle" fill="#e74c5a" font-family="Inter, sans-serif" font-size="9" font-weight="600">ERROR DETECTADO</text>
+
+    <!-- Arrow 1: Error detected -->
+    <line x1="215" y1="130" x2="265" y2="130" stroke="#5a6577" stroke-width="2" stroke-dasharray="6,4"/>
+    <polygon points="265,124 280,130 265,136" fill="#5a6577"/>
+    <text x="248" y="118" text-anchor="middle" fill="#8b95a5" font-family="Inter, sans-serif" font-size="9">Error</text>
+
+    <!-- Center: NCE creation -->
+    <rect x="285" y="40" width="160" height="180" rx="10" fill="#0a2918" stroke="#4edea3" stroke-width="2"/>
+    <text x="365" y="70" text-anchor="middle" fill="#4edea3" font-family="Inter, sans-serif" font-size="11" font-weight="700">NOTA DE CREDITO</text>
+    <text x="365" y="90" text-anchor="middle" fill="#4edea3" font-family="Inter, sans-serif" font-size="10">(NCE)</text>
+    <text x="365" y="115" text-anchor="middle" fill="#8b95a5" font-family="Inter, sans-serif" font-size="9">Ref: CDC original</text>
+    <rect x="305" y="125" width="120" height="8" rx="3" fill="#143d28"/>
+    <rect x="305" y="140" width="90" height="8" rx="3" fill="#143d28"/>
+    <rect x="305" y="155" width="105" height="8" rx="3" fill="#143d28"/>
+    <!-- Checkmark -->
+    <circle cx="365" cy="190" r="16" fill="none" stroke="#4edea3" stroke-width="2"/>
+    <polyline points="355,190 362,197 377,183" fill="none" stroke="#4edea3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="365" y="218" text-anchor="middle" fill="#4edea3" font-family="Inter, sans-serif" font-size="9" font-weight="600">NCE CREADA</text>
+
+    <!-- Arrow 2: Send to SIFEN -->
+    <line x1="460" y1="130" x2="510" y2="130" stroke="#4edea3" stroke-width="2"/>
+    <polygon points="510,124 525,130 510,136" fill="#4edea3"/>
+    <text x="492" y="118" text-anchor="middle" fill="#4edea3" font-family="Inter, sans-serif" font-size="9">Envio</text>
+
+    <!-- Right: SIFEN validation -->
+    <rect x="530" y="50" width="150" height="100" rx="10" fill="#1a2030" stroke="#005BE2" stroke-width="2"/>
+    <text x="605" y="80" text-anchor="middle" fill="#005BE2" font-family="Inter, sans-serif" font-size="12" font-weight="700">SIFEN</text>
+    <text x="605" y="100" text-anchor="middle" fill="#8b95a5" font-family="Inter, sans-serif" font-size="9">Validacion</text>
+    <text x="605" y="115" text-anchor="middle" fill="#8b95a5" font-family="Inter, sans-serif" font-size="9">automatica</text>
+    <text x="605" y="135" text-anchor="middle" fill="#4edea3" font-family="Inter, sans-serif" font-size="10" font-weight="600">Aprobado</text>
+
+    <!-- Result arrow -->
+    <line x1="605" y1="155" x2="605" y2="190" stroke="#4edea3" stroke-width="2"/>
+    <polygon points="599,190 605,205 611,190" fill="#4edea3"/>
+
+    <!-- Result -->
+    <rect x="530" y="205" width="150" height="30" rx="8" fill="#0a2918" stroke="#4edea3" stroke-width="1.5"/>
+    <text x="605" y="225" text-anchor="middle" fill="#4edea3" font-family="Inter, sans-serif" font-size="10" font-weight="600">DTE ANULADO</text>
+
+    <!-- Bottom flow labels -->
+    <text x="360" y="250" text-anchor="middle" fill="#5a6577" font-family="Inter, sans-serif" font-size="9">Error detectado  &#8594;  NCE creada  &#8594;  Enviada al SIFEN  &#8594;  Factura original anulada</text>
+  </svg>
+</div>
+
+<!-- ARTICLE BODY -->
+<div class="article-body">
+
+  <h2>Por que no podes simplemente "borrar" una factura electronica</h2>
+
+  <p>Si alguna vez anulaste una factura preimpresa tachando el original y escribiendo "ANULADO", olvida ese mecanismo. En el <a href="https://fakturas.app/blog/que-es-facturacion-electronica-paraguay">sistema de facturacion electronica (SIFEN)</a>, cada Documento Tributario Electronico (DTE) que pasa la validacion queda registrado de forma permanente en los servidores de la DNIT. Es un registro inmutable.</p>
+
+  <p>Este principio de inmutabilidad existe por una razon: garantiza la trazabilidad fiscal completa. Si cualquier contribuyente pudiera eliminar facturas ya validadas, se perderia la cadena de control que sustenta todo el sistema tributario electronico. Cada DTE aprobado tiene un CDC (Codigo de Control) unico que lo identifica para siempre.</p>
+
+  <div class="definition-block">
+    <h4>Principio de inmutabilidad del SIFEN</h4>
+    <p>Una vez que un DTE es aprobado por el SIFEN, <strong>no se puede modificar, eliminar ni invalidar directamente</strong>. La unica forma de corregir o anular sus efectos fiscales es emitir un documento complementario: la Nota de Credito Electronica (NCE) o la Nota de Debito Electronica (NDE).</p>
+  </div>
+
+  <p>Esto significa que si facturaste un precio incorrecto, si tu cliente devolvio productos, o si necesitas cancelar una operacion completa, el procedimiento siempre es el mismo: emitir una NCE que referencia la factura original.</p>
+
+  <h2>Cuando emitir una Nota de Credito Electronica</h2>
+
+  <p>La NCE no es un documento generico. Cada emision requiere un motivo especifico que el SIFEN valida. Estos son los escenarios mas comunes en la practica contable paraguaya:</p>
+
+  <h3>1. Error de precio o cantidad</h3>
+  <p>Facturaste un producto a Gs. 150.000 cuando el precio acordado era Gs. 120.000. O pusiste 10 unidades en vez de 8. En ambos casos, la NCE corrige la diferencia. Podes emitir una NCE parcial por los Gs. 30.000 de diferencia (o por las 2 unidades de mas) sin anular toda la factura.</p>
+
+  <h3>2. Devolucion de mercaderia</h3>
+  <p>Tu cliente compro 50 unidades de un producto y devuelve 15 por defecto de fabrica. La NCE cubre el monto correspondiente a las 15 unidades devueltas. Necesitas documentar la razon (devolucion) y referenciar el CDC de la factura original.</p>
+
+  <h3>3. Descuento posterior a la venta</h3>
+  <p>Si otorgas un descuento comercial que no figuraba en la factura original (por ejemplo, un descuento por volumen que se aplica al final del mes), la NCE es el mecanismo para reflejarlo fiscalmente.</p>
+
+  <h3>4. Anulacion completa de la operacion</h3>
+  <p>La venta se cayo. El cliente cancelo el pedido. El servicio no se presto. En este caso, la NCE se emite por el 100% del monto de la factura original. Es lo mas parecido a "anular" una factura, pero formalmente es un documento nuevo que neutraliza los efectos fiscales del primero.</p>
+
+  <h3>5. Error en los datos del receptor</h3>
+  <p>Si emitiste la factura con un RUC equivocado o datos incorrectos del receptor, necesitas emitir una NCE por el total para anular esa factura y luego emitir una nueva factura con los datos correctos. Son dos operaciones: NCE + nueva factura.</p>
+
+  <div class="highlight-box">
+    <p><strong>Regla practica:</strong> si el error no afecta el monto ni el credito fiscal (por ejemplo, un error en la descripcion de un servicio que no cambia el importe), consulta con la DNIT antes de emitir una NCE. Algunos errores menores no requieren correccion fiscal.</p>
+  </div>
+
+  <h2>Campos obligatorios de una NCE</h2>
+
+  <p>La NCE es un tipo de DTE con requisitos especificos. Ademas de los campos estandar de cualquier documento electronico, la NCE necesita datos que la vinculan a la factura original.</p>
+
+  <table class="glossary-table">
+    <thead>
+      <tr>
+        <th>Campo</th>
+        <th>Descripcion</th>
+        <th>Ejemplo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>iTiDE (Tipo de DTE)</strong></td>
+        <td>Debe ser 5 (Nota de Credito Electronica)</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><strong>dMotEmi (Motivo de emision)</strong></td>
+        <td>Codigo del motivo: 1=Devolucion, 2=Descuento, 3=Ajuste de precio, 4=Anulacion</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td><strong>CDC referenciado</strong></td>
+        <td>Codigo de Control de la factura original (44 caracteres)</td>
+        <td>01800695631001...</td>
+      </tr>
+      <tr>
+        <td><strong>dNumTimDI</strong></td>
+        <td>Numero de timbrado del DTE referenciado</td>
+        <td>17859432</td>
+      </tr>
+      <tr>
+        <td><strong>dEst / dPunExp / dNumDoc</strong></td>
+        <td>Establecimiento, punto de expedicion y numero del DTE original</td>
+        <td>001-001-0000045</td>
+      </tr>
+      <tr>
+        <td><strong>dFecEmiDI</strong></td>
+        <td>Fecha de emision del DTE referenciado</td>
+        <td>2026-03-15</td>
+      </tr>
+      <tr>
+        <td><strong>Datos del receptor</strong></td>
+        <td>Deben coincidir con los de la factura original</td>
+        <td>RUC, nombre, direccion</td>
+      </tr>
+      <tr>
+        <td><strong>Montos</strong></td>
+        <td>Subtotal, IVA y total de la nota de credito. No pueden exceder los de la factura original</td>
+        <td>Gs. 500.000</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Estructura XML: diferencias con una factura normal</h2>
+
+  <p>Si ya emitis facturas electronicas, la estructura XML de una NCE te va a resultar familiar. La base es la misma (grupo gTimb, gDatGralOpe, gDtipDE, etc.), pero hay diferencias clave:</p>
+
+  <div class="highlight-box">
+    <p><strong>El grupo gCamNCDE</strong> es exclusivo de las notas de credito. Aca van los datos de referencia al documento original: el CDC, el motivo de emision, el timbrado referenciado. Sin este grupo, el XML sera rechazado.</p>
+    <p><strong>El iTiDE cambia a 5.</strong> En una factura normal es 1 (Factura Electronica). En la NCE es 5. Este campo determina como el SIFEN procesa el documento y sus efectos fiscales.</p>
+    <p><strong>Los items deben corresponder</strong> a los de la factura original. Si la NCE es parcial, solo incluís los items que se acreditan. Si es total, deben coincidir todos los items y montos.</p>
+  </div>
+
+  <p>La firma digital, el timbrado y el CSC funcionan exactamente igual que en una factura. La NCE pasa por el mismo proceso de validacion: generacion del XML, firma con certificado digital, envio al SIFEN, y recepcion de la respuesta (aprobacion o rechazo).</p>
+
+  <h2>Paso a paso: emitir una NCE</h2>
+
+  <p>El proceso completo, desde la deteccion del error hasta la confirmacion del SIFEN:</p>
+
+  <div class="flow-steps">
+    <div class="flow-step">
+      <div class="flow-step-number">1</div>
+      <div class="flow-step-content">
+        <h4>Identificar la factura original</h4>
+        <p>Localiza el CDC de la factura que necesitas corregir o anular. Podes encontrarlo en tu sistema de facturacion, en el KuDE (representacion impresa), o consultando en e-Kuatia con el RUC del emisor.</p>
+      </div>
+    </div>
+
+    <div class="flow-step">
+      <div class="flow-step-number">2</div>
+      <div class="flow-step-content">
+        <h4>Determinar el tipo de NCE</h4>
+        <p>Parcial (solo algunos items o diferencia de precio) o total (anulacion completa). Esto define los montos y los items que van en el XML.</p>
+      </div>
+    </div>
+
+    <div class="flow-step">
+      <div class="flow-step-number">3</div>
+      <div class="flow-step-content">
+        <h4>Generar el XML de la NCE</h4>
+        <p>Tu software de facturacion electronica debe armar el XML con iTiDE=5, el grupo gCamNCDE completo, los items correspondientes, y los montos a acreditar. El CDC de referencia es critico: un caracter mal y el SIFEN rechaza.</p>
+      </div>
+    </div>
+
+    <div class="flow-step">
+      <div class="flow-step-number">4</div>
+      <div class="flow-step-content">
+        <h4>Firmar digitalmente</h4>
+        <p>Igual que una factura, la NCE necesita firma digital con tu certificado vigente. Verifica que el certificado no este vencido antes de firmar.</p>
+      </div>
+    </div>
+
+    <div class="flow-step">
+      <div class="flow-step-number">5</div>
+      <div class="flow-step-content">
+        <h4>Transmitir al SIFEN</h4>
+        <p>Envia el XML firmado al Web Service del SIFEN (entorno de produccion). Tenes 72 horas desde la emision de la NCE para transmitirla. Si pasas ese plazo, el documento sera rechazado automaticamente.</p>
+      </div>
+    </div>
+
+    <div class="flow-step">
+      <div class="flow-step-number">6</div>
+      <div class="flow-step-content">
+        <h4>Verificar la respuesta</h4>
+        <p>El SIFEN devuelve un mensaje de aprobacion o rechazo. Si fue aprobado, la NCE genera un nuevo CDC propio. Si fue rechazado, revisa el codigo de error, corregi el problema, y reenvía.</p>
+      </div>
+    </div>
+
+    <div class="flow-step">
+      <div class="flow-step-number">7</div>
+      <div class="flow-step-content">
+        <h4>Entregar el KuDE al receptor</h4>
+        <p>Genera la representacion impresa (KuDE) de la NCE y entregala al cliente. El necesita este documento para ajustar su propio credito fiscal.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>Ejemplo practico: devolucion parcial de mercaderia</h2>
+
+  <p>Supongamos que emitiste una factura electronica (DTE) el 10 de marzo a "Distribuidora Central S.A." por la venta de 100 unidades de un producto a Gs. 50.000 cada uno. Total: Gs. 5.000.000 + IVA 10%.</p>
+
+  <p>El 18 de marzo, el cliente devuelve 20 unidades porque llegaron danadas. Necesitas emitir una NCE parcial:</p>
+
+  <ul>
+    <li><strong>iTiDE:</strong> 5 (Nota de Credito Electronica)</li>
+    <li><strong>dMotEmi:</strong> 1 (Devolucion de mercaderia)</li>
+    <li><strong>CDC referenciado:</strong> el CDC de 44 caracteres de la factura del 10 de marzo</li>
+    <li><strong>Items:</strong> 20 unidades del mismo producto a Gs. 50.000</li>
+    <li><strong>Subtotal NCE:</strong> Gs. 1.000.000</li>
+    <li><strong>IVA 10% NCE:</strong> Gs. 100.000</li>
+    <li><strong>Total NCE:</strong> Gs. 1.100.000</li>
+  </ul>
+
+  <p>Resultado fiscal: la factura original sigue existiendo en el SIFEN con su monto completo. La NCE registra el credito de Gs. 1.100.000. El efecto neto para la liquidacion de IVA del emisor: debito fiscal reducido en Gs. 100.000. Para el receptor: credito fiscal reducido en Gs. 100.000.</p>
+
+  <h2>Motivos comunes de rechazo de NCE</h2>
+
+  <p>Cuando el SIFEN rechaza una NCE, devuelve un codigo de error especifico. Estos son los mas frecuentes:</p>
+
+  <table class="glossary-table">
+    <thead>
+      <tr>
+        <th>Problema</th>
+        <th>Causa</th>
+        <th>Solucion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>CDC referenciado invalido</strong></td>
+        <td>El CDC de la factura original tiene un error tipografico o un digito verificador incorrecto</td>
+        <td>Verifica los 44 caracteres del CDC. Copia y pega desde el sistema, no lo digites manualmente</td>
+      </tr>
+      <tr>
+        <td><strong>DTE referenciado no existe</strong></td>
+        <td>La factura original no fue aprobada por el SIFEN, o el CDC corresponde a otro tipo de documento</td>
+        <td>Confirma que la factura original esta aprobada consultando en e-Kuatia</td>
+      </tr>
+      <tr>
+        <td><strong>Monto excede el original</strong></td>
+        <td>La NCE tiene un monto mayor al de la factura que referencia</td>
+        <td>Ajusta los montos. La suma de todas las NCE sobre una factura no puede exceder el monto original</td>
+      </tr>
+      <tr>
+        <td><strong>Plazo de 72 horas excedido</strong></td>
+        <td>La NCE se transmitio mas de 72 horas despues de su fecha de emision</td>
+        <td>Emiti una nueva NCE con fecha actual y transmitila dentro del plazo</td>
+      </tr>
+      <tr>
+        <td><strong>Datos del receptor no coinciden</strong></td>
+        <td>El RUC o datos del receptor en la NCE no coinciden con los de la factura original</td>
+        <td>Usa exactamente los mismos datos del receptor que figuran en la factura referenciada</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Si te encontras con errores de validacion XML mas tecnicos (campos faltantes, formato incorrecto, problemas de certificado), te recomendamos nuestra <a href="https://fakturas.app/blog/errores-comunes-sifen-soluciones">guia de errores comunes del SIFEN</a> que cubre esos casos en detalle.</p>
+
+  <h2>Implicaciones fiscales de la NCE</h2>
+
+  <p>La NCE no es solo un tramite tecnico. Tiene consecuencias directas en la liquidacion de impuestos de ambas partes:</p>
+
+  <h3>Para el emisor (vendedor)</h3>
+  <ul>
+    <li><strong>IVA Debito Fiscal:</strong> se reduce en el monto del IVA de la NCE. Si la factura original generaba Gs. 500.000 de debito y la NCE es por el total, esos Gs. 500.000 se restan de tu debito del periodo.</li>
+    <li><strong>Ingresos:</strong> la NCE disminuye los ingresos declarados en el periodo en que se emite.</li>
+    <li><strong>Libro de ventas:</strong> la NCE debe registrarse en el libro de ventas del periodo correspondiente, con signo negativo o en columna separada.</li>
+  </ul>
+
+  <h3>Para el receptor (comprador)</h3>
+  <ul>
+    <li><strong>IVA Credito Fiscal:</strong> se reduce proporcionalmente. Si usaste el credito fiscal de la factura original, debes ajustarlo con la NCE recibida.</li>
+    <li><strong>Gastos deducibles:</strong> si el gasto ya fue registrado, la NCE lo reduce en el monto correspondiente.</li>
+    <li><strong>Libro de compras:</strong> la NCE recibida se registra como reduccion del credito fiscal del periodo.</li>
+  </ul>
+
+  <div class="highlight-box">
+    <p><strong>Atencion con los periodos:</strong> la NCE afecta el periodo fiscal en que se emite, no el periodo de la factura original. Si la factura es de enero y la NCE es de marzo, el ajuste fiscal se aplica en marzo. Esto puede generar diferencias temporales que hay que documentar correctamente.</p>
+  </div>
+
+  <h2>NCE vs. NDE: cuando usar cada una</h2>
+
+  <p>La Nota de Credito Electronica (NCE) y la Nota de Debito Electronica (NDE) son documentos complementarios pero con efectos opuestos:</p>
+
+  <ul>
+    <li><strong>NCE (tipo 5):</strong> reduce el monto de la factura original. Se usa para devoluciones, descuentos, anulaciones, correcciones a favor del comprador.</li>
+    <li><strong>NDE (tipo 6):</strong> aumenta el monto de la factura original. Se usa para cargos adicionales, intereses por mora, ajustes de precio al alza.</li>
+  </ul>
+
+  <p>La estructura XML es practicamente identica. La diferencia esta en el iTiDE (5 vs 6), el grupo especifico (gCamNCDE vs gCamNDDE), y el efecto fiscal (reduccion vs aumento del debito/credito).</p>
+
+  <!-- FAQ SECTION -->
+  <h2 class="faq-section">Preguntas frecuentes</h2>
+
+  <div class="faq-item">
+    <div class="faq-question">Se puede anular una factura electronica en el SIFEN?</div>
+    <div class="faq-answer">No directamente. Los DTE aprobados son inmutables. Para anular los efectos fiscales de una factura, hay que emitir una Nota de Credito Electronica (NCE) por el monto total, referenciando el CDC de la factura original.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">Que datos necesito para emitir una NCE?</div>
+    <div class="faq-answer">El CDC (44 caracteres) de la factura original, el motivo de la nota de credito (devolucion, descuento, error de precio, anulacion), los montos a acreditar, y los datos del receptor que deben coincidir exactamente con los de la factura referenciada.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">Cuanto tiempo tengo para emitir una NCE despues de detectar un error?</div>
+    <div class="faq-answer">No hay un plazo legal estricto para emitir la NCE desde la deteccion del error. Sin embargo, una vez emitida, tenes 72 horas para transmitirla al SIFEN. Lo recomendable es emitirla lo antes posible para mantener los registros contables actualizados.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">Una NCE afecta el credito fiscal del comprador?</div>
+    <div class="faq-answer">Si. La NCE reduce el credito fiscal IVA del receptor en el monto acreditado. El receptor debe ajustar su liquidacion de IVA en el periodo en que recibe la NCE, no en el periodo de la factura original.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">Puedo emitir una NCE parcial?</div>
+    <div class="faq-answer">Si. La NCE puede cubrir solo una parte de la factura original (algunos items, una diferencia de precio, unidades devueltas). El monto total de todas las NCE emitidas contra una misma factura no puede exceder el monto original.</div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <p>Gestionar notas de credito es mas simple cuando tus facturas ya estan organizadas. Proba Fakturas.app gratis con hasta 10 contribuyentes y simplifica tu flujo de procesamiento de facturas.</p>
+    <a href="https://fakturas.app#pricing" class="btn-primary">Probar gratis</a>
+  </div>
+
+  <!-- RELATED ARTICLES -->
+  <div class="related-articles">
+    <h3>Articulos relacionados</h3>
+    <ul>
+      <li><a href="https://fakturas.app/blog/que-es-facturacion-electronica-paraguay">Que es la facturacion electronica en Paraguay: guia completa</a></li>
+      <li><a href="https://fakturas.app/blog/errores-comunes-sifen-soluciones">Errores comunes al enviar documentos al SIFEN y como solucionarlos</a></li>
+      <li><a href="https://fakturas.app/blog/facturacion-electronica-paraguay-estudios-contables">Facturacion electronica para estudios contables en 2026</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="https://fakturas.app" class="logo">fakturas<span>.</span>app</a>
+  <p>&copy; 2026 Fakturas.app &mdash; Hecho para contadores en Paraguay</p>
+</footer>
+
+</body>
+</html>
