@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Factura virtual del SET: guia completa y como procesarlas</title>
+<meta name="description" content="Guia completa sobre la factura virtual del SET en Paraguay. Como funciona en Marangatu y Tesaka, y como procesarlas sin perder horas.">
+<meta name="keywords" content="factura virtual SET, Marangatu factura, Tesaka factura, como emitir factura virtual Paraguay, procesar facturas clientes, facturas Paraguay">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fakturas.app/blog/factura-virtual-set-guia">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://fakturas.app/blog/factura-virtual-set-guia">
+<meta property="og:title" content="Factura virtual del SET: guia completa y como procesarlas">
+<meta property="og:description" content="Guia completa sobre la factura virtual del SET en Paraguay. Como funciona en Marangatu y Tesaka, y como procesarlas sin perder horas.">
+<meta property="og:site_name" content="Fakturas.app">
+<meta property="og:locale" content="es_PY">
+<meta property="article:published_time" content="2026-03-21">
+<meta property="article:author" content="Fakturas.app">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Factura virtual del SET: guia completa y como procesarlas">
+<meta name="twitter:description" content="Guia completa sobre la factura virtual del SET en Paraguay. Como funciona, y como dejar de procesarlas a mano.">
+
+<!-- Structured Data: Article -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Factura virtual del SET: guia completa y como procesarlas sin perder horas",
+  "description": "Guia completa sobre la factura virtual del SET en Paraguay. Como funciona en Marangatu y Tesaka, y como procesarlas sin perder horas.",
+  "url": "https://fakturas.app/blog/factura-virtual-set-guia",
+  "datePublished": "2026-03-21",
+  "dateModified": "2026-03-21",
+  "author": {
+    "@type": "Organization",
+    "name": "Fakturas.app",
+    "url": "https://fakturas.app"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fakturas.app",
+    "url": "https://fakturas.app"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://fakturas.app/blog/factura-virtual-set-guia"
+  }
+}
+</script>
+
+<!-- Structured Data: HowTo -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Como generar una factura virtual en Marangatu",
+  "description": "Paso a paso para generar una factura virtual desde el portal Marangatu del SET en Paraguay.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Iniciar sesion en Marangatu",
+      "text": "Ingresa a marangatu.set.gov.py con tu RUC y clave de acceso confidencial."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Seleccionar tipo de documento",
+      "text": "En el menu de facturacion, selecciona Factura virtual y el tipo de comprobante (venta, servicio, exportacion)."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Completar datos del receptor",
+      "text": "Ingresa el RUC o CI del receptor. El sistema autocompleta la razon social si el RUC esta registrado."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Cargar detalle de la operacion",
+      "text": "Agrega los items con descripcion, cantidad, precio unitario y tasa de IVA (10%, 5% o exenta)."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Generar y descargar",
+      "text": "Confirma los datos, genera la factura y descarga el PDF con el codigo de verificacion del SET."
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --emerald: #4edea3;
+  --emerald-dark: #003824;
+  --emerald-hover: #10b981;
+  --blue: #005BE2;
+  --gold: #FFC402;
+  --navy: #0d1321;
+  --navy-light: #191f2e;
+  --bg: #f8faf9;
+  --white: #ffffff;
+  --text: #1a1a2e;
+  --text-secondary: #5a6577;
+  --text-muted: #8b95a5;
+  --border: #e2e8f0;
+  --surface: #f1f5f3;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border);
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.5px;
+  text-decoration: none;
+}
+.logo span { color: var(--emerald); }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--text); font-weight: 600; }
+.nav-cta {
+  background: var(--emerald) !important;
+  color: var(--emerald-dark) !important;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-weight: 600 !important;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--emerald-hover) !important; }
+
+/* BREADCRUMBS */
+.breadcrumbs {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 20px 24px 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.breadcrumbs a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.breadcrumbs a:hover { color: var(--emerald-hover); }
+.breadcrumbs span { margin: 0 6px; }
+
+/* ARTICLE */
+.article-header {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 24px 0;
+}
+.article-header h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.article-meta time { font-weight: 500; }
+
+.article-body {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+.article-body h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin: 48px 0 16px;
+  color: var(--text);
+}
+.article-body h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 32px 0 12px;
+  color: var(--text);
+}
+.article-body p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.article-body ul, .article-body ol {
+  margin: 0 0 20px 20px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+.article-body li {
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+.article-body strong { color: var(--text); }
+.article-body a {
+  color: var(--emerald-hover);
+  text-decoration: none;
+  font-weight: 500;
+}
+.article-body a:hover { text-decoration: underline; }
+
+/* CHAPEAU */
+.chapeau {
+  font-size: 1.1rem !important;
+  color: var(--text) !important;
+  line-height: 1.7 !important;
+  margin-bottom: 32px !important;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* HIGHLIGHT BOX */
+.highlight-box {
+  background: var(--surface);
+  border-left: 4px solid var(--emerald);
+  border-radius: 0 10px 10px 0;
+  padding: 20px 24px;
+  margin: 24px 0;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.highlight-box strong { color: var(--text); }
+
+/* KEY TERMS BOX */
+.key-terms {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 24px 0;
+  border: 1px solid var(--border);
+}
+.key-terms h4 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+.key-term-row {
+  display: flex;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+.key-term-row:last-child { border-bottom: none; }
+.key-term-label {
+  font-weight: 700;
+  color: var(--emerald-hover);
+  min-width: 120px;
+}
+.key-term-desc { color: var(--text-secondary); }
+
+/* STEPS */
+.steps-list {
+  list-style: none;
+  margin: 24px 0;
+  padding: 0;
+  counter-reset: step-counter;
+}
+.steps-list li {
+  counter-increment: step-counter;
+  position: relative;
+  padding: 16px 16px 16px 56px;
+  margin-bottom: 12px;
+  background: var(--surface);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+.steps-list li::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  width: 28px;
+  height: 28px;
+  background: var(--emerald);
+  color: var(--emerald-dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+/* SPLIT SCREEN COMPARISON */
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin: 32px 0;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.comparison-side {
+  padding: 28px 24px;
+}
+.comparison-side.manual {
+  background: #1a1012;
+}
+.comparison-side.automated {
+  background: #0a1a14;
+}
+.comparison-side h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.comparison-side.manual h4 { color: #f87171; }
+.comparison-side.automated h4 { color: var(--emerald); }
+
+.comparison-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 0.85rem;
+}
+.comparison-side.manual .comparison-step { color: #d4a0a0; }
+.comparison-side.automated .comparison-step { color: #a0d4c0; }
+
+.comparison-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.comparison-side.manual .comparison-icon { background: rgba(248,113,113,0.15); }
+.comparison-side.automated .comparison-icon { background: rgba(78,222,163,0.15); }
+
+.comparison-arrow {
+  text-align: center;
+  padding: 4px 0;
+  font-size: 0.7rem;
+  opacity: 0.5;
+}
+.comparison-side.manual .comparison-arrow { color: #f87171; }
+.comparison-side.automated .comparison-arrow { color: var(--emerald); }
+
+.comparison-result {
+  margin-top: 16px;
+  padding-top: 16px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+}
+.comparison-side.manual .comparison-result {
+  color: #f87171;
+  border-top: 1px solid rgba(248,113,113,0.2);
+}
+.comparison-side.automated .comparison-result {
+  color: var(--emerald);
+  border-top: 1px solid rgba(78,222,163,0.2);
+}
+
+.comparison-bottom {
+  grid-column: 1 / -1;
+  background: var(--navy);
+  padding: 16px 24px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.comparison-bottom strong { color: #fff; }
+
+/* THRESHOLD TABLE */
+.threshold-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.threshold-table th {
+  background: var(--navy);
+  color: #fff;
+  padding: 14px 20px;
+  text-align: left;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.threshold-table td {
+  padding: 14px 20px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+}
+.threshold-table tr:last-child td { border-bottom: none; }
+.threshold-table tr:nth-child(even) { background: var(--surface); }
+
+/* CTA BOX */
+.cta-box {
+  background: var(--navy);
+  border-radius: 14px;
+  padding: 36px;
+  text-align: center;
+  margin: 48px 0 24px;
+}
+.cta-box p {
+  color: #c9d1d9 !important;
+  font-size: 1.05rem !important;
+  margin-bottom: 20px !important;
+  line-height: 1.6 !important;
+}
+.cta-box .btn-primary {
+  display: inline-block;
+  background: var(--emerald);
+  color: var(--emerald-dark);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.cta-box .btn-primary:hover { background: var(--emerald-hover); color: #fff; }
+
+/* INTERNAL LINKS BOX */
+.related-articles {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 32px 0;
+  border: 1px solid var(--border);
+}
+.related-articles h4 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+.related-articles a {
+  display: block;
+  padding: 8px 0;
+  font-size: 0.9rem;
+  color: var(--emerald-hover);
+  text-decoration: none;
+  font-weight: 500;
+}
+.related-articles a:hover { text-decoration: underline; }
+
+/* FOOTER */
+footer {
+  padding: 40px 60px;
+  background: var(--navy);
+  border-top: 1px solid #242a39;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer p {
+  color: #5a6577;
+  font-size: 0.8rem;
+}
+footer .logo { color: #fff; }
+footer .logo span { color: var(--emerald); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .article-header { padding: 24px 20px 0; }
+  .article-header h1 { font-size: 1.8rem; }
+  .article-body { padding: 0 20px 40px; }
+  .comparison { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 12px; padding: 30px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://fakturas.app" class="logo">fakturas<span>.</span>app</a>
+  <div class="nav-links">
+    <a href="https://fakturas.app#features">Funciones</a>
+    <a href="https://fakturas.app#how-it-works">Como funciona</a>
+    <a href="https://fakturas.app#pricing">Precios</a>
+    <a href="https://fakturas.app/blog/" class="active">Blog</a>
+    <a href="https://fakturas.app#cta">Contacto</a>
+    <a href="https://fakturas.app#pricing" class="nav-cta">Empezar gratis</a>
+  </div>
+</nav>
+
+<!-- BREADCRUMBS -->
+<div class="breadcrumbs">
+  <a href="https://fakturas.app">Inicio</a>
+  <span>></span>
+  <a href="https://fakturas.app/blog/">Blog</a>
+  <span>></span>
+  Factura virtual del SET: guia completa
+</div>
+
+<!-- ARTICLE HEADER -->
+<header class="article-header">
+  <h1>Factura virtual del SET: guia completa y como procesarlas sin perder horas</h1>
+  <div class="article-meta">
+    <time datetime="2026-03-21">21 de marzo, 2026</time>
+    <span>|</span>
+    <span>8 min de lectura</span>
+    <span>|</span>
+    <span>Por Fakturas.app</span>
+  </div>
+</header>
+
+<!-- ARTICLE BODY -->
+<article class="article-body">
+
+  <!-- Chapeau -->
+  <p class="chapeau">
+    La factura virtual fue el primer paso de Paraguay hacia la digitalizacion tributaria. Si trabajas con clientes que reciben o emiten facturas virtuales, esta guia te explica que son, como funcionan en Marangatu y Tesaka, y como dejar de procesarlas a mano.
+  </p>
+
+  <!-- Section 1 -->
+  <h2>Que es una factura virtual del SET</h2>
+
+  <p>
+    La factura virtual es un documento tributario digital generado a traves del portal Marangatu o la app Tesaka de la SET (hoy DNIT). A diferencia de la factura preimpresa en papel, se crea y almacena de forma electronica, con un codigo de verificacion unico que permite validar su autenticidad ante el SET.
+  </p>
+
+  <div class="key-terms">
+    <h4>Diferencias clave</h4>
+    <div class="key-term-row">
+      <div class="key-term-label">vs. Preimpresa</div>
+      <div class="key-term-desc">La preimpresa es papel fisico con timbrado. La virtual es digital, generada en Marangatu, con clave de acceso.</div>
+    </div>
+    <div class="key-term-row">
+      <div class="key-term-label">vs. Electronica (DTE)</div>
+      <div class="key-term-desc">La electronica tiene firma digital, validacion XML en SIFEN y QR verificable. La virtual no tiene estos elementos.</div>
+    </div>
+    <div class="key-term-row">
+      <div class="key-term-label">Transicion</div>
+      <div class="key-term-desc">La virtual es el paso intermedio: preimpresa (papel) > virtual (digital manual) > electronica (SIFEN).</div>
+    </div>
+  </div>
+
+  <p>
+    Es importante entender que la factura virtual no desaparece. Para los contribuyentes no obligados a SIFEN, sigue vigente. Pero la tendencia es clara: el SET avanza hacia la facturacion electronica como estandar unico.
+  </p>
+
+
+  <!-- Section 2 -->
+  <h2>Como se genera una factura virtual</h2>
+
+  <h3>Via Marangatu (web)</h3>
+
+  <ol class="steps-list">
+    <li>Ingresa a marangatu.set.gov.py con tu RUC y clave de acceso confidencial.</li>
+    <li>En el menu de facturacion, selecciona "Factura virtual" y el tipo de comprobante.</li>
+    <li>Completa los datos del receptor: RUC o CI. El sistema autocompleta la razon social.</li>
+    <li>Carga el detalle: descripcion, cantidad, precio unitario y tasa de IVA (10%, 5% o exenta).</li>
+    <li>Confirma, genera y descarga el PDF con el codigo de verificacion.</li>
+  </ol>
+
+  <h3>Via Tesaka (app movil del SET)</h3>
+
+  <ol class="steps-list">
+    <li>Descarga Tesaka desde Google Play o App Store e inicia sesion con tu RUC.</li>
+    <li>Selecciona "Emitir factura" y completa los datos del receptor.</li>
+    <li>Agrega los items con detalle, cantidad y monto.</li>
+    <li>Genera la factura. Podes compartirla por WhatsApp o email directamente.</li>
+  </ol>
+
+  <div class="highlight-box">
+    <strong>Requisitos:</strong> RUC activo, clave de acceso confidencial vigente y timbrado habilitado. Sin estos tres elementos, el sistema no permite emitir.
+  </div>
+
+  <p>
+    <strong>Problemas comunes:</strong> Marangatu caido (especialmente cerca de vencimientos), Tesaka que no sincroniza, y el mensaje "contribuyente no habilitado" que aparece cuando el timbrado vencio o las obligaciones no estan activas.
+  </p>
+
+  <p>
+    Si emitis pocas facturas al mes, Marangatu o Tesaka funcionan. Si emitis mas de 20, el proceso manual se vuelve insostenible y vale la pena evaluar un software de facturacion.
+  </p>
+
+
+  <!-- Section 3 -->
+  <h2>La transicion: de virtual a electronica</h2>
+
+  <p>
+    Las facturas virtuales se integran progresivamente al SIFEN (Sistema Integrado de Facturacion Electronica Nacional). Para los grupos obligados por la DNIT, la factura virtual evoluciona a DTE con firma digital y QR verificable.
+  </p>
+
+  <p>
+    Para los no obligados, la virtual sigue vigente. Pero con cada resolucion nueva, mas contribuyentes entran al regimen electronico. La Resolucion DNIT 21/2024 define grupos escalonados hasta diciembre 2026.
+  </p>
+
+  <p>
+    <strong>Lo que no cambia:</strong> los campos fiscales basicos (RUC, timbrado, montos, IVA) son los mismos en cualquier formato. Lo que cambia es como se validan y como se transmiten al SET.
+  </p>
+
+  <p>
+    Si queres profundizar en como funciona SIFEN y que significa para tu practica, lee nuestra
+    <a href="https://fakturas.app/blog/que-es-facturacion-electronica-paraguay">guia completa sobre facturacion electronica en Paraguay</a>.
+  </p>
+
+
+  <!-- Section 4 -->
+  <h2>El problema del contador: procesar facturas virtuales</h2>
+
+  <p>
+    Hasta aca explicamos como se emite una factura virtual. Pero si sos contador, tu problema no es emitir. Tu problema es <strong>procesar</strong> las cientos de facturas que tus clientes reciben cada mes.
+  </p>
+
+  <p>
+    Tus clientes reciben facturas virtuales de sus proveedores. Te las mandan por WhatsApp, email, o las traen en una carpeta. Vos las abris una por una, lees los datos, los digitas en tu planilla y formateas para Marangatu.
+  </p>
+
+  <p>
+    Con 50 clientes y 10 facturas cada uno, son 500 facturas por mes. A 2-3 minutos cada una, eso equivale a 15-25 horas de pura digitacion. Un empleado a medio tiempo solo para cargar datos.
+  </p>
+
+  <!-- SPLIT SCREEN COMPARISON -->
+  <div class="comparison">
+    <div class="comparison-side manual">
+      <h4>Proceso manual</h4>
+      <div class="comparison-step">
+        <div class="comparison-icon">1</div>
+        <span>Cliente manda foto por WhatsApp</span>
+      </div>
+      <div class="comparison-arrow">v</div>
+      <div class="comparison-step">
+        <div class="comparison-icon">2</div>
+        <span>Guardar foto en carpeta del cliente</span>
+      </div>
+      <div class="comparison-arrow">v</div>
+      <div class="comparison-step">
+        <div class="comparison-icon">3</div>
+        <span>Abrir Excel y crear nueva fila</span>
+      </div>
+      <div class="comparison-arrow">v</div>
+      <div class="comparison-step">
+        <div class="comparison-icon">4</div>
+        <span>Digitar RUC, timbrado, montos, IVA</span>
+      </div>
+      <div class="comparison-arrow">v</div>
+      <div class="comparison-step">
+        <div class="comparison-icon">5</div>
+        <span>Formatear CSV para Marangatu</span>
+      </div>
+      <div class="comparison-arrow">v</div>
+      <div class="comparison-step">
+        <div class="comparison-icon">6</div>
+        <span>Subir, error de formato, corregir</span>
+      </div>
+      <div class="comparison-arrow">v</div>
+      <div class="comparison-step">
+        <div class="comparison-icon">7</div>
+        <span>Volver a subir</span>
+      </div>
+      <div class="comparison-result">2-3 min por factura</div>
+    </div>
+    <div class="comparison-side automated">
+      <h4>Con Fakturas.app</h4>
+      <div class="comparison-step">
+        <div class="comparison-icon">1</div>
+        <span>Cliente escanea desde la app</span>
+      </div>
+      <div class="comparison-arrow">v</div>
+      <div class="comparison-step">
+        <div class="comparison-icon">2</div>
+        <span>Datos extraidos automaticamente</span>
+      </div>
+      <div class="comparison-arrow">v</div>
+      <div class="comparison-step">
+        <div class="comparison-icon">3</div>
+        <span>Validas en el dashboard con un click</span>
+      </div>
+      <div class="comparison-arrow">v</div>
+      <div class="comparison-step">
+        <div class="comparison-icon">4</div>
+        <span>Exportas a formato Marangatu</span>
+      </div>
+      <div class="comparison-result">5 segundos por factura</div>
+    </div>
+    <div class="comparison-bottom">
+      50 clientes x 10 facturas = <strong>500 facturas/mes</strong>. Manual: <strong>25 horas</strong>. Automatizado: <strong>2 horas</strong>.
+    </div>
+  </div>
+
+  <p>
+    El QR de las facturas electronicas (e-Kuatia) contiene todos los datos verificados por el SET. Un escaneo los extrae en 5 segundos. Las facturas preimpresas y virtuales sin QR se procesan con OCR: foto y datos extraidos automaticamente.
+  </p>
+
+  <p>
+    Si queres ver donde encaja la factura virtual dentro del panorama completo, nuestra
+    <a href="https://fakturas.app/blog/tipos-de-facturas-paraguay">guia de los 5 tipos de facturas en Paraguay</a> lo explica con una tabla comparativa.
+  </p>
+
+
+  <!-- Section 5 -->
+  <h2>Cuando conviene automatizar</h2>
+
+  <p>
+    No todas las situaciones requieren una herramienta. Ser honestos sobre esto es importante.
+  </p>
+
+  <table class="threshold-table">
+    <thead>
+      <tr>
+        <th>Volumen mensual</th>
+        <th>Recomendacion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Menos de 50 facturas/mes</strong></td>
+        <td>Excel puede funcionar si tenes un sistema ordenado. El costo de tu tiempo es bajo.</td>
+      </tr>
+      <tr>
+        <td><strong>50-200 facturas/mes</strong></td>
+        <td>El costo de digitacion manual ya supera el costo de una herramienta. Vale la pena evaluar.</td>
+      </tr>
+      <tr>
+        <td><strong>Mas de 200 facturas/mes</strong></td>
+        <td>Sin automatizacion, estas pagando un empleado a tiempo completo solo para cargar datos.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    La decision no es solo economica. Tambien es sobre errores. Cada dato digitado a mano es una oportunidad de equivocacion. Un RUC mal cargado, un monto invertido, un timbrado vencido que no viste. Esos errores se acumulan y aparecen en la peor oportunidad: una fiscalizacion.
+  </p>
+
+
+  <!-- Section 6 -->
+  <h2>Como Fakturas.app procesa facturas virtuales y electronicas</h2>
+
+  <p>
+    Tus clientes fotografian la factura desde la app. Si tiene QR (e-Kuatia), los datos vienen verificados directamente del SET. 100% precision porque el dato viene de la fuente oficial.
+  </p>
+
+  <p>
+    Si no tiene QR, el OCR extrae los campos automaticamente: RUC, timbrado, montos, IVA. Vos validas en el dashboard: foto y datos lado a lado. Un click para aprobar.
+  </p>
+
+  <p>
+    Exportas a formato Marangatu con un boton. Archivo listo para subir al SET. Sin formatear columnas, sin ajustar delimitadores, sin errores de CSV.
+  </p>
+
+  <p>
+    Para entender como encaja todo esto en el contexto de la facturacion electronica obligatoria, te recomendamos nuestra
+    <a href="https://fakturas.app/blog/facturacion-electronica-paraguay-estudios-contables">guia de facturacion electronica para estudios contables</a>.
+  </p>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <p>Queres dejar de digitar? Proba Fakturas.app gratis con 10 clientes. Sin contrato.</p>
+    <a href="https://fakturas.app#pricing" class="btn-primary">Probalo gratis</a>
+  </div>
+
+  <!-- RELATED ARTICLES -->
+  <div class="related-articles">
+    <h4>Articulos relacionados</h4>
+    <a href="https://fakturas.app/blog/facturacion-electronica-paraguay-estudios-contables">Facturacion electronica en Paraguay: lo que tu estudio contable necesita saber en 2026</a>
+    <a href="https://fakturas.app/blog/tipos-de-facturas-paraguay">Los 5 tipos de facturas en Paraguay: guia practica para contadores</a>
+    <a href="https://fakturas.app/blog/que-es-facturacion-electronica-paraguay">Que es la facturacion electronica en Paraguay? Guia completa para contadores</a>
+    <a href="https://fakturas.app/blog/como-inscribirse-set-paraguay">Como inscribirse en el SET Paraguay: guia para contadores</a>
+  </div>
+
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <a href="https://fakturas.app" class="logo">fakturas<span>.</span>app</a>
+  <p>&copy; 2026 Fakturas.app — Hecho para contadores en Paraguay</p>
+</footer>
+
+</body>
+</html>
