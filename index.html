@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fakturas.app — Escaneo de facturas para contadores en Paraguay</title>
+<meta name="description" content="Tus clientes escanean facturas con su celular. Vos las recibis digitalizadas, pre-validadas y listas para Marangatu. App gratis para clientes, dashboard web para contadores.">
+<meta name="keywords" content="facturas Paraguay, IRP, Marangatu, escaneo facturas, OCR facturas, contadores Paraguay, declaracion IRP, DNIT, e-kuatia, software contable Paraguay">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fakturas.app">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fakturas.app">
+<meta property="og:title" content="Fakturas.app — Escaneo de facturas para contadores en Paraguay">
+<meta property="og:description" content="Tus clientes escanean facturas con su celular. Vos las recibis digitalizadas, pre-validadas y listas para Marangatu.">
+<meta property="og:site_name" content="Fakturas.app">
+<meta property="og:locale" content="es_PY">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fakturas.app — Escaneo de facturas para contadores">
+<meta name="twitter:description" content="Tus clientes escanean facturas con su celular. Vos las recibis digitalizadas y listas para Marangatu.">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Fakturas.app",
+  "url": "https://fakturas.app",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Android, Web",
+  "description": "Plataforma de escaneo y gestion de facturas para contadores en Paraguay. OCR, QR, exportacion Marangatu.",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Mini",
+      "price": "20",
+      "priceCurrency": "USD",
+      "description": "Hasta 20 clientes"
+    },
+    {
+      "@type": "Offer",
+      "name": "Pro",
+      "price": "60",
+      "priceCurrency": "USD",
+      "description": "Hasta 50 clientes"
+    },
+    {
+      "@type": "Offer",
+      "name": "Growth",
+      "price": "90",
+      "priceCurrency": "USD",
+      "description": "Hasta 100 clientes"
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --emerald: #4edea3;
+  --emerald-dark: #003824;
+  --emerald-hover: #10b981;
+  --blue: #005BE2;
+  --gold: #FFC402;
+  --navy: #0d1321;
+  --navy-light: #191f2e;
+  --bg: #f8faf9;
+  --white: #ffffff;
+  --text: #1a1a2e;
+  --text-secondary: #5a6577;
+  --text-muted: #8b95a5;
+  --border: #e2e8f0;
+  --surface: #f1f5f3;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border);
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.5px;
+}
+.logo span { color: var(--emerald); }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  background: var(--emerald) !important;
+  color: var(--emerald-dark) !important;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-weight: 600 !important;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--emerald-hover) !important; }
+
+/* HERO */
+.hero {
+  padding: 80px 60px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero h1 {
+  font-size: 3.8rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin-bottom: 20px;
+  color: var(--text);
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--emerald-hover);
+}
+.hero p {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 520px;
+  margin: 0 auto 36px;
+}
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+.btn-primary {
+  background: var(--emerald);
+  color: var(--emerald-dark);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-primary:hover { background: var(--emerald-hover); color: #fff; }
+.btn-secondary {
+  background: var(--white);
+  color: var(--text);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 2px solid var(--border);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-secondary:hover { border-color: var(--text); }
+
+/* FLOATING EMOJIS around hero */
+.float-emoji {
+  position: absolute;
+  font-size: 2.2rem;
+  animation: float 6s ease-in-out infinite;
+}
+.float-emoji:nth-child(1) { top: 100px; left: 8%; animation-delay: 0s; }
+.float-emoji:nth-child(2) { top: 80px; right: 10%; animation-delay: 1.5s; }
+.float-emoji:nth-child(3) { top: 200px; left: 5%; animation-delay: 3s; }
+.float-emoji:nth-child(4) { top: 160px; right: 6%; animation-delay: 0.8s; }
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+/* DASHBOARD MOCKUP AREA */
+.hero-mockups {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 520px;
+}
+
+/* ---- MINI DASHBOARD CARDS (the "nano banana" printshots) ---- */
+.mockup {
+  position: absolute;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.06);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.mockup:hover { transform: translateY(-6px); }
+
+/* Main dashboard mockup (center) */
+.mockup-main {
+  width: 620px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  z-index: 3;
+  border-radius: 16px;
+}
+.mockup-main:hover { transform: translateX(-50%) translateY(-6px); }
+
+.mock-topbar {
+  background: var(--navy);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.mock-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #ff5f56;
+}
+.mock-dot:nth-child(2) { background: #ffbd2e; }
+.mock-dot:nth-child(3) { background: #27c93f; }
+.mock-topbar-title {
+  color: #8b95a5;
+  font-size: 0.7rem;
+  margin-left: 8px;
+  font-weight: 500;
+}
+
+.mock-body {
+  padding: 20px;
+  background: var(--bg);
+}
+
+/* Stats row inside mockup */
+.mock-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.mock-stat-card {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 14px;
+  border: 1px solid var(--border);
+}
+.mock-stat-label {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+.mock-stat-value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.mock-stat-value.green { color: var(--emerald-hover); }
+.mock-stat-value.blue { color: var(--blue); }
+.mock-stat-change {
+  font-size: 0.6rem;
+  color: var(--emerald-hover);
+  margin-top: 2px;
+}
+
+/* Mini table inside mockup */
+.mock-table {
+  background: var(--white);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.mock-table-header {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1fr 1fr;
+  padding: 10px 14px;
+  background: var(--surface);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+.mock-table-row {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1fr 1fr;
+  padding: 10px 14px;
+  font-size: 0.7rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.mock-table-row .provider { color: var(--text); font-weight: 600; }
+.mock-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 0.55rem;
+  font-weight: 600;
+}
+.mock-badge.approved { background: #d1fae5; color: #065f46; }
+.mock-badge.pending { background: #fef3c7; color: #92400e; }
+.mock-badge.rejected { background: #fee2e2; color: #991b1b; }
+
+/* Side mockup — mobile phone */
+.mockup-phone {
+  width: 200px;
+  right: 40px;
+  top: 40px;
+  z-index: 4;
+  border-radius: 24px;
+  border: 3px solid var(--navy);
+}
+.mock-phone-header {
+  background: var(--navy);
+  padding: 16px 14px 10px;
+  border-radius: 20px 20px 0 0;
+}
+.mock-phone-time {
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.mock-phone-greeting {
+  color: var(--emerald);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+.mock-phone-sub {
+  color: #8b95a5;
+  font-size: 0.6rem;
+  margin-top: 2px;
+}
+.mock-phone-body { padding: 14px; background: var(--navy-light); }
+.mock-phone-card {
+  background: #242a39;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 8px;
+}
+.mock-phone-card-title {
+  color: #dde2f6;
+  font-size: 0.65rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.mock-phone-card-value {
+  color: var(--emerald);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.mock-phone-card-sub {
+  color: #8b95a5;
+  font-size: 0.55rem;
+  margin-top: 2px;
+}
+.mock-phone-btn {
+  background: var(--emerald);
+  color: var(--emerald-dark);
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-top: 8px;
+}
+.mock-camera-icon {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+
+/* Side mockup — chart card */
+.mockup-chart {
+  width: 260px;
+  left: 20px;
+  top: 60px;
+  z-index: 4;
+}
+.mock-chart-body {
+  padding: 18px;
+}
+.mock-chart-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.mock-chart-subtitle {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+.mock-chart-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 80px;
+  padding-top: 10px;
+}
+.mock-bar {
+  flex: 1;
+  border-radius: 4px 4px 0 0;
+  min-height: 10px;
+  transition: height 0.3s;
+}
+.mock-bar.emerald { background: var(--emerald); }
+.mock-bar.blue { background: var(--blue); opacity: 0.3; }
+.mock-chart-labels {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+.mock-chart-labels span {
+  flex: 1;
+  text-align: center;
+  font-size: 0.5rem;
+  color: var(--text-muted);
+}
+.mock-chart-legend {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+.mock-chart-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.55rem;
+  color: var(--text-secondary);
+}
+.mock-chart-legend-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+}
+
+/* LOGO BAR */
+.logo-bar {
+  padding: 40px 60px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+.logo-bar p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+.logo-bar-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+.logo-bar-logos span {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  opacity: 0.5;
+  letter-spacing: -0.5px;
+}
+
+/* STATS SECTION */
+.stats-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  max-width: 1100px;
+  margin: 60px auto;
+  background: var(--surface);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.stat-block {
+  padding: 40px 32px;
+  border-right: 1px solid var(--border);
+}
+.stat-block:last-child { border-right: none; }
+.stat-block h3 {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.stat-block .stat-number {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -1px;
+}
+.stat-block p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+/* FEATURES — "Tools to Elevate" section */
+.features {
+  padding: 80px 60px;
+}
+.features-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.features-header h2 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 14px;
+}
+.features-header h2 strong { color: var(--emerald-hover); }
+.features-header p {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 560px;
+  margin: 0 auto;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.feature-card {
+  background: var(--white);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+.feature-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+.feature-card-preview {
+  background: var(--surface);
+  padding: 20px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.feature-card-text { padding: 24px; }
+.feature-card-text h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.feature-card-text p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Mini mockups inside feature cards */
+.mini-mock {
+  width: 100%;
+  max-width: 240px;
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  overflow: hidden;
+  font-size: 0.6rem;
+  border: 1px solid var(--border);
+}
+.mini-mock-bar {
+  background: var(--navy);
+  padding: 6px 10px;
+  display: flex;
+  gap: 4px;
+}
+.mini-mock-dot { width: 5px; height: 5px; border-radius: 50%; }
+.mini-mock-content { padding: 10px; }
+.mini-mock-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.mini-mock-row:last-child { border-bottom: none; }
+.mini-mock-highlight { color: var(--emerald-hover); font-weight: 700; }
+
+/* Camera scan mockup */
+.mini-scan {
+  width: 120px;
+  background: var(--navy);
+  border-radius: 14px;
+  padding: 10px;
+  color: #fff;
+  position: relative;
+}
+.mini-scan-viewfinder {
+  border: 2px dashed var(--emerald);
+  border-radius: 8px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+.mini-scan-btn {
+  background: var(--emerald);
+  color: var(--emerald-dark);
+  text-align: center;
+  padding: 6px;
+  border-radius: 8px;
+  font-size: 0.6rem;
+  font-weight: 700;
+}
+
+/* Export mockup */
+.mini-export {
+  width: 200px;
+  background: var(--white);
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  border: 1px solid var(--border);
+}
+.mini-export-title {
+  font-size: 0.65rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.mini-export-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  font-size: 0.6rem;
+  color: var(--text-secondary);
+}
+.mini-export-icon {
+  width: 24px; height: 24px;
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem;
+}
+.mini-export-icon.csv { background: #d1fae5; }
+.mini-export-icon.zip { background: #dbeafe; }
+
+/* SEAMLESS INTEGRATION SECTION */
+.integration {
+  padding: 80px 60px;
+  background: var(--surface);
+}
+.integration-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.integration-text h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+}
+.integration-text p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  line-height: 1.7;
+}
+.integration-text a {
+  color: var(--emerald-hover);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.integration-features {
+  list-style: none;
+  margin-top: 20px;
+}
+.integration-features li {
+  padding: 8px 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.integration-features li::before {
+  content: "✓";
+  color: var(--emerald-hover);
+  font-weight: 700;
+  font-size: 1rem;
+}
+.integration-mockup {
+  position: relative;
+}
+.integration-mockup .mockup {
+  position: relative;
+  width: 100%;
+}
+
+/* Phone + notification combo for integration */
+.notif-float {
+  position: absolute;
+  background: var(--white);
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.75rem;
+  right: -20px;
+  top: 30px;
+  z-index: 5;
+  border: 1px solid var(--border);
+}
+.notif-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--emerald);
+  flex-shrink: 0;
+}
+.notif-text { color: var(--text); font-weight: 600; }
+.notif-sub { color: var(--text-muted); font-size: 0.65rem; }
+
+/* TESTIMONIALS */
+.testimonials {
+  padding: 80px 60px;
+}
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.testimonials-header h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+}
+.testimonials-header h2 strong { font-style: italic; }
+.testimonials-header p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.testimonial-card {
+  background: var(--surface);
+  border-radius: 14px;
+  padding: 24px;
+  border: 1px solid var(--border);
+}
+.testimonial-card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.testimonial-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem; font-weight: 700;
+}
+.testimonial-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.testimonial-role {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* PRICING */
+.pricing {
+  padding: 80px 60px;
+}
+.pricing-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.pricing-header h2 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 14px;
+}
+.pricing-header h2 strong { color: var(--emerald-hover); }
+.pricing-header p {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+.pricing-toggle {
+  display: inline-flex;
+  gap: 4px;
+  background: var(--surface);
+  border-radius: 50px;
+  padding: 4px;
+  border: 1px solid var(--border);
+}
+.toggle-label {
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.toggle-label.active {
+  background: var(--white);
+  color: var(--text);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+.save-badge {
+  background: #d1fae5;
+  color: #065f46;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-left: 4px;
+}
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 960px;
+  margin: 0 auto 50px;
+}
+.pricing-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  position: relative;
+  transition: box-shadow 0.3s;
+}
+.pricing-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+.pricing-card.featured {
+  border: 2px solid var(--emerald);
+  box-shadow: 0 8px 30px rgba(78,222,163,0.15);
+}
+.pricing-popular {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--emerald);
+  color: var(--emerald-dark);
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.pricing-card-header h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.pricing-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+.pricing-price {
+  margin-bottom: 4px;
+}
+.price-amount {
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: var(--text);
+}
+.price-period {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.price-per-client {
+  font-size: 0.8rem;
+  color: var(--emerald-hover);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.price-clients {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Everything included */
+.everything-included {
+  max-width: 960px;
+  margin: 0 auto;
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 40px;
+  border: 1px solid var(--border);
+}
+.everything-included h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 28px;
+}
+.included-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px 32px;
+}
+.included-item {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+}
+.included-check {
+  color: var(--emerald-hover);
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* ROI — The math is simple */
+.roi-section {
+  padding: 80px 60px;
+  background: var(--surface);
+}
+.roi-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.roi-header h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+}
+.roi-header h2 strong { color: var(--emerald-hover); }
+.roi-header p {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+}
+.roi-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 960px;
+  margin: 0 auto 30px;
+}
+.roi-card-item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px;
+  text-align: center;
+}
+.roi-num {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--emerald-hover);
+  letter-spacing: -1px;
+}
+.roi-label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 6px 0 4px;
+}
+.roi-detail {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+.roi-comparison {
+  background: var(--navy);
+  border-radius: 14px;
+  padding: 28px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 960px;
+  margin: 0 auto 20px;
+}
+.roi-comp-item { text-align: center; }
+.roi-comp-val {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--emerald);
+}
+.roi-comp-lbl {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+.roi-comp-arrow {
+  font-size: 1.4rem;
+  color: rgba(255,255,255,0.3);
+  font-weight: 700;
+}
+.roi-insight {
+  max-width: 960px;
+  margin: 0 auto;
+  background: #f0fdf4;
+  border-radius: 12px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.roi-insight-icon { font-size: 1.6rem; }
+.roi-insight-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #166534;
+  margin-bottom: 4px;
+}
+.roi-insight-text {
+  font-size: 0.8rem;
+  color: #15803d;
+  line-height: 1.4;
+}
+
+/* CTA */
+.cta-section {
+  padding: 80px 60px;
+  text-align: center;
+  background: var(--navy);
+  color: #fff;
+}
+.cta-section h2 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 6px;
+}
+.cta-section h2 span {
+  color: var(--emerald);
+}
+.cta-sub {
+  color: #8b95a5;
+  font-size: 1.05rem;
+  margin-bottom: 40px;
+}
+.cta-steps {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 40px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cta-step { text-align: center; flex: 1; }
+.step-n {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--emerald);
+  color: var(--emerald-dark);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin: 0 auto 12px;
+}
+.step-t {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+.step-d {
+  font-size: 0.8rem;
+  color: #8b95a5;
+  line-height: 1.4;
+}
+.cta-section .btn-primary {
+  font-size: 1.1rem;
+  padding: 16px 40px;
+}
+
+/* FOOTER */
+footer {
+  padding: 40px 60px;
+  background: var(--navy);
+  border-top: 1px solid #242a39;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer p {
+  color: #5a6577;
+  font-size: 0.8rem;
+}
+footer .logo { color: #fff; }
+footer .logo span { color: var(--emerald); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .hero { padding: 50px 24px 30px; }
+  .hero h1 { font-size: 2.4rem; }
+  .hero-mockups { height: auto; display: flex; flex-direction: column; gap: 20px; align-items: center; }
+  .mockup { position: relative !important; left: auto !important; right: auto !important; top: auto !important; transform: none !important; }
+  .mockup-main { width: 100%; }
+  .mockup-main:hover { transform: translateY(-6px) !important; }
+  .mockup-phone { width: 200px; }
+  .mockup-chart { width: 260px; }
+  .stats-section { grid-template-columns: repeat(2, 1fr); margin: 40px 24px; }
+  .stat-block { border-right: none; border-bottom: 1px solid var(--border); }
+  .features { padding: 60px 24px; }
+  .features-grid { grid-template-columns: 1fr; }
+  .features-header h2 { font-size: 2rem; }
+  .integration { padding: 60px 24px; }
+  .integration-inner { grid-template-columns: 1fr; }
+  .roi-section { padding: 60px 24px; }
+  .roi-cards { grid-template-columns: 1fr; }
+  .roi-comparison { flex-direction: column; gap: 16px; padding: 24px; }
+  .roi-insight { flex-direction: column; text-align: center; }
+  .pricing { padding: 60px 24px; }
+  .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
+  .pricing-header h2 { font-size: 2rem; }
+  .included-grid { grid-template-columns: 1fr; }
+  .everything-included { padding: 24px; }
+  .cta-section { padding: 60px 24px; }
+  .cta-section h2 { font-size: 2rem; }
+  .cta-steps { flex-direction: column; gap: 24px; }
+  footer { flex-direction: column; gap: 12px; padding: 30px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">fakturas<span>.</span>app</div>
+  <div class="nav-links">
+    <a href="#features">Funciones</a>
+    <a href="#how-it-works">Como funciona</a>
+    <a href="#pricing">Precios</a>
+    <a href="#">Blog</a>
+    <a href="#cta">Contacto</a>
+    <a href="#pricing" class="nav-cta">Empezar gratis</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="float-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 48 48" fill="#4edea3"><g><path d="M16 33h14.95v2H16zM28.627 41h8.323v2h-8.323zM28 11h-4a1 1 0 1 1 0-2h4a1 1 0 1 1 0 2zM37 15H26a1 1 0 1 1 0-2h11a1 1 0 1 1 0 2zM36 19H23a1 1 0 1 1 0-2h13a1 1 0 1 1 0 2zM37 23H23a1 1 0 1 1 0-2h14a1 1 0 1 1 0 2zM35 27H23a1 1 0 1 1 0-2h12a1 1 0 1 1 0 2zM36 31H22a1 1 0 1 1 0-2h14a1 1 0 1 1 0 2zM20.05 0H45v2H20.05z"></path><path d="M24.95 47H0v-2c.827 0 1.424-.196 1.825-.601.951-.957.935-3.183.921-5.146-.016-2.194-.03-4.268 1.133-5.438C4.417 33.274 5.13 33 6 33h9.174C17.189 22.034 17.002 4.195 17 4.012 17.023 2.605 17.69 0 20.05 0v2C19.093 2 19 3.996 19 4.017c.009.747.2 19.103-2.02 30.18l-.161.803H6c-.428 0-.605.128-.701.225-.577.581-.564 2.405-.553 4.015.014 1.983.03 4.189-.885 5.76H24.95c.827 0 1.424-.196 1.825-.601.951-.957.935-3.183.921-5.146-.016-2.194-.03-4.268 1.133-5.438.538-.541 1.252-.815 2.121-.815 1.014 0 1.806.281 2.356.837.926.936.912 2.326.897 3.671-.012 1.133-.024 2.304.554 2.888.397.401 1.135.604 2.193.604.108 0 .438 0 .889-.463 4.051-4.159 4.341-27.766 4.111-36.511C41.973 2.605 42.64 0 45 0c2.61 0 3 5.013 3 8v1h-3.987c.017 9.426-.492 28.57-4.741 32.933-.69.708-1.471 1.067-2.322 1.067-1.634 0-2.817-.392-3.614-1.198-1.165-1.177-1.147-2.844-1.132-4.314.01-.935.02-1.9-.319-2.243-.2-.203-.618-.245-.935-.245-.428 0-.605.128-.701.225-.577.581-.564 2.405-.553 4.015.016 2.354.035 5.021-1.502 6.569C27.41 46.6 26.318 47 24.95 47zM44.001 7h1.977c-.103-2.446-.561-4.708-1.056-5.019-.879.019-.972 2.015-.972 2.036.013.482.037 1.53.051 2.983z"></path></g></svg></div>
+  <!-- <div class="float-emoji">📱</div> -->
+  <div class="float-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="#4edea3"><path d="M16 1H8C6.34 1 5 2.34 5 4v16c0 1.66 1.34 3 3 3h8c1.66 0 3-1.34 3-3V4c0-1.66-1.34-3-3-3zm-2.5 20h-3c-.28 0-.5-.22-.5-.5s.22-.5.5-.5h3c.28 0 .5.22.5.5s-.22.5-.5.5zm3.5-3H7V4h10v14z"></path></svg></div>
+  <div class="float-emoji">📊</div>
+  <div class="float-emoji">✅</div>
+
+  <h1>Tus facturas, <em>simplificadas</em></h1>
+  <p><span style="display:inline-block;background:var(--emerald);color:var(--emerald-dark);padding:4px 14px;border-radius:50px;font-size:0.8rem;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:12px;">Hecho para estudios contables en Paraguay</span><br>Tus clientes escanean/QR facturas con su celular. Vos las recibis digitalizadas, pre-validadas y listas para Marangatu.</p>
+
+
+  <!-- DASHBOARD MOCKUPS -->
+  <div class="hero-mockups">
+
+    <!-- Left: Monthly chart -->
+    <div class="mockup mockup-chart">
+      <div class="mock-topbar">
+        <div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div>
+      </div>
+      <div class="mock-chart-body">
+        <div class="mock-chart-title">Facturas mensuales</div>
+        <div class="mock-chart-subtitle">2026 — Todos los clientes</div>
+        <div class="mock-chart-bars">
+          <div class="mock-bar emerald" style="height:45%"></div>
+          <div class="mock-bar emerald" style="height:60%"></div>
+          <div class="mock-bar emerald" style="height:40%"></div>
+          <div class="mock-bar emerald" style="height:75%"></div>
+          <div class="mock-bar emerald" style="height:55%"></div>
+          <div class="mock-bar emerald" style="height:90%"></div>
+          <div class="mock-bar blue" style="height:30%"></div>
+          <div class="mock-bar blue" style="height:20%"></div>
+        </div>
+        <div class="mock-chart-labels">
+          <span>Ene</span><span>Feb</span><span>Mar</span><span>Abr</span><span>May</span><span>Jun</span><span>Jul</span><span>Ago</span>
+        </div>
+        <div class="mock-chart-legend">
+          <div class="mock-chart-legend-item"><div class="mock-chart-legend-dot" style="background:var(--emerald)"></div> Validadas</div>
+          <div class="mock-chart-legend-item"><div class="mock-chart-legend-dot" style="background:var(--blue);opacity:0.3"></div> Pendientes</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center: Main dashboard -->
+    <div class="mockup mockup-main">
+      <div class="mock-topbar">
+        <div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div>
+        <span class="mock-topbar-title">fakturas.app — Dashboard</span>
+      </div>
+      <div class="mock-body">
+        <div class="mock-stats">
+          <div class="mock-stat-card">
+            <div class="mock-stat-label">Facturas este mes</div>
+            <div class="mock-stat-value">247</div>
+            <div class="mock-stat-change">↑ 18% vs mes anterior</div>
+          </div>
+          <div class="mock-stat-card">
+            <div class="mock-stat-label">Total IRP deducible</div>
+            <div class="mock-stat-value green">₲ 14.2M</div>
+            <div class="mock-stat-change">entre 12 clientes</div>
+          </div>
+          <div class="mock-stat-card">
+            <div class="mock-stat-label">Pendientes de revision</div>
+            <div class="mock-stat-value blue">8</div>
+            <div class="mock-stat-change">3 nuevas hoy</div>
+          </div>
+        </div>
+        <div class="mock-table">
+          <div class="mock-table-header">
+            <span>Proveedor</span>
+            <span>RUC</span>
+            <span>Monto</span>
+            <span>Estado</span>
+          </div>
+          <div class="mock-table-row">
+            <span class="provider">Supermercado Stock</span>
+            <span>80012345-1</span>
+            <span>₲ 485,000</span>
+            <span><span class="mock-badge approved">Validada</span></span>
+          </div>
+          <div class="mock-table-row">
+            <span class="provider">Farmacia Catedral</span>
+            <span>80067891-3</span>
+            <span>₲ 125,400</span>
+            <span><span class="mock-badge approved">Validada</span></span>
+          </div>
+          <div class="mock-table-row">
+            <span class="provider">Restaurant Lido</span>
+            <span>80034567-8</span>
+            <span>₲ 210,000</span>
+            <span><span class="mock-badge pending">Pendiente</span></span>
+          </div>
+          <div class="mock-table-row">
+            <span class="provider">Copetrol SA</span>
+            <span>80098765-2</span>
+            <span>₲ 350,800</span>
+            <span><span class="mock-badge approved">Validada</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Mobile phone -->
+    <div class="mockup mockup-phone">
+      <div class="mock-phone-header">
+        <div class="mock-phone-time">9:41</div>
+        <div class="mock-phone-greeting">Buenos dias 👋</div>
+        <div class="mock-phone-sub">3 facturas este mes</div>
+      </div>
+      <div class="mock-phone-body">
+        <div class="mock-phone-card">
+          <div class="mock-camera-icon">📸</div>
+          <div class="mock-phone-card-title">Escanear factura</div>
+          <div class="mock-phone-card-sub">Saca una foto o escanea QR</div>
+        </div>
+        <div class="mock-phone-card">
+          <div class="mock-phone-card-title">Ultimo escaneo</div>
+          <div class="mock-phone-card-value">₲ 285K</div>
+          <div class="mock-phone-card-sub">Supermercado Stock — hace 2 min</div>
+        </div>
+        <div class="mock-phone-btn">📷 Escanear</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section">
+  <div class="stat-block">
+    <h3>Facturas procesadas</h3>
+    <div class="stat-number">12,000+</div>
+    <p>Facturas escaneadas y digitalizadas por nuestro motor OCR desde el lanzamiento.</p>
+  </div>
+  <div class="stat-block">
+    <h3>Precision OCR</h3>
+    <div class="stat-number">97%</div>
+    <p>Campos extraidos via OCR o codigo QR en el primer escaneo, sin carga manual.</p>
+  </div>
+  <div class="stat-block">
+    <h3>Clientes activos</h3>
+    <div class="stat-number">500+</div>
+    <p>Contribuyentes escaneando facturas diariamente desde la app.</p>
+  </div>
+  <div class="stat-block">
+    <h3>Tiempo ahorrado</h3>
+    <div class="stat-number">80%</div>
+    <p>Menos tiempo en carga manual de datos comparado con metodos tradicionales.</p>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="features-header">
+    <h2>Herramientas para <strong>simplificar</strong> tu trabajo</h2>
+    <p>Desde el escaneo de facturas hasta la exportacion Marangatu, cada paso esta disenado para eliminar el trabajo manual.</p>
+  </div>
+  <div class="features-grid">
+
+    <!-- Feature 1: Scan -->
+    <div class="feature-card">
+      <div class="feature-card-preview">
+        <div class="mini-scan">
+          <div class="mini-scan-viewfinder">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 48 48" fill="#4edea3"><g><path d="M16 33h14.95v2H16zM28.627 41h8.323v2h-8.323zM28 11h-4a1 1 0 1 1 0-2h4a1 1 0 1 1 0 2zM37 15H26a1 1 0 1 1 0-2h11a1 1 0 1 1 0 2zM36 19H23a1 1 0 1 1 0-2h13a1 1 0 1 1 0 2zM37 23H23a1 1 0 1 1 0-2h14a1 1 0 1 1 0 2zM35 27H23a1 1 0 1 1 0-2h12a1 1 0 1 1 0 2zM36 31H22a1 1 0 1 1 0-2h14a1 1 0 1 1 0 2zM20.05 0H45v2H20.05z"></path><path d="M24.95 47H0v-2c.827 0 1.424-.196 1.825-.601.951-.957.935-3.183.921-5.146-.016-2.194-.03-4.268 1.133-5.438C4.417 33.274 5.13 33 6 33h9.174C17.189 22.034 17.002 4.195 17 4.012 17.023 2.605 17.69 0 20.05 0v2C19.093 2 19 3.996 19 4.017c.009.747.2 19.103-2.02 30.18l-.161.803H6c-.428 0-.605.128-.701.225-.577.581-.564 2.405-.553 4.015.014 1.983.03 4.189-.885 5.76H24.95c.827 0 1.424-.196 1.825-.601.951-.957.935-3.183.921-5.146-.016-2.194-.03-4.268 1.133-5.438.538-.541 1.252-.815 2.121-.815 1.014 0 1.806.281 2.356.837.926.936.912 2.326.897 3.671-.012 1.133-.024 2.304.554 2.888.397.401 1.135.604 2.193.604.108 0 .438 0 .889-.463 4.051-4.159 4.341-27.766 4.111-36.511C41.973 2.605 42.64 0 45 0c2.61 0 3 5.013 3 8v1h-3.987c.017 9.426-.492 28.57-4.741 32.933-.69.708-1.471 1.067-2.322 1.067-1.634 0-2.817-.392-3.614-1.198-1.165-1.177-1.147-2.844-1.132-4.314.01-.935.02-1.9-.319-2.243-.2-.203-.618-.245-.935-.245-.428 0-.605.128-.701.225-.577.581-.564 2.405-.553 4.015.016 2.354.035 5.021-1.502 6.569C27.41 46.6 26.318 47 24.95 47zM44.001 7h1.977c-.103-2.446-.561-4.708-1.056-5.019-.879.019-.972 2.015-.972 2.036.013.482.037 1.53.051 2.983z"></path></g></svg>
+          </div>
+          <div class="mini-scan-btn">📷 Capturar</div>
+        </div>
+      </div>
+      <div class="feature-card-text">
+        <h3>Captura instantanea de facturas</h3>
+        <p>Tus clientes escanean facturas en la caja con su celular. El OCR extrae RUC, montos y timbrado automaticamente.</p>
+      </div>
+    </div>
+
+    <!-- Feature 2: Dashboard -->
+    <div class="feature-card">
+      <div class="feature-card-preview">
+        <div class="mini-mock">
+          <div class="mini-mock-bar">
+            <div class="mini-mock-dot" style="background:#ff5f56"></div>
+            <div class="mini-mock-dot" style="background:#ffbd2e"></div>
+            <div class="mini-mock-dot" style="background:#27c93f"></div>
+          </div>
+          <div class="mini-mock-content">
+            <div class="mini-mock-row"><span>Stock SA</span><span class="mini-mock-highlight">₲ 485K</span></div>
+            <div class="mini-mock-row"><span>Farmacia</span><span class="mini-mock-highlight">₲ 125K</span></div>
+            <div class="mini-mock-row"><span>Copetrol</span><span class="mini-mock-highlight">₲ 350K</span></div>
+            <div class="mini-mock-row"><span>Lido Bar</span><span>₲ 210K</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="feature-card-text">
+        <h3>Dashboard en tiempo real</h3>
+        <p>Ve cada factura cuando llega. Aproba, rechaza o edita en linea. Segui los totales mensuales de todos tus clientes.</p>
+      </div>
+    </div>
+
+    <!-- Feature 3: Export -->
+    <div class="feature-card">
+      <div class="feature-card-preview">
+        <div class="mini-export">
+          <div class="mini-export-title">Exportar a Marangatu</div>
+          <div class="mini-export-item">
+            <div class="mini-export-icon csv">📄</div>
+            <div>
+              <div style="font-weight:600;color:var(--text)">Resumen CSV</div>
+              <div style="font-size:0.55rem;color:var(--text-muted)">247 facturas — Marzo 2026</div>
+            </div>
+          </div>
+          <div class="mini-export-item">
+            <div class="mini-export-icon zip">📦</div>
+            <div>
+              <div style="font-weight:600;color:var(--text)">Marangatu ZIP</div>
+              <div style="font-size:0.55rem;color:var(--text-muted)">Listo para subir al DNIT</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="feature-card-text">
+        <h3>Exportacion fiscal en un clic</h3>
+        <p>Genera archivos CSV y ZIP listos para Marangatu. Sin copiar y pegar, sin Excel. Subi directo al DNIT.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SEAMLESS INTEGRATION -->
+<section class="integration" id="how-it-works">
+  <div class="integration-inner">
+    <div class="integration-text">
+      <h2>Integracion total</h2>
+      <p>Tus clientes usan la app gratuita. Vos gestionas todo desde el dashboard web. Las facturas se sincronizan en tiempo real, sin carga manual.</p>
+      <a href="#">Conoce el flujo de trabajo →</a>
+      <ul class="integration-features">
+        <li>Sincronizacion en tiempo real entre app y dashboard</li>
+        <li>Modo offline: las fotos se guardan y sincronizan al volver a conectar</li>
+        <li>Escaneo QR para facturas e-kuatia + pre-validacion</li>
+        <li>Calculadora IRP con 7 campos de ingresos</li>
+        <li>Gestion multi-cliente desde un solo portal</li>
+      </ul>
+    </div>
+    <div class="integration-mockup">
+      <div class="mockup" style="position:relative; width:100%;">
+        <div class="mock-topbar">
+          <div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div>
+          <span class="mock-topbar-title">Cliente: Maria Lopez</span>
+        </div>
+        <div class="mock-body">
+          <div class="mock-stats" style="grid-template-columns: repeat(2,1fr)">
+            <div class="mock-stat-card">
+              <div class="mock-stat-label">Facturas</div>
+              <div class="mock-stat-value green">34</div>
+            </div>
+            <div class="mock-stat-card">
+              <div class="mock-stat-label">IRP Total</div>
+              <div class="mock-stat-value">₲ 4.8M</div>
+            </div>
+          </div>
+          <div class="mock-table">
+            <div class="mock-table-header" style="grid-template-columns: 2fr 1fr 1fr">
+              <span>Proveedor</span><span>Monto</span><span>Estado</span>
+            </div>
+            <div class="mock-table-row" style="grid-template-columns: 2fr 1fr 1fr">
+              <span class="provider">Farmacia Catedral</span>
+              <span>₲ 89,500</span>
+              <span><span class="mock-badge approved">✓</span></span>
+            </div>
+            <div class="mock-table-row" style="grid-template-columns: 2fr 1fr 1fr">
+              <span class="provider">Biggie SA</span>
+              <span>₲ 312,000</span>
+              <span><span class="mock-badge approved">✓</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="notif-float">
+        <div class="notif-dot"></div>
+        <div>
+          <div class="notif-text">Nueva factura recibida</div>
+          <div class="notif-sub">Maria Lopez — recien</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="pricing-header">
+    <h2>Precios <strong>simples</strong> y transparentes</h2>
+    <p>Una plataforma, todo incluido. Elegi el plan que se adapte a tu estudio.</p>
+  </div>
+
+  <div class="pricing-grid">
+    <!-- Mini -->
+    <div class="pricing-card">
+      <div class="pricing-card-header">
+        <h3>Mini</h3>
+        <p class="pricing-desc">Para contadores independientes que empiezan</p>
+      </div>
+      <div class="pricing-price">
+        <span class="price-amount">$20</span>
+        <span class="price-period">/month</span>
+      </div>
+      <p class="price-per-client">~$1.00 por cliente</p>
+      <p class="price-clients">Hasta <strong>20 clientes</strong></p>
+      <a href="#" class="btn-primary" style="display:block;text-align:center;margin:24px 0 0">Empezar gratis</a>
+    </div>
+
+    <!-- Pro (featured) -->
+    <div class="pricing-card featured">
+      <div class="pricing-popular">Mas popular</div>
+      <div class="pricing-card-header">
+        <h3>Pro</h3>
+        <p class="pricing-desc">Para estudios establecidos con mas clientes</p>
+      </div>
+      <div class="pricing-price">
+        <span class="price-amount">$60</span>
+        <span class="price-period">/month</span>
+      </div>
+      <p class="price-per-client">~$1.20 por cliente</p>
+      <p class="price-clients">Hasta <strong>50 clientes</strong></p>
+      <a href="#" class="btn-primary" style="display:block;text-align:center;margin:24px 0 0">Empezar gratis</a>
+    </div>
+
+    <!-- Growth -->
+    <div class="pricing-card">
+      <div class="pricing-card-header">
+        <h3>Growth</h3>
+        <p class="pricing-desc">Para estudios en crecimiento con muchos clientes</p>
+      </div>
+      <div class="pricing-price">
+        <span class="price-amount">$90</span>
+        <span class="price-period">/month</span>
+      </div>
+      <p class="price-per-client">~$0.90 por cliente</p>
+      <p class="price-clients">Hasta <strong>100 clientes</strong></p>
+      <a href="#" class="btn-primary" style="display:block;text-align:center;margin:24px 0 0">Empezar gratis</a>
+    </div>
+  </div>
+
+  <!-- Everything Included -->
+  <div class="everything-included">
+    <h3>Todo incluido en cada plan</h3>
+    <div class="included-grid">
+      <div class="included-item"><span class="included-check">✓</span> App movil gratuita para tus clientes</div>
+      <div class="included-item"><span class="included-check">✓</span> Escaneo OCR de facturas (foto + QR)</div>
+      <div class="included-item"><span class="included-check">✓</span> Sincronizacion en tiempo real</div>
+      <div class="included-item"><span class="included-check">✓</span> Modo offline con auto-sync</div>
+      <div class="included-item"><span class="included-check">✓</span> Validacion y edicion en linea</div>
+      <div class="included-item"><span class="included-check">✓</span> Extraccion de RUC, timbrado y montos</div>
+      <div class="included-item"><span class="included-check">✓</span> Flujo de aprobacion / rechazo</div>
+      <div class="included-item"><span class="included-check">✓</span> Gestion multi-cliente</div>
+      <div class="included-item"><span class="included-check">✓</span> Exportacion CSV mensual con totales</div>
+      <div class="included-item"><span class="included-check">✓</span> Exportacion ZIP Marangatu (listo para DNIT)</div>
+      <div class="included-item"><span class="included-check">✓</span> Calculadora IRP (7 campos de ingresos)</div>
+      <div class="included-item"><span class="included-check">✓</span> Deteccion de facturas duplicadas</div>
+      <div class="included-item"><span class="included-check">✓</span> Carga masiva de fotos</div>
+      <div class="included-item"><span class="included-check">✓</span> Descarga ZIP de fotos</div>
+      <div class="included-item"><span class="included-check">✓</span> Historial de correcciones</div>
+      <div class="included-item"><span class="included-check">✓</span> Seguridad PIN + biometrica</div>
+      <div class="included-item"><span class="included-check">✓</span> Notificaciones a clientes</div>
+      <div class="included-item"><span class="included-check">✓</span> Notas internas del contador</div>
+      <div class="included-item"><span class="included-check">✓</span> Mensajeria in-app</div>
+    </div>
+  </div>
+</section>
+
+<!-- THE MATH IS SIMPLE -->
+<section class="roi-section" id="roi">
+  <div class="roi-header">
+    <h2>Las cuentas son <strong>simples</strong></h2>
+    <p>Lo que gastas vs. lo que ahorras. Cada mes.</p>
+  </div>
+
+  <div class="roi-cards">
+    <div class="roi-card-item">
+      <div class="roi-num">36h</div>
+      <div class="roi-label">Horas ahorradas / mes</div>
+      <div class="roi-detail">40h manual → 4h con Fakturas.app (para 50 clientes)</div>
+    </div>
+    <div class="roi-card-item">
+      <div class="roi-num" style="color:#ef4444;">0</div>
+      <div class="roi-label">Rechazos Marangatu</div>
+      <div class="roi-detail">El formato es exacto. Sin errores de columnas ni encoding.</div>
+    </div>
+    <div class="roi-card-item">
+      <div class="roi-num">10x</div>
+      <div class="roi-label">Mas capacidad</div>
+      <div class="roi-detail">Maneja 10x mas clientes con el mismo equipo</div>
+    </div>
+  </div>
+
+  <div class="roi-comparison">
+    <div class="roi-comp-item">
+      <div class="roi-comp-val">$60</div>
+      <div class="roi-comp-lbl">Costo Fakturas.app<br>(50 clientes / mes)</div>
+    </div>
+    <div class="roi-comp-arrow">vs.</div>
+    <div class="roi-comp-item">
+      <div class="roi-comp-val" style="color:#ef4444;">$400+</div>
+      <div class="roi-comp-lbl">Costo empleado<br>(40h x $10/h minimo)</div>
+    </div>
+    <div class="roi-comp-arrow">=</div>
+    <div class="roi-comp-item">
+      <div class="roi-comp-val">$340+</div>
+      <div class="roi-comp-lbl">Ahorro neto<br>cada mes</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <h2>Empeza a recibir facturas<br><span>sin perseguir a nadie</span></h2>
+  <div class="cta-sub">Tres pasos. Funcionando en 24 horas.</div>
+
+  <div class="cta-steps">
+    <div class="cta-step">
+      <div class="step-n">1</div>
+      <div class="step-t">Elegi tu plan</div>
+      <div class="step-d">Segun cuantos clientes manejas</div>
+    </div>
+    <div class="cta-step">
+      <div class="step-n">2</div>
+      <div class="step-t">Activamos tu cuenta</div>
+      <div class="step-d">Dashboard web listo + codigos de activacion para tus clientes</div>
+    </div>
+    <div class="cta-step">
+      <div class="step-n">3</div>
+      <div class="step-t">Tus clientes empiezan a escanear</div>
+      <div class="step-d">Comparti el codigo y empiezan a enviar facturas desde la app</div>
+    </div>
+  </div>
+
+  <a href="#" class="btn-primary">Empezar ahora</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">fakturas<span>.</span>app</div>
+  <p>&copy; 2026 Fakturas.app — Hecho para contadores en Paraguay</p>
+</footer>
+
+</body>
+</html>
