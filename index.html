@@ -1271,7 +1271,21 @@ footer .logo span { color: var(--emerald); }
 
   /* Features */
   .features { padding: 60px 24px; }
-  .features-grid { grid-template-columns: 1fr; }
+  .features-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .feature-card-preview { height: 100px; padding: 10px; }
+  .feature-card-text { padding: 12px; }
+  .feature-card-text h3 { font-size: 0.75rem; margin-bottom: 4px; }
+  .feature-card-text p { font-size: 0.65rem; line-height: 1.4; }
+  .mini-scan { width: 70px; padding: 6px; border-radius: 10px; }
+  .mini-scan-viewfinder { height: 45px; }
+  .mini-scan-viewfinder svg { width: 22px; height: 22px; }
+  .mini-scan-btn { font-size: 0.45rem; padding: 4px; }
+  .mini-mock { max-width: 140px; font-size: 0.5rem; }
+  .mini-mock-row { padding: 3px 0; font-size: 0.5rem; }
+  .mini-export { width: 140px; padding: 8px; }
+  .mini-export-title { font-size: 0.5rem; }
+  .mini-export-item { font-size: 0.5rem; gap: 4px; padding: 3px 0; }
+  .mini-export-icon { width: 18px; height: 18px; font-size: 0.5rem; }
   .features-header h2 { font-size: 2rem; }
 
   /* Integration */
