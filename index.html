@@ -983,6 +983,21 @@ nav {
   font-size: 0.85rem;
   color: var(--text-secondary);
 }
+.pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 16px;
+}
+.pricing-features li {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  padding: 4px 0;
+}
+.pricing-features li::before {
+  content: "✓ ";
+  color: var(--emerald);
+  font-weight: 700;
+}
 .pricing-btn {
   display: block;
   text-align: center;
@@ -1832,14 +1847,19 @@ footer .logo span { color: var(--emerald); }
     <div class="pricing-card">
       <div class="pricing-card-header">
         <h3>Mini</h3>
-        <p class="pricing-desc">Para contadores independientes que empiezan</p>
+        <p class="pricing-desc">Ideal para gabinetes pequenos que estan empezando con facturacion digital.</p>
       </div>
       <div class="pricing-price">
         <span class="price-amount">Gs. 170.000</span>
         <span class="price-period">/mes</span>
       </div>
       <p class="price-per-client">Gs. 17.000 por cliente</p>
-      <p class="price-clients">Hasta <strong>10 clientes</strong></p>
+      <ul class="pricing-features">
+        <li>Hasta 10 clientes activos</li>
+        <li>App movil para cada cliente</li>
+        <li>OCR + QR automatico</li>
+        <li>Exportacion Marangatu</li>
+      </ul>
       <a href="https://app.fakturas.app/login" class="btn-primary pricing-btn">Empezar</a>
     </div>
 
@@ -1848,14 +1868,19 @@ footer .logo span { color: var(--emerald); }
       <div class="pricing-popular">Mas popular</div>
       <div class="pricing-card-header">
         <h3>Pro</h3>
-        <p class="pricing-desc">Para estudios establecidos con mas clientes activos</p>
+        <p class="pricing-desc">Para gabinetes en crecimiento que necesitan gestionar mas clientes.</p>
       </div>
       <div class="pricing-price">
         <span class="price-amount">Gs. 470.000</span>
         <span class="price-period">/mes</span>
       </div>
       <p class="price-per-client">Gs. 9.400 por cliente</p>
-      <p class="price-clients">Hasta <strong>50 clientes</strong></p>
+      <ul class="pricing-features">
+        <li>Hasta 50 clientes activos</li>
+        <li>Todo lo de Mini</li>
+        <li>Cuenta principal (equipo de contadores)</li>
+        <li>Subida masiva de facturas</li>
+      </ul>
       <a href="https://app.fakturas.app/login" class="btn-primary pricing-btn">Empezar</a>
     </div>
 
@@ -1863,14 +1888,17 @@ footer .logo span { color: var(--emerald); }
     <div class="pricing-card">
       <div class="pricing-card-header">
         <h3>Growth</h3>
-        <p class="pricing-desc">Para estudios en crecimiento con muchos clientes</p>
+        <p class="pricing-desc">Para gabinetes grandes con alto volumen de clientes.</p>
       </div>
       <div class="pricing-price">
         <span class="price-amount">Gs. 700.000</span>
         <span class="price-period">/mes</span>
       </div>
       <p class="price-per-client">Gs. 7.000 por cliente</p>
-      <p class="price-clients">Hasta <strong>100 clientes</strong></p>
+      <ul class="pricing-features">
+        <li>Hasta 100 clientes activos</li>
+        <li>Todo lo de Pro</li>
+      </ul>
       <a href="https://app.fakturas.app/login" class="btn-primary pricing-btn">Empezar</a>
     </div>
   </div>
