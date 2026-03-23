@@ -1485,60 +1485,112 @@ footer .logo span { color: var(--emerald); }
       </div>
     </div>
 
-    <!-- Center: Main dashboard -->
+    <!-- Center: Client detail — split panel (matches real dashboard) -->
     <div class="mockup mockup-main">
       <div class="mock-topbar">
         <div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div>
-        <span class="mock-topbar-title">fakturas.app — Dashboard</span>
+        <span class="mock-topbar-title">fakturas.app — Portal contable</span>
       </div>
-      <div class="mock-body">
-        <div class="mock-stats">
-          <div class="mock-stat-card">
-            <div class="mock-stat-label">Facturas este mes</div>
-            <div class="mock-stat-value">247</div>
-            <div class="mock-stat-change">↑ 18% vs mes anterior</div>
+      <div class="mock-body" style="padding:12px">
+        <!-- Client header -->
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px">
+          <div>
+            <div style="font-size:0.85rem;font-weight:700;color:#dde2f6">Juan Perez</div>
+            <div style="font-size:0.5rem;color:#8b95a5;font-family:monospace">9387348-4</div>
+            <div style="font-size:0.45rem;color:var(--emerald);font-family:monospace">Codigo: 4B33-5886</div>
           </div>
-          <div class="mock-stat-card">
-            <div class="mock-stat-label">Total IRP deducible</div>
-            <div class="mock-stat-value green">₲ 14.2M</div>
-            <div class="mock-stat-change">entre 12 clientes</div>
-          </div>
-          <div class="mock-stat-card">
-            <div class="mock-stat-label">Pendientes de revision</div>
-            <div class="mock-stat-value blue">8</div>
-            <div class="mock-stat-change">3 nuevas hoy</div>
-          </div>
+          <div style="background:#e040fb;color:#fff;font-size:0.45rem;font-weight:700;padding:4px 8px;border-radius:6px">+ Subir facturas</div>
         </div>
-        <div class="mock-table">
-          <div class="mock-table-header">
-            <span>Proveedor</span>
-            <span>RUC</span>
-            <span>Monto</span>
-            <span>Estado</span>
+        <!-- Action bar -->
+        <div style="display:flex;gap:4px;margin-bottom:8px;align-items:center;flex-wrap:wrap">
+          <div style="background:#242a39;color:#8b95a5;font-size:0.45rem;padding:3px 8px;border-radius:4px">Marzo 2026 (11)</div>
+          <div style="background:#ef4444;color:#fff;font-size:0.42rem;font-weight:700;padding:3px 8px;border-radius:4px">Validar 11 pendientes</div>
+          <div style="background:#2563eb;color:#fff;font-size:0.42rem;font-weight:700;padding:3px 8px;border-radius:4px">Exportar Marzo</div>
+        </div>
+        <!-- Split panel -->
+        <div style="display:flex;gap:8px">
+          <!-- Left: invoice list -->
+          <div style="flex:1;min-width:0">
+            <div class="mock-table">
+              <div class="mock-table-header">
+                <span>Fecha</span>
+                <span>Proveedor</span>
+                <span>Total</span>
+                <span>Estado</span>
+              </div>
+              <div class="mock-table-row" style="background:rgba(78,222,163,0.08)">
+                <span>03-21</span>
+                <span class="provider">DELICES DE F...</span>
+                <span>27.000</span>
+                <span><span class="mock-badge pending">Pendiente</span></span>
+              </div>
+              <div class="mock-table-row">
+                <span>03-21</span>
+                <span class="provider">Starbucks</span>
+                <span>26.500</span>
+                <span><span class="mock-badge pending">Pendiente</span></span>
+              </div>
+              <div class="mock-table-row">
+                <span>03-21</span>
+                <span class="provider">LAVA facil</span>
+                <span>74.100</span>
+                <span><span class="mock-badge pending">Pendiente</span></span>
+              </div>
+              <div class="mock-table-row">
+                <span>03-20</span>
+                <span class="provider">BUEN GRILLE</span>
+                <span>49.000</span>
+                <span><span class="mock-badge approved">Validada</span></span>
+              </div>
+              <div class="mock-table-row">
+                <span>03-20</span>
+                <span class="provider">Retail S.A.</span>
+                <span>25.800</span>
+                <span><span class="mock-badge approved">Validada</span></span>
+              </div>
+              <div class="mock-table-row">
+                <span>03-16</span>
+                <span class="provider">NUEVA AMER...</span>
+                <span>99.900</span>
+                <span><span class="mock-badge approved">Validada</span></span>
+              </div>
+            </div>
           </div>
-          <div class="mock-table-row">
-            <span class="provider">Supermercado Stock</span>
-            <span>80012345-1</span>
-            <span>₲ 485,000</span>
-            <span><span class="mock-badge approved">Validada</span></span>
-          </div>
-          <div class="mock-table-row">
-            <span class="provider">Farmacia Catedral</span>
-            <span>80067891-3</span>
-            <span>₲ 125,400</span>
-            <span><span class="mock-badge approved">Validada</span></span>
-          </div>
-          <div class="mock-table-row">
-            <span class="provider">Restaurant Lido</span>
-            <span>80034567-8</span>
-            <span>₲ 210,000</span>
-            <span><span class="mock-badge pending">Pendiente</span></span>
-          </div>
-          <div class="mock-table-row">
-            <span class="provider">Copetrol SA</span>
-            <span>80098765-2</span>
-            <span>₲ 350,800</span>
-            <span><span class="mock-badge approved">Validada</span></span>
+          <!-- Right: invoice detail -->
+          <div style="flex:1;min-width:0;background:#242a39;border-radius:8px;padding:8px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+              <div style="font-size:0.6rem;font-weight:700;color:#dde2f6">DELICES DE FRANCE SRL</div>
+              <span class="mock-badge pending" style="font-size:0.4rem">Pendiente</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:6px">
+              <div><div style="font-size:0.35rem;color:#8b95a5">Fecha</div><div style="font-size:0.45rem;color:#dde2f6">2026-03-21</div></div>
+              <div><div style="font-size:0.35rem;color:#8b95a5">N&deg; Factura</div><div style="font-size:0.45rem;color:#dde2f6;font-family:monospace">005-002-0002955</div></div>
+            </div>
+            <div style="display:flex;justify-content:flex-end;margin-bottom:6px">
+              <div style="text-align:right"><div style="font-size:0.35rem;color:#8b95a5">Total</div><div style="font-size:0.75rem;font-weight:800;color:#dde2f6">27.000 <span style="font-size:0.4rem;color:#8b95a5">PYG</span></div></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-bottom:8px">
+              <div><div style="font-size:0.35rem;color:#8b95a5">RUC Prov.</div><div style="font-size:0.4rem;color:#dde2f6;font-family:monospace">80097187-6</div></div>
+              <div><div style="font-size:0.35rem;color:#8b95a5">Timbrado</div><div style="font-size:0.4rem;color:#dde2f6;font-family:monospace">18655092</div></div>
+              <div><div style="font-size:0.35rem;color:#8b95a5">Gravado 10%</div><div style="font-size:0.4rem;color:#dde2f6">27.000</div></div>
+            </div>
+            <!-- Action buttons -->
+            <div style="display:flex;gap:4px;margin-bottom:6px">
+              <div style="flex:1;background:#2563eb;color:#fff;font-size:0.4rem;font-weight:700;text-align:center;padding:4px;border-radius:4px">Editar</div>
+              <div style="flex:1;background:#10b981;color:#fff;font-size:0.4rem;font-weight:700;text-align:center;padding:4px;border-radius:4px">Validar</div>
+              <div style="flex:1;background:#ef4444;color:#fff;font-size:0.4rem;font-weight:700;text-align:center;padding:4px;border-radius:4px">Rechazar</div>
+            </div>
+            <!-- Invoice photo preview -->
+            <div style="background:#1a2236;border-radius:6px;padding:6px;text-align:center">
+              <div style="font-size:0.4rem;color:#8b95a5;margin-bottom:3px">Foto de la factura</div>
+              <div style="background:#2a3040;border-radius:4px;padding:8px 4px;font-family:monospace;text-align:left;line-height:1.4">
+                <div style="font-size:0.38rem;color:#c0c8d8;font-weight:700">DELICES DE FRANCE SRL</div>
+                <div style="font-size:0.32rem;color:#8b95a5">RUC: 80097187-6</div>
+                <div style="font-size:0.32rem;color:#8b95a5">TIMBRADO: 18655092</div>
+                <div style="font-size:0.32rem;color:#8b95a5">FACTURA CONTADO</div>
+                <div style="font-size:0.32rem;color:#8b95a5">Nro: 005-002-0002955</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
