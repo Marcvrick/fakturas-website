@@ -1312,6 +1312,9 @@ footer .logo span { color: var(--emerald); }
   .mock-phone-card-sub { font-size: 0.4rem; }
   .mock-phone-btn { padding: 5px; font-size: 0.5rem; border-radius: 6px; }
   .mock-camera-icon { font-size: 0.7rem; }
+  /* Invoice photo — clip on mobile to avoid overly long mockup */
+  .invoice-photo { max-height: 60px; overflow: hidden; border-radius: 6px; }
+
   /* Chart mockup scaled down */
   .mock-chart-body { padding: 8px; }
   .mock-chart-title { font-size: 0.5rem; }
@@ -1594,7 +1597,7 @@ footer .logo span { color: var(--emerald); }
               <div style="flex:1;background:#ef4444;color:#fff;font-size:0.4rem;font-weight:700;text-align:center;padding:4px;border-radius:4px">Rechazar</div>
             </div>
             <!-- Invoice photo (large, matching real layout) -->
-            <div style="background:#d5d0c8;border-radius:6px;padding:10px 8px;font-family:monospace;text-align:left;line-height:1.6;min-height:90px">
+            <div class="invoice-photo" style="background:#d5d0c8;border-radius:6px;padding:10px 8px;font-family:monospace;text-align:left;line-height:1.6;min-height:90px">
               <div style="font-size:0.48rem;color:#1a1a1a;font-weight:700">PANADERIA SAN JOSE SRL</div>
               <div style="font-size:0.38rem;color:#333">RUC: 80097187-6</div>
               <div style="font-size:0.38rem;color:#333">Actividad Economica: COMERCIO AL POR</div>
