@@ -348,7 +348,7 @@
     </p>
     <br>
     <p>
-      Todos los miembros del equipo ven los mismos clientes y facturas. Solo el administrador puede agregar, editar o eliminar clientes.
+      Cada contador ve unicamente los clientes que le fueron asignados, para que pueda enfocarse en su trabajo sin distracciones. Solo el administrador ve todos los clientes y puede agregar, editar o eliminar.
     </p>
   </div>
 
@@ -364,8 +364,8 @@
         Vos (Administrador)
       </div>
       <div class="tier-perms">
-        <span class="perm-badge perm-badge--full">Agregar clientes</span>
-        <span class="perm-badge perm-badge--full">Editar / Eliminar</span>
+        <span class="perm-badge perm-badge--full">Ve todos los clientes</span>
+        <span class="perm-badge perm-badge--full">Agregar / Editar / Eliminar</span>
         <span class="perm-badge perm-badge--full">Facturacion</span>
         <span class="perm-badge perm-badge--full">Invitar equipo</span>
       </div>
@@ -381,64 +381,71 @@
       </div>
     </div>
 
-    <!-- TIER 2: Sub-accounts -->
+    <!-- TIER 2 + TIER 3: Sub-accounts with their own clients -->
     <div class="tier">
       <div class="tier-label">Cuentas del equipo</div>
-      <div class="tier-row">
-        <div>
+      <div style="display:flex;justify-content:center;gap:32px;flex-wrap:wrap">
+
+        <!-- Contador 1 column -->
+        <div style="display:flex;flex-direction:column;align-items:center">
           <div class="tier-node tier-node--sub">
             <span class="tier-node-icon">&#x1F464;</span>
             Contador 1
           </div>
+          <div class="tier-perms" style="margin-top:6px">
+            <span class="perm-badge perm-badge--read">Sus clientes</span>
+          </div>
+          <div class="connector">
+            <div class="connector-line"></div>
+            <div class="connector-arrow">&#x25BC;</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div class="tier-node tier-node--client">&#x1F4BC; Cliente A</div>
+            <div class="tier-node tier-node--client">&#x1F4BC; Cliente B</div>
+          </div>
         </div>
-        <div>
+
+        <!-- Contador 2 column -->
+        <div style="display:flex;flex-direction:column;align-items:center">
           <div class="tier-node tier-node--sub">
             <span class="tier-node-icon">&#x1F464;</span>
             Contador 2
           </div>
+          <div class="tier-perms" style="margin-top:6px">
+            <span class="perm-badge perm-badge--read">Sus clientes</span>
+          </div>
+          <div class="connector">
+            <div class="connector-line"></div>
+            <div class="connector-arrow">&#x25BC;</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div class="tier-node tier-node--client">&#x1F4BC; Cliente C</div>
+            <div class="tier-node tier-node--client">&#x1F4BC; Cliente D</div>
+          </div>
         </div>
-      </div>
-      <div class="tier-perms" style="margin-top:8px">
-        <span class="perm-badge perm-badge--read">Ver clientes</span>
-        <span class="perm-badge perm-badge--read">Ver facturas</span>
-      </div>
-    </div>
 
-    <!-- Connector: info flow -->
-    <div class="connector">
-      <div class="connector-line"></div>
-      <div class="connector-arrow">&#x25BC;</div>
-      <div style="font-size:10px;color:var(--text-muted);font-weight:600;margin-top:2px">ACCESO COMPARTIDO</div>
-      <div class="connector-arrow">&#x25BC;</div>
-      <div class="connector-line"></div>
-    </div>
-
-    <!-- TIER 3: Clients -->
-    <div class="tier">
-      <div class="tier-label">Clientes del gabinete</div>
-      <div class="clients-grid">
-        <div class="tier-node tier-node--client">&#x1F4BC; Cliente A</div>
-        <div class="tier-node tier-node--client">&#x1F4BC; Cliente B</div>
-        <div class="tier-node tier-node--client">&#x1F4BC; Cliente C</div>
-        <div class="tier-node tier-node--client">&#x1F4BC; ...</div>
       </div>
     </div>
 
     <!-- Flow explanation -->
     <div style="margin-top:24px;padding-top:20px;border-top:1px dashed var(--border)">
       <div class="tier-label" style="margin-bottom:14px">Flujo de informacion</div>
-      <div style="display:flex;flex-direction:column;gap:8px;text-align:left;max-width:360px;margin:0 auto">
+      <div style="display:flex;flex-direction:column;gap:8px;text-align:left;max-width:400px;margin:0 auto">
         <div style="display:flex;align-items:center;gap:10px;font-size:13px">
           <span style="color:var(--emerald);font-size:16px">&#x2B06;</span>
           <span style="color:var(--text-secondary)">Los clientes envian fotos de facturas desde la app movil</span>
         </div>
         <div style="display:flex;align-items:center;gap:10px;font-size:13px">
           <span style="color:#3a8fd4;font-size:16px">&#x1F441;</span>
-          <span style="color:var(--text-secondary)">Todos los contadores ven las facturas en el dashboard</span>
+          <span style="color:var(--text-secondary)">Cada contador ve solo las facturas de sus clientes asignados</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:13px">
+          <span style="color:var(--emerald);font-size:16px">&#x1F451;</span>
+          <span style="color:var(--text-secondary)">El admin ve todos los clientes y gestiona el equipo</span>
         </div>
         <div style="display:flex;align-items:center;gap:10px;font-size:13px">
           <span style="color:var(--emerald);font-size:16px">&#x1F512;</span>
-          <span style="color:var(--text-secondary)">Solo el admin puede modificar clientes y gestionar el equipo</span>
+          <span style="color:var(--text-secondary)">Solo el admin puede agregar, editar o eliminar clientes</span>
         </div>
       </div>
     </div>
