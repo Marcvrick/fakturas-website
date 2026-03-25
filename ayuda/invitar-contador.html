@@ -99,7 +99,7 @@
     font-size: 15px;
   }
 
-  /* Diagram */
+  /* Diagram — vertical hierarchy */
   .diagram {
     background: var(--white);
     border: 1px solid var(--border);
@@ -114,71 +114,138 @@
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 24px;
+    margin-bottom: 28px;
   }
-  .diagram-row {
-    display: flex;
+
+  /* Tier levels */
+  .tier {
+    position: relative;
+    margin-bottom: 0;
+  }
+  .tier-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+  .tier-node {
+    display: inline-flex;
     align-items: center;
+    gap: 12px;
+    background: var(--emerald);
+    color: var(--emerald-dark);
+    border-radius: 14px;
+    padding: 14px 24px;
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .tier-node--sub {
+    background: #d4e8f8;
+    color: #1a5a8a;
+    font-size: 14px;
+    padding: 10px 18px;
+    border-radius: 12px;
+  }
+  .tier-node--client {
+    background: var(--surface);
+    color: var(--text-secondary);
+    font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    font-weight: 500;
+  }
+  .tier-node-icon {
+    font-size: 20px;
+  }
+
+  /* Connector line */
+  .connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6px 0;
+  }
+  .connector-line {
+    width: 2px;
+    height: 16px;
+    background: var(--border);
+  }
+  .connector-arrow {
+    font-size: 10px;
+    color: var(--border);
+    line-height: 1;
+  }
+
+  /* Branch connector (1 to many) */
+  .branch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6px 0;
+  }
+  .branch-stem {
+    width: 2px;
+    height: 12px;
+    background: var(--border);
+  }
+  .branch-bar {
+    width: 180px;
+    height: 2px;
+    background: var(--border);
+    position: relative;
+  }
+  .branch-drops {
+    display: flex;
+    justify-content: space-between;
+    width: 180px;
+  }
+  .branch-drop {
+    width: 2px;
+    height: 12px;
+    background: var(--border);
+  }
+
+  /* Sub-accounts row */
+  .tier-row {
+    display: flex;
     justify-content: center;
     gap: 16px;
     flex-wrap: wrap;
   }
-  .diagram-node {
+
+  /* Clients grid */
+  .clients-grid {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-  }
-  .diagram-icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 24px;
-  }
-  .diagram-icon--admin {
-    background: var(--emerald);
-    color: var(--emerald-dark);
-  }
-  .diagram-icon--member {
-    background: #d4e8f8;
-    color: #3a8fd4;
-  }
-  .diagram-label {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text);
-  }
-  .diagram-sub {
-    font-size: 11px;
-    color: var(--text-muted);
-  }
-  .diagram-arrow {
-    font-size: 20px;
-    color: var(--border);
-  }
-  .diagram-clients {
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px dashed var(--border);
-  }
-  .diagram-clients-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
+    gap: 10px;
     flex-wrap: wrap;
   }
-  .diagram-client {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 8px 14px;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text-secondary);
+
+  /* Permissions badge */
+  .tier-perms {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+  }
+  .perm-badge {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 6px;
+    letter-spacing: 0.3px;
+  }
+  .perm-badge--full {
+    background: rgba(78,222,163,0.15);
+    color: #0d7a4a;
+  }
+  .perm-badge--read {
+    background: rgba(58,143,212,0.12);
+    color: #2563a8;
   }
 
   /* Steps */
@@ -285,35 +352,94 @@
     </p>
   </div>
 
-  <!-- Diagram -->
+  <!-- Diagram: Vertical hierarchy + information flow -->
   <div class="diagram">
-    <div class="diagram-title">Como funciona</div>
-    <div class="diagram-row">
-      <div class="diagram-node">
-        <div class="diagram-icon diagram-icon--admin">&#x1F451;</div>
-        <div class="diagram-label">Vos (Admin)</div>
-        <div class="diagram-sub">Cuenta principal</div>
+    <div class="diagram-title">Estructura del gabinete</div>
+
+    <!-- TIER 1: Master account -->
+    <div class="tier">
+      <div class="tier-label">Cuenta principal</div>
+      <div class="tier-node">
+        <span class="tier-node-icon">&#x1F451;</span>
+        Vos (Administrador)
       </div>
-      <div class="diagram-arrow">&#8594;</div>
-      <div class="diagram-node">
-        <div class="diagram-icon diagram-icon--member">&#x1F464;</div>
-        <div class="diagram-label">Contador 1</div>
-        <div class="diagram-sub">Invitado</div>
-      </div>
-      <div class="diagram-arrow">&#8594;</div>
-      <div class="diagram-node">
-        <div class="diagram-icon diagram-icon--member">&#x1F464;</div>
-        <div class="diagram-label">Contador 2</div>
-        <div class="diagram-sub">Invitado</div>
+      <div class="tier-perms">
+        <span class="perm-badge perm-badge--full">Agregar clientes</span>
+        <span class="perm-badge perm-badge--full">Editar / Eliminar</span>
+        <span class="perm-badge perm-badge--full">Facturacion</span>
+        <span class="perm-badge perm-badge--full">Invitar equipo</span>
       </div>
     </div>
-    <div class="diagram-clients">
-      <div class="diagram-sub" style="margin-bottom:10px">Todos ven los mismos clientes</div>
-      <div class="diagram-clients-row">
-        <div class="diagram-client">Cliente A</div>
-        <div class="diagram-client">Cliente B</div>
-        <div class="diagram-client">Cliente C</div>
-        <div class="diagram-client">...</div>
+
+    <!-- Connector: 1 to many -->
+    <div class="branch">
+      <div class="branch-stem"></div>
+      <div class="branch-bar"></div>
+      <div class="branch-drops">
+        <div class="branch-drop"></div>
+        <div class="branch-drop"></div>
+      </div>
+    </div>
+
+    <!-- TIER 2: Sub-accounts -->
+    <div class="tier">
+      <div class="tier-label">Cuentas del equipo</div>
+      <div class="tier-row">
+        <div>
+          <div class="tier-node tier-node--sub">
+            <span class="tier-node-icon">&#x1F464;</span>
+            Contador 1
+          </div>
+        </div>
+        <div>
+          <div class="tier-node tier-node--sub">
+            <span class="tier-node-icon">&#x1F464;</span>
+            Contador 2
+          </div>
+        </div>
+      </div>
+      <div class="tier-perms" style="margin-top:8px">
+        <span class="perm-badge perm-badge--read">Ver clientes</span>
+        <span class="perm-badge perm-badge--read">Ver facturas</span>
+      </div>
+    </div>
+
+    <!-- Connector: info flow -->
+    <div class="connector">
+      <div class="connector-line"></div>
+      <div class="connector-arrow">&#x25BC;</div>
+      <div style="font-size:10px;color:var(--text-muted);font-weight:600;margin-top:2px">ACCESO COMPARTIDO</div>
+      <div class="connector-arrow">&#x25BC;</div>
+      <div class="connector-line"></div>
+    </div>
+
+    <!-- TIER 3: Clients -->
+    <div class="tier">
+      <div class="tier-label">Clientes del gabinete</div>
+      <div class="clients-grid">
+        <div class="tier-node tier-node--client">&#x1F4BC; Cliente A</div>
+        <div class="tier-node tier-node--client">&#x1F4BC; Cliente B</div>
+        <div class="tier-node tier-node--client">&#x1F4BC; Cliente C</div>
+        <div class="tier-node tier-node--client">&#x1F4BC; ...</div>
+      </div>
+    </div>
+
+    <!-- Flow explanation -->
+    <div style="margin-top:24px;padding-top:20px;border-top:1px dashed var(--border)">
+      <div class="tier-label" style="margin-bottom:14px">Flujo de informacion</div>
+      <div style="display:flex;flex-direction:column;gap:8px;text-align:left;max-width:360px;margin:0 auto">
+        <div style="display:flex;align-items:center;gap:10px;font-size:13px">
+          <span style="color:var(--emerald);font-size:16px">&#x2B06;</span>
+          <span style="color:var(--text-secondary)">Los clientes envian fotos de facturas desde la app movil</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:13px">
+          <span style="color:#3a8fd4;font-size:16px">&#x1F441;</span>
+          <span style="color:var(--text-secondary)">Todos los contadores ven las facturas en el dashboard</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:13px">
+          <span style="color:var(--emerald);font-size:16px">&#x1F512;</span>
+          <span style="color:var(--text-secondary)">Solo el admin puede modificar clientes y gestionar el equipo</span>
+        </div>
       </div>
     </div>
   </div>
