@@ -339,23 +339,51 @@ nav {
 
 /* Side mockup — mobile phone (left) */
 .mockup-phone {
-  width: 200px;
+  width: 230px;
   left: 20px;
   top: 40px;
   z-index: 4;
-  border-radius: 24px;
-  border: 3px solid var(--navy);
+  border-radius: 32px;
+  border: 4px solid #2a2a2a;
+  box-shadow: inset 0 0 0 2px #1a1a1a;
 }
 .mock-phone-header {
   background: var(--navy);
-  padding: 16px 14px 10px;
-  border-radius: 20px 20px 0 0;
+  padding: 8px 14px 10px;
+  border-radius: 28px 28px 0 0;
+  position: relative;
+}
+/* Dynamic Island */
+.mock-phone-header::before {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 22px;
+  background: #111;
+  border-radius: 20px;
+  margin: 0 auto 8px;
+}
+/* Status bar */
+.mock-phone-statusbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 0 2px;
 }
 .mock-phone-time {
   color: #fff;
   font-size: 0.65rem;
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 0;
+}
+.mock-phone-statusbar-icons {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  color: #fff;
+  font-size: 0.55rem;
+  font-weight: 600;
 }
 .mock-phone-greeting {
   color: var(--emerald);
@@ -1623,7 +1651,14 @@ footer .logo span { color: var(--emerald); }
     <!-- Right: Mobile phone (matches actual app layout) -->
     <div class="mockup mockup-phone">
       <div class="mock-phone-header">
-        <div class="mock-phone-time">9:41</div>
+        <div class="mock-phone-statusbar">
+          <div class="mock-phone-time">9:41</div>
+          <div class="mock-phone-statusbar-icons">
+            <svg width="14" height="10" viewBox="0 0 18 12"><rect x="0" y="7" width="3" height="5" rx="0.5" fill="#fff"/><rect x="4" y="4" width="3" height="8" rx="0.5" fill="#fff"/><rect x="8" y="2" width="3" height="10" rx="0.5" fill="#fff"/><rect x="12" y="0" width="3" height="12" rx="0.5" fill="#fff"/></svg>
+            <svg width="13" height="10" viewBox="0 0 16 12"><path d="M8 3.6C9.8 3.6 11.4 4.3 12.6 5.5L14 4.1C12.4 2.5 10.3 1.5 8 1.5S3.6 2.5 2 4.1L3.4 5.5C4.6 4.3 6.2 3.6 8 3.6Z" fill="#fff"/><path d="M8 7.2C9 7.2 9.9 7.6 10.6 8.3L12 6.9C10.9 5.8 9.5 5.1 8 5.1S5.1 5.8 4 6.9L5.4 8.3C6.1 7.6 7 7.2 8 7.2Z" fill="#fff"/><circle cx="8" cy="10.5" r="1.5" fill="#fff"/></svg>
+            <svg width="22" height="10" viewBox="0 0 28 13"><rect x="0" y="1" width="23" height="11" rx="2.5" stroke="#fff" stroke-width="1.2" fill="none"/><rect x="24" y="4" width="2" height="5" rx="1" fill="#fff" opacity="0.4"/><rect x="1.5" y="2.5" width="18" height="8" rx="1.5" fill="#4edea3"/></svg>
+          </div>
+        </div>
         <div class="mock-phone-greeting">Hola! 👋</div>
         <div class="mock-phone-sub" style="font-weight:700;font-size:0.7rem;color:#fff">Soy Juan Perez</div>
         <div style="margin-top:4px;display:inline-block;background:#1a2236;border-radius:4px;padding:2px 6px;font-size:0.5rem;color:#fff;font-family:monospace">RUC 123 4567-8</div>
@@ -1675,6 +1710,10 @@ footer .logo span { color: var(--emerald); }
         <div style="background:#151d2e;border-radius:10px 10px 0 0;padding:8px 10px;margin-top:8px">
           <div style="font-size:0.55rem;font-weight:600;color:var(--emerald)">Historial</div>
         </div>
+      </div>
+      <!-- iPhone home indicator -->
+      <div style="background:var(--navy-light);padding:6px 0 8px;border-radius:0 0 28px 28px;text-align:center">
+        <div style="width:40%;height:4px;background:rgba(255,255,255,0.3);border-radius:3px;margin:0 auto"></div>
       </div>
     </div>
 
