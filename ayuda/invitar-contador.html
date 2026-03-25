@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Como invitar a un contador — Fakturas.app</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --emerald: #4edea3;
+    --emerald-dark: #003824;
+    --navy: #0d1321;
+    --bg: #f8faf9;
+    --text: #1a1a2e;
+    --text-secondary: #5a6577;
+    --text-muted: #8b95a5;
+    --border: #e2e8f0;
+    --surface: #f1f5f3;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* Header */
+  .header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .header-logo {
+    width: 32px;
+    height: 32px;
+    background: var(--emerald);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--white);
+  }
+  .header-brand {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--text);
+  }
+  .header-brand span { color: var(--text-muted); font-weight: 400; margin-left: 8px; }
+
+  /* Content */
+  .container {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+
+  .subtitle {
+    color: var(--text-secondary);
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+
+  /* What is it */
+  .concept-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 32px;
+  }
+  .concept-box h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .concept-box p {
+    color: var(--text-secondary);
+    font-size: 15px;
+  }
+
+  /* Diagram */
+  .diagram {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px 24px;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+  .diagram-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+  }
+  .diagram-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .diagram-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .diagram-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+  }
+  .diagram-icon--admin {
+    background: var(--emerald);
+    color: var(--emerald-dark);
+  }
+  .diagram-icon--member {
+    background: #d4e8f8;
+    color: #3a8fd4;
+  }
+  .diagram-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .diagram-sub {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+  .diagram-arrow {
+    font-size: 20px;
+    color: var(--border);
+  }
+  .diagram-clients {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--border);
+  }
+  .diagram-clients-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .diagram-client {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+
+  /* Steps */
+  .steps-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .step {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .step-number {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    background: var(--emerald);
+    color: var(--emerald-dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 16px;
+  }
+  .step-content {
+    flex: 1;
+    padding-top: 6px;
+  }
+  .step-content strong {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+  .step-content p {
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
+
+  /* Info box */
+  .info-box {
+    background: #eef6ff;
+    border: 1px solid #c3dafe;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-top: 32px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .info-box-icon {
+    font-size: 20px;
+    min-width: 24px;
+  }
+  .info-box p {
+    font-size: 14px;
+    color: #3b5998;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 24px;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+  .footer a {
+    color: var(--emerald);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  @media (max-width: 480px) {
+    .container { padding: 24px 16px 60px; }
+    h1 { font-size: 24px; }
+    .diagram-row { gap: 10px; }
+    .diagram-icon { width: 44px; height: 44px; font-size: 20px; border-radius: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-logo">F</div>
+  <div class="header-brand">Fakturas.app <span>Ayuda</span></div>
+</div>
+
+<div class="container">
+
+  <h1>Cuenta principal y equipo</h1>
+  <p class="subtitle">Aprende como funciona la cuenta principal y como invitar a otros contadores de tu gabinete.</p>
+
+  <!-- Concept -->
+  <div class="concept-box">
+    <h2>Que es la cuenta principal?</h2>
+    <p>
+      Cuando creas tu cuenta en Fakturas.app, automaticamente sos el <strong>administrador</strong> de tu gabinete.
+      Tu cuenta es la cuenta principal: controlas los clientes, la facturacion y podes invitar a otros contadores de tu equipo para que trabajen con vos en el mismo dashboard.
+    </p>
+    <br>
+    <p>
+      Todos los miembros del equipo ven los mismos clientes y facturas. Solo el administrador puede agregar, editar o eliminar clientes.
+    </p>
+  </div>
+
+  <!-- Diagram -->
+  <div class="diagram">
+    <div class="diagram-title">Como funciona</div>
+    <div class="diagram-row">
+      <div class="diagram-node">
+        <div class="diagram-icon diagram-icon--admin">&#x1F451;</div>
+        <div class="diagram-label">Vos (Admin)</div>
+        <div class="diagram-sub">Cuenta principal</div>
+      </div>
+      <div class="diagram-arrow">&#8594;</div>
+      <div class="diagram-node">
+        <div class="diagram-icon diagram-icon--member">&#x1F464;</div>
+        <div class="diagram-label">Contador 1</div>
+        <div class="diagram-sub">Invitado</div>
+      </div>
+      <div class="diagram-arrow">&#8594;</div>
+      <div class="diagram-node">
+        <div class="diagram-icon diagram-icon--member">&#x1F464;</div>
+        <div class="diagram-label">Contador 2</div>
+        <div class="diagram-sub">Invitado</div>
+      </div>
+    </div>
+    <div class="diagram-clients">
+      <div class="diagram-sub" style="margin-bottom:10px">Todos ven los mismos clientes</div>
+      <div class="diagram-clients-row">
+        <div class="diagram-client">Cliente A</div>
+        <div class="diagram-client">Cliente B</div>
+        <div class="diagram-client">Cliente C</div>
+        <div class="diagram-client">...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Steps -->
+  <h2 class="steps-title">Como invitar a un contador</h2>
+
+  <div class="step">
+    <div class="step-number">1</div>
+    <div class="step-content">
+      <strong>Genera un codigo</strong>
+      <p>En Ajustes, seccion "Cuenta principal", ingresa el nombre del contador y hace clic en "Generar codigo".</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-number">2</div>
+    <div class="step-content">
+      <strong>Envia el codigo</strong>
+      <p>Copia el codigo y envialo a tu colega por WhatsApp, email o en persona.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-number">3</div>
+    <div class="step-content">
+      <strong>Tu colega crea su cuenta</strong>
+      <p>Abre <strong>app.fakturas.app</strong> y se registra con su propio email.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-number">4</div>
+    <div class="step-content">
+      <strong>Ingresa el codigo</strong>
+      <p>En la pantalla de bienvenida, elige "Unirme a la cuenta de mi gabinete" e ingresa el codigo que le enviaste.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-number">5</div>
+    <div class="step-content">
+      <strong>Listo!</strong>
+      <p>Ya tiene acceso al dashboard con todos los clientes del gabinete.</p>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <div class="info-box-icon">&#x2139;&#xFE0F;</div>
+    <p>Los codigos vencen a los <strong>7 dias</strong>. Podes generar hasta <strong>10 codigos activos</strong> al mismo tiempo. Si un codigo vence, simplemente genera uno nuevo.</p>
+  </div>
+
+</div>
+
+<div class="footer">
+  <a href="https://fakturas.app">fakturas.app</a>
+</div>
+
+</body>
+</html>
