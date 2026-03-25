@@ -42,6 +42,15 @@ Push to `main` → GitHub Pages auto-deploys. No build step needed.
 - Primary green: `#4edea3`
 - Favicon: white "F" on `#4edea3` green square
 
+### Mar 24, 2026 — Mobile hero rework + ROI in Guaranies
+
+- iPhone mockup: locked to real 9:19.5 aspect ratio (no more elongated phone)
+- iPhone centered overlapping the portal contable dashboard on mobile
+- Hidden chart card on mobile for cleaner layout
+- Phone mockup switched to light theme (#f0f0f0) matching actual app UI
+- Shrunk Editar/Validar/Rechazar action buttons on mobile
+- ROI comparison section: switched from USD to Guaranies (₲470K vs ₲670K+)
+
 ### Mar 23, 2026 — Added favicon to all pages
 
 - White F on brand green (#4edea3), all sizes (ico, 32/192/512px PNG, apple-touch-icon)
