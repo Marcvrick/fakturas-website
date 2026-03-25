@@ -1308,13 +1308,13 @@ footer .logo span { color: var(--emerald); }
   .hero-buttons a { width: 100%; max-width: 300px; text-align: center; }
   .float-emoji { display: none; }
 
-  /* Hero mockups — horizontal row, scaled down */
-  .hero-mockups { height: auto; display: flex; flex-direction: row; gap: 8px; align-items: flex-start; justify-content: center; overflow-x: auto; padding-bottom: 10px; }
-  .mockup { position: relative !important; left: auto !important; right: auto !important; top: auto !important; transform: none !important; flex-shrink: 0; }
-  .mockup-main { width: 58%; min-width: 200px; order: 2; }
+  /* Hero mockups — phone overlapping dashboard */
+  .hero-mockups { height: auto; position: relative; max-width: 92%; margin: 0 auto; padding-bottom: 10px; overflow: visible; }
+  .mockup { flex-shrink: 0; }
+  .mockup-main { position: relative !important; left: auto !important; right: auto !important; top: auto !important; transform: none !important; width: 100%; }
   .mockup-main:hover { transform: translateY(-6px) !important; }
   .mockup-chart { display: none; }
-  .mockup-phone { width: 32%; min-width: 130px; order: 1; box-shadow: 0 4px 24px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.08); }
+  .mockup-phone { position: absolute !important; left: 50% !important; top: 20px !important; transform: translateX(-50%) !important; right: auto !important; width: 140px; z-index: 5; box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 2px 6px rgba(0,0,0,0.1); }
 
   /* Mock elements inside hero — scale down */
   .mock-topbar { padding: 6px 10px; }
@@ -1336,6 +1336,8 @@ footer .logo span { color: var(--emerald); }
   .mock-table-row span:nth-child(2) { display: none; }
   .mock-table-header { font-size: 0.45rem; }
   .mock-badge { font-size: 0.4rem; padding: 1px 4px; }
+  /* Detail panel action buttons — smaller on mobile */
+  .mock-action-btns > div { font-size: 0.3rem !important; padding: 2px !important; border-radius: 3px !important; }
   /* Phone mockup scaled down */
   .mockup-phone { border-radius: 20px; }
   .mock-phone-header { padding: 6px 10px 6px; }
@@ -1635,7 +1637,7 @@ footer .logo span { color: var(--emerald); }
               <div><div style="font-size:0.35rem;color:#8b95a5">Gravado 10%</div><div style="font-size:0.4rem;color:#dde2f6">27.000</div></div>
             </div>
             <!-- Action buttons -->
-            <div style="display:flex;gap:4px;margin-bottom:6px">
+            <div class="mock-action-btns" style="display:flex;gap:4px;margin-bottom:6px">
               <div style="flex:1;background:#2563eb;color:#fff;font-size:0.4rem;font-weight:700;text-align:center;padding:4px;border-radius:4px">Editar</div>
               <div style="flex:1;background:#10b981;color:#fff;font-size:0.4rem;font-weight:700;text-align:center;padding:4px;border-radius:4px">Validar</div>
               <div style="flex:1;background:#ef4444;color:#fff;font-size:0.4rem;font-weight:700;text-align:center;padding:4px;border-radius:4px">Rechazar</div>
