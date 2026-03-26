@@ -679,23 +679,38 @@ footer .logo span { color: var(--emerald); }
       </div>
     </a>
 
+  </div>
+
+  <!-- PAGINATION -->
+  <div class="pagination">
+    <button class="page-btn disabled" id="prev-btn" onclick="changePage(-1)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    </button>
+    <button class="page-btn active" onclick="goToPage(1)">1</button>
+    <button class="page-btn" onclick="goToPage(2)">2</button>
+    <button class="page-btn" id="next-btn" onclick="changePage(1)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- PAGE 2 ARTICLES (hidden by default) -->
+<template id="page2-articles">
+
     <!-- 9. Proveedores del Estado -->
     <a href="proveedores-estado-facturacion-electronica" class="blog-card">
       <div class="card-image">
         <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="400" height="200" fill="#f1f5f3"/>
-          <!-- Gov building -->
           <rect x="170" y="24" width="60" height="6" rx="2" fill="#0d1321"/>
           <polygon points="170,30 200,14 230,30" fill="#0d1321"/>
           <rect x="176" y="30" width="10" height="22" fill="#0d1321"/>
           <rect x="195" y="30" width="10" height="22" fill="#0d1321"/>
           <rect x="214" y="30" width="10" height="22" fill="#0d1321"/>
           <rect x="170" y="52" width="60" height="4" fill="#0d1321"/>
-          <!-- Resolution -->
           <rect x="130" y="72" width="140" height="28" rx="6" fill="#fee2e2" stroke="#ef4444" stroke-width="1.2"/>
           <text x="200" y="86" text-anchor="middle" font-size="8" fill="#991b1b" font-family="Inter,sans-serif" font-weight="700">Res. DNIT 41/2025</text>
           <text x="200" y="96" text-anchor="middle" font-size="6" fill="#991b1b" font-family="Inter,sans-serif">Obligatorio desde 2 enero 2026</text>
-          <!-- Flow -->
           <rect x="30" y="120" width="100" height="50" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1"/>
           <text x="80" y="144" text-anchor="middle" font-size="8" fill="#0d1321" font-family="Inter,sans-serif" font-weight="600">Tu empresa</text>
           <text x="80" y="158" text-anchor="middle" font-size="6" fill="#5a6577" font-family="Inter,sans-serif">(proveedor)</text>
@@ -720,24 +735,6 @@ footer .logo span { color: var(--emerald); }
         </div>
       </div>
     </a>
-
-  </div>
-
-  <!-- PAGINATION -->
-  <div class="pagination">
-    <button class="page-btn disabled" id="prev-btn" onclick="changePage(-1)">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-    </button>
-    <button class="page-btn active" onclick="goToPage(1)">1</button>
-    <button class="page-btn" onclick="goToPage(2)">2</button>
-    <button class="page-btn" id="next-btn" onclick="changePage(1)">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </button>
-  </div>
-</div>
-
-<!-- PAGE 2 ARTICLES (hidden by default) -->
-<template id="page2-articles">
 
     <!-- 10. Multi-client contadores -->
     <a href="facturacion-electronica-multiples-clientes-contadores" class="blog-card">
