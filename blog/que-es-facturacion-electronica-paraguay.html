@@ -271,29 +271,29 @@ nav {
 
 /* TL;DR BOX */
 .tldr-box {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 32px 24px;
-  background: var(--surface);
-  border-radius: 14px;
+  background: linear-gradient(135deg, #f8faf9 0%, #f3f0e8 100%);
+  border-left: 4px solid var(--emerald);
+  padding: 28px 32px;
+  border-radius: 0 14px 14px 0;
+  margin: 32px 0 40px;
 }
 .tldr-box h2 {
-  font-size: 1.4rem;
-  font-weight: 800;
   color: var(--emerald-hover);
-  margin: 0 0 20px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0 0 16px;
   letter-spacing: -0.3px;
 }
 .tldr-box ul {
-  margin: 0 0 0 20px;
-  padding: 0;
+  margin: 0;
+  padding-left: 24px;
   list-style: disc;
 }
 .tldr-box li {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--text-secondary);
   line-height: 1.75;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 .tldr-box li:last-child { margin-bottom: 0; }
 /* DEFINITION BLOCK */
@@ -646,8 +646,15 @@ footer .logo span { color: var(--emerald); }
   </div>
 </header>
 
+<!-- ARTICLE BODY -->
+<article class="article-body">
 
-<div class="tldr-box">
+  <!-- Chapeau -->
+  <p class="chapeau">
+    SIFEN, DTE, KuDE, CDC, e-Kuatia. Si sentis que cada mes aparece una sigla nueva, no estas solo. Esta guia explica en terminos claros que es la facturacion electronica en Paraguay, como funciona, quien esta obligado, y que necesitas saber como contador para acompanar a tus clientes en la transicion.
+  </p>
+
+  <div class="tldr-box">
   <h2>Lo esencial:</h2>
   <ul>
     <li>SIFEN = el sistema de facturacion electronica de la DNIT. Reemplaza papel por DTEs (XML + firma digital).</li>
@@ -657,13 +664,6 @@ footer .logo span { color: var(--emerald); }
   </ul>
 </div>
 
-<!-- ARTICLE BODY -->
-<article class="article-body">
-
-  <!-- Chapeau -->
-  <p class="chapeau">
-    SIFEN, DTE, KuDE, CDC, e-Kuatia. Si sentis que cada mes aparece una sigla nueva, no estas solo. Esta guia explica en terminos claros que es la facturacion electronica en Paraguay, como funciona, quien esta obligado, y que necesitas saber como contador para acompanar a tus clientes en la transicion.
-  </p>
 <!-- Section 1: Definition -->
   <h2>Definicion: que es la facturacion electronica en Paraguay</h2>
 

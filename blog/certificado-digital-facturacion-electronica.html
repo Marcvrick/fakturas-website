@@ -260,29 +260,29 @@ nav {
 
 /* TL;DR BOX */
 .tldr-box {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 32px 24px;
-  background: var(--surface);
-  border-radius: 14px;
+  background: linear-gradient(135deg, #f8faf9 0%, #f3f0e8 100%);
+  border-left: 4px solid var(--emerald);
+  padding: 28px 32px;
+  border-radius: 0 14px 14px 0;
+  margin: 32px 0 40px;
 }
 .tldr-box h2 {
-  font-size: 1.4rem;
-  font-weight: 800;
   color: var(--emerald-hover);
-  margin: 0 0 20px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0 0 16px;
   letter-spacing: -0.3px;
 }
 .tldr-box ul {
-  margin: 0 0 0 20px;
-  padding: 0;
+  margin: 0;
+  padding-left: 24px;
   list-style: disc;
 }
 .tldr-box li {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--text-secondary);
   line-height: 1.75;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 .tldr-box li:last-child { margin-bottom: 0; }
 /* DEFINITION BLOCK */
@@ -552,8 +552,15 @@ footer .logo span { color: var(--emerald); }
   </div>
 </header>
 
+<!-- ARTICLE BODY -->
+<article class="article-body">
 
-<div class="tldr-box">
+  <!-- Chapeau -->
+  <p class="chapeau">
+    Sin certificado digital, no hay factura electronica. Asi de simple. El SIFEN exige que cada DTE lleve una firma digital valida, y esa firma solo puede generarse con un certificado emitido por un PSC autorizado en Paraguay. Esta guia te explica todo el proceso: desde entender que es un certificado digital hasta tenerlo instalado y listo para firmar tu primer documento.
+  </p>
+
+  <div class="tldr-box">
   <h2>Lo esencial:</h2>
   <ul>
     <li>Obligatorio para emitir DTE. Se obtiene de un PSC autorizado.</li>
@@ -563,13 +570,6 @@ footer .logo span { color: var(--emerald); }
   </ul>
 </div>
 
-<!-- ARTICLE BODY -->
-<article class="article-body">
-
-  <!-- Chapeau -->
-  <p class="chapeau">
-    Sin certificado digital, no hay factura electronica. Asi de simple. El SIFEN exige que cada DTE lleve una firma digital valida, y esa firma solo puede generarse con un certificado emitido por un PSC autorizado en Paraguay. Esta guia te explica todo el proceso: desde entender que es un certificado digital hasta tenerlo instalado y listo para firmar tu primer documento.
-  </p>
 <!-- SVG ILLUSTRATION -->
   <div class="svg-illustration">
     <svg viewBox="0 0 320 520" width="320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="4 pasos para obtener tu certificado digital: elegir PSC, presentar documentos, instalar certificado, firmar tu primer DTE">

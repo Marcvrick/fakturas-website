@@ -241,29 +241,29 @@ footer .logo span { color: var(--emerald); }
 
 /* TL;DR BOX */
 .tldr-box {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 32px 24px;
-  background: var(--surface);
-  border-radius: 14px;
+  background: linear-gradient(135deg, #f8faf9 0%, #f3f0e8 100%);
+  border-left: 4px solid var(--emerald);
+  padding: 28px 32px;
+  border-radius: 0 14px 14px 0;
+  margin: 32px 0 40px;
 }
 .tldr-box h2 {
-  font-size: 1.4rem;
-  font-weight: 800;
   color: var(--emerald-hover);
-  margin: 0 0 20px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0 0 16px;
   letter-spacing: -0.3px;
 }
 .tldr-box ul {
-  margin: 0 0 0 20px;
-  padding: 0;
+  margin: 0;
+  padding-left: 24px;
   list-style: disc;
 }
 .tldr-box li {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--text-secondary);
   line-height: 1.75;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 .tldr-box li:last-child { margin-bottom: 0; }
 .article-body {
@@ -648,7 +648,10 @@ footer .logo span { color: var(--emerald); }
   Gestionar la facturacion de 5 clientes es manejable con Excel y buena memoria. Gestionar 50 clientes, cada uno con su RUC, su grupo SIFEN, su certificado digital con fecha de vencimiento diferente, y su propio ritmo de envio de facturas, es otra cosa. Esta guia esta pensada para estudios contables que manejan entre 20 y 200 clientes y necesitan un sistema que no dependa de la memoria de nadie.
 </div>
 
-<div class="tldr-box">
+<!-- ARTICLE BODY -->
+<div class="article-body">
+
+  <div class="tldr-box">
   <h2>Lo esencial:</h2>
   <ul>
     <li>Con 50+ clientes, la complejidad se multiplica: diferentes grupos, certificados y formatos.</li>
@@ -658,9 +661,6 @@ footer .logo span { color: var(--emerald); }
   </ul>
 </div>
 
-
-<!-- ARTICLE BODY -->
-<div class="article-body">
 
   <!-- SECTION 1 -->
   <h2>El problema real: la complejidad se multiplica, no se suma</h2>

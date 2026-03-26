@@ -237,29 +237,29 @@ footer .logo span { color: var(--emerald); }
 
 /* TL;DR BOX */
 .tldr-box {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 32px 24px;
-  background: var(--surface);
-  border-radius: 14px;
+  background: linear-gradient(135deg, #f8faf9 0%, #f3f0e8 100%);
+  border-left: 4px solid var(--emerald);
+  padding: 28px 32px;
+  border-radius: 0 14px 14px 0;
+  margin: 32px 0 40px;
 }
 .tldr-box h2 {
-  font-size: 1.4rem;
-  font-weight: 800;
   color: var(--emerald-hover);
-  margin: 0 0 20px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0 0 16px;
   letter-spacing: -0.3px;
 }
 .tldr-box ul {
-  margin: 0 0 0 20px;
-  padding: 0;
+  margin: 0;
+  padding-left: 24px;
   list-style: disc;
 }
 .tldr-box li {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--text-secondary);
   line-height: 1.75;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 .tldr-box li:last-child { margin-bottom: 0; }
 .article-body {
@@ -764,7 +764,10 @@ footer .logo span { color: var(--emerald); }
   TaxIT procesa impuestos. Tiene mas de 12,000 clientes y liquida mas de 20,000 impuestos. Pero tus clientes no necesitan solo un procesador de datos. Necesitan a alguien que entienda su situacion, los asesore cuando hay que tomar decisiones, y los defienda cuando la SET los cita. Eso lo haces vos. Este articulo no es un ataque a TaxIT. Es un recordatorio de por que tus clientes te necesitan, y como una herramienta puede ayudarte a demostrarlo.
 </div>
 
-<div class="tldr-box">
+<!-- ARTICLE BODY -->
+<div class="article-body">
+
+  <div class="tldr-box">
   <h2>Lo esencial:</h2>
   <ul>
     <li>TaxIT reemplaza al contador: el contribuyente se vuelve cliente de TaxIT, no del estudio.</li>
@@ -774,9 +777,6 @@ footer .logo span { color: var(--emerald); }
   </ul>
 </div>
 
-
-<!-- ARTICLE BODY -->
-<div class="article-body">
 
   <!-- SECTION 1 -->
   <h2>El contador no es un data-entry</h2>
