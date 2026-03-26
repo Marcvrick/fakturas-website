@@ -239,6 +239,28 @@ footer .logo span { color: var(--emerald); }
   padding-left: 20px;
 }
 
+/* TL;DR BOX */
+.tldr-box {
+  background: #f0fdf4;
+  border: 2px solid var(--emerald);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 0 0 32px;
+}
+.tldr-box strong {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--emerald-hover);
+  margin-bottom: 8px;
+}
+.tldr-box p {
+  font-size: 0.95rem !important;
+  color: var(--text) !important;
+  line-height: 1.65 !important;
+  margin-bottom: 0 !important;
+}
 .article-body {
   max-width: 760px;
   margin: 0 auto;
@@ -619,6 +641,11 @@ footer .logo span { color: var(--emerald); }
 <!-- CHAPEAU -->
 <div class="chapeau">
   Gestionar la facturacion de 5 clientes es manejable con Excel y buena memoria. Gestionar 50 clientes, cada uno con su RUC, su grupo SIFEN, su certificado digital con fecha de vencimiento diferente, y su propio ritmo de envio de facturas, es otra cosa. Esta guia esta pensada para estudios contables que manejan entre 20 y 200 clientes y necesitan un sistema que no dependa de la memoria de nadie.
+</div>
+
+<div class="tldr-box">
+  <strong>TL;DR</strong>
+  <p>Gestionar la facturacion electronica de 50+ clientes multiplica la complejidad: diferentes grupos SIFEN, certificados con vencimientos distintos, y tres formatos de facturas que conviven. La clave es centralizar la recepcion, automatizar la carga con OCR/QR, y monitorear todo desde un dashboard unico.</p>
 </div>
 
 <!-- ARTICLE BODY -->

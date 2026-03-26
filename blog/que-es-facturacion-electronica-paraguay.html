@@ -269,6 +269,28 @@ nav {
   border-bottom: 1px solid var(--border);
 }
 
+/* TL;DR BOX */
+.tldr-box {
+  background: #f0fdf4;
+  border: 2px solid var(--emerald);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 0 0 32px;
+}
+.tldr-box strong {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--emerald-hover);
+  margin-bottom: 8px;
+}
+.tldr-box p {
+  font-size: 0.95rem !important;
+  color: var(--text) !important;
+  line-height: 1.65 !important;
+  margin-bottom: 0 !important;
+}
 /* DEFINITION BLOCK */
 .definition-block {
   background: var(--surface);
@@ -626,6 +648,11 @@ footer .logo span { color: var(--emerald); }
   <p class="chapeau">
     SIFEN, DTE, KuDE, CDC, e-Kuatia. Si sentis que cada mes aparece una sigla nueva, no estas solo. Esta guia explica en terminos claros que es la facturacion electronica en Paraguay, como funciona, quien esta obligado, y que necesitas saber como contador para acompanar a tus clientes en la transicion.
   </p>
+
+<div class="tldr-box">
+  <strong>TL;DR</strong>
+  <p>La facturacion electronica en Paraguay es el sistema SIFEN de la DNIT. Reemplaza las facturas en papel por DTEs: archivos XML con firma digital, validados en tiempo real. Para contadores, el QR de cada DTE contiene todos los datos fiscales verificados, extraibles en segundos sin digitar.</p>
+</div>
 
   <!-- Section 1: Definition -->
   <h2>Definicion: que es la facturacion electronica en Paraguay</h2>

@@ -258,6 +258,28 @@ nav {
   border-bottom: 1px solid var(--border);
 }
 
+/* TL;DR BOX */
+.tldr-box {
+  background: #f0fdf4;
+  border: 2px solid var(--emerald);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 0 0 32px;
+}
+.tldr-box strong {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--emerald-hover);
+  margin-bottom: 8px;
+}
+.tldr-box p {
+  font-size: 0.95rem !important;
+  color: var(--text) !important;
+  line-height: 1.65 !important;
+  margin-bottom: 0 !important;
+}
 /* DEFINITION BLOCK */
 .definition-block {
   background: var(--surface);
@@ -532,6 +554,11 @@ footer .logo span { color: var(--emerald); }
   <p class="chapeau">
     Sin certificado digital, no hay factura electronica. Asi de simple. El SIFEN exige que cada DTE lleve una firma digital valida, y esa firma solo puede generarse con un certificado emitido por un PSC autorizado en Paraguay. Esta guia te explica todo el proceso: desde entender que es un certificado digital hasta tenerlo instalado y listo para firmar tu primer documento.
   </p>
+
+<div class="tldr-box">
+  <strong>TL;DR</strong>
+  <p>El certificado digital es obligatorio para emitir DTE. Se obtiene de un PSC autorizado, cuesta entre Gs. 150.000 y 500.000, tiene validez estandar de 1 ano, y si vence, todos tus DTE seran rechazados. El proceso de obtencion toma entre 24 horas y una semana.</p>
+</div>
 
   <!-- SVG ILLUSTRATION -->
   <div class="svg-illustration">

@@ -261,6 +261,28 @@ nav {
   border-bottom: 1px solid var(--border);
 }
 
+/* TL;DR BOX */
+.tldr-box {
+  background: #f0fdf4;
+  border: 2px solid var(--emerald);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 0 0 32px;
+}
+.tldr-box strong {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--emerald-hover);
+  margin-bottom: 8px;
+}
+.tldr-box p {
+  font-size: 0.95rem !important;
+  color: var(--text) !important;
+  line-height: 1.65 !important;
+  margin-bottom: 0 !important;
+}
 /* HIGHLIGHT BOX */
 .highlight-box {
   background: var(--surface);
@@ -611,6 +633,11 @@ footer .logo span { color: var(--emerald); }
   <p class="chapeau">
     La factura virtual fue el primer paso de Paraguay hacia la digitalizacion tributaria. Si trabajas con clientes que reciben o emiten facturas virtuales, esta guia te explica que son, como funcionan en Marangatu y Tesaka, y como dejar de procesarlas a mano.
   </p>
+
+<div class="tldr-box">
+  <strong>TL;DR</strong>
+  <p>La factura virtual se genera en Marangatu o la app Tesaka con tu RUC y clave de acceso. No tiene firma digital ni QR como la factura electronica (DTE). Sigue siendo valida para contribuyentes no obligados a SIFEN, pero la transicion a DTE es progresiva y cada vez mas grupos migran.</p>
+</div>
 
   <!-- Section 1 -->
   <h2>Que es una factura virtual del SET</h2>
