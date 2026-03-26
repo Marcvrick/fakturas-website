@@ -260,26 +260,31 @@ nav {
 
 /* TL;DR BOX */
 .tldr-box {
-  background: #f0fdf4;
-  border: 2px solid var(--emerald);
-  border-radius: 12px;
-  padding: 20px 24px;
-  margin: 0 0 32px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  background: var(--surface);
+  border-radius: 14px;
 }
-.tldr-box strong {
-  display: block;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.tldr-box h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
   color: var(--emerald-hover);
-  margin-bottom: 8px;
+  margin: 0 0 20px;
+  letter-spacing: -0.3px;
 }
-.tldr-box p {
-  font-size: 0.95rem !important;
-  color: var(--text) !important;
-  line-height: 1.65 !important;
-  margin-bottom: 0 !important;
+.tldr-box ul {
+  margin: 0 0 0 20px;
+  padding: 0;
+  list-style: disc;
 }
+.tldr-box li {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.tldr-box li:last-child { margin-bottom: 0; }
 /* DEFINITION BLOCK */
 .definition-block {
   background: var(--surface);
@@ -547,6 +552,17 @@ footer .logo span { color: var(--emerald); }
   </div>
 </header>
 
+
+<div class="tldr-box">
+  <h2>Lo esencial:</h2>
+  <ul>
+    <li>Obligatorio para emitir DTE. Se obtiene de un PSC autorizado.</li>
+    <li>Costo: entre Gs. 150.000 y 500.000. Validez estandar: 1 ano (renovable).</li>
+    <li>Si vence, todos tus DTE seran rechazados por el SIFEN.</li>
+    <li>El proceso de obtencion toma entre 24 horas y una semana segun el PSC.</li>
+  </ul>
+</div>
+
 <!-- ARTICLE BODY -->
 <article class="article-body">
 
@@ -554,13 +570,7 @@ footer .logo span { color: var(--emerald); }
   <p class="chapeau">
     Sin certificado digital, no hay factura electronica. Asi de simple. El SIFEN exige que cada DTE lleve una firma digital valida, y esa firma solo puede generarse con un certificado emitido por un PSC autorizado en Paraguay. Esta guia te explica todo el proceso: desde entender que es un certificado digital hasta tenerlo instalado y listo para firmar tu primer documento.
   </p>
-
-<div class="tldr-box">
-  <strong>TL;DR</strong>
-  <p>El certificado digital es obligatorio para emitir DTE. Se obtiene de un PSC autorizado, cuesta entre Gs. 150.000 y 500.000, tiene validez estandar de 1 ano, y si vence, todos tus DTE seran rechazados. El proceso de obtencion toma entre 24 horas y una semana.</p>
-</div>
-
-  <!-- SVG ILLUSTRATION -->
+<!-- SVG ILLUSTRATION -->
   <div class="svg-illustration">
     <svg viewBox="0 0 320 520" width="320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="4 pasos para obtener tu certificado digital: elegir PSC, presentar documentos, instalar certificado, firmar tu primer DTE">
       <!-- Step 1 -->

@@ -263,26 +263,31 @@ nav {
 
 /* TL;DR BOX */
 .tldr-box {
-  background: #f0fdf4;
-  border: 2px solid var(--emerald);
-  border-radius: 12px;
-  padding: 20px 24px;
-  margin: 0 0 32px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  background: var(--surface);
+  border-radius: 14px;
 }
-.tldr-box strong {
-  display: block;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.tldr-box h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
   color: var(--emerald-hover);
-  margin-bottom: 8px;
+  margin: 0 0 20px;
+  letter-spacing: -0.3px;
 }
-.tldr-box p {
-  font-size: 0.95rem !important;
-  color: var(--text) !important;
-  line-height: 1.65 !important;
-  margin-bottom: 0 !important;
+.tldr-box ul {
+  margin: 0 0 0 20px;
+  padding: 0;
+  list-style: disc;
 }
+.tldr-box li {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.tldr-box li:last-child { margin-bottom: 0; }
 /* HIGHLIGHT BOX */
 .highlight-box {
   background: var(--surface);
@@ -626,6 +631,17 @@ footer .logo span { color: var(--emerald); }
   </div>
 </header>
 
+
+<div class="tldr-box">
+  <h2>Lo esencial:</h2>
+  <ul>
+    <li>La factura virtual se genera en Marangatu (web) o Tesaka (app movil) con tu RUC y clave de acceso.</li>
+    <li>No tiene firma digital ni QR como la factura electronica (DTE).</li>
+    <li>Sigue valida para contribuyentes no obligados a SIFEN.</li>
+    <li>La transicion a DTE es progresiva: cada nuevo grupo obligado deja de usar factura virtual.</li>
+  </ul>
+</div>
+
 <!-- ARTICLE BODY -->
 <article class="article-body">
 
@@ -633,13 +649,7 @@ footer .logo span { color: var(--emerald); }
   <p class="chapeau">
     La factura virtual fue el primer paso de Paraguay hacia la digitalizacion tributaria. Si trabajas con clientes que reciben o emiten facturas virtuales, esta guia te explica que son, como funcionan en Marangatu y Tesaka, y como dejar de procesarlas a mano.
   </p>
-
-<div class="tldr-box">
-  <strong>TL;DR</strong>
-  <p>La factura virtual se genera en Marangatu o la app Tesaka con tu RUC y clave de acceso. No tiene firma digital ni QR como la factura electronica (DTE). Sigue siendo valida para contribuyentes no obligados a SIFEN, pero la transicion a DTE es progresiva y cada vez mas grupos migran.</p>
-</div>
-
-  <!-- Section 1 -->
+<!-- Section 1 -->
   <h2>Que es una factura virtual del SET</h2>
 
   <p>

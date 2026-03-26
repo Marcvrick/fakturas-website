@@ -241,26 +241,31 @@ footer .logo span { color: var(--emerald); }
 
 /* TL;DR BOX */
 .tldr-box {
-  background: #f0fdf4;
-  border: 2px solid var(--emerald);
-  border-radius: 12px;
-  padding: 20px 24px;
-  margin: 0 0 32px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  background: var(--surface);
+  border-radius: 14px;
 }
-.tldr-box strong {
-  display: block;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.tldr-box h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
   color: var(--emerald-hover);
-  margin-bottom: 8px;
+  margin: 0 0 20px;
+  letter-spacing: -0.3px;
 }
-.tldr-box p {
-  font-size: 0.95rem !important;
-  color: var(--text) !important;
-  line-height: 1.65 !important;
-  margin-bottom: 0 !important;
+.tldr-box ul {
+  margin: 0 0 0 20px;
+  padding: 0;
+  list-style: disc;
 }
+.tldr-box li {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.tldr-box li:last-child { margin-bottom: 0; }
 .article-body {
   max-width: 760px;
   margin: 0 auto;
@@ -653,12 +658,6 @@ footer .logo span { color: var(--emerald); }
 <div class="chapeau">
   En el SIFEN, las facturas electronicas son inmutables. Una vez aprobadas por la DNIT, no se pueden borrar, modificar ni "anular" como se hacia con las facturas preimpresas. Si cometiste un error de precio, tu cliente devolvio mercaderia, o necesitas cancelar una operacion, el unico camino es emitir una Nota de Credito Electronica (NCE). Esta guia explica cuando usarla, que campos son obligatorios, y como evitar que el SIFEN la rechace.
 </div>
-
-<div class="tldr-box">
-  <strong>TL;DR</strong>
-  <p>Los DTE en el SIFEN son inmutables: no se pueden modificar ni eliminar. Para corregir una factura, emitis una NCE que referencia el CDC original. La NCE debe transmitirse al SIFEN dentro de 72 horas y afecta el periodo fiscal en que se emite, no el de la factura original.</p>
-</div>
-
 <!-- SVG ILLUSTRATION -->
 <div class="article-illustration">
   <svg viewBox="0 0 720 260" xmlns="http://www.w3.org/2000/svg" style="max-width: 720px; width: 100%;">
@@ -720,6 +719,18 @@ footer .logo span { color: var(--emerald); }
     <text x="360" y="250" text-anchor="middle" fill="#5a6577" font-family="Inter, sans-serif" font-size="9">Error detectado  &#8594;  NCE creada  &#8594;  Enviada al SIFEN  &#8594;  Factura original anulada</text>
   </svg>
 </div>
+
+
+<div class="tldr-box">
+  <h2>Lo esencial:</h2>
+  <ul>
+    <li>Los DTE son inmutables. Para corregir una factura, emitis una NCE que referencia el CDC original.</li>
+    <li>La NCE debe transmitirse al SIFEN dentro de 72 horas desde su emision.</li>
+    <li>Afecta el periodo fiscal en que se emite, no el de la factura original.</li>
+    <li>El monto de la NCE no puede exceder el de la factura que referencia.</li>
+  </ul>
+</div>
+
 
 <!-- ARTICLE BODY -->
 <div class="article-body">

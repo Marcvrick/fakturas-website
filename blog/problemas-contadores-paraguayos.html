@@ -274,26 +274,31 @@ nav {
 
 /* TL;DR BOX */
 .tldr-box {
-  background: #f0fdf4;
-  border: 2px solid var(--emerald);
-  border-radius: 12px;
-  padding: 20px 24px;
-  margin: 0 0 32px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  background: var(--surface);
+  border-radius: 14px;
 }
-.tldr-box strong {
-  display: block;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.tldr-box h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
   color: var(--emerald-hover);
-  margin-bottom: 8px;
+  margin: 0 0 20px;
+  letter-spacing: -0.3px;
 }
-.tldr-box p {
-  font-size: 0.95rem !important;
-  color: var(--text) !important;
-  line-height: 1.65 !important;
-  margin-bottom: 0 !important;
+.tldr-box ul {
+  margin: 0 0 0 20px;
+  padding: 0;
+  list-style: disc;
 }
+.tldr-box li {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.tldr-box li:last-child { margin-bottom: 0; }
 /* HIGHLIGHT BOX */
 .highlight-box {
   background: var(--surface);
@@ -526,19 +531,24 @@ footer p { color: var(--text-muted); font-size: 0.8rem; }
   </div>
 </header>
 
+
+<div class="tldr-box">
+  <h2>Lo esencial:</h2>
+  <ul>
+    <li>Marangatu se cae en cada vencimiento. La SET tuvo que suspender multas en 2023 por las fallas.</li>
+    <li>La RG 90 obliga a registrar cada factura a mano. Con 50 clientes, son miles de facturas por mes.</li>
+    <li>Las jornadas hasta la madrugada son la norma: el sistema solo funciona despues de las 22:00.</li>
+    <li>Hay soluciones concretas: automatizar la recoleccion, preparar CSV limpios, y cobrar lo justo.</li>
+  </ul>
+</div>
+
 <!-- ARTICLE BODY -->
 <article class="article-body">
 
   <p class="chapeau">
     El 23 de marzo de 2026, alguien robo cables de fibra optica de la DNIT. Miles de contadores no pudieron acceder a Marangatu. No fue un ciberataque ni un desastre natural. Fue un martes mas en la vida del contador paraguayo.
   </p>
-
-<div class="tldr-box">
-  <strong>TL;DR</strong>
-  <p>Marangatu se cae en cada vencimiento, la RG 90 te obliga a cargar facturas a mano, y las jornadas hasta la madrugada son la norma. Todo esto con honorarios que no reflejan la carga de trabajo. Este articulo documenta los 5 problemas reales con fuentes y datos, y propone soluciones concretas.</p>
-</div>
-
-  <p>
+<p>
     Si sos contador en Paraguay, vas a reconocer cada punto de este articulo. No porque sea nuevo, sino porque lo vivis todos los meses. Estos son los 5 problemas que los mas de 20.000 profesionales representados por Resistencia Contable conocen de memoria, junto con ideas concretas para al menos aliviar el dolor.
   </p>
 

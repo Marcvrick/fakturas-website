@@ -241,26 +241,31 @@ footer .logo span { color: var(--emerald); }
 
 /* TL;DR BOX */
 .tldr-box {
-  background: #f0fdf4;
-  border: 2px solid var(--emerald);
-  border-radius: 12px;
-  padding: 20px 24px;
-  margin: 0 0 32px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  background: var(--surface);
+  border-radius: 14px;
 }
-.tldr-box strong {
-  display: block;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.tldr-box h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
   color: var(--emerald-hover);
-  margin-bottom: 8px;
+  margin: 0 0 20px;
+  letter-spacing: -0.3px;
 }
-.tldr-box p {
-  font-size: 0.95rem !important;
-  color: var(--text) !important;
-  line-height: 1.65 !important;
-  margin-bottom: 0 !important;
+.tldr-box ul {
+  margin: 0 0 0 20px;
+  padding: 0;
+  list-style: disc;
 }
+.tldr-box li {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.tldr-box li:last-child { margin-bottom: 0; }
 .article-body {
   max-width: 760px;
   margin: 0 auto;
@@ -644,9 +649,15 @@ footer .logo span { color: var(--emerald); }
 </div>
 
 <div class="tldr-box">
-  <strong>TL;DR</strong>
-  <p>Desde el 2 de enero de 2026, todo contribuyente que facture al Estado debe emitir DTE (Res. DNIT 41/2025). Las facturas preimpresas y virtuales ya no son validas para operaciones B2G. El incumplimiento puede resultar en retencion de pagos, suspension del contrato, multas e inhabilitacion como proveedor.</p>
+  <h2>Lo esencial:</h2>
+  <ul>
+    <li>Desde el 2 de enero de 2026, toda factura al Estado debe ser DTE (Res. DNIT 41/2025).</li>
+    <li>Facturas preimpresas y virtuales ya no son validas para operaciones con el Estado.</li>
+    <li>El incumplimiento puede causar retencion de pagos, suspension del contrato e inhabilitacion.</li>
+    <li>La obligacion se activa por el cliente (entidad estatal), no por el tamano de tu empresa.</li>
+  </ul>
 </div>
+
 
 <!-- ARTICLE BODY -->
 <div class="article-body">

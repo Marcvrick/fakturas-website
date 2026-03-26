@@ -233,26 +233,31 @@ footer .logo span { color: var(--emerald); }
 
 /* TL;DR BOX */
 .tldr-box {
-  background: #f0fdf4;
-  border: 2px solid var(--emerald);
-  border-radius: 12px;
-  padding: 20px 24px;
-  margin: 0 0 32px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  background: var(--surface);
+  border-radius: 14px;
 }
-.tldr-box strong {
-  display: block;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.tldr-box h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
   color: var(--emerald-hover);
-  margin-bottom: 8px;
+  margin: 0 0 20px;
+  letter-spacing: -0.3px;
 }
-.tldr-box p {
-  font-size: 0.95rem !important;
-  color: var(--text) !important;
-  line-height: 1.65 !important;
-  margin-bottom: 0 !important;
+.tldr-box ul {
+  margin: 0 0 0 20px;
+  padding: 0;
+  list-style: disc;
 }
+.tldr-box li {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.tldr-box li:last-child { margin-bottom: 0; }
 .article-body {
   max-width: 760px;
   margin: 0 auto;
@@ -647,12 +652,6 @@ footer .logo span { color: var(--emerald); }
 <div class="chapeau">
   Tu DTE fue rechazado por el SIFEN. El mensaje de error es críptico, el plazo de 72 horas corre, y necesitas resolverlo ya. Esta guia cubre los errores mas frecuentes que devuelve el SIFEN al transmitir documentos electronicos, explica que significa cada uno en lenguaje claro, y te da la solucion concreta para cada caso. Guarda esta pagina como referencia.
 </div>
-
-<div class="tldr-box">
-  <strong>TL;DR</strong>
-  <p>Los rechazos del SIFEN tienen codigos especificos que te dicen exactamente que fallo. Los errores mas comunes son de estructura XML, certificado digital vencido, CDC mal formado y plazo de transmision excedido (72 horas). Esta guia cubre cada tipo con su solucion paso a paso.</p>
-</div>
-
 <!-- SVG ILLUSTRATION: Diagnostic flowchart -->
 <div class="article-illustration">
   <svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" style="max-width: 720px; width: 100%;">
@@ -738,6 +737,18 @@ footer .logo span { color: var(--emerald); }
     <text x="360" y="325" text-anchor="middle" fill="#5a6577" font-family="Inter, sans-serif" font-size="9">Cada rechazo SIFEN incluye un codigo de error especifico. Identifica la categoria y aplica la solucion correspondiente.</text>
   </svg>
 </div>
+
+
+<div class="tldr-box">
+  <h2>Lo esencial:</h2>
+  <ul>
+    <li>Los rechazos del SIFEN tienen codigos especificos que indican exactamente que fallo.</li>
+    <li>Errores mas comunes: estructura XML, certificado vencido, CDC mal formado, plazo de 72 horas excedido.</li>
+    <li>Errores de conectividad se resuelven con el modo contingencia (emision offline).</li>
+    <li>Esta guia cubre cada tipo de error con su solucion paso a paso.</li>
+  </ul>
+</div>
+
 
 <!-- ARTICLE BODY -->
 <div class="article-body">

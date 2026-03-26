@@ -302,26 +302,31 @@ footer .logo span { color: var(--emerald); }
 
 /* TL;DR BOX */
 .tldr-box {
-  background: #f0fdf4;
-  border: 2px solid var(--emerald);
-  border-radius: 12px;
-  padding: 20px 24px;
-  margin: 0 0 32px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  background: var(--surface);
+  border-radius: 14px;
 }
-.tldr-box strong {
-  display: block;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.tldr-box h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
   color: var(--emerald-hover);
-  margin-bottom: 8px;
+  margin: 0 0 20px;
+  letter-spacing: -0.3px;
 }
-.tldr-box p {
-  font-size: 0.95rem !important;
-  color: var(--text) !important;
-  line-height: 1.65 !important;
-  margin-bottom: 0 !important;
+.tldr-box ul {
+  margin: 0 0 0 20px;
+  padding: 0;
+  list-style: disc;
 }
+.tldr-box li {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.tldr-box li:last-child { margin-bottom: 0; }
 .article-body {
   max-width: 760px;
   margin: 0 auto;
@@ -705,12 +710,18 @@ footer .logo span { color: var(--emerald); }
     <span>10 min de lectura</span>
   </div>
   <p class="chapeau">Cada nuevo cliente que se inscribe en el SET es un contribuyente mas que necesita liquidar IVA o IRP. Y eso significa mas facturas para procesar. Esta guia resume el proceso de inscripcion actualizado para que puedas orientar a tus clientes sin perder tiempo, y preparar tu flujo de trabajo desde el primer dia.</p>
+</header>
+
 
 <div class="tldr-box">
-  <strong>TL;DR</strong>
-  <p>La inscripcion en el SET es gratuita y toma 1 a 3 dias habiles. Necesitas cedula, comprobante de domicilio (ANDE/COPACO/ESSAP con menos de 90 dias) y foto biometrica. Despues de inscribirte, no olvides solicitar timbrado y activar las obligaciones tributarias correspondientes.</p>
+  <h2>Lo esencial:</h2>
+  <ul>
+    <li>Inscripcion gratuita, toma 1-3 dias habiles si los documentos estan completos.</li>
+    <li>Documentos: cedula, comprobante de domicilio (\&lt;90 dias, ANDE/COPACO/ESSAP), foto biometrica.</li>
+    <li>Despues de inscribirte: solicitar timbrado y activar obligaciones tributarias.</li>
+    <li>Extranjeros presentan carnet de migracion en lugar de cedula.</li>
+  </ul>
 </div>
-</header>
 
 <!-- ARTICLE BODY -->
 <div class="article-body">

@@ -260,26 +260,31 @@ nav {
 
 /* TL;DR BOX */
 .tldr-box {
-  background: #f0fdf4;
-  border: 2px solid var(--emerald);
-  border-radius: 12px;
-  padding: 20px 24px;
-  margin: 0 0 32px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  background: var(--surface);
+  border-radius: 14px;
 }
-.tldr-box strong {
-  display: block;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.tldr-box h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
   color: var(--emerald-hover);
-  margin-bottom: 8px;
+  margin: 0 0 20px;
+  letter-spacing: -0.3px;
 }
-.tldr-box p {
-  font-size: 0.95rem !important;
-  color: var(--text) !important;
-  line-height: 1.65 !important;
-  margin-bottom: 0 !important;
+.tldr-box ul {
+  margin: 0 0 0 20px;
+  padding: 0;
+  list-style: disc;
 }
+.tldr-box li {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.tldr-box li:last-child { margin-bottom: 0; }
 /* DEFINITION BLOCK */
 .definition-block {
   background: var(--surface);
@@ -547,6 +552,17 @@ footer .logo span { color: var(--emerald); }
   </div>
 </header>
 
+
+<div class="tldr-box">
+  <h2>Lo esencial:</h2>
+  <ul>
+    <li>El KuDE es la representacion grafica (PDF/impresa) del DTE, no el documento fiscal.</li>
+    <li>Incluye un QR con el CDC de 44 digitos numericos para verificar en el portal SIFEN.</li>
+    <li>Se genera automaticamente despues de que el SIFEN aprueba el DTE.</li>
+    <li>Tres formatos validos: A4, ticket termico (80mm), y PDF digital.</li>
+  </ul>
+</div>
+
 <!-- ARTICLE BODY -->
 <article class="article-body">
 
@@ -554,13 +570,7 @@ footer .logo span { color: var(--emerald); }
   <p class="chapeau">
     La factura electronica en Paraguay vive como un archivo XML en los servidores del SIFEN. Pero cuando tu cliente necesita un papel, un PDF o algo que pueda leer con los ojos, necesitas el KuDE. Esta guia explica que es exactamente, que campos debe contener, como se genera, y por que no es lo mismo que el DTE.
   </p>
-
-<div class="tldr-box">
-  <strong>TL;DR</strong>
-  <p>El KuDE es la representacion grafica (PDF/impresa) de un DTE, no el documento fiscal en si. Incluye un QR con el CDC de 44 digitos numericos que permite verificar el DTE en el portal SIFEN. Se genera automaticamente despues de que el SIFEN aprueba el DTE.</p>
-</div>
-
-  <!-- Section 1 -->
+<!-- Section 1 -->
   <h2>Que significa KuDE</h2>
 
   <div class="definition-block">

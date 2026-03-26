@@ -237,26 +237,31 @@ footer .logo span { color: var(--emerald); }
 
 /* TL;DR BOX */
 .tldr-box {
-  background: #f0fdf4;
-  border: 2px solid var(--emerald);
-  border-radius: 12px;
-  padding: 20px 24px;
-  margin: 0 0 32px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  background: var(--surface);
+  border-radius: 14px;
 }
-.tldr-box strong {
-  display: block;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.tldr-box h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
   color: var(--emerald-hover);
-  margin-bottom: 8px;
+  margin: 0 0 20px;
+  letter-spacing: -0.3px;
 }
-.tldr-box p {
-  font-size: 0.95rem !important;
-  color: var(--text) !important;
-  line-height: 1.65 !important;
-  margin-bottom: 0 !important;
+.tldr-box ul {
+  margin: 0 0 0 20px;
+  padding: 0;
+  list-style: disc;
 }
+.tldr-box li {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.tldr-box li:last-child { margin-bottom: 0; }
 .article-body {
   max-width: 760px;
   margin: 0 auto;
@@ -760,9 +765,15 @@ footer .logo span { color: var(--emerald); }
 </div>
 
 <div class="tldr-box">
-  <strong>TL;DR</strong>
-  <p>TaxIT procesa impuestos de contribuyentes individuales. Fakturas.app potencia al contador. La diferencia clave: TaxIT reemplaza la relacion profesional (el contribuyente se vuelve cliente de TaxIT), mientras que Fakturas.app refuerza el rol del estudio contable (tus clientes usan tu app, vos validas, el sistema exporta).</p>
+  <h2>Lo esencial:</h2>
+  <ul>
+    <li>TaxIT reemplaza al contador: el contribuyente se vuelve cliente de TaxIT, no del estudio.</li>
+    <li>Fakturas.app potencia al contador: tus clientes usan tu app, vos validas, el sistema exporta.</li>
+    <li>TaxIT exige contrato de 12 meses. Fakturas.app es mes a mes, sin permanencia.</li>
+    <li>Con 50 clientes, TaxIT cuesta Gs. 7,4M-19,4M/mes (pagado por contribuyentes). Fakturas.app cuesta $60/mes (pagado por el estudio).</li>
+  </ul>
 </div>
+
 
 <!-- ARTICLE BODY -->
 <div class="article-body">
