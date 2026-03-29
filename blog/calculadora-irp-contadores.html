@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora IRP integrada: como simplificar las declaraciones de tus clientes | Fakturas.app</title>
+<meta name="description" content="Fakturas.app incluye una calculadora IRP directamente en el dashboard. 7 campos de ingresos, brackets progresivos, credito IVA automatico y exportacion CSV. Todo en un solo lugar.">
+<meta name="keywords" content="calculadora IRP Paraguay, IRP contadores, impuesto renta personal Paraguay, declaracion IRP 2026, software IRP contadores, facturas IRP, Marangatu IRP, Fakturas app IRP">
+<meta name="robots" content="index, follow">
+<link rel="alternate" type="application/rss+xml" title="Fakturas.app Blog" href="https://fakturas.app/feed.xml">
+<link rel="canonical" href="https://fakturas.app/blog/calculadora-irp-contadores">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://fakturas.app/blog/calculadora-irp-contadores">
+<meta property="og:title" content="Calculadora IRP integrada: como simplificar las declaraciones de tus clientes">
+<meta property="og:description" content="7 campos de ingresos, brackets progresivos, credito IVA automatico. Todo integrado en el dashboard del contador.">
+<meta property="og:site_name" content="Fakturas.app">
+<meta property="og:locale" content="es_PY">
+<meta property="og:image" content="https://fakturas.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="article:published_time" content="2026-03-25">
+<meta property="article:author" content="Fakturas.app">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calculadora IRP integrada: como simplificar las declaraciones de tus clientes">
+<meta name="twitter:description" content="7 campos de ingresos, brackets progresivos, credito IVA automatico. Todo integrado en el dashboard del contador.">
+<meta name="twitter:image" content="https://fakturas.app/og-image.png">
+
+<!-- Article Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Calculadora IRP integrada: como simplificar las declaraciones de tus clientes",
+  "description": "Fakturas.app incluye una calculadora IRP directamente en el dashboard. 7 campos de ingresos, brackets progresivos, credito IVA automatico y exportacion CSV.",
+  "url": "https://fakturas.app/blog/calculadora-irp-contadores",
+  "datePublished": "2026-03-25",
+  "dateModified": "2026-03-25",
+  "author": {"@type": "Organization", "name": "Fakturas.app", "url": "https://fakturas.app"},
+  "publisher": {"@type": "Organization", "name": "Fakturas.app", "url": "https://fakturas.app"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://fakturas.app/blog/calculadora-irp-contadores"},
+  "inLanguage": "es",
+  "keywords": ["calculadora IRP", "IRP Paraguay", "impuesto renta personal", "contadores Paraguay", "declaracion IRP 2026"]
+}
+</script>
+
+<!-- FAQPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Como funciona la calculadora IRP de Fakturas.app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La calculadora esta integrada en la ficha de cada cliente. El contador ingresa los 7 tipos de ingresos (sueldo, aguinaldo, honorarios, alquileres, intereses, otros), el sistema suma automaticamente los gastos de las facturas escaneadas, aplica el credito IVA fiscal, y calcula el IRP con los tramos progresivos vigentes (8%, 9%, 10%)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuales son los brackets del IRP en Paraguay 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El IRP se calcula por tramos progresivos: 8% sobre los primeros Gs. 50 millones de base imponible, 9% entre Gs. 50 y 150 millones, y 10% sobre el excedente de Gs. 150 millones. Los ingresos inferiores a Gs. 80 millones anuales pueden estar exentos de declarar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Necesito una herramienta aparte para calcular el IRP de mis clientes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Si usas Fakturas.app, la calculadora IRP ya esta integrada en el dashboard. Los gastos y el IVA se calculan automaticamente desde las facturas escaneadas. Solo necesitas cargar los ingresos y el sistema hace el resto."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --emerald: #4edea3;
+  --emerald-dark: #003824;
+  --emerald-hover: #10b981;
+  --blue: #005BE2;
+  --gold: #FFC402;
+  --navy: #0d1321;
+  --navy-light: #191f2e;
+  --bg: #f8faf9;
+  --white: #ffffff;
+  --text: #1a1a2e;
+  --text-secondary: #5a6577;
+  --text-muted: #8b95a5;
+  --border: #e2e8f0;
+  --surface: #f1f5f3;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border);
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.5px;
+  text-decoration: none;
+}
+.logo span { color: var(--emerald); }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--text); font-weight: 600; }
+.nav-cta {
+  background: var(--emerald) !important;
+  color: var(--emerald-dark) !important;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-weight: 600 !important;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--emerald-hover) !important; }
+
+/* FOOTER */
+footer {
+  padding: 40px 60px;
+  background: var(--navy);
+  border-top: 1px solid #242a39;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer p {
+  color: #5a6577;
+  font-size: 0.8rem;
+}
+footer .logo { color: #fff; }
+footer .logo span { color: var(--emerald); }
+
+/* BREADCRUMBS */
+.breadcrumbs {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 24px 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.breadcrumbs a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+.breadcrumbs a:hover { color: var(--emerald-hover); }
+.breadcrumbs span { margin: 0 6px; }
+
+/* BLOG ARTICLE */
+.article-header {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 24px 0;
+}
+.article-header h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.article-meta {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.article-meta .tag {
+  background: var(--surface);
+  color: var(--emerald-hover);
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+.chapeau {
+  max-width: 736px;
+  margin: 0 auto;
+  padding: 20px 24px 0;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  border-left: 3px solid var(--emerald);
+  padding-left: 20px;
+}
+
+/* TL;DR BOX */
+.tldr-box {
+  background: linear-gradient(135deg, #f8faf9 0%, #f3f0e8 100%);
+  border-left: 4px solid var(--emerald);
+  padding: 28px 32px;
+  border-radius: 0 14px 14px 0;
+  margin: 32px 0 40px;
+}
+.tldr-box h2 {
+  color: var(--emerald-hover);
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0 0 16px;
+  letter-spacing: -0.3px;
+}
+.tldr-box ul {
+  margin: 0;
+  padding-left: 24px;
+  list-style: disc;
+}
+.tldr-box li {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+.tldr-box li:last-child { margin-bottom: 0; }
+.article-body {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 24px 60px;
+}
+.article-body h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 48px;
+  margin-bottom: 16px;
+  letter-spacing: -0.3px;
+}
+.article-body h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 32px;
+  margin-bottom: 12px;
+}
+.article-body p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+.article-body ul, .article-body ol {
+  margin-bottom: 16px;
+  padding-left: 24px;
+}
+.article-body li {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+.article-body strong { color: var(--text); }
+.article-body a {
+  color: var(--emerald-hover);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.article-body a:hover { color: var(--text); }
+
+/* HIGHLIGHT BOX */
+.highlight-box {
+  background: var(--surface);
+  border-left: 4px solid var(--emerald);
+  border-radius: 0 12px 12px 0;
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+.highlight-box p { margin-bottom: 8px; }
+.highlight-box p:last-child { margin-bottom: 0; }
+
+/* BRACKET TABLE */
+.bracket-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.bracket-table thead th {
+  background: var(--navy);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: left;
+  padding: 12px 16px;
+}
+.bracket-table tbody td {
+  padding: 12px 16px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+}
+.bracket-table tbody tr:nth-child(even) {
+  background: var(--surface);
+}
+
+/* FLOW */
+.flow-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 28px 0;
+  flex-wrap: wrap;
+}
+.flow-step {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  text-align: center;
+  min-width: 130px;
+}
+.flow-step .icon { font-size: 1.6rem; margin-bottom: 4px; }
+.flow-step .label { font-size: 0.85rem; font-weight: 700; color: var(--text); }
+.flow-step .sub { font-size: 0.75rem; color: var(--text-muted); }
+.flow-arrow { font-size: 1.2rem; color: var(--emerald); font-weight: 900; }
+
+/* FIELD LIST */
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 20px 0;
+}
+.field-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.field-card .num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--emerald-hover);
+  margin-bottom: 2px;
+}
+.field-card .name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.field-card .desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* DARK BOX */
+.dark-box {
+  background: var(--navy);
+  border-radius: 16px;
+  padding: 32px;
+  margin: 28px 0;
+}
+.dark-box h3 {
+  color: var(--gold);
+  margin: 0 0 12px;
+  font-size: 1.2rem;
+}
+.dark-box p {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.95rem;
+}
+.dark-box ul {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.95rem;
+}
+.dark-box li { margin-bottom: 6px; }
+
+/* CTA BOX */
+.cta-box {
+  background: var(--emerald);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  margin: 40px 0;
+}
+.cta-box h3 {
+  color: var(--emerald-dark);
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+.cta-box p {
+  color: var(--emerald-dark);
+  font-size: 0.95rem;
+  opacity: 0.8;
+  margin-bottom: 16px;
+}
+.cta-box a {
+  display: inline-block;
+  background: var(--navy);
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.cta-box a:hover { opacity: 0.9; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  nav { padding: 16px 20px; }
+  .nav-links { gap: 16px; }
+  .article-header h1 { font-size: 1.8rem; }
+  footer { flex-direction: column; gap: 12px; padding: 30px 20px; }
+  .field-grid { grid-template-columns: 1fr; }
+  .flow-visual { flex-direction: column; gap: 12px; }
+  .flow-arrow { transform: rotate(90deg); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="logo">fakturas<span>.app</span></a>
+  <div class="nav-links">
+    <a href="/blog/">Blog</a>
+    <a href="https://app.fakturas.app/login" class="nav-cta">Iniciar sesion</a>
+  </div>
+</nav>
+
+<!-- BREADCRUMBS -->
+<div class="breadcrumbs">
+  <a href="/">Inicio</a> <span>/</span>
+  <a href="/blog/">Blog</a> <span>/</span>
+  Calculadora IRP
+</div>
+
+<!-- HEADER -->
+<div class="article-header">
+  <div class="article-meta">
+    <span class="tag">IRP</span>
+    <span>25 marzo 2026</span>
+    <span>5 min de lectura</span>
+  </div>
+  <h1>Calculadora IRP integrada: como simplificar las declaraciones de tus clientes</h1>
+</div>
+
+<div class="chapeau">
+  Cada ano, los contadores pasan horas recopilando ingresos, sumando facturas y calculando el IRP de cada cliente en planillas separadas. Fakturas.app integra todo en un solo lugar: los gastos ya estan cargados, solo falta ingresar los ingresos.
+</div>
+
+<!-- BODY -->
+<div class="article-body">
+
+  <div class="tldr-box">
+  <h2>Lo esencial:</h2>
+  <ul>
+    <li>Los gastos y el IVA ya estan calculados desde las facturas escaneadas por el cliente.</li>
+    <li>El contador solo carga los 7 tipos de ingresos. El IRP se calcula con los tramos progresivos (8%, 9%, 10%).</li>
+    <li>Seuil de exencion: ingresos brutos menores a Gs. 80.000.000.</li>
+    <li>Export CSV listo para archivar o adjuntar a la declaracion.</li>
+  </ul>
+</div>
+
+
+  <h2>El problema: datos dispersos</h2>
+
+  <p>Para calcular el IRP de un cliente, un contador necesita tres cosas:</p>
+
+  <ol>
+    <li><strong>Los ingresos del cliente</strong> (sueldo, honorarios, alquileres, etc.)</li>
+    <li><strong>Los gastos deducibles</strong> (todas las facturas del ano)</li>
+    <li><strong>El credito IVA fiscal</strong> (el IVA efectivamente pagado en las compras deducibles)</li>
+  </ol>
+
+  <p>Normalmente, los gastos estan en una planilla, los ingresos en otra, y el calculo del IRP en una tercera. El contador va y viene entre archivos, copia numeros a mano, y reza para no equivocarse.</p>
+
+  <h2>La solucion: todo en la ficha del cliente</h2>
+
+  <p>En Fakturas.app, los gastos y el IVA ya estan calculados automaticamente desde las facturas que el cliente escaneo durante el ano. El contador solo necesita agregar los ingresos.</p>
+
+  <p>La calculadora IRP esta integrada directamente en la ficha de cada cliente, dentro del dashboard web. No hay que abrir otra herramienta, ni exportar datos a una planilla externa.</p>
+
+  <div class="flow-visual">
+    <div class="flow-step">
+      <div class="icon">&#x1F4F1;</div>
+      <div class="label">Cliente escanea</div>
+      <div class="sub">Facturas todo el ano</div>
+    </div>
+    <div class="flow-arrow">&#x2192;</div>
+    <div class="flow-step">
+      <div class="icon">&#x1F4CA;</div>
+      <div class="label">Gastos + IVA</div>
+      <div class="sub">Calculados automaticamente</div>
+    </div>
+    <div class="flow-arrow">&#x2192;</div>
+    <div class="flow-step">
+      <div class="icon">&#x270F;&#xFE0F;</div>
+      <div class="label">Ingresos</div>
+      <div class="sub">El contador los carga</div>
+    </div>
+    <div class="flow-arrow">&#x2192;</div>
+    <div class="flow-step">
+      <div class="icon">&#x2705;</div>
+      <div class="label">IRP estimado</div>
+      <div class="sub">Calculo instantaneo</div>
+    </div>
+  </div>
+
+  <h2>Los 7 campos de ingresos</h2>
+
+  <p>La calculadora cubre todos los tipos de ingreso que la SET considera para el IRP:</p>
+
+  <div class="field-grid">
+    <div class="field-card">
+      <div class="num">1</div>
+      <div class="name">Sueldo mensual</div>
+      <div class="desc">Ingreso fijo por relacion de dependencia</div>
+    </div>
+    <div class="field-card">
+      <div class="num">2</div>
+      <div class="name">Meses trabajados</div>
+      <div class="desc">Si no trabajo los 12 meses (contrato parcial, renuncia...)</div>
+    </div>
+    <div class="field-card">
+      <div class="num">3</div>
+      <div class="name">Aguinaldo</div>
+      <div class="desc">Salario adicional de fin de ano</div>
+    </div>
+    <div class="field-card">
+      <div class="num">4</div>
+      <div class="name">Honorarios</div>
+      <div class="desc">Ingresos por servicios profesionales (anual)</div>
+    </div>
+    <div class="field-card">
+      <div class="num">5</div>
+      <div class="name">Alquileres</div>
+      <div class="desc">Ingresos por inmuebles alquilados (anual)</div>
+    </div>
+    <div class="field-card">
+      <div class="num">6</div>
+      <div class="name">Intereses</div>
+      <div class="desc">Rendimientos financieros, depositos, bonos (anual)</div>
+    </div>
+    <div class="field-card">
+      <div class="num">7</div>
+      <div class="name">Otros ingresos</div>
+      <div class="desc">Cualquier otro ingreso gravado</div>
+    </div>
+  </div>
+
+  <p>Tambien hay un campo de <strong>notas</strong> para agregar contexto: "contrato hasta agosto", "freelance aparte", etc. Util cuando se preparan las declaraciones meses despues.</p>
+
+  <h2>Como se calcula el IRP</h2>
+
+  <p>El sistema aplica la formula completa:</p>
+
+  <div class="highlight-box">
+    <p><strong>Renta neta</strong> = Ingresos brutos percibidos - Erogaciones deducibles realizadas (facturas de gastos + IVA credito fiscal)</p>
+    <p>El IVA credito fiscal deducible es el IVA efectivamente pagado en las compras del contribuyente, sujeto a las condiciones del Art. 53 de la Ley 6380/2019. Para prestadores de servicios personales, existe un limite del 30% en ciertas categorias (vehiculos, salud, alimentacion, capacitacion).</p>
+    <p>Sobre la renta neta, se aplican los <strong>tramos progresivos</strong>.</p>
+  </div>
+
+  <table class="bracket-table">
+    <thead>
+      <tr>
+        <th>Tramo</th>
+        <th>Base imponible</th>
+        <th>Tasa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Primer tramo</td>
+        <td>Hasta Gs. 50.000.000</td>
+        <td><strong>8%</strong></td>
+      </tr>
+      <tr>
+        <td>Segundo tramo</td>
+        <td>De Gs. 50.000.000 a Gs. 150.000.000</td>
+        <td><strong>9%</strong></td>
+      </tr>
+      <tr>
+        <td>Tercer tramo</td>
+        <td>Mas de Gs. 150.000.000</td>
+        <td><strong>10%</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Si los ingresos brutos del cliente son menores a <strong>Gs. 80.000.000</strong>, el sistema lo marca como posible exento de declarar. El contador decide, pero la alerta esta ahi.</p>
+
+  <h2>Auto-guardado y exportacion</h2>
+
+  <p>Los datos de ingresos se guardan automaticamente 1.5 segundos despues de cada cambio. No hay boton de "Guardar". Si el contador cierra la pagina y vuelve la semana siguiente, todo esta como lo dejo.</p>
+
+  <p>Cuando el calculo esta listo, se puede <strong>descargar un CSV</strong> con todos los datos: ingresos detallados, gastos, cantidad de facturas, IVA, credito fiscal, base imponible y el IRP desglosado por tramo. Listo para archivar o adjuntar a la declaracion.</p>
+
+  <div class="dark-box">
+    <h3>Lo que el contador NO tiene que hacer</h3>
+    <ul>
+      <li>Sumar facturas a mano (ya estan sumadas)</li>
+      <li>Calcular el IVA total (ya esta calculado)</li>
+      <li>Calcular el IVA credito fiscal deducible (ya esta calculado)</li>
+      <li>Buscar los brackets vigentes (ya estan configurados)</li>
+      <li>Guardar manualmente (auto-save)</li>
+    </ul>
+    <p style="margin-top:12px">Solo necesita cargar los ingresos. El resto es automatico.</p>
+  </div>
+
+  <h2>Un calculo por cliente, no por planilla</h2>
+
+  <p>Cada cliente tiene su propia calculadora IRP dentro de su ficha. Eso significa que el contador puede ir cliente por cliente sin mezclar datos, sin copiar celdas de una planilla a otra, y sin riesgo de cruzar numeros.</p>
+
+  <p>Las facturas del cliente (escaneadas por la app movil durante todo el ano) alimentan automaticamente los gastos y el IVA. Los ingresos se cargan una vez al ano. El resultado es inmediato.</p>
+
+  <div class="cta-box">
+    <h3>Simplifica las declaraciones IRP de tus clientes</h3>
+    <p>Facturas escaneadas + calculadora IRP integrada. Todo en un solo dashboard.</p>
+    <a href="https://app.fakturas.app/login?signup=true">Crear mi cuenta</a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/" class="logo">fakturas<span>.app</span></a>
+  <p>Fakturas.app 2026. Asuncion, Paraguay.</p>
+</footer>
+
+</body>
+</html>
