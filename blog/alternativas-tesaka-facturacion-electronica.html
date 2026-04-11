@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tesaka Paraguay: Que Es, Como Funciona y Que Necesitas Ademas (2026)</title>
+<meta name="description" content="Tesaka es la app del SET para emitir facturas virtuales en Paraguay. Descubri como funciona, sus limitaciones y que herramienta complementa a los contadores que las reciben.">
+<meta name="keywords" content="tesaka factura virtual, tesaka set, alternativa tesaka, factura virtual paraguay, app set paraguay">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fakturas.app/blog/alternativas-tesaka-facturacion-electronica">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://fakturas.app/blog/alternativas-tesaka-facturacion-electronica">
+<meta property="og:title" content="Tesaka Paraguay: que es, como funciona y que le falta">
+<meta property="og:description" content="Tesaka es la app gratuita del SET para emitir facturas virtuales. Descubri sus limitaciones y que necesita un contador ademas de Tesaka.">
+<meta property="og:site_name" content="Fakturas.app">
+<meta property="og:locale" content="es_PY">
+<meta property="article:published_time" content="2026-04-11">
+<meta property="article:author" content="Fakturas.app">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tesaka Paraguay: Que Es, Como Funciona y Que Necesitas Ademas (2026)">
+<meta name="twitter:description" content="Tesaka es la app del SET para emitir facturas virtuales. Sus limitaciones y que herramienta complementa a los contadores.">
+
+<!-- Article Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Tesaka Paraguay: que es, como funciona y que le falta",
+  "description": "Tesaka es la app del SET para emitir facturas virtuales en Paraguay. Descubri como funciona, sus limitaciones y que herramienta complementa a los contadores que las reciben.",
+  "url": "https://fakturas.app/blog/alternativas-tesaka-facturacion-electronica",
+  "datePublished": "2026-04-11",
+  "dateModified": "2026-04-11",
+  "author": {"@type": "Organization", "name": "Fakturas.app", "url": "https://fakturas.app"},
+  "publisher": {"@type": "Organization", "name": "Fakturas.app", "url": "https://fakturas.app"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://fakturas.app/blog/alternativas-tesaka-facturacion-electronica"}
+}
+</script>
+
+<!-- FAQPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Tesaka es gratuito?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Si. Tesaka es una aplicacion gratuita desarrollada por la DNIT (ex SET). Se descarga desde Google Play o App Store sin costo. No tiene suscripcion ni pago mensual. Es la herramienta oficial para que contribuyentes emitan facturas virtuales desde el celular."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Puedo usar Tesaka para factura electronica DTE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Tesaka emite facturas virtuales, que son el sistema anterior a la facturacion electronica SIFEN. Los DTE (Documentos Tributarios Electronicos) requieren un software certificado conectado al SIFEN via API, un certificado digital y formato XML firmado. Tesaka no cumple con ninguno de estos requisitos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como sabe el contador que sus clientes emitieron una factura en Tesaka?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tesaka no notifica al contador. El cliente emite la factura virtual y el contador se entera cuando el cliente le manda una foto por WhatsApp, un PDF por email, o directamente no le avisa. No hay canal automatico entre Tesaka y el estudio contable. Por eso herramientas como Fakturas.app existen: crean un canal unico donde el cliente envia y el contador recibe sin depender de WhatsApp."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --emerald: #4edea3;
+  --emerald-dark: #003824;
+  --emerald-hover: #10b981;
+  --blue: #005BE2;
+  --gold: #FFC402;
+  --navy: #0d1321;
+  --navy-light: #191f2e;
+  --bg: #f8faf9;
+  --white: #ffffff;
+  --text: #1a1a2e;
+  --text-secondary: #5a6577;
+  --text-muted: #8b95a5;
+  --border: #e2e8f0;
+  --surface: #f1f5f3;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border);
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.5px;
+  text-decoration: none;
+}
+.logo span { color: var(--emerald); }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--text); font-weight: 600; }
+.nav-cta {
+  background: var(--emerald) !important;
+  color: var(--emerald-dark) !important;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-weight: 600 !important;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--emerald-hover) !important; }
+
+/* BREADCRUMBS */
+.breadcrumbs {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 20px 24px 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.breadcrumbs a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.breadcrumbs a:hover { color: var(--emerald-hover); }
+.breadcrumbs span { margin: 0 6px; }
+
+/* ARTICLE */
+.article-header {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 24px 0;
+}
+.article-header h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.article-meta time { font-weight: 500; }
+
+.article-body {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+.article-body h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin: 48px 0 16px;
+  color: var(--text);
+}
+.article-body h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 32px 0 12px;
+  color: var(--text);
+}
+.article-body p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.article-body ul, .article-body ol {
+  margin: 0 0 20px 20px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+.article-body li {
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+.article-body strong { color: var(--text); }
+.article-body a {
+  color: var(--emerald-hover);
+  text-decoration: none;
+  font-weight: 500;
+}
+.article-body a:hover { text-decoration: underline; }
+
+/* CHAPEAU */
+.chapeau {
+  font-size: 1.1rem !important;
+  color: var(--text) !important;
+  line-height: 1.7 !important;
+  margin-bottom: 32px !important;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* TL;DR BOX */
+.tldr-box {
+  background: linear-gradient(135deg, #f8faf9 0%, #f3f0e8 100%);
+  border-left: 4px solid var(--emerald);
+  padding: 28px 32px;
+  border-radius: 0 14px 14px 0;
+  margin: 32px 0 40px;
+}
+.tldr-box h2 {
+  color: var(--emerald-hover);
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0 0 16px;
+  letter-spacing: -0.3px;
+}
+.tldr-box ul {
+  margin: 0;
+  padding-left: 24px;
+  list-style: disc;
+}
+.tldr-box li {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+.tldr-box li:last-child { margin-bottom: 0; }
+
+/* DEFINITION BLOCK */
+.definition-block {
+  background: var(--surface);
+  border-left: 4px solid var(--emerald);
+  border-radius: 0 10px 10px 0;
+  padding: 20px 24px;
+  margin: 24px 0;
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.75;
+}
+
+/* HIGHLIGHT BOX */
+.highlight-box {
+  background: var(--surface);
+  border-left: 4px solid var(--emerald);
+  border-radius: 0 10px 10px 0;
+  padding: 20px 24px;
+  margin: 24px 0;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.highlight-box strong { color: var(--text); }
+
+/* GLOSSARY TABLE */
+.glossary-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.glossary-table th {
+  background: var(--navy);
+  color: #fff;
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.glossary-table td {
+  padding: 14px 16px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.glossary-table tr:last-child td { border-bottom: none; }
+.glossary-table tr:nth-child(even) { background: var(--surface); }
+.glossary-table td:first-child {
+  font-weight: 700;
+  color: var(--emerald-hover);
+  white-space: nowrap;
+}
+
+/* FLOW STEPS */
+.flow-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 24px 0;
+}
+.flow-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 0;
+}
+.flow-step-number {
+  width: 36px;
+  height: 36px;
+  background: var(--emerald);
+  color: var(--emerald-dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+.flow-step-content {
+  flex: 1;
+}
+.flow-step-content strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+.flow-step-content span {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+.flow-connector {
+  width: 36px;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  color: var(--border);
+  font-size: 0.8rem;
+}
+
+/* NUMBERED TIP */
+.numbered-tip {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  align-items: flex-start;
+}
+.numbered-tip .num {
+  min-width: 32px;
+  height: 32px;
+  background: var(--emerald);
+  color: var(--emerald-dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+.numbered-tip .tip-content h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.numbered-tip .tip-content p {
+  margin-bottom: 0;
+}
+
+/* FAQ SECTION */
+.faq-section {
+  margin-top: 48px;
+}
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  padding: 20px 0;
+}
+.faq-item:first-child { border-top: 1px solid var(--border); }
+.faq-question {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.faq-answer {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* SVG ILLUSTRATION */
+.svg-illustration {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+.svg-illustration svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* CTA BOX */
+.cta-box {
+  background: var(--navy);
+  border-radius: 14px;
+  padding: 36px;
+  text-align: center;
+  margin: 48px 0 24px;
+}
+.cta-box p {
+  color: #c9d1d9 !important;
+  font-size: 1.05rem !important;
+  margin-bottom: 20px !important;
+  line-height: 1.6 !important;
+}
+.cta-box .btn-primary {
+  display: inline-block;
+  background: var(--emerald);
+  color: var(--emerald-dark);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.cta-box .btn-primary:hover { background: var(--emerald-hover); color: #fff; }
+.btn-primary {
+  display: inline-block;
+  background: var(--emerald);
+  color: var(--emerald-dark);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-primary:hover { background: var(--emerald-hover); color: #fff; }
+
+/* RELATED ARTICLES */
+.related-articles {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 32px 0;
+  border: 1px solid var(--border);
+}
+.related-articles h4 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+.related-articles a {
+  display: block;
+  padding: 8px 0;
+  font-size: 0.9rem;
+  color: var(--emerald-hover);
+  text-decoration: none;
+  font-weight: 500;
+}
+.related-articles a:hover { text-decoration: underline; }
+
+/* FOOTER */
+footer {
+  padding: 40px 60px;
+  background: var(--navy);
+  border-top: 1px solid #242a39;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer p {
+  color: #5a6577;
+  font-size: 0.8rem;
+}
+footer .logo { color: #fff; }
+footer .logo span { color: var(--emerald); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .article-header { padding: 24px 20px 0; }
+  .article-header h1 { font-size: 1.8rem; }
+  .article-body { padding: 0 20px 40px; }
+  .glossary-table { font-size: 0.8rem; }
+  .glossary-table td, .glossary-table th { padding: 10px 12px; }
+  footer { flex-direction: column; gap: 12px; padding: 30px 24px; }
+}
+
+/* PREV/NEXT NAV */
+.article-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 32px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.article-nav a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: var(--emerald-hover);
+  font-weight: 500;
+  transition: color 0.2s;
+  max-width: 48%;
+}
+.article-nav a:hover { text-decoration: underline; }
+.article-nav .nav-prev::before { content: "\2190 "; }
+.article-nav .nav-next { margin-left: auto; text-align: right; }
+.article-nav .nav-next::after { content: " \2192"; }
+
+/* HERO ILLUSTRATION */
+.hero-illustration {
+  max-width: 760px;
+  margin: 0 auto 0;
+  padding: 0 24px;
+}
+.hero-illustration svg {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  display: block;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://fakturas.app" class="logo">fakturas<span>.</span>app</a>
+  <div class="nav-links">
+    <a href="https://fakturas.app#features">Funciones</a>
+    <a href="https://fakturas.app#how-it-works">Como funciona</a>
+    <a href="https://fakturas.app#pricing">Precios</a>
+    <a href="https://fakturas.app/blog/" class="active">Blog</a>
+    <a href="https://fakturas.app#cta">Contacto</a>
+    <a href="https://fakturas.app#pricing" class="nav-cta">Empezar gratis</a>
+  </div>
+</nav>
+
+<!-- BREADCRUMBS -->
+<div class="breadcrumbs">
+  <a href="https://fakturas.app">Inicio</a>
+  <span>&rsaquo;</span>
+  <a href="https://fakturas.app/blog/">Blog</a>
+  <span>&rsaquo;</span>
+  Tesaka Paraguay
+</div>
+
+<!-- ARTICLE HEADER -->
+<header class="article-header">
+  <h1>Tesaka Paraguay: que es, como funciona y que le falta</h1>
+  <div class="article-meta">
+    <time datetime="2026-04-11">11 abril 2026</time>
+    <span>&middot;</span>
+    <span>8 min de lectura</span>
+  </div>
+</header>
+
+<!-- HERO ILLUSTRATION -->
+<div class="hero-illustration">
+<svg viewBox="0 0 760 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="760" height="260" rx="16" fill="#f1f5f3"/>
+  <!-- Left: Phone with Tesaka -->
+  <rect x="120" y="40" width="120" height="180" rx="16" fill="white" stroke="#e2e8f0" stroke-width="2"/>
+  <rect x="128" y="60" width="104" height="140" rx="4" fill="#0d1321"/>
+  <text x="180" y="110" text-anchor="middle" font-size="11" fill="#4edea3" font-family="Inter, sans-serif" font-weight="700">TESAKA</text>
+  <text x="180" y="128" text-anchor="middle" font-size="9" fill="#5a6577" font-family="Inter, sans-serif">Emitir factura</text>
+  <rect x="150" y="140" width="60" height="20" rx="4" fill="#4edea3" opacity="0.3"/>
+  <text x="180" y="154" text-anchor="middle" font-size="8" fill="#003824" font-family="Inter, sans-serif" font-weight="600">ENVIAR</text>
+  <circle cx="180" y="200" r="8" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
+  <!-- Arrow -->
+  <text x="310" y="135" text-anchor="middle" font-size="24" fill="#8b95a5" font-family="Inter, sans-serif">&#8594;</text>
+  <text x="310" y="155" text-anchor="middle" font-size="9" fill="#8b95a5" font-family="Inter, sans-serif">el cliente emite</text>
+  <!-- Center: WhatsApp chaos -->
+  <rect x="370" y="60" width="100" height="140" rx="12" fill="white" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="420" y="90" text-anchor="middle" font-size="9" fill="#5a6577" font-family="Inter, sans-serif" font-weight="600">WhatsApp</text>
+  <rect x="380" y="100" width="80" height="14" rx="3" fill="#dcfce7"/>
+  <text x="420" y="110" text-anchor="middle" font-size="7" fill="#5a6577" font-family="Inter, sans-serif">foto_factura.jpg</text>
+  <rect x="380" y="120" width="80" height="14" rx="3" fill="#dcfce7"/>
+  <text x="420" y="130" text-anchor="middle" font-size="7" fill="#5a6577" font-family="Inter, sans-serif">factura_marzo.pdf</text>
+  <rect x="380" y="140" width="80" height="14" rx="3" fill="#dcfce7"/>
+  <text x="420" y="150" text-anchor="middle" font-size="7" fill="#5a6577" font-family="Inter, sans-serif">20260411_fact.jpg</text>
+  <text x="420" y="180" text-anchor="middle" font-size="18" fill="#e05555" font-family="Inter, sans-serif" font-weight="700">?</text>
+  <!-- Arrow -->
+  <text x="510" y="135" text-anchor="middle" font-size="24" fill="#8b95a5" font-family="Inter, sans-serif">&#8594;</text>
+  <text x="510" y="155" text-anchor="middle" font-size="9" fill="#8b95a5" font-family="Inter, sans-serif">el contador recibe</text>
+  <!-- Right: Fakturas dashboard -->
+  <rect x="560" y="50" width="140" height="160" rx="12" fill="white" stroke="#4edea3" stroke-width="2"/>
+  <rect x="560" y="50" width="140" height="30" rx="12" fill="#4edea3" opacity="0.15"/>
+  <rect x="560" y="68" width="140" height="12" fill="#4edea3" opacity="0.15"/>
+  <text x="630" y="71" text-anchor="middle" font-size="10" fill="#003824" font-family="Inter, sans-serif" font-weight="800">Fakturas.app</text>
+  <rect x="572" y="92" width="116" height="12" rx="3" fill="#f1f5f3"/>
+  <rect x="572" y="110" width="116" height="12" rx="3" fill="#f1f5f3"/>
+  <rect x="572" y="128" width="116" height="12" rx="3" fill="#f1f5f3"/>
+  <rect x="572" y="146" width="80" height="12" rx="3" fill="#f1f5f3"/>
+  <text x="630" y="180" text-anchor="middle" font-size="8" fill="#4edea3" font-family="Inter, sans-serif" font-weight="700">Organizado</text>
+</svg>
+</div>
+
+<!-- ARTICLE BODY -->
+<article class="article-body">
+
+  <!-- Chapeau -->
+  <p class="chapeau">
+    Tesaka es la app oficial de la DNIT (ex SET) para emitir facturas virtuales desde el celular. Es gratuita, funciona y millones de contribuyentes la usan en Paraguay. Pero Tesaka resuelve solo la mitad del problema: la emision. Si sos contador, la otra mitad (recibir, organizar y procesar las facturas que tus clientes emiten) sigue siendo un caos de WhatsApp y planillas.
+  </p>
+
+<!-- ABOVE-FOLD CTA -->
+<div class="cta-box" style="margin: 24px 0; padding: 20px 28px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+  <p style="margin:0; text-align:left;">Fakturas recibe y organiza las facturas de tus clientes. Sin WhatsApp, sin planillas.</p>
+  <a href="https://app.fakturas.app" class="btn-primary" style="white-space:nowrap;">Empezar gratis</a>
+</div>
+
+  <div class="tldr-box">
+  <h2>Lo esencial:</h2>
+  <ul>
+    <li>Tesaka = app gratuita de la DNIT para emitir facturas virtuales (no DTE/SIFEN).</li>
+    <li>Sirve para que el contribuyente emita. No resuelve nada del lado del contador que recibe.</li>
+    <li>No es lo mismo que facturacion electronica (SIFEN). Tesaka emite factura virtual, un sistema anterior.</li>
+    <li>Fakturas.app no compite con Tesaka: lo complementa. Tesaka emite, Fakturas recibe y organiza.</li>
+  </ul>
+</div>
+
+  <!-- Section 1 -->
+  <h2>Que es Tesaka</h2>
+
+  <p>Tesaka es la aplicacion movil oficial de la DNIT (Direccion Nacional de Ingresos Tributarios, ex SET) para emitir <strong>facturas virtuales</strong> en Paraguay. Se descarga gratis desde Google Play o App Store y permite a cualquier contribuyente con RUC activo emitir facturas desde su celular.</p>
+
+  <div class="definition-block">
+    <strong>Factura virtual vs. factura electronica:</strong> son sistemas distintos. La factura virtual es el mecanismo anterior, gestionado desde Marangatu o Tesaka. La factura electronica (DTE) es el nuevo sistema SIFEN, que requiere software certificado, certificado digital y formato XML firmado. Tesaka no emite DTE.
+  </div>
+
+  <p>Tesaka fue lanzada para facilitar la emision de facturas a contribuyentes pequenos: monotributistas, profesionales independientes, comercios minoristas. Antes de Tesaka, tenias que entrar a Marangatu desde una computadora para emitir una factura virtual. Con Tesaka, lo haces desde el celular en menos de un minuto.</p>
+
+  <p>Es una herramienta de <strong>emision</strong> pura. El contribuyente abre la app, selecciona el tipo de factura, carga los datos del receptor y emite. El resultado es un comprobante digital con timbrado virtual valido ante la DNIT.</p>
+
+  <!-- Section 2 -->
+  <h2>Como funciona Tesaka paso a paso</h2>
+
+  <div class="flow-steps">
+    <div class="flow-step">
+      <div class="flow-step-number">1</div>
+      <div class="flow-step-content">
+        <strong>Descargar e iniciar sesion</strong>
+        <span>Descarga Tesaka desde Google Play o App Store. Inicia sesion con tu RUC y tu clave de acceso de Marangatu (la misma que usas para el portal web de la DNIT).</span>
+      </div>
+    </div>
+    <div class="flow-connector">|</div>
+    <div class="flow-step">
+      <div class="flow-step-number">2</div>
+      <div class="flow-step-content">
+        <strong>Seleccionar tipo de comprobante</strong>
+        <span>Elegis el tipo de factura que vas a emitir: factura virtual contado, credito, nota de credito, etc. Tambien seleccionas el timbrado virtual activo.</span>
+      </div>
+    </div>
+    <div class="flow-connector">|</div>
+    <div class="flow-step">
+      <div class="flow-step-number">3</div>
+      <div class="flow-step-content">
+        <strong>Cargar datos del receptor</strong>
+        <span>Ingresas el RUC o CI del comprador, el detalle de los items (descripcion, cantidad, precio unitario) y seleccionas la condicion de IVA.</span>
+      </div>
+    </div>
+    <div class="flow-connector">|</div>
+    <div class="flow-step">
+      <div class="flow-step-number">4</div>
+      <div class="flow-step-content">
+        <strong>Emitir y compartir</strong>
+        <span>Confirmas y la factura queda emitida. Podes compartir el comprobante como PDF o imagen directamente desde la app. Queda registrada en Marangatu automaticamente.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <strong>Requisito previo:</strong> necesitas tener un timbrado virtual activo en Marangatu. Si todavia no lo tenes, consulta nuestra <a href="https://fakturas.app/blog/factura-virtual-set-guia">guia completa de factura virtual SET</a> para saber como habilitarlo.
+  </div>
+
+  <!-- Section 3 -->
+  <h2>Limitaciones de Tesaka</h2>
+
+  <p>Tesaka cumple su proposito: emitir facturas virtuales rapido y gratis. Pero tiene limitaciones claras que necesitas conocer:</p>
+
+  <div class="numbered-tip">
+    <div class="num">1</div>
+    <div class="tip-content">
+      <h4>Solo factura virtual, no DTE</h4>
+      <p>Tesaka emite facturas virtuales (el sistema anterior). No emite Documentos Tributarios Electronicos (DTE) del SIFEN. Si tu empresa ya esta obligada a usar el SIFEN, Tesaka no te sirve para cumplir con esa obligacion. Necesitas un <a href="https://fakturas.app/blog/ekuatia-vs-ekuatiai">software e-Kuatia certificado</a>.</p>
+    </div>
+  </div>
+
+  <div class="numbered-tip">
+    <div class="num">2</div>
+    <div class="tip-content">
+      <h4>No escala para medianas empresas</h4>
+      <p>Emitir 5 facturas por dia desde el celular es viable. Emitir 50 no lo es. Tesaka no tiene integracion con sistemas contables, no permite carga masiva, y no tiene API. Cada factura se carga manualmente item por item.</p>
+    </div>
+  </div>
+
+  <div class="numbered-tip">
+    <div class="num">3</div>
+    <div class="tip-content">
+      <h4>Sin emision offline</h4>
+      <p>Tesaka requiere conexion a internet para emitir. Si estas en una zona con mala senal o sin datos, no podes facturar. No hay modo de contingencia como existe en la facturacion electronica SIFEN.</p>
+    </div>
+  </div>
+
+  <div class="numbered-tip">
+    <div class="num">4</div>
+    <div class="tip-content">
+      <h4>No resuelve la recepcion</h4>
+      <p>Este es el punto clave para contadores. Tesaka permite a tu cliente <strong>emitir</strong> una factura. Pero no le da al contador ninguna herramienta para <strong>recibirla</strong>. Despues de emitir, el cliente manda una foto por WhatsApp, un PDF por email, o simplemente no manda nada. El contador tiene que perseguir la informacion.</p>
+    </div>
+  </div>
+
+  <!-- Section 4 -->
+  <h2>Que necesita un contador ademas de Tesaka</h2>
+
+  <p>Si sos contador y manejas la facturacion de varios clientes, tu problema no es la emision. Tus clientes emiten con Tesaka, con Marangatu, con papel, con lo que sea. Tu problema es <strong>recibir</strong> esas facturas de forma organizada para poder hacer tu trabajo.</p>
+
+  <p>El flujo tipico sin herramienta de recepcion:</p>
+
+  <ol>
+    <li>El cliente emite una factura en Tesaka.</li>
+    <li>Te manda una foto por WhatsApp (borrosa, cortada, sin contexto).</li>
+    <li>Vos descargas la imagen, la renombras, la guardas en una carpeta.</li>
+    <li>Copias los datos manualmente a tu planilla de Excel o a Marangatu.</li>
+    <li>Si falta una factura, le escribis al cliente. El cliente no contesta. Le escribis de nuevo.</li>
+    <li>Al cierre del mes, te faltan 15 facturas y tenes 3 dias para presentar.</li>
+  </ol>
+
+  <p>Esto no es un problema de Tesaka. Tesaka hace bien lo que tiene que hacer: emitir. El problema es que <strong>no existe un canal entre la emision y el procesamiento contable</strong>.</p>
+
+  <div class="highlight-box">
+    <strong>Fakturas.app resuelve exactamente esto.</strong> En lugar de que tus clientes te manden fotos por WhatsApp, les das un link donde suben sus facturas. Vos las ves organizadas por cliente, por mes, listas para exportar. Sin perseguir a nadie, sin renombrar archivos, sin planillas manuales.
+  </div>
+
+  <p>Tesaka y Fakturas no compiten. Son complementarios:</p>
+
+  <table class="glossary-table">
+    <thead>
+      <tr>
+        <th>Funcion</th>
+        <th>Tesaka</th>
+        <th>Fakturas.app</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Emitir facturas</td>
+        <td>Si (factura virtual)</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td>Recibir facturas de clientes</td>
+        <td>No</td>
+        <td>Si</td>
+      </tr>
+      <tr>
+        <td>Organizar por cliente y periodo</td>
+        <td>No</td>
+        <td>Si</td>
+      </tr>
+      <tr>
+        <td>Exportar a Marangatu</td>
+        <td>No</td>
+        <td>Si</td>
+      </tr>
+      <tr>
+        <td>Costo</td>
+        <td>Gratis</td>
+        <td>Desde $0 (plan gratuito)</td>
+      </tr>
+      <tr>
+        <td>Para quien</td>
+        <td>El contribuyente que emite</td>
+        <td>El contador que recibe</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- FAQ -->
+  <h2 class="faq-section">Preguntas frecuentes</h2>
+
+  <div class="faq-item">
+    <div class="faq-question">Tesaka es gratuito?</div>
+    <div class="faq-answer">Si. Tesaka es una aplicacion gratuita de la DNIT. Se descarga desde Google Play o App Store sin costo, sin suscripcion y sin pagos ocultos. Es la herramienta oficial para que contribuyentes emitan facturas virtuales desde el celular.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">Puedo usar Tesaka para factura electronica DTE?</div>
+    <div class="faq-answer">No. Tesaka emite facturas virtuales, que son el sistema anterior a la facturacion electronica SIFEN. Los DTE requieren un software certificado conectado al SIFEN via API, un certificado digital y formato XML firmado. Si tu empresa ya esta en el SIFEN, necesitas un <a href="https://fakturas.app/blog/ekuatia-vs-ekuatiai">software e-Kuatia o e-Kuatia'i</a>.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">Como sabe el contador que sus clientes emitieron una factura en Tesaka?</div>
+    <div class="faq-answer">Tesaka no notifica al contador. El cliente emite y el contador se entera cuando recibe una foto por WhatsApp, un PDF por email, o cuando el cliente se acuerda de avisarle. No hay canal automatico entre Tesaka y el estudio contable. Herramientas como <a href="https://app.fakturas.app">Fakturas.app</a> crean ese canal: el cliente sube sus facturas a un link y el contador las recibe organizadas.</div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <p>Fakturas recibe y organiza las facturas de tus clientes. Sin WhatsApp, sin planillas.</p>
+    <a href="https://app.fakturas.app" class="btn-primary">Empezar gratis</a>
+  </div>
+
+  <!-- Related articles -->
+  <div class="related-articles">
+    <h4>Articulos relacionados</h4>
+    <a href="https://fakturas.app/blog/ekuatia-vs-ekuatiai">e-Kuatia vs e-Kuatia'i: cual sistema necesitas?</a>
+    <a href="https://fakturas.app/blog/factura-virtual-set-guia">Factura Virtual del SET: guia completa</a>
+    <a href="https://fakturas.app/blog/errores-comunes-sifen-soluciones">Errores comunes del SIFEN y como solucionarlos</a>
+  </div>
+
+  <div class="article-nav">
+    <a href="https://fakturas.app/blog/factura-virtual-set-guia" class="nav-prev">Factura Virtual del SET: guia completa</a>
+    <a href="https://fakturas.app/blog/ekuatia-vs-ekuatiai" class="nav-next">e-Kuatia vs e-Kuatia'i</a>
+  </div>
+
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <a href="https://fakturas.app" class="logo">fakturas<span>.</span>app</a>
+  <p>&copy; 2026 Fakturas.app &mdash; Hecho para contadores en Paraguay</p>
+</footer>
+
+</body>
+</html>
