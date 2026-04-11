@@ -12,6 +12,9 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="canonical" href="https://fakturas.app">
+<link rel="alternate" hreflang="es" href="https://fakturas.app/">
+<link rel="alternate" hreflang="en" href="https://fakturas.app/en/">
+<link rel="alternate" hreflang="x-default" href="https://fakturas.app/">
 <link rel="alternate" type="application/rss+xml" title="Fakturas.app Blog" href="https://fakturas.app/feed.xml">
 
 <!-- Open Graph -->
@@ -136,6 +139,18 @@ nav {
   transition: background 0.2s !important;
 }
 .nav-cta:hover { background: var(--emerald-hover) !important; }
+.nav-lang {
+  font-size: 0.78rem !important;
+  font-weight: 600 !important;
+  color: var(--text-muted) !important;
+  border: 1px solid var(--border);
+  padding: 5px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+  letter-spacing: 0.5px;
+}
+.nav-lang:hover { border-color: var(--emerald); color: var(--text) !important; }
 
 /* HERO */
 .hero {
@@ -1503,6 +1518,7 @@ footer .logo span { color: var(--emerald); }
     <a href="https://fakturas.app/blog/">Blog</a>
     <a href="#cta">Contacto</a>
     <a href="https://app.fakturas.app/login" class="nav-cta">Sign in</a>
+    <a href="/en/" class="nav-lang">EN</a>
   </div>
 </nav>
 
