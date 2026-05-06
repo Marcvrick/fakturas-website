@@ -3,24 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fakturas.app — Declaraciones IVA en una fraccion del tiempo</title>
-<meta name="description" content="Tus clientes escanean facturas con su celular. Vos las recibis digitalizadas, pre-validadas y listas para Marangatu. App gratis para clientes, dashboard web para contadores.">
+<title>Fakturas.app — Declaraciones IVA Paraguay sin perder tiempo</title>
+<meta name="description" content="Tus clientes escanean sus facturas con el celular. Vos las recibis pre-validadas y listas para Marangatu. App movil gratis, dashboard para contadores.">
 <meta name="keywords" content="facturas Paraguay, IRP, Marangatu, escaneo facturas, OCR facturas, contadores Paraguay, declaracion IVA, DNIT, e-kuatia, software contable Paraguay">
 <meta name="robots" content="index, follow">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="canonical" href="https://fakturas.app">
+<link rel="canonical" href="https://fakturas.app/">
 <link rel="alternate" hreflang="es" href="https://fakturas.app/">
 <link rel="alternate" hreflang="x-default" href="https://fakturas.app/">
 <link rel="alternate" type="application/rss+xml" title="Fakturas.app Blog" href="https://fakturas.app/feed.xml">
+<link rel="dns-prefetch" href="https://app.fakturas.app">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://fakturas.app">
-<meta property="og:title" content="Fakturas.app — Declaraciones IVA en una fraccion del tiempo">
-<meta property="og:description" content="Tus clientes aman la app tanto como vos. Todos ahorran tiempo.">
+<meta property="og:url" content="https://fakturas.app/">
+<meta property="og:title" content="Fakturas.app — Declaraciones IVA Paraguay sin perder tiempo">
+<meta property="og:description" content="Tus clientes escanean sus facturas con el celular. Vos las recibis pre-validadas y listas para Marangatu. App movil gratis, dashboard para contadores.">
 <meta property="og:image" content="https://fakturas.app/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -30,16 +31,16 @@
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://fakturas.app/og-image.png">
-<meta name="twitter:title" content="Fakturas.app — Declaraciones IVA en una fraccion del tiempo">
-<meta name="twitter:description" content="Tus clientes aman la app tanto como vos. Todos ahorran tiempo.">
+<meta name="twitter:title" content="Fakturas.app — Declaraciones IVA Paraguay sin perder tiempo">
+<meta name="twitter:description" content="Tus clientes escanean sus facturas con el celular. Vos las recibis pre-validadas y listas para Marangatu.">
 
-<!-- Structured Data -->
+<!-- Structured Data: SoftwareApplication -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "Fakturas.app",
-  "url": "https://fakturas.app",
+  "url": "https://fakturas.app/",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Android, Web",
   "description": "Plataforma de escaneo y gestion de facturas para contadores en Paraguay. OCR, QR, exportacion Marangatu.",
@@ -49,6 +50,7 @@
       "name": "Mini",
       "price": "20",
       "priceCurrency": "USD",
+      "priceValidUntil": "2026-12-31",
       "description": "Hasta 20 clientes"
     },
     {
@@ -56,6 +58,7 @@
       "name": "Pro",
       "price": "60",
       "priceCurrency": "USD",
+      "priceValidUntil": "2026-12-31",
       "description": "Hasta 50 clientes"
     },
     {
@@ -63,9 +66,49 @@
       "name": "Growth",
       "price": "90",
       "priceCurrency": "USD",
+      "priceValidUntil": "2026-12-31",
       "description": "Hasta 100 clientes"
     }
   ]
+}
+</script>
+
+<!-- Structured Data: Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Fakturas.app",
+  "url": "https://fakturas.app/",
+  "logo": "https://fakturas.app/favicon-512.png",
+  "description": "Plataforma de recoleccion y digitalizacion de facturas para estudios contables en Paraguay.",
+  "areaServed": {
+    "@type": "Country",
+    "name": "Paraguay"
+  }
+}
+</script>
+
+<!-- Structured Data: WebSite -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Fakturas.app",
+  "url": "https://fakturas.app/",
+  "inLanguage": "es-PY",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fakturas.app"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://fakturas.app/blog/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
 }
 </script>
 
@@ -1500,6 +1543,102 @@ footer .logo span { color: var(--emerald); }
   .roi-num { font-size: 2rem; }
   .mock-stats { grid-template-columns: 1fr; }
 }
+
+/* RECENT ARTICLES */
+.recent-articles {
+  padding: 80px 60px;
+  background: var(--surface);
+}
+.recent-articles-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 48px;
+}
+.recent-articles-header h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.recent-articles-header h2 span { color: var(--emerald-hover); }
+.recent-articles-header p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+.recent-articles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.recent-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.recent-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border-color: var(--emerald);
+}
+.recent-tag {
+  align-self: flex-start;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 14px;
+}
+.recent-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.35;
+  letter-spacing: -0.2px;
+  margin: 0 0 10px;
+}
+.recent-card p {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0 0 16px;
+  flex: 1;
+}
+.recent-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--emerald-hover);
+}
+.recent-articles-footer {
+  text-align: center;
+  margin-top: 40px;
+}
+.recent-all {
+  display: inline-block;
+  background: var(--emerald);
+  color: var(--emerald-dark);
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.recent-all:hover { background: var(--emerald-hover); color: #fff; }
+
+@media (max-width: 900px) {
+  .recent-articles { padding: 60px 24px; }
+  .recent-articles-header h2 { font-size: 1.7rem; }
+  .recent-articles-grid { grid-template-columns: 1fr; gap: 16px; }
+}
 </style>
 </head>
 <body>
@@ -1854,7 +1993,7 @@ footer .logo span { color: var(--emerald); }
     <div class="integration-text">
       <h2>Integracion total</h2>
       <p>Tus clientes usan la app gratuita. Vos gestionas todo desde el dashboard web. Las facturas se sincronizan en tiempo real, sin carga manual.</p>
-      <a href="#">Conoce el flujo de trabajo →</a>
+      <a href="/blog/declaracion-iva-mensual-paraguay-contadores">Conoce el flujo de trabajo →</a>
       <ul class="integration-features">
         <li>Sincronizacion en tiempo real entre app y dashboard</li>
         <li>Modo offline: las fotos se guardan y sincronizan al volver a conectar</li>
@@ -2045,6 +2184,41 @@ footer .logo span { color: var(--emerald); }
     </div>
   </div>
 
+</section>
+
+<!-- ARTICULOS RECIENTES -->
+<section class="recent-articles">
+  <div class="recent-articles-header">
+    <h2>Articulos recientes <span>del blog</span></h2>
+    <p>Guias practicas sobre el flujo del contador paraguayo, SIFEN y Marangatu.</p>
+  </div>
+  <div class="recent-articles-grid">
+
+    <a href="/blog/declaracion-iva-mensual-paraguay-contadores" class="recent-card">
+      <span class="recent-tag" style="background:#ecfdf5;color:#065f46;">PILAR</span>
+      <h3>Declaracion IVA mensual: el flujo de trabajo del contador</h3>
+      <p>Las 5 fases del mes, calendario perpetuo, prorrateo y rectificativas. La guia de referencia.</p>
+      <span class="recent-link">Leer guia <span aria-hidden="true">→</span></span>
+    </a>
+
+    <a href="/blog/problemas-contadores-paraguayos" class="recent-card">
+      <span class="recent-tag" style="background:#fef2f2;color:#991b1b;">CONTADORES</span>
+      <h3>Los 5 problemas mas grandes de los contadores paraguayos</h3>
+      <p>Marangatu, la RG 90, las madrugadas, los honorarios. Lo que vivis cada mes, con soluciones concretas.</p>
+      <span class="recent-link">Leer articulo <span aria-hidden="true">→</span></span>
+    </a>
+
+    <a href="/blog/calendario-sifen-2026" class="recent-card">
+      <span class="recent-tag" style="background:#f1f5f3;color:#0d1321;">SIFEN 2026</span>
+      <h3>Calendario de obligatoriedad SIFEN 2026</h3>
+      <p>Timeline completo de los 18 grupos obligados, desde enero hasta diciembre.</p>
+      <span class="recent-link">Ver calendario <span aria-hidden="true">→</span></span>
+    </a>
+
+  </div>
+  <div class="recent-articles-footer">
+    <a href="/blog/" class="recent-all">Ver todos los articulos <span aria-hidden="true">→</span></a>
+  </div>
 </section>
 
 <!-- CTA -->
