@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIFEN y Marangatu no sincronizan: el desacople que te hace perder horas (2026)</title>
+<meta name="description" content="Una factura esta validada en SIFEN pero no aparece en tu libro de Marangatu. El desacople entre los dos sistemas de la DNIT te hace perder horas. Que hacer al respecto.">
+<meta name="keywords" content="SIFEN Marangatu sincronizacion, falla SIFEN Marangatu, desacople SIFEN Marangatu, registro comprobantes Marangatu, facturacion electronica Paraguay contadores">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fakturas.app/blog/sifen-marangatu-no-sincronizan">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://fakturas.app/blog/sifen-marangatu-no-sincronizan">
+<meta property="og:title" content="SIFEN y Marangatu no sincronizan: el desacople que te hace perder horas (2026)">
+<meta property="og:description" content="El XML salio validado de SIFEN pero tu libro de Marangatu no lo registra. El desacople entre los dos sistemas de la DNIT es el dolor nuevo del contador paraguayo.">
+<meta property="og:site_name" content="Fakturas.app">
+<meta property="og:locale" content="es_PY">
+<meta property="og:image" content="https://fakturas.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Fakturas.app — Facturacion electronica en Paraguay para contadores">
+<meta property="article:published_time" content="2026-07-14">
+<meta property="article:modified_time" content="2026-07-14">
+<meta property="article:author" content="Fakturas.app">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SIFEN y Marangatu no sincronizan: el desacople que te hace perder horas (2026)">
+<meta name="twitter:description" content="El XML salio validado de SIFEN pero tu libro de Marangatu no lo registra. El desacople entre los dos sistemas de la DNIT es el dolor nuevo del contador paraguayo.">
+<meta name="twitter:image" content="https://fakturas.app/og-image.png">
+
+<!-- Structured Data: Article -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "SIFEN y Marangatu no sincronizan: el desacople que te hace perder horas (2026)",
+  "description": "Una factura validada en SIFEN que no aparece en el libro de Marangatu. El desacople entre los dos sistemas de la DNIT y como sobrevivir sin depender de su sincronizacion.",
+  "url": "https://fakturas.app/blog/sifen-marangatu-no-sincronizan",
+  "datePublished": "2026-07-14",
+  "dateModified": "2026-07-14",
+  "author": {
+    "@type": "Organization",
+    "name": "Fakturas.app",
+    "url": "https://fakturas.app"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fakturas.app",
+    "url": "https://fakturas.app"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://fakturas.app/blog/sifen-marangatu-no-sincronizan"
+  }
+}
+</script>
+
+<!-- Structured Data: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "SIFEN y Marangatu son lo mismo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. SIFEN (Sistema Integrado de Facturacion Electronica Nacional) es el motor que procesa, firma y valida los documentos electronicos (XML) que emiten los contribuyentes. Marangatu es el sistema donde se registran los comprobantes, se llevan los libros de compras y ventas, y se presentan las declaraciones (IVA, IRE, IRP). Son dos plataformas distintas y su sincronizacion no siempre es inmediata."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Por que una factura electronica aparece en SIFEN pero no en mi libro de Marangatu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Porque la informacion entre SIFEN y Marangatu no siempre viaja en tiempo real. El documento puede estar validado en SIFEN, pero demorar en replicarse en el registro de Marangatu, o replicarse con errores. Los contadores reportan comprobantes que aparecen en un sistema y no en el otro, facturas duplicadas en rectificativas y datos que no se calculan en el Formulario 242. Es lo que en este articulo llamamos el desacople."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pueden multarme si el desacople entre SIFEN y Marangatu me hace presentar tarde?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tecnicamente si. La DNIT aplica multas por presentacion tardia del registro de comprobantes. Cuando las fallas son generalizadas, la DNIT ha exonerado multas de forma masiva, como hizo la SET en 2023. La recomendacion es documentar la falla (capturas de pantalla con fecha y hora) y presentar la solicitud de exoneracion formal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como hago para no depender de la sincronizacion de la DNIT?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Llevando tu propia fuente de datos limpia. Si registras cada comprobante a medida que lo recibis (con RUC, timbrado, montos por tasa de IVA), no dependes de que Marangatu te lo devuelva despues. Validar contra el XML original del proveedor y exportar un CSV bien formado te permite reconstruir el libro sin esperar la sincronizacion del sistema."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Fakturas.app se conecta a SIFEN o a Marangatu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fakturas.app no es un emisor de facturas electronicas ni se conecta directamente a SIFEN. Lo que hace es resolver la etapa previa: los clientes del contador escanean sus facturas de compra con el celular, el OCR extrae los datos, el contador valida, y el sistema exporta en formato listo para cargar en Marangatu. Es decir, te da la fuente de datos limpia que el desacople te quita."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --emerald: #4edea3;
+  --emerald-dark: #003824;
+  --emerald-hover: #10b981;
+  --blue: #005BE2;
+  --gold: #FFC402;
+  --navy: #0d1321;
+  --navy-light: #191f2e;
+  --bg: #f8faf9;
+  --white: #ffffff;
+  --text: #1a1a2e;
+  --text-secondary: #5a6577;
+  --text-muted: #8b95a5;
+  --border: #e2e8f0;
+  --surface: #f1f5f3;
+  --red-bg: #fef2f2;
+  --red-border: #fca5a5;
+  --red-text: #991b1b;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border);
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.5px;
+  text-decoration: none;
+}
+.logo span { color: var(--emerald); }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--text); font-weight: 600; }
+.nav-cta {
+  background: var(--emerald) !important;
+  color: var(--emerald-dark) !important;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-weight: 600 !important;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--emerald-hover) !important; }
+
+/* BREADCRUMBS */
+.breadcrumbs {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 20px 24px 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.breadcrumbs a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.breadcrumbs a:hover { color: var(--emerald-hover); }
+.breadcrumbs span { margin: 0 6px; }
+
+/* ARTICLE */
+.article-header {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 24px 0;
+}
+.article-header h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.article-meta time { font-weight: 500; }
+
+.article-body {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+.article-body h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin: 48px 0 16px;
+  color: var(--text);
+}
+.article-body h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 32px 0 12px;
+  color: var(--text);
+}
+.article-body p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.article-body ul, .article-body ol {
+  margin: 0 0 20px 20px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+.article-body li {
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+.article-body strong { color: var(--text); }
+.article-body a {
+  color: var(--emerald-hover);
+  text-decoration: none;
+  font-weight: 500;
+}
+.article-body a:hover { text-decoration: underline; }
+
+/* CHAPEAU */
+.chapeau {
+  font-size: 1.1rem !important;
+  color: var(--text) !important;
+  line-height: 1.7 !important;
+  margin-bottom: 32px !important;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* TL;DR BOX */
+.tldr-box {
+  background: linear-gradient(135deg, #f8faf9 0%, #f3f0e8 100%);
+  border-left: 4px solid var(--emerald);
+  padding: 28px 32px;
+  border-radius: 0 14px 14px 0;
+  margin: 32px 0 40px;
+}
+.tldr-box h2 {
+  color: var(--emerald-hover);
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0 0 16px;
+  letter-spacing: -0.3px;
+}
+.tldr-box ul {
+  margin: 0;
+  padding-left: 24px;
+  list-style: disc;
+}
+.tldr-box li {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+.tldr-box li:last-child { margin-bottom: 0; }
+/* HIGHLIGHT BOX */
+.highlight-box {
+  background: var(--surface);
+  border-left: 4px solid var(--emerald);
+  border-radius: 0 10px 10px 0;
+  padding: 20px 24px;
+  margin: 24px 0;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.highlight-box strong { color: var(--text); }
+
+/* PROBLEM CARD */
+.problem-card {
+  background: var(--red-bg);
+  border-left: 4px solid var(--red-border);
+  border-radius: 0 10px 10px 0;
+  padding: 20px 24px;
+  margin: 24px 0;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.problem-card strong { color: var(--red-text); }
+
+/* STAT CALLOUT */
+.stat-callout {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--navy);
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin: 28px 0;
+}
+.stat-number {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--emerald);
+  line-height: 1;
+  flex-shrink: 0;
+}
+.stat-desc {
+  font-size: 0.9rem;
+  color: #c9d1d9;
+  line-height: 1.5;
+}
+
+/* QUOTE */
+.quote-block {
+  border-left: 4px solid var(--emerald);
+  padding: 16px 24px;
+  margin: 24px 0;
+  background: var(--surface);
+  border-radius: 0 10px 10px 0;
+}
+.quote-block p {
+  font-style: italic;
+  font-size: 1.05rem !important;
+  color: var(--text) !important;
+  margin-bottom: 8px !important;
+}
+.quote-block .quote-author {
+  font-style: normal;
+  font-size: 0.8rem !important;
+  color: var(--text-muted) !important;
+  font-weight: 600;
+}
+
+/* SOLUTION BOX */
+.solution-box {
+  background: #ecfdf5;
+  border-left: 4px solid var(--emerald);
+  border-radius: 0 10px 10px 0;
+  padding: 20px 24px;
+  margin: 24px 0;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.solution-box strong { color: var(--emerald-dark); }
+
+/* DIAGRAM BOX (two systems disconnected) */
+.diagram-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 24px;
+  margin: 28px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+.diagram-node {
+  background: var(--white);
+  border: 2px solid var(--navy);
+  border-radius: 12px;
+  padding: 16px 20px;
+  text-align: center;
+  min-width: 130px;
+}
+.diagram-node.sifen { border-color: var(--blue); }
+.diagram-node.marangatu { border-color: var(--emerald-hover); }
+.diagram-node .node-title { font-weight: 800; font-size: 1rem; color: var(--text); }
+.diagram-node .node-sub { font-size: 0.72rem; color: var(--text-muted); margin-top: 4px; line-height: 1.4; }
+.diagram-link {
+  flex: 1;
+  min-width: 90px;
+  text-align: center;
+  position: relative;
+  color: var(--red-text);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.diagram-link .line {
+  display: block;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--red-border) 0 8px, transparent 8px 14px);
+  margin: 0 12px;
+}
+.diagram-link .x {
+  display: inline-block;
+  background: var(--white);
+  padding: 0 6px;
+  position: relative;
+  top: -10px;
+}
+
+/* FAQ */
+.faq-section { margin: 48px 0 24px; }
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 12px;
+  background: var(--white);
+}
+.faq-item h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.faq-item p {
+  font-size: 0.9rem !important;
+  color: var(--text-secondary) !important;
+  line-height: 1.65 !important;
+  margin-bottom: 0 !important;
+}
+
+/* CTA BOX */
+.cta-box {
+  background: var(--navy);
+  border-radius: 14px;
+  padding: 36px;
+  text-align: center;
+  margin: 48px 0 24px;
+}
+.cta-box p {
+  color: #c9d1d9 !important;
+  font-size: 1.05rem !important;
+  margin-bottom: 20px !important;
+  line-height: 1.6 !important;
+}
+.btn-primary {
+  display: inline-block;
+  background: var(--emerald);
+  color: var(--emerald-dark) !important;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none !important;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: var(--emerald-hover); }
+
+/* RELATED */
+.related-articles {
+  margin: 32px 0;
+  padding: 24px;
+  background: var(--surface);
+  border-radius: 14px;
+}
+.related-articles h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+.related-articles a {
+  display: block;
+  padding: 10px 0;
+  color: var(--emerald-hover);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.2s;
+}
+.related-articles a:last-child { border-bottom: none; }
+.related-articles a:hover { color: var(--text); }
+
+/* ARTICLE NAV */
+.article-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 24px 0 48px;
+  font-size: 0.85rem;
+}
+.article-nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 10px 0;
+  transition: color 0.2s;
+}
+.article-nav a:hover { color: var(--emerald-hover); }
+
+/* FOOTER */
+footer {
+  background: var(--navy);
+  padding: 40px 60px;
+  text-align: center;
+}
+footer .logo { color: #fff; font-size: 1.2rem; display: block; margin-bottom: 8px; }
+footer p { color: var(--text-muted); font-size: 0.8rem; }
+
+/* MOBILE */
+@media (max-width: 768px) {
+  nav { padding: 16px 20px; }
+  .nav-links { display: none; }
+  .article-header { padding: 24px 16px 0; }
+  .article-header h1 { font-size: 1.8rem; letter-spacing: -0.5px; }
+  .article-body { padding: 0 16px 40px; }
+  .article-body h2 { font-size: 1.3rem; margin-top: 36px; }
+  .breadcrumbs { padding: 16px 16px 0; }
+  .stat-callout { flex-direction: column; gap: 12px; text-align: center; padding: 20px; }
+  .stat-number { font-size: 1.8rem; }
+  .diagram-link { min-width: 100%; order: 3; }
+  .diagram-node { min-width: 100%; }
+  footer { padding: 32px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://fakturas.app" class="logo">fakturas<span>.</span>app</a>
+  <div class="nav-links">
+    <a href="https://fakturas.app#features">Funciones</a>
+    <a href="https://fakturas.app#how-it-works">Como funciona</a>
+    <a href="https://fakturas.app#pricing">Precios</a>
+    <a href="https://fakturas.app/blog/" class="active">Blog</a>
+    <a href="https://app.fakturas.app/login" class="nav-cta">Sign in</a>
+  </div>
+</nav>
+
+<!-- BREADCRUMBS -->
+<div class="breadcrumbs">
+  <a href="https://fakturas.app">Inicio</a>
+  <span>/</span>
+  <a href="https://fakturas.app/blog/">Blog</a>
+  <span>/</span>
+  SIFEN y Marangatu no sincronizan
+</div>
+
+<!-- ARTICLE HEADER -->
+<header class="article-header">
+  <h1>SIFEN y Marangatu no sincronizan: el desacople que te hace perder horas</h1>
+  <div class="article-meta">
+    <time datetime="2026-07-14">14 de julio de 2026</time>
+    <span>Lectura: 11 min</span>
+  </div>
+</header>
+
+<!-- ARTICLE BODY -->
+<article class="article-body">
+
+  <p class="chapeau">
+    El XML salio validado del SIFEN. Tu cliente confirma que emitio la factura electronica. Pero cuando abris Marangatu para registrar el comprobante de compra, no aparece. O aparece duplicado. O aparece sin el IVA bien calculado. El dolor ya no es solo que Marangatu se caiga: es que dos sistemas de la propia DNIT no se ponen de acuerdo entre ellos.
+  </p>
+
+<!-- ABOVE-FOLD CTA -->
+<div class="cta-box" style="margin: 24px 0; padding: 20px 28px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+  <p style="margin:0; text-align:left;">Si los sistemas de la DNIT no se sincronizan entre ellos, lo unico seguro es tu propia fuente de datos. Fakturas arma ese registro antes de que Marangatu lo toque.</p>
+  <a href="https://app.fakturas.app" class="btn-primary" style="white-space:nowrap;">Conocer Fakturas</a>
+</div>
+  <div class="tldr-box">
+  <h2>Lo esencial:</h2>
+  <ul>
+    <li>SIFEN y Marangatu son dos plataformas distintas. Su sincronizacion no siempre es inmediata ni exacta.</li>
+    <li>El dolor nuevo del contador: el comprobante esta en un sistema y no en el otro, o se replica con errores.</li>
+    <li>Los propios contadores estan exigiendo publicamente a la DNIT que sincronice los dos sistemas.</li>
+    <li>La salida concreta: dejar de depender de esa sincronizacion y manejar tu propia fuente de datos limpia.</li>
+  </ul>
+</div>
+
+  <p>
+    Si ya leiste <a href="https://fakturas.app/blog/problemas-contadores-paraguayos">nuestro articulo sobre los 5 problemas del contador paraguayo</a>, conoces el de siempre: Marangatu se cae en cada vencimiento, la <a href="https://fakturas.app/blog/declaracion-iva-mensual-paraguay-contadores">declaracion de IVA</a> se vuelve una carrera contra el reloj y la RG 90 obliga a registrar cada comprobante a mano. Este articulo cubre un dolor distinto, mas sutil y cada vez mas frecuente: el <strong>desacople entre SIFEN y Marangatu</strong>. No es que el sistema este abajo. Es que sus dos partes no se hablan bien entre si.
+  </p>
+
+
+  <h2>1. Dos sistemas que no se hablan entre si</h2>
+
+  <p>
+    Empecemos por lo basico, porque mucha gente confunde los dos. <strong>SIFEN</strong> (Sistema Integrado de Facturacion Electronica Nacional) es el motor que procesa, firma y valida los <a href="https://fakturas.app/blog/que-es-facturacion-electronica-paraguay">documentos electronicos</a> (los XML que el contribuyente emite). <strong>Marangatu</strong> es el sistema donde se registran los comprobantes, se llevan los libros de compras y ventas, y se presentan las declaraciones mensuales (IVA, IRE, IRP).
+  </p>
+
+  <div class="diagram-box">
+    <div class="diagram-node sifen">
+      <div class="node-title">SIFEN</div>
+      <div class="node-sub">Emite, firma y valida el XML</div>
+    </div>
+    <div class="diagram-link">
+      <span class="line"></span>
+      <span class="x">sin sincronizar</span>
+      <span class="line"></span>
+    </div>
+    <div class="diagram-node marangatu">
+      <div class="node-title">MARANGATU</div>
+      <div class="node-sub">Registra y declara</div>
+    </div>
+  </div>
+
+  <p>
+    En teoria, lo que un proveedor emite por SIFEN despues tiene que reflejarse en el libro de compras del comprador dentro de Marangatu. En la practica, esa sincronizacion no siempre ocurre en tiempo real, ni de forma exacta. Y ahi empieza el problema.
+  </p>
+
+  <p>
+    No es un detalle menor. Si la factura de tu cliente esta validada en SIFEN pero Marangatu no la refleja, no la podes registrar como compra, no la podes computar como credito fiscal IVA, y te queda un comprobante "en el aire" que despues te obliga a armar rectificativas. El desacouple te hace perder el bien mas escaso del contador: tiempo confiable.
+  </p>
+
+  <div class="problem-card">
+    <strong>El punto clave:</strong> el problema no es que el sistema este caido. Es que este "caido" entre sus propias partes. Y a diferencia de una caida total, un desacople parcial es mucho mas dificil de probar y de explicar cuando pedis una exoneracion de multa.
+  </div>
+
+
+  <h2>2. Como se manifiesta el desacople en tu dia a dia</h2>
+
+  <p>
+    El desacople no te avisa con un cartel de error. Se filtra de a poco, en inconsistencias que recien descubris cuando ya es tarde. Estos son los sintomas que mas reportan los contadores en la practica:
+  </p>
+
+  <ul>
+    <li><strong>El comprobante esta en SIFEN pero no en el libro de Marangatu.</strong> El proveedor te jura que emitio. Vos no lo ves. Tenes que esperar, refrescar, o terminar cargandolo a mano.</li>
+    <li><strong>Facturas duplicadas en rectificativas.</strong> Cuando el sistema "recupera" la sincronizacion, a veces replica el comprobante varias veces. Terminas con copias que despues hay que anular una por una.</li>
+    <li><strong>El comprobante aparece en el libro pero no se calcula en el Formulario 242.</strong> El Talon Resumen de Operaciones no termina de tomar el dato, asi que la declaracion te da un numero distinto al del libro.</li>
+    <li><strong>Rectificativas que no replican.</strong> Corregiste un comprobante en un sistema, pero la correccion no viajo al otro. Volves a empezar.</li>
+    <li><strong>Demoras variables.</strong> El mismo comprobante a veces aparece en minutos, a veces tarda horas, a veces tarda dias. No hay regla predecible.</li>
+  </ul>
+
+  <p>
+    Cada uno de estos puntos, individualmente, parece chico. Sumados a lo largo de 50 clientes, son horas enteras de validacion cruzada: abrir SIFEN, abrir Marangatu, comparar, encontrar el comprobante perdido, decidir si cargarlo a mano o esperar. Es trabajo invisible que nadie te paga y que el sistema deberia hacer por vos.
+  </p>
+
+  <div class="quote-block">
+    <p>"Los sistemas aun no operan con la predictibilidad necesaria para un esquema de cumplimiento completamente digital."</p>
+    <div class="quote-author">Resistencia Contable</div>
+  </div>
+
+  <p>
+    Es decir, no lo decimos nosotros. Lo viene denunciando el gremio de contadores mas grande del pais. Y en los ultimos meses, el reclamo se volvio explicito: los contadores estan pidiendo publicamente a la DNIT que mejore la sincronizacion entre SIFEN y Marangatu. Segmentos de medios locales ya titularon "Contadores exigen a la DNIT sincronizacion entre SIFEN y Marangatu", y se reportaron fallas en el servicio de datos que conecta a los dos sistemas. No es un problema esporadico: es estructural.
+  </p>
+
+
+  <h2>3. Por que pasa (y por que no se arregla rapido)</h2>
+
+  <p>
+    La causa de fondo es arquitectonica. SIFEN y Marangatu fueron disenados como sistemas con funciones distintas: uno emite y valida documentos electronicos, el otro registra comprobantes y gestiona declaraciones. La conexion entre los dos no es una pipeline en tiempo real, sino un proceso de replicacion que puede correr en lotes, con demoras y con puntos donde un dato se pierde o se duplica.
+  </p>
+
+  <p>
+    A eso se suma el volumen. Cada mes, mas contribuyentes emiten electronicamente, mas comprobantes circulan por SIFEN, y mas datos tienen que replicarse hacia Marangatu justo en la ventana de vencimiento, cuando todos los contadores del pais estan arriba del sistema al mismo tiempo. Es la receta perfecta para que el desacople se note mas justo cuando menos lo podes tolerar.
+  </p>
+
+  <div class="stat-callout">
+    <div class="stat-number">2 en 1</div>
+    <div class="stat-desc">dos plataformas oficiales para un mismo flujo: SIFEN para emitir y validar, Marangatu para registrar y declarar. Cuando la replica entre las dos falla, el contador es quien manualmente reconstruye lo que el sistema no unio.</div>
+  </div>
+
+  <p>
+    Por que no se arregla de un dia para el otro? Porque sincronizar dos sistemas fiscales a nivel nacional no es un patch: implica infraestructura, validaciones de integridad, pruebas y manejo de casos borde (rectificativas, notas de credito, anulaciones). Mientras tanto, el riesgo operativo sigue cayendo del lado del contador, que es quien termina compensando con horas lo que la plataforma no conecta.
+  </p>
+
+
+  <h2>4. La obligacion sigue creciendo, la infraestructura no</h2>
+
+  <p>
+    El problema del desacouple seria mas llevadero si la obligacion de usar estos sistemas estuviera estable. Pero no lo esta: sigue creciendo. El <a href="https://fakturas.app/blog/calendario-sifen-2026">calendario de obligatoriedad SIFEN 2026</a> sigue sumando grupos de contribuyentes a lo largo del ano, en un cronograma escalonado que llega hasta diciembre. Desde enero de 2026, todos los <a href="https://fakturas.app/blog/proveedores-estado-facturacion-electronica">proveedores del Estado</a> ya deben emitir electronicamente, por la Resolucion General 41/2025.
+  </p>
+
+  <p>
+    Mas emisores electronicos significa mas XML circulando, mas replicacion hacia Marangatu y mas superficie para que el desacouple aparezca. Cada nuevo grupo que entra al SIFEN es, para el contador que lo atiende, una fuente nueva de comprobantes que tienen que cuadrar entre dos sistemas que no siempre se ponen de acuerdo.
+  </p>
+
+  <p>
+    El contexto fiscal no ayuda a relajarse. Segun reportes de prensa, la recaudacion de la DNIT cayo un 5,9% en junio respecto a junio del ano anterior. Cuando baja la recaudacion, la presion de control suele subir, no bajar. Es decir, lo mas probable es que la fiscalizacion se intensifique justo sobre profesionales que estan trabajando con plataformas que no sincronizan bien entre ellas.
+  </p>
+
+  <p>
+    Si todavia no sabes en que grupo del SIFEN te toca a vos o a tus clientes, nuestra guia para <a href="https://fakturas.app/blog/como-saber-grupo-sifen">verificar tu grupo del SIFEN</a> te lo resuelve paso a paso. Y si tus clientes ya estan emitiendo y los XML te vienen con problemas, tenemos la guia de <a href="https://fakturas.app/blog/errores-comunes-sifen-soluciones">errores comunes del SIFEN y como solucionarlos</a>.
+  </p>
+
+
+  <h2>5. El costo real: horas, multas y exoneraciones no remuneradas</h2>
+
+  <p>
+    El desacouple tiene un precio concreto, y lo pagas vos. Cada comprobante que no cuadra te obliga a una de tres cosas: esperar a que el sistema se sincronice (perdiendo la ventana mas estable del dia), cargar el comprobante a mano para no quedar afuera (sumando trabajo manual), o presentar y despues armar una rectificativa (mas trabajo, mas riesgo).
+  </p>
+
+  <p>
+    Y si el desacouple te hace llegar tarde al vencimiento del registro de comprobantes, la multa tecnica sigue ahi. La DNIT aplica sanciones por presentacion tardia. Cuando las fallas son generalizadas y documentadas, la autoridad ha exonerado multas de forma masiva (la SET lo hizo en 2023 tras las protestas). Pero una falla parcial, un desacople silencioso de un comprobante que no replico, es mucho mas dificil de probar que una caida total. Te queda el trabajo de armar la solicitud de exoneracion, capturas de pantalla mediante, sin que nadie te pague ese tramite.
+  </p>
+
+  <div class="problem-card">
+    <strong>El verdadero costo:</strong> no es solo la multa. Es la hora que perdiste esperando la sincronizacion, la hora que perdiste cargando a mano lo que no replico, y la hora que perdiste armando el pedido de exoneracion. Tres horas invisibles por un comprobante que el sistema deberia haber unido solo.
+  </div>
+
+  <p>
+    Multiplica eso por la cantidad de clientes y por la cantidad de comprobantes por cliente, y entendes por que tantos contadores terminan trabajando de madrugada. No es por desorganizacion: es porque estan compensando, con su tiempo, las fallas de una infraestructura que les exige cumplir digitalmente pero no les garantiza que sus propios sistemas se entiendan entre si.
+  </p>
+
+
+  <h2>6. Como sobrevivir sin depender de la sincronizacion de la DNIT</h2>
+
+  <p>
+    No vas a poder arreglar la sincronizacion entre SIFEN y Marangatu. Eso depende de la DNIT. Lo que si podes hacer es <strong>dejar de depender de ella</strong>. La idea es simple: si vos llevas tu propia fuente de datos limpia y confiable, no necesitas que Marangatu te "devuelva" el comprobante para saber que existe y como computarlo.
+  </p>
+
+  <h3>1. Registra cada comprobante a medida que llega</h3>
+  <p>
+    No esperes a fin de mes para ver que te devuelve Marangatu. Si registras cada comprobante de compra en el momento en que lo recibis (con RUC, timbrado, numero, fecha y montos por tasa de IVA), tenes tu propio libro paralelo, armado por vos, que despues usas para confrontar lo que el sistema si replico y lo que no.
+  </p>
+
+  <h3>2. Valida contra el XML original del proveedor</h3>
+  <p>
+    Si tus clientes te mandan el XML que emitieron por SIFEN (o el PDF con el codigo QR), eso es la fuente de verdad del lado de la emision. Antes de pelear con Marangatu, confirma que el XML este validado. Si lo esta, el comprobante existe, independientemente de lo que Marangatu te muestre en ese momento. Para entender los formatos y sus diferencias, te puede servir nuestra comparativa de <a href="https://fakturas.app/blog/ekuatia-vs-ekuatiai">e-Kuatia vs e-Kuatia'i</a>.
+  </p>
+
+  <h3>3. Maneja un CSV limpio y exportable</h3>
+  <p>
+    Cuando Marangatu si responde, lo mas rapido es cargar en lote. Si ya tenes tus comprobantes en un CSV bien formateado (RUC con digito verificador, fechas en formato DD/MM/AAAA, montos separados por tasa de IVA, separador punto y coma), importas todo de una y te ahorrae la carga uno por uno. Un CSV limpio es tu seguro contra el desacople: lo que el sistema no replico, vos lo reconstruis desde tu archivo.
+  </p>
+
+  <h3>4. Automatiza la recoleccion de facturas</h3>
+  <p>
+    El paso anterior (tener tus comprobantes en un CSV limpio) es el que mas horas te come si lo haces a mano: abrir cada foto de WhatsApp, leer cada campo, tipear. Si tus clientes pudieran escanear sus facturas con el celular y los datos te llegaran ya digitalizados, la fuente de datos limpia se arma sola, sin que vos toques el teclado.
+  </p>
+
+  <div class="solution-box">
+    <strong>Eso es lo que resuelve Fakturas.app.</strong> Tus clientes escanean o fotografian sus facturas de compra con la app. El OCR extrae RUC, timbrado, numero, montos gravados al 5% y al 10%, y condicion de IVA. Vos validas desde el dashboard. Y exportas en formato listo para cargar en Marangatu, sin tipear y sin depender de que SIFEN y Marangatu se hayan sincronizado entre ellos. No es un emisor de facturas electronicas y no se conecta a SIFEN: es la capa que te da la fuente de datos limpia que el desacouple te quita.
+  </div>
+
+  <h3>5. Documenta las fallas y unite al reclamo gremial</h3>
+  <p>
+    Cuando el desacouple te complique un vencimiento, documentalo: capturas de pantalla con fecha y hora del comprobante en SIFEN y de su ausencia (o error) en Marangatu. Esa evidencia es lo que despues sostiene una solicitud de exoneracion. Y sumate al reclamo colectivo: Resistencia Contable y el Colegio de Contadores del Paraguay son los que pueden traducir el dolor individual de cada contador en una demanda concreta ante la DNIT, como ya viene pasando con el pedido explicito de sincronizacion entre SIFEN y Marangatu.
+  </p>
+
+
+  <!-- FAQ -->
+  <div class="faq-section">
+    <h2>Preguntas frecuentes</h2>
+
+    <div class="faq-item">
+      <h4>SIFEN y Marangatu son lo mismo?</h4>
+      <p>No. SIFEN es el motor que procesa, firma y valida los documentos electronicos (XML) que emiten los contribuyentes. Marangatu es el sistema donde se registran los comprobantes, se llevan los libros y se presentan las declaraciones. Son dos plataformas distintas, y su sincronizacion no siempre es inmediata.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>Por que una factura electronica aparece en SIFEN pero no en mi libro de Marangatu?</h4>
+      <p>Porque la informacion entre SIFEN y Marangatu no siempre viaja en tiempo real. El documento puede estar validado en SIFEN y demorar en replicarse en Marangatu, o replicarse con errores (duplicado, sin el IVA bien calculado, ausente en el Formulario 242). Es lo que llamamos el desacople, y los propios contadores lo estan denunciando publicamente.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>Pueden multarme si el desacople entre SIFEN y Marangatu me hace presentar tarde?</h4>
+      <p>Tecnicamente si. La DNIT aplica multas por presentacion tardia del registro de comprobantes. Cuando las fallas son generalizadas, la autoridad ha exonerado multas de forma masiva, como hizo la SET en 2023. La recomendacion: documenta la falla (capturas con fecha y hora) y presenta la solicitud de exoneracion formal.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>Como hago para no depender de la sincronizacion de la DNIT?</h4>
+      <p>Llevando tu propia fuente de datos limpia. Si registras cada comprobante a medida que lo recibis, validas contra el XML original del proveedor y mantenes un CSV exportable, podes reconstruir tu libro sin esperar a que Marangatu te devuelva lo que SIFEN ya proceso. Tu registro pasa a ser la fuente de verdad, no el sistema.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>Fakturas.app se conecta a SIFEN o a Marangatu?</h4>
+      <p>Fakturas.app no es un emisor de facturas electronicas ni se conecta directamente a SIFEN. Resuelve la etapa previa: los clientes del contador escanean sus facturas de compra con el celular, el OCR extrae los datos, el contador valida, y el sistema exporta en formato listo para cargar en Marangatu. Es decir, te da la fuente de datos limpia que el desacople te quita.</p>
+    </div>
+  </div>
+
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <p>No podes arreglar la sincronizacion entre SIFEN y Marangatu. Pero podes dejar de depender de ella. Con Fakturas, tus clientes escanean y vos validas desde un dashboard; el sistema exporta en formato Marangatu, sin tipear y sin rogar por la sincronizacion de la DNIT.</p>
+    <a href="https://fakturas.app#pricing" class="btn-primary">Conocer planes</a>
+  </div>
+
+  <!-- RELATED ARTICLES -->
+  <div class="related-articles">
+    <h4>Articulos relacionados</h4>
+    <a href="https://fakturas.app/blog/problemas-contadores-paraguayos">Los 5 problemas mas grandes de los contadores paraguayos (y como sobrevivir en 2026)</a>
+    <a href="https://fakturas.app/blog/errores-comunes-sifen-soluciones">Errores comunes al enviar documentos al SIFEN y como solucionarlos</a>
+    <a href="https://fakturas.app/blog/calendario-sifen-2026">Calendario de obligatoriedad SIFEN 2026: fechas, grupos y plazos</a>
+    <a href="https://fakturas.app/blog/ekuatia-vs-ekuatiai">e-Kuatia vs e-Kuatia'i: diferencias, usos y cuando corresponde cada uno</a>
+    <a href="https://fakturas.app/blog/declaracion-iva-mensual-paraguay-contadores">Declaracion del IVA mensual en Paraguay: guia para contadores</a>
+    <a href="https://fakturas.app/blog/como-saber-grupo-sifen">Como saber en que grupo del SIFEN estas</a>
+    <a href="https://fakturas.app/blog/multas-sanciones-facturacion-electronica">Multas y sanciones por no cumplir con la facturacion electronica</a>
+  </div>
+
+  <div class="article-nav">
+    <a href="https://fakturas.app/blog/errores-comunes-sifen-soluciones" class="nav-prev">Errores comunes del SIFEN</a>
+    <a href="https://fakturas.app/blog/problemas-contadores-paraguayos" class="nav-next">Los 5 problemas del contador</a>
+  </div>
+
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <a href="https://fakturas.app" class="logo">fakturas<span>.</span>app</a>
+  <p>&copy; 2026 Fakturas.app &mdash; Hecho para contadores en Paraguay</p>
+</footer>
+
+</body>
+</html>
