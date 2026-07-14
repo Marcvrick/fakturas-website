@@ -113,1183 +113,459 @@
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
 
-:root {
-  --emerald: #4edea3;
-  --emerald-dark: #003824;
-  --emerald-hover: #10b981;
-  --blue: #005BE2;
-  --gold: #FFC402;
-  --navy: #0d1321;
-  --navy-light: #191f2e;
-  --bg: #f8faf9;
-  --white: #ffffff;
-  --text: #1a1a2e;
-  --text-secondary: #5a6577;
-  --text-muted: #8b95a5;
-  --border: #e2e8f0;
-  --surface: #f1f5f3;
+:root{
+  --emerald:#4edea3;
+  --emerald-dark:#003824;
+  --emerald-hover:#10b981;
+  --blue:#005BE2;
+  --gold:#FFC402;
+  --navy:#0d1321;
+  --navy-2:#11182b;
+  --navy-3:#191f2e;
+  --bg:#f8faf9;
+  --surface:#f1f5f3;
+  --white:#ffffff;
+  --text:#1a1a2e;
+  --text-2:#5a6577;
+  --muted:#8b95a5;
+  --border:#e5eaf0;
+  --radius:22px;
+  --shadow:0 1px 2px rgba(13,19,33,.04), 0 12px 32px -12px rgba(13,19,33,.12);
+  --shadow-lg:0 24px 70px -24px rgba(13,19,33,.28);
 }
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.5;
+}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
 
-body {
-  font-family: 'Inter', -apple-system, sans-serif;
-  color: var(--text);
-  background: var(--white);
-  line-height: 1.6;
-  overflow-x: hidden;
+/* ============ NAV ============ */
+.nav{
+  position:fixed;top:14px;left:0;right:0;z-index:100;
+  display:flex;justify-content:center;pointer-events:none;
 }
+.nav-inner{
+  pointer-events:auto;
+  display:flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.72);
+  backdrop-filter:saturate(180%) blur(18px);
+  -webkit-backdrop-filter:saturate(180%) blur(18px);
+  border:1px solid rgba(229,234,240,.8);
+  box-shadow:0 8px 30px -10px rgba(13,19,33,.12);
+  padding:8px 8px 8px 18px;border-radius:100px;
+}
+.logo{font-weight:800;font-size:1.12rem;letter-spacing:-.5px;color:var(--navy);text-decoration:none}
+.logo span{color:var(--emerald-hover)}
+.nav-links{display:flex;align-items:center;gap:4px;margin-left:14px}
+.nav-links a{
+  text-decoration:none;color:var(--text-2);font-size:.92rem;font-weight:500;
+  padding:8px 13px;border-radius:100px;transition:.18s;
+}
+.nav-links a:hover{color:var(--text);background:var(--surface)}
+.nav-cta{
+  background:var(--navy)!important;color:#fff!important;
+  padding:9px 18px!important;font-weight:600!important;
+}
+.nav-cta:hover{background:var(--emerald-dark)!important;color:#fff!important}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.burger span{width:22px;height:2px;background:var(--navy);border-radius:2px;display:block}
 
-/* NAV */
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 60px;
-  background: var(--white);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid var(--border);
+/* ============ HERO ============ */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(900px 500px at 78% -8%, rgba(78,222,163,.20), transparent 60%),
+    radial-gradient(700px 480px at 12% 8%, rgba(0,91,226,.14), transparent 60%),
+    linear-gradient(180deg,#0c1220 0%, var(--navy) 55%, #0a0f1b 100%);
+  color:#fff;
+  padding:148px 0 60px;
+  border-bottom:1px solid rgba(255,255,255,.06);
 }
-.logo {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--navy);
-  letter-spacing: -0.5px;
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px);
+  background-size:26px 26px;
+  -webkit-mask-image:radial-gradient(680px 460px at 50% 28%, #000 30%, transparent 75%);
+  mask-image:radial-gradient(680px 460px at 50% 28%, #000 30%, transparent 75%);
 }
-.logo span { color: var(--emerald); }
-.nav-links { display: flex; gap: 32px; align-items: center; }
-.nav-links a {
-  text-decoration: none;
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  font-weight: 500;
-  transition: color 0.2s;
+.hero .wrap{position:relative;z-index:2}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(78,222,163,.10);
+  border:1px solid rgba(78,222,163,.32);
+  color:var(--emerald);
+  font-size:.78rem;font-weight:600;letter-spacing:.4px;text-transform:uppercase;
+  padding:6px 14px;border-radius:100px;margin-bottom:22px;
 }
-.nav-links a:hover { color: var(--text); }
-.nav-cta {
-  background: var(--emerald) !important;
-  color: var(--emerald-dark) !important;
-  padding: 7px 16px;
-  border-radius: 50px;
-  font-weight: 600 !important;
-  font-size: 0.85rem !important;
-  transition: background 0.2s !important;
+.eyebrow .pulse{width:7px;height:7px;border-radius:50%;background:var(--emerald);box-shadow:0 0 0 0 rgba(78,222,163,.7);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(78,222,163,.6)}70%{box-shadow:0 0 0 10px rgba(78,222,163,0)}100%{box-shadow:0 0 0 0 rgba(78,222,163,0)}}
+.hero h1{
+  font-size:clamp(2.4rem,6vw,4.3rem);
+  line-height:1.02;letter-spacing:-2px;font-weight:800;
+  max-width:14ch;margin-bottom:22px;
 }
-.nav-cta:hover { background: var(--emerald-hover) !important; }
-.nav-lang {
-  font-size: 0.78rem !important;
-  font-weight: 600 !important;
-  color: var(--text-muted) !important;
-  border: 1px solid var(--border);
-  padding: 5px 10px;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: border-color 0.2s, color 0.2s;
-  letter-spacing: 0.5px;
+.hero h1 .grad{
+  background:linear-gradient(120deg,var(--emerald) 20%,#9af7cf 60%, #c9ffe9);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
 }
-.nav-lang:hover { border-color: var(--emerald); color: var(--text) !important; }
+.hero .sub{
+  font-size:clamp(1.02rem,1.6vw,1.2rem);color:#aeb8c7;
+  max-width:54ch;margin-bottom:34px;
+}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  font-weight:600;font-size:.98rem;text-decoration:none;
+  padding:14px 24px;border-radius:100px;transition:.2s;cursor:pointer;border:0;
+}
+.btn-primary{background:var(--emerald);color:var(--emerald-dark);box-shadow:0 10px 30px -8px rgba(78,222,163,.55)}
+.btn-primary:hover{background:#7be8b8;transform:translateY(-2px)}
+.btn-ghost{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.18)}
+.btn-ghost:hover{background:rgba(255,255,255,.12)}
+.btn-dark{background:var(--navy);color:#fff}
+.btn-dark:hover{background:var(--emerald-dark)}
+.hero-note{display:flex;align-items:center;gap:18px;margin-top:26px;color:#8b95a5;font-size:.84rem;flex-wrap:wrap}
+.hero-note .tick{color:var(--emerald);font-weight:700}
 
-/* HERO */
-.hero {
-  padding: 80px 60px 40px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+/* ============ HERO TWO-COLUMN ============ */
+.hero-grid{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;
 }
-.hero h1 {
-  font-size: 3.8rem;
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -1.5px;
-  margin-bottom: 20px;
-  color: var(--text);
-}
-.hero h1 em {
-  font-style: normal;
-  color: var(--emerald-hover);
-}
-.hero p {
-  font-size: 1.15rem;
-  color: var(--text-secondary);
-  max-width: 520px;
-  margin: 0 auto 36px;
-}
-.hero-buttons {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  margin-bottom: 60px;
-}
-.btn-primary {
-  background: var(--emerald);
-  color: var(--emerald-dark);
-  padding: 14px 32px;
-  border-radius: 50px;
-  font-weight: 700;
-  font-size: 1rem;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.btn-primary:hover { background: var(--emerald-hover); color: #fff; }
-.btn-secondary {
-  background: var(--white);
-  color: var(--text);
-  padding: 14px 32px;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 1rem;
-  text-decoration: none;
-  border: 2px solid var(--border);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.btn-secondary:hover { border-color: var(--text); }
+.hero-left{max-width:560px}
 
-/* FLOATING EMOJIS around hero */
-.float-emoji {
-  position: absolute;
-  font-size: 2.2rem;
-  animation: float 6s ease-in-out infinite;
+/* ---- product stage (phone + dashboard) ---- */
+.stage{
+  position:relative;
+  min-height:560px;
+  display:flex;align-items:center;justify-content:center;
 }
-.float-emoji:nth-child(1) { top: 100px; left: 8%; animation-delay: 0s; }
-.float-emoji:nth-child(2) { top: 80px; right: 10%; animation-delay: 1.5s; }
-.float-emoji:nth-child(3) { top: 200px; left: 5%; animation-delay: 3s; }
-.float-emoji:nth-child(4) { top: 160px; right: 6%; animation-delay: 0.8s; }
-@keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(5deg); }
+/* dashboard peeking behind */
+.dash{
+  position:absolute;top:6%;right:-2%;width:78%;max-width:430px;z-index:1;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10);
+  border-radius:18px;padding:18px;backdrop-filter:blur(8px);
+  box-shadow:0 30px 80px -30px rgba(0,0,0,.6);
+  transform:rotate(2.4deg);
 }
+.winbar{display:flex;align-items:center;gap:6px;margin-bottom:14px}
+.winbar i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.winbar i.r{background:#ff5f56}.winbar i.y{background:#ffbd2e}.winbar i.g{background:#27c93f}
+.winbar .wt{margin-left:8px;color:#8b95a5;font-size:.66rem;font-family:monospace}
+.dash .dl{font-size:.62rem;letter-spacing:.6px;text-transform:uppercase;color:#7e8aa0;font-weight:600;margin-bottom:12px}
+.dash-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.stat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:11px;padding:10px}
+.stat .v{font-size:1.02rem;font-weight:800;color:#fff}
+.stat .v.green{color:var(--emerald)}
+.stat .l{font-size:.62rem;color:#8b95a5;margin-top:2px}
+.bars{display:flex;align-items:flex-end;gap:5px;height:64px}
+.bars span{flex:1;background:linear-gradient(180deg,var(--emerald),rgba(78,222,163,.35));border-radius:4px 4px 0 0}
+.bars span.b{background:linear-gradient(180deg,rgba(0,91,226,.8),rgba(0,91,226,.2))}
+.drow{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-top:1px solid rgba(255,255,255,.07);font-size:.72rem}
+.drow .pr{color:#cdd6e4}.drow .am{color:#fff;font-weight:600;font-family:monospace}
+.badge{font-size:.6rem;padding:2px 7px;border-radius:6px;font-weight:700}
+.badge.ok{background:rgba(78,222,163,.16);color:var(--emerald)}
+.badge.pend{background:rgba(255,196,2,.16);color:var(--gold)}
 
-/* DASHBOARD MOCKUP AREA */
-.hero-mockups {
-  position: relative;
-  max-width: 1100px;
-  margin: 0 auto;
-  height: 520px;
+/* phone in front */
+.phone{
+  position:relative;z-index:2;
+  width:268px;height:552px;
+  background:#0a0e18;border-radius:42px;padding:10px;
+  box-shadow:0 40px 90px -30px rgba(0,0,0,.7), 0 0 0 2px rgba(255,255,255,.06), inset 0 0 0 2px #151a28;
+  margin-right:auto;
 }
+.phone-screen{
+  width:100%;height:100%;border-radius:33px;overflow:hidden;
+  background:var(--bg);position:relative;display:flex;flex-direction:column;
+}
+.notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:96px;height:22px;background:#0a0e18;border-radius:0 0 14px 14px;z-index:5}
+.statusbar{display:flex;justify-content:space-between;align-items:center;padding:8px 22px 4px;font-size:.66rem;font-weight:700;color:var(--text)}
+.statusbar .sb-r{display:flex;gap:4px;align-items:center}
+.statusbar .bat{width:18px;height:9px;border:1.5px solid var(--text);border-radius:2px;position:relative}
+.statusbar .bat::after{content:"";position:absolute;right:-3px;top:1.5px;width:2px;height:3px;background:var(--text);border-radius:0 1px 1px 0}
+.statusbar .bat::before{content:"";position:absolute;inset:1px;background:var(--emerald-hover);border-radius:1px;width:70%}
+.app{padding:6px 16px 14px;flex:1;overflow:hidden;display:flex;flex-direction:column}
+.app-top{display:flex;justify-content:flex-end;gap:6px;margin-bottom:10px}
+.app-top .icon-btn{width:30px;height:30px;border-radius:9px;background:#fff;border:1px solid var(--border);display:grid;place-items:center;font-size:.8rem;position:relative}
+.app-top .icon-btn .dot{position:absolute;top:-3px;right:-3px;background:#ef4444;color:#fff;font-size:.5rem;font-weight:800;min-width:14px;height:14px;border-radius:8px;display:grid;place-items:center;padding:0 3px}
+.hello{font-size:1.18rem;font-weight:800;color:var(--text);line-height:1.2}
+.hello .wave{font-size:1.05rem}
+.ruc-pill{display:inline-block;margin-top:8px;background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:5px 12px;font-size:.74rem;font-weight:800;color:var(--text);letter-spacing:1px}
+.acts{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.act-big{background:#c4ddf0;border:1px solid rgba(58,143,212,.2);border-radius:14px;padding:13px 14px;display:flex;justify-content:space-between;align-items:center}
+.act-big .t{font-size:.86rem;font-weight:700;color:var(--text)}
+.act-big .s{font-size:.62rem;color:var(--text-2);margin-top:2px}
+.act-big .ci{width:38px;height:38px;border-radius:19px;background:#fff;display:grid;place-items:center;font-size:1rem}
+.acts-row{display:flex;gap:8px}
+.act-sm{flex:1;aspect-ratio:1.2;border-radius:13px;padding:10px;display:flex;flex-direction:column;justify-content:space-between}
+.act-sm .ci{width:32px;height:32px;border-radius:16px;background:#fff;display:grid;place-items:center;font-size:.85rem}
+.act-sm .t{font-size:.72rem;font-weight:700;color:var(--text)}
+.act-sm.qr{background:#ede5b0;border:1px solid rgba(197,168,50,.25)}
+.act-sm.gal{background:#c6dcc0;border:1px solid rgba(76,175,80,.25)}
+.sc{display:flex;gap:7px;margin-top:auto}
+.sc-card{flex:1;background:#fff;border:1px solid var(--border);border-radius:11px;padding:9px 10px;box-shadow:0 2px 8px -3px rgba(13,19,33,.12)}
+.sc-card .n{font-size:1.05rem;font-weight:800;color:var(--text)}
+.sc-card .l{font-size:.56rem;color:var(--muted);font-weight:600}
+.sc-card .m{font-size:.58rem;color:var(--emerald-hover);font-weight:700;margin-top:2px}
+.sc-side{width:64px;background:#fff;border:1px solid var(--border);border-radius:11px;display:grid;place-items:center;box-shadow:0 2px 8px -3px rgba(13,19,33,.12)}
+.sc-side b{font-size:.8rem;color:var(--text)}
+.sc-side span{font-size:.5rem;color:var(--muted);font-weight:600}
 
-/* ---- MINI DASHBOARD CARDS (the "nano banana" printshots) ---- */
-.mockup {
-  position: absolute;
-  background: var(--white);
-  border-radius: 16px;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.06);
-  overflow: hidden;
-  transition: transform 0.3s ease;
+/* ---- OCR scan view (inside phone) ---- */
+.scan-view{
+  position:absolute;inset:0;z-index:4;
+  background:linear-gradient(180deg,#0a0e18,#11151f);
+  display:flex;flex-direction:column;color:#fff;
 }
-.mockup:hover { transform: translateY(-6px); }
+.scan-top{display:flex;align-items:center;justify-content:space-between;padding:30px 18px 10px}
+.scan-top .x{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.12);display:grid;place-items:center;font-size:.9rem}
+.scan-top .tt{font-size:.78rem;font-weight:700;letter-spacing:.3px}
+.scan-top .fl{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.12);display:grid;place-items:center;font-size:.75rem}
+.scan-stage{flex:1;display:flex;align-items:center;justify-content:center;padding:6px 16px;position:relative;overflow:hidden}
+/* receipt */
+.receipt{
+  width:150px;background:#fbfbf7;border-radius:8px;padding:14px 13px;
+  position:relative;color:#2a2a35;font-family:'Inter',sans-serif;
+  box-shadow:0 18px 40px -16px rgba(0,0,0,.7);
+  transform:rotate(-2deg);
+  -webkit-mask-image:linear-gradient(180deg,#000 92%,transparent);
+  mask-image:linear-gradient(180deg,#000 92%,transparent);
+}
+.receipt::after{
+  content:"";position:absolute;left:0;right:0;bottom:-6px;height:10px;
+  background:radial-gradient(circle at 6px -2px, transparent 5px, #fbfbf7 6px);
+  background-size:12px 10px;
+}
+.rc-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
+.rc-head .b{font-weight:800;font-size:.62rem;letter-spacing:.5px}
+.rc-head .b span{display:block;color:var(--emerald-hover);font-size:.5rem;margin-top:1px}
+.rc-ruc{font-family:monospace;font-size:.5rem;color:#5a6577;margin-bottom:8px;line-height:1.5}
+.rc-row{display:flex;justify-content:space-between;font-size:.5rem;color:#2a2a35;margin:3px 0}
+.rc-row.tot{margin-top:8px;padding-top:6px;border-top:1px dashed #cdd6e4;font-weight:800;font-size:.56rem}
+.rc-bar{height:4px;background:#e6e9ef;border-radius:2px;margin:4px 0}
+.rc-bar.s{width:60%}.rc-bar.m{width:80%}
+/* OCR detection boxes */
+.ocr{position:absolute;border:1.5px solid var(--emerald);border-radius:4px;box-shadow:0 0 0 3px rgba(78,222,163,.18)}
+.ocr .lab{
+  position:absolute;top:-13px;left:-2px;background:var(--emerald);color:var(--emerald-dark);
+  font-size:.45rem;font-weight:800;padding:1px 5px;border-radius:4px;letter-spacing:.3px;white-space:nowrap;
+}
+.ocr.ruc{top:46px;left:13px;width:120px;height:18px}
+.ocr.tim{top:90px;left:13px;width:78px;height:16px}
+.ocr.amt{bottom:18px;right:13px;width:70px;height:18px}
+/* scan line */
+.scanline{position:absolute;left:13px;right:13px;height:2px;background:linear-gradient(90deg,transparent,var(--emerald),transparent);box-shadow:0 0 12px 2px rgba(78,222,163,.6);top:42px;animation:scan 2.6s ease-in-out infinite}
+@keyframes scan{0%,100%{top:38px}50%{top:262px}}
+/* detected chips */
+.scan-fields{padding:10px 16px 14px;display:flex;flex-direction:column;gap:6px}
+.sf-row{display:flex;gap:6px;flex-wrap:wrap}
+.chip-d{display:inline-flex;align-items:center;gap:5px;background:rgba(78,222,163,.14);border:1px solid rgba(78,222,163,.4);color:var(--emerald);font-size:.6rem;font-weight:700;padding:4px 9px;border-radius:7px;font-family:monospace}
+.chip-d::before{content:"✓";font-weight:900}
+.cap-bar{margin:4px 16px 16px;background:var(--emerald);color:var(--emerald-dark);font-weight:800;font-size:.8rem;text-align:center;padding:11px;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:7px}
+.cap-bar .sp{width:11px;height:11px;border:2px solid var(--emerald-dark);border-top-color:transparent;border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
 
-/* Main dashboard mockup (center) */
-.mockup-main {
-  width: 620px;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 0;
-  z-index: 3;
-  border-radius: 16px;
+/* floating notification */
+.notif{
+  position:absolute;left:-4%;bottom:10%;z-index:3;
+  background:#fff;border:1px solid var(--border);border-radius:14px;
+  padding:11px 14px;display:flex;align-items:center;gap:10px;
+  box-shadow:0 20px 50px -16px rgba(0,0,0,.4);
+  animation:floaty 4s ease-in-out infinite;
 }
-.mockup-main:hover { transform: translateX(-50%) translateY(-6px); }
+.notif .nd{width:34px;height:34px;border-radius:9px;background:rgba(78,222,163,.18);display:grid;place-items:center}
+.notif .nt{font-size:.76rem;font-weight:700;color:var(--text)}
+.notif .ns{font-size:.64rem;color:var(--muted)}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.phone{animation:phoneIn .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes phoneIn{from{opacity:0;transform:translateY(30px) rotate(-3deg)}to{opacity:1;transform:none}}
+.dash{animation:dashIn 1s .15s cubic-bezier(.2,.7,.2,1) both}
+@keyframes dashIn{from{opacity:0;transform:rotate(6deg) translateX(20px)}to{opacity:1;transform:rotate(2.4deg)}}
 
-.mock-topbar {
-  background: var(--navy);
-  padding: 12px 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.mock-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: #ff5f56;
-}
-.mock-dot:nth-child(2) { background: #ffbd2e; }
-.mock-dot:nth-child(3) { background: #27c93f; }
-.mock-topbar-title {
-  color: #8b95a5;
-  font-size: 0.7rem;
-  margin-left: 8px;
-  font-weight: 500;
-}
+/* ============ SOCIAL / TRUST ============ */
+.trust{padding:34px 0;border-bottom:1px solid var(--border);background:var(--white)}
+.trust .wrap{display:flex;align-items:center;gap:30px;flex-wrap:wrap;justify-content:center}
+.trust .lbl{color:var(--muted);font-size:.8rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
+.trust .nums{display:flex;gap:34px;flex-wrap:wrap}
+.trust .num{text-align:center}
+.trust .num b{display:block;font-size:1.55rem;font-weight:800;color:var(--navy);letter-spacing:-.5px}
+.trust .num span{font-size:.76rem;color:var(--muted)}
 
-.mock-body {
-  padding: 20px;
-  background: var(--bg);
-}
+/* ============ SECTION SHELL ============ */
+section.block{padding:96px 0}
+.sec-head{text-align:center;max-width:680px;margin:0 auto 56px}
+.sec-kicker{color:var(--emerald-hover);font-weight:700;font-size:.8rem;letter-spacing:.8px;text-transform:uppercase;margin-bottom:12px}
+.sec-head h2{font-size:clamp(1.9rem,3.6vw,2.9rem);font-weight:800;letter-spacing:-1.2px;line-height:1.08;margin-bottom:14px}
+.sec-head p{color:var(--text-2);font-size:1.06rem}
 
-/* Stats row inside mockup */
-.mock-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-bottom: 16px;
+/* ============ FEATURES BENTO ============ */
+.features{background:var(--white)}
+.feat-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.feat{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:26px;
+  position:relative;overflow:hidden;
+  transition:.22s;
 }
-.mock-stat-card {
-  background: var(--white);
-  border-radius: 10px;
-  padding: 14px;
-  border: 1px solid var(--border);
+.feat:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:rgba(78,222,163,.4)}
+.feat h3{font-size:1.18rem;font-weight:700;letter-spacing:-.4px;margin-bottom:8px}
+.feat p{color:var(--text-2);font-size:.95rem}
+.feat .ic{
+  width:46px;height:46px;border-radius:13px;display:grid;place-items:center;margin-bottom:18px;
+  background:#fff;border:1px solid var(--border);
 }
-.mock-stat-label {
-  font-size: 0.6rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 4px;
-}
-.mock-stat-value {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--text);
-}
-.mock-stat-value.green { color: var(--emerald-hover); }
-.mock-stat-value.blue { color: var(--blue); }
-.mock-stat-change {
-  font-size: 0.6rem;
-  color: var(--emerald-hover);
-  margin-top: 2px;
-}
+.f-big{grid-column:span 4;grid-row:span 2;background:var(--navy);color:#fff;border:0}
+.f-big h3{color:#fff}
+.f-big p{color:#aeb8c7;max-width:42ch}
+.f-big .ic{background:rgba(78,222,163,.15);border:1px solid rgba(78,222,163,.3)}
+.f-mid{grid-column:span 2}
+.f-sm{grid-column:span 2}
+.f-sm .ic{background:rgba(0,91,226,.08)}
+.f-mid .ic{background:rgba(78,222,163,.14)}
+/* mini visuals inside cards */
+.mini-scan{margin-top:18px;display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#cdd6e4;font-size:.74rem;padding:5px 10px;border-radius:8px;font-family:monospace}
+.chip.ok{color:var(--emerald);border-color:rgba(78,222,163,.35)}
 
-/* Mini table inside mockup */
-.mock-table {
-  background: var(--white);
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  overflow: hidden;
+/* big feature card = two columns (text | OCR demo) */
+.f-big{display:grid;grid-template-columns:1fr .95fr;gap:30px;align-items:center}
+.f-big-text{min-width:0}
+/* OCR camera stage inside the card */
+.ocr-stage{
+  position:relative;overflow:hidden;
+  background:linear-gradient(180deg,#0a0e18,#11151f);
+  border:1px solid rgba(78,222,163,.28);
+  border-radius:18px;padding:26px 20px;
+  display:flex;flex-direction:column;align-items:center;gap:14px;
 }
-.mock-table-header {
-  display: grid;
-  grid-template-columns: 2fr 1.5fr 1fr 1fr;
-  padding: 10px 14px;
-  background: var(--surface);
-  font-size: 0.6rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-weight: 600;
-}
-.mock-table-row {
-  display: grid;
-  grid-template-columns: 2fr 1.5fr 1fr 1fr;
-  padding: 10px 14px;
-  font-size: 0.7rem;
-  border-top: 1px solid var(--border);
-  color: var(--text-secondary);
-}
-.mock-table-row .provider { color: var(--text); font-weight: 600; }
-.mock-badge {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 20px;
-  font-size: 0.55rem;
-  font-weight: 600;
-}
-.mock-badge.approved { background: #d1fae5; color: #065f46; }
-.mock-badge.pending { background: #fef3c7; color: #92400e; }
-.mock-badge.rejected { background: #fee2e2; color: #991b1b; }
+.ocr-stage .vf{position:absolute;width:22px;height:22px;border:3px solid var(--emerald)}
+.ocr-stage .vf.tl{top:12px;left:12px;border-right:0;border-bottom:0;border-radius:8px 0 0 0}
+.ocr-stage .vf.tr{top:12px;right:12px;border-left:0;border-bottom:0;border-radius:0 8px 0 0}
+.ocr-stage .vf.bl{bottom:12px;left:12px;border-right:0;border-top:0;border-radius:0 0 0 8px}
+.ocr-stage .vf.br{bottom:12px;right:12px;border-left:0;border-top:0;border-radius:0 0 8px 0}
+.ocr-stage .receipt{width:188px}
+.ocr-stage .ocr-fields{display:flex;flex-direction:column;gap:6px;width:100%;align-items:center}
+.ocr-stage .chip-d{display:inline-flex;align-items:center;gap:5px;background:rgba(78,222,163,.14);border:1px solid rgba(78,222,163,.4);color:var(--emerald);font-size:.7rem;font-weight:700;padding:5px 11px;border-radius:8px;font-family:monospace}
+.ocr-stage .chip-d::before{content:"✓";font-weight:900}
+.ocr-stage .of-row{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.ocr-cap{display:flex;align-items:center;gap:8px;color:#aeb8c7;font-size:.74rem;font-weight:600;margin-top:2px}
+.ocr-cap .sp{width:11px;height:11px;border:2px solid var(--emerald);border-top-color:transparent;border-radius:50%;animation:spin .8s linear infinite}
+@media(max-width:900px){.f-big{grid-template-columns:1fr}}
+.flow{display:flex;align-items:center;gap:8px;margin-top:16px;flex-wrap:wrap}
+.flow .step{background:#fff;border:1px solid var(--border);border-radius:10px;padding:8px 12px;font-size:.78rem;font-weight:600;color:var(--navy)}
+.flow .arr{color:var(--emerald-hover);font-weight:800}
 
-/* Side mockup — mobile phone (left) */
-.mockup-phone {
-  width: 230px;
-  aspect-ratio: 9 / 19.5;
-  left: 20px;
-  top: 40px;
-  z-index: 4;
-  border-radius: 32px;
-  border: 4px solid #2a2a2a;
-  box-shadow: inset 0 0 0 2px #1a1a1a;
-  overflow: hidden;
+/* ============ HOW IT WORKS ============ */
+.how{background:var(--bg)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step-card{
+  background:var(--white);border:1px solid var(--border);border-radius:var(--radius);
+  padding:30px;position:relative;
 }
-.mock-phone-header {
-  background: #f0f0f0;
-  padding: 8px 14px 10px;
-  border-radius: 28px 28px 0 0;
-  position: relative;
+.step-card .n{
+  width:40px;height:40px;border-radius:11px;display:grid;place-items:center;
+  background:var(--navy);color:var(--emerald);font-weight:800;margin-bottom:18px;
 }
-/* Dynamic Island */
-.mock-phone-header::before {
-  content: '';
-  display: block;
-  width: 80px;
-  height: 22px;
-  background: #111;
-  border-radius: 20px;
-  margin: 0 auto 8px;
-}
-/* Status bar */
-.mock-phone-statusbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-  padding: 0 2px;
-}
-.mock-phone-time {
-  color: #1a1a2e;
-  font-size: 0.65rem;
-  font-weight: 600;
-  margin-bottom: 0;
-}
-.mock-phone-statusbar-icons {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-  color: #1a1a2e;
-  font-size: 0.55rem;
-  font-weight: 600;
-}
-.mock-phone-greeting {
-  color: #1a1a2e;
-  font-size: 0.9rem;
-  font-weight: 700;
-}
-.mock-phone-sub {
-  color: #8b95a5;
-  font-size: 0.6rem;
-  margin-top: 2px;
-}
-.mock-phone-body { padding: 14px; background: #f0f0f0; }
-.mock-phone-card {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 12px;
-  margin-bottom: 8px;
-  border: 1px solid #e2e8f0;
-}
-.mock-phone-card-title {
-  color: #1a1a2e;
-  font-size: 0.65rem;
-  font-weight: 600;
-  margin-bottom: 6px;
-}
-.mock-phone-card-value {
-  color: var(--emerald);
-  font-size: 1.1rem;
-  font-weight: 700;
-}
-.mock-phone-card-sub {
-  color: #5a6577;
-  font-size: 0.55rem;
-  margin-top: 2px;
-}
-.mock-phone-btn {
-  background: var(--emerald);
-  color: var(--emerald-dark);
-  text-align: center;
-  padding: 10px;
-  border-radius: 10px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  margin-top: 8px;
-}
-.mock-camera-icon {
-  text-align: center;
-  font-size: 1.2rem;
-  margin-bottom: 4px;
-}
-.mock-phone-banner {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(42, 95, 168, 0.1);
-  border-radius: 10px;
-  padding: 8px 10px;
-  margin-top: 8px;
-  border: 1px solid rgba(42, 95, 168, 0.2);
-}
-.mock-banner-logo {
-  width: 28px;
-  height: 18px;
-  background: #2a5fa8;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.45rem;
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: 1px;
-  flex-shrink: 0;
-}
-.mock-banner-text { flex: 1; min-width: 0; }
-.mock-banner-msg {
-  font-size: 0.55rem;
-  font-weight: 700;
-  color: #1a1a2e;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.mock-banner-link {
-  font-size: 0.45rem;
-  color: var(--emerald);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.mock-banner-arrow {
-  color: rgba(0,0,0,0.2);
-  font-size: 0.8rem;
-  flex-shrink: 0;
-}
+.step-card h3{font-size:1.12rem;margin-bottom:8px;font-weight:700}
+.step-card p{color:var(--text-2);font-size:.94rem}
 
-/* Side mockup — chart card (right) */
-.mockup-chart {
-  width: 260px;
-  right: 40px;
-  top: 60px;
-  z-index: 4;
+/* ============ PRICING ============ */
+.pricing{background:var(--white)}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch;padding-top:34px}
+.pcard{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:30px;display:flex;flex-direction:column;height:100%;
 }
-.mock-chart-body {
-  padding: 18px;
+.pcard.feat{background:var(--navy);color:#fff;border:1px solid rgba(78,222,163,.4);position:relative;box-shadow:var(--shadow-lg)}
+.pop{
+  position:absolute;top:-32px;left:50%;transform:translateX(-50%);
+  background:var(--emerald);color:var(--emerald-dark);
+  font-size:.74rem;font-weight:800;padding:7px 16px;border-radius:100px;
+  letter-spacing:.6px;text-transform:uppercase;white-space:nowrap;
+  box-shadow:0 10px 24px -8px rgba(78,222,163,.7);
+  display:inline-flex;align-items:center;gap:6px;
 }
-.mock-chart-title {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 4px;
+.pop::before{content:"★";font-size:.7rem}
+.pcard h3{font-size:1.1rem;font-weight:700;margin-bottom:6px}
+.pcard.feat h3{color:#fff}
+.pcard .desc{font-size:.86rem;color:var(--text-2);margin-bottom:18px;min-height:38px}
+.pcard.feat .desc{color:#aeb8c7}
+.price{display:flex;align-items:baseline;gap:6px;margin-bottom:4px}
+.price b{font-size:1.9rem;font-weight:800;letter-spacing:-.5px}
+.pcard.feat .price b{color:#fff}
+.price span{color:var(--muted);font-size:.85rem}
+.pcard.feat .price span{color:#8b95a5}
+.pc{font-size:.78rem;color:var(--muted);margin-bottom:20px}
+.pcard.feat .pc{color:#8b95a5}
+.pcard ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:24px;flex:1}
+.pcard li{display:flex;gap:9px;align-items:flex-start;font-size:.9rem}
+.pcard.feat li{color:#cdd6e4}
+.pcard li::before{content:"✓";color:var(--emerald-hover);font-weight:800}
+.pcard .btn{justify-content:center;width:100%}
+
+/* ============ CTA ============ */
+.cta{padding:80px 0 100px;background:var(--bg)}
+.cta-box{
+  position:relative;overflow:hidden;border-radius:30px;
+  background:radial-gradient(700px 360px at 80% 0%, rgba(78,222,163,.22), transparent 60%),
+             radial-gradient(500px 320px at 10% 100%, rgba(0,91,226,.18), transparent 60%),
+             linear-gradient(180deg,#0c1220,var(--navy));
+  color:#fff;padding:64px 48px;text-align:center;
 }
-.mock-chart-subtitle {
-  font-size: 0.6rem;
-  color: var(--text-muted);
-  margin-bottom: 14px;
+.cta-box::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:24px 24px;-webkit-mask-image:radial-gradient(500px 300px at 50% 50%,#000,transparent 75%);mask-image:radial-gradient(500px 300px at 50% 50%,#000,transparent 75%)}
+.cta-box .wrap{position:relative;z-index:2;padding:0}
+.cta-box h2{font-size:clamp(1.9rem,4vw,3rem);font-weight:800;letter-spacing:-1.2px;line-height:1.05;margin-bottom:14px}
+.cta-box h2 .grad{background:linear-gradient(120deg,var(--emerald),#9af7cf);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cta-box p{color:#aeb8c7;max-width:48ch;margin:0 auto 28px;font-size:1.05rem}
+
+/* ============ FOOTER ============ */
+footer{background:var(--navy);color:#8b95a5;padding:40px 0;text-align:center;font-size:.86rem}
+footer .logo{color:#fff}
+footer a{color:#8b95a5;text-decoration:none;margin:0 6px}
+footer a:hover{color:var(--emerald)}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .stage{min-height:520px;margin-top:10px}
+  /* dashboard IN FRONT of the phone on mobile, 25% smaller */
+  .dash{width:59%;max-width:322px;z-index:3}
+  .phone{margin:0 auto 0 -6%;animation:none;flex-shrink:0;position:relative;z-index:2}
+  .notif{left:auto;right:-2%}
+  .feat-grid{grid-template-columns:repeat(2,1fr)}
+  .f-big{grid-column:span 2;grid-row:auto}
+  .f-mid,.f-sm{grid-column:span 2}
+  .steps{grid-template-columns:1fr}
+  .price-grid{grid-template-columns:1fr}
+  .nav-links{display:none;position:absolute;top:64px;left:16px;right:16px;flex-direction:column;background:#fff;border:1px solid var(--border);border-radius:18px;padding:10px;box-shadow:var(--shadow-lg)}
+  .nav-links.open{display:flex}
+  .burger{display:flex}
+  .nav-inner{width:calc(100% - 24px);justify-content:space-between}
 }
-.mock-chart-bars {
-  display: flex;
-  align-items: flex-end;
-  gap: 6px;
-  height: 80px;
-  padding-top: 10px;
+@media(max-width:560px){
+  .feat-grid{grid-template-columns:1fr}
+  .f-big,.f-mid,.f-sm{grid-column:auto}
+  .hero{padding-top:120px}
+  .dash-stats{grid-template-columns:1fr 1fr}
 }
-.mock-bar {
-  flex: 1;
-  border-radius: 4px 4px 0 0;
-  min-height: 10px;
-  transition: height 0.3s;
-}
-.mock-bar.emerald { background: var(--emerald); }
-.mock-bar.blue { background: var(--blue); opacity: 0.3; }
-.mock-chart-labels {
-  display: flex;
-  gap: 6px;
-  margin-top: 6px;
-}
-.mock-chart-labels span {
-  flex: 1;
-  text-align: center;
-  font-size: 0.5rem;
-  color: var(--text-muted);
-}
-.mock-chart-legend {
-  display: flex;
-  gap: 12px;
-  margin-top: 10px;
-}
-.mock-chart-legend-item {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 0.55rem;
-  color: var(--text-secondary);
-}
-.mock-chart-legend-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
+@media(max-width:380px){
+  .stage{transform:scale(.9);transform-origin:top center;margin-bottom:-40px}
 }
 
-/* LOGO BAR */
-.logo-bar {
-  padding: 40px 60px;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  text-align: center;
-}
-.logo-bar p {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-bottom: 24px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 600;
-}
-.logo-bar-logos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-  flex-wrap: wrap;
-}
-.logo-bar-logos span {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  opacity: 0.5;
-  letter-spacing: -0.5px;
-}
 
-/* STATS SECTION */
-.stats-section {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  max-width: 1100px;
-  margin: 60px auto;
-  background: var(--surface);
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-}
-.stat-block {
-  padding: 40px 32px;
-  border-right: 1px solid var(--border);
-}
-.stat-block:last-child { border-right: none; }
-.stat-block h3 {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  font-weight: 500;
-  margin-bottom: 8px;
-}
-.stat-block .stat-number {
-  font-size: 2.4rem;
-  font-weight: 800;
-  color: var(--text);
-  letter-spacing: -1px;
-}
-.stat-block p {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-top: 8px;
-  line-height: 1.5;
-}
-
-/* FEATURES — "Tools to Elevate" section */
-.features {
-  padding: 80px 60px;
-}
-.features-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-.features-header h2 {
-  font-size: 2.6rem;
-  font-weight: 800;
-  letter-spacing: -1px;
-  margin-bottom: 14px;
-}
-.features-header h2 strong { color: var(--emerald-hover); }
-.features-header p {
-  font-size: 1.05rem;
-  color: var(--text-secondary);
-  max-width: 560px;
-  margin: 0 auto;
-}
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.feature-card {
-  background: var(--white);
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  overflow: hidden;
-  transition: box-shadow 0.3s;
-}
-.feature-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
-.feature-card-preview {
-  background: var(--surface);
-  padding: 20px;
-  height: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-.feature-card-text { padding: 24px; }
-.feature-card-text h3 {
-  font-size: 1rem;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-.feature-card-text p {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-
-/* Mini mockups inside feature cards */
-.mini-mock {
-  width: 100%;
-  max-width: 240px;
-  background: var(--white);
-  border-radius: 10px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  overflow: hidden;
-  font-size: 0.6rem;
-  border: 1px solid var(--border);
-}
-.mini-mock-bar {
-  background: var(--navy);
-  padding: 6px 10px;
-  display: flex;
-  gap: 4px;
-}
-.mini-mock-dot { width: 5px; height: 5px; border-radius: 50%; }
-.mini-mock-content { padding: 10px; }
-.mini-mock-row {
-  display: flex;
-  justify-content: space-between;
-  padding: 5px 0;
-  border-bottom: 1px solid var(--border);
-  color: var(--text-secondary);
-}
-.mini-mock-row:last-child { border-bottom: none; }
-.mini-mock-highlight { color: var(--emerald-hover); font-weight: 700; }
-
-/* Camera scan mockup */
-.mini-scan {
-  width: 120px;
-  background: var(--navy);
-  border-radius: 14px;
-  padding: 10px;
-  color: #fff;
-  position: relative;
-}
-.mini-scan-viewfinder {
-  border: 2px dashed var(--emerald);
-  border-radius: 8px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 8px;
-}
-.mini-scan-btn {
-  background: var(--emerald);
-  color: var(--emerald-dark);
-  text-align: center;
-  padding: 6px;
-  border-radius: 8px;
-  font-size: 0.6rem;
-  font-weight: 700;
-}
-
-/* Export mockup */
-.mini-export {
-  width: 200px;
-  background: var(--white);
-  border-radius: 10px;
-  padding: 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  border: 1px solid var(--border);
-}
-.mini-export-title {
-  font-size: 0.65rem;
-  font-weight: 700;
-  margin-bottom: 8px;
-  color: var(--text);
-}
-.mini-export-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 0;
-  font-size: 0.6rem;
-  color: var(--text-secondary);
-}
-.mini-export-icon {
-  width: 24px; height: 24px;
-  border-radius: 6px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.7rem;
-}
-.mini-export-icon.csv { background: #d1fae5; }
-.mini-export-icon.zip { background: #dbeafe; }
-
-/* SEAMLESS INTEGRATION SECTION */
-.integration {
-  padding: 80px 60px;
-  background: var(--surface);
-}
-.integration-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
-.integration-text h2 {
-  font-size: 2.4rem;
-  font-weight: 800;
-  letter-spacing: -1px;
-  margin-bottom: 16px;
-}
-.integration-text p {
-  font-size: 1rem;
-  color: var(--text-secondary);
-  margin-bottom: 24px;
-  line-height: 1.7;
-}
-.integration-text a {
-  color: var(--emerald-hover);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-.integration-features {
-  list-style: none;
-  margin-top: 20px;
-}
-.integration-features li {
-  padding: 8px 0;
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.integration-features li::before {
-  content: "✓";
-  color: var(--emerald-hover);
-  font-weight: 700;
-  font-size: 1rem;
-}
-.integration-mockup {
-  position: relative;
-}
-.integration-mockup .mockup {
-  position: relative;
-  width: 100%;
-}
-
-/* Phone + notification combo for integration */
-.notif-float {
-  position: absolute;
-  background: var(--white);
-  border-radius: 12px;
-  padding: 12px 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.75rem;
-  right: -20px;
-  top: 30px;
-  z-index: 5;
-  border: 1px solid var(--border);
-}
-.notif-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--emerald);
-  flex-shrink: 0;
-}
-.notif-text { color: var(--text); font-weight: 600; }
-.notif-sub { color: var(--text-muted); font-size: 0.65rem; }
-
-/* TESTIMONIALS */
-.testimonials {
-  padding: 80px 60px;
-}
-.testimonials-header {
-  text-align: center;
-  margin-bottom: 50px;
-}
-.testimonials-header h2 {
-  font-size: 2.4rem;
-  font-weight: 800;
-  letter-spacing: -1px;
-  margin-bottom: 10px;
-}
-.testimonials-header h2 strong { font-style: italic; }
-.testimonials-header p {
-  color: var(--text-secondary);
-  font-size: 1rem;
-}
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.testimonial-card {
-  background: var(--surface);
-  border-radius: 14px;
-  padding: 24px;
-  border: 1px solid var(--border);
-}
-.testimonial-card p {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 16px;
-}
-.testimonial-author {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.testimonial-avatar {
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.8rem; font-weight: 700;
-}
-.testimonial-name {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--text);
-}
-.testimonial-role {
-  font-size: 0.7rem;
-  color: var(--text-muted);
-}
-
-/* PRICING */
-.pricing {
-  padding: 80px 60px;
-}
-.pricing-header {
-  text-align: center;
-  margin-bottom: 50px;
-}
-.pricing-header h2 {
-  font-size: 2.6rem;
-  font-weight: 800;
-  letter-spacing: -1px;
-  margin-bottom: 14px;
-}
-.pricing-header h2 strong { color: var(--emerald-hover); }
-.pricing-header p {
-  font-size: 1.05rem;
-  color: var(--text-secondary);
-  margin-bottom: 24px;
-}
-.pricing-toggle {
-  display: inline-flex;
-  gap: 4px;
-  background: var(--surface);
-  border-radius: 50px;
-  padding: 4px;
-  border: 1px solid var(--border);
-}
-.toggle-label {
-  padding: 8px 20px;
-  border-radius: 50px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.toggle-label.active {
-  background: var(--white);
-  color: var(--text);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-}
-.save-badge {
-  background: #d1fae5;
-  color: #065f46;
-  padding: 2px 8px;
-  border-radius: 20px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  margin-left: 4px;
-}
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  max-width: 960px;
-  margin: 0 auto 50px;
-}
-.pricing-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 32px;
-  position: relative;
-  transition: box-shadow 0.3s;
-  display: flex;
-  flex-direction: column;
-}
-.pricing-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
-.pricing-card.featured {
-  border: 2px solid var(--emerald);
-  box-shadow: 0 8px 30px rgba(78,222,163,0.15);
-}
-.pricing-popular {
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--emerald);
-  color: var(--emerald-dark);
-  padding: 4px 16px;
-  border-radius: 20px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  white-space: nowrap;
-}
-.pricing-card-header h3 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-.pricing-desc {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-bottom: 20px;
-}
-.pricing-price {
-  margin-bottom: 4px;
-}
-.price-amount {
-  font-size: 2rem;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  color: var(--text);
-}
-.price-period {
-  font-size: 1rem;
-  color: var(--text-muted);
-  font-weight: 500;
-}
-.price-per-client {
-  font-size: 0.8rem;
-  color: var(--emerald-hover);
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-.price-clients {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-}
-.pricing-features {
-  list-style: none;
-  padding: 0;
-  margin: 12px 0 16px;
-}
-.pricing-features li {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  padding: 4px 0;
-}
-.pricing-features li::before {
-  content: "✓ ";
-  color: var(--emerald);
-  font-weight: 700;
-}
-.pricing-btn {
-  display: block;
-  text-align: center;
-  margin-top: auto;
-  padding: 10px 20px;
-  font-size: 0.85rem;
-}
-
-/* Everything included */
-.everything-included {
-  max-width: 960px;
-  margin: 0 auto;
-  background: var(--surface);
-  border-radius: 16px;
-  padding: 40px;
-  border: 1px solid var(--border);
-}
-.everything-included h3 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 28px;
-}
-.included-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px 32px;
-}
-.included-item {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 0;
-}
-.included-check {
-  color: var(--emerald-hover);
-  font-weight: 700;
-  font-size: 1rem;
-  flex-shrink: 0;
-}
-
-/* ROI — The math is simple */
-.roi-section {
-  padding: 80px 60px;
-  background: var(--surface);
-}
-.roi-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-.roi-header h2 {
-  font-size: 2.4rem;
-  font-weight: 800;
-  letter-spacing: -1px;
-  margin-bottom: 10px;
-}
-.roi-header h2 strong { color: var(--emerald-hover); }
-.roi-header p {
-  font-size: 1.05rem;
-  color: var(--text-secondary);
-}
-.roi-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  max-width: 960px;
-  margin: 0 auto 30px;
-}
-.roi-card-item {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 28px;
-  text-align: center;
-}
-.roi-num {
-  font-size: 2.8rem;
-  font-weight: 800;
-  color: var(--emerald-hover);
-  letter-spacing: -1px;
-}
-.roi-label {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--text);
-  margin: 6px 0 4px;
-}
-.roi-detail {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  line-height: 1.4;
-}
-.roi-comparison {
-  background: var(--navy);
-  border-radius: 14px;
-  padding: 28px 36px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 960px;
-  margin: 0 auto 20px;
-}
-.roi-comp-item { text-align: center; }
-.roi-comp-val {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: var(--emerald);
-}
-.roi-comp-lbl {
-  font-size: 0.75rem;
-  color: rgba(255,255,255,0.5);
-  margin-top: 4px;
-  line-height: 1.4;
-}
-.roi-comp-arrow {
-  font-size: 1.4rem;
-  color: rgba(255,255,255,0.3);
-  font-weight: 700;
-}
-.roi-insight {
-  max-width: 960px;
-  margin: 0 auto;
-  background: #f0fdf4;
-  border-radius: 12px;
-  padding: 18px 24px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-.roi-insight-icon { font-size: 1.6rem; }
-.roi-insight-title {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #166534;
-  margin-bottom: 4px;
-}
-.roi-insight-text {
-  font-size: 0.8rem;
-  color: #15803d;
-  line-height: 1.4;
-}
-
-/* CTA */
-.cta-section {
-  padding: 80px 60px;
-  text-align: center;
-  background: var(--navy);
-  color: #fff;
-}
-.cta-section h2 {
-  font-size: 2.6rem;
-  font-weight: 800;
-  letter-spacing: -1px;
-  margin-bottom: 6px;
-}
-.cta-section h2 span {
-  color: var(--emerald);
-}
-.cta-sub {
-  color: #8b95a5;
-  font-size: 1.05rem;
-  margin-bottom: 40px;
-}
-.cta-steps {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-bottom: 40px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.cta-step { text-align: center; flex: 1; }
-.step-n {
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  background: var(--emerald);
-  color: var(--emerald-dark);
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 800;
-  font-size: 1.1rem;
-  margin: 0 auto 12px;
-}
-.step-t {
-  font-weight: 700;
-  font-size: 0.95rem;
-  margin-bottom: 4px;
-}
-.step-d {
-  font-size: 0.8rem;
-  color: #8b95a5;
-  line-height: 1.4;
-}
-.cta-section .btn-primary {
-  font-size: 1.1rem;
-  padding: 16px 40px;
-}
+/* ===== ported from previous production: blog + footer ===== */
 
 /* FOOTER */
 footer {
@@ -1314,237 +590,6 @@ footer a.rss-link:hover { color: var(--emerald); }
 footer .logo { color: #fff; }
 footer .logo span { color: var(--emerald); }
 
-/* HAMBURGER MENU */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  padding: 8px;
-  z-index: 200;
-  background: none;
-  border: none;
-}
-.hamburger span {
-  width: 24px;
-  height: 2px;
-  background: var(--text);
-  border-radius: 2px;
-  transition: all 0.3s;
-}
-.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-.hamburger.active span:nth-child(2) { opacity: 0; }
-.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-/* RESPONSIVE — Tablet & Mobile */
-@media (max-width: 900px) {
-  /* Nav */
-  nav { padding: 16px 24px; }
-  .hamburger { display: flex; }
-  .nav-links {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--white);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-    z-index: 150;
-  }
-  .nav-links.open { display: flex; }
-  .nav-links a { font-size: 1.2rem; }
-
-  /* Hero */
-  .hero { padding: 50px 24px 30px; }
-  .hero h1 { font-size: 2.4rem; }
-  .hero-buttons { flex-direction: column; align-items: center; gap: 12px; }
-  .hero-buttons a { width: 100%; max-width: 300px; text-align: center; }
-  .float-emoji { display: none; }
-
-  /* Hero mockups — phone overlapping dashboard */
-  .hero-mockups { height: auto; position: relative; max-width: 92%; margin: 0 auto; padding-bottom: 10px; overflow: visible; }
-  .mockup { flex-shrink: 0; }
-  .mockup-main { position: relative !important; left: auto !important; right: auto !important; top: auto !important; transform: none !important; width: 100%; }
-  .mockup-main:hover { transform: translateY(-6px) !important; }
-  .mockup-chart { display: none; }
-  .mockup-phone { position: absolute !important; left: 50% !important; top: 20px !important; transform: translateX(-50%) !important; right: auto !important; width: 140px; z-index: 5; box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 2px 6px rgba(0,0,0,0.1); }
-
-  /* Mock elements inside hero — scale down */
-  .mock-topbar { padding: 6px 10px; }
-  .mock-topbar-title { font-size: 0.5rem; }
-  .mock-dot { width: 5px; height: 5px; }
-  .mock-body { padding: 8px; }
-  .mock-stats { gap: 4px; margin-bottom: 8px; }
-  .mock-stat-card { padding: 6px; }
-  .mock-stat-label { font-size: 0.45rem; }
-  .mock-stat-value { font-size: 0.7rem; }
-  .mock-stat-change { font-size: 0.45rem; }
-  .mock-table-header,
-  .mock-table-row {
-    grid-template-columns: 1.5fr 1fr 1fr;
-    padding: 4px 8px;
-    font-size: 0.5rem;
-  }
-  .mock-table-header span:nth-child(2),
-  .mock-table-row span:nth-child(2) { display: none; }
-  .mock-table-header { font-size: 0.45rem; }
-  .mock-badge { font-size: 0.4rem; padding: 1px 4px; }
-  /* Detail panel action buttons — smaller on mobile */
-  .mock-action-btns > div { font-size: 0.3rem !important; padding: 2px !important; border-radius: 3px !important; }
-  /* Phone mockup scaled down */
-  .mockup-phone { border-radius: 20px; }
-  .mock-phone-header { padding: 6px 10px 6px; }
-  .mock-phone-header::before { width: 50px; height: 14px; margin: 0 auto 4px; }
-  .mock-phone-time { font-size: 0.5rem; margin-bottom: 2px; }
-  .mock-phone-statusbar-icons svg { width: 10px; height: 7px; }
-  .mock-phone-greeting { font-size: 0.65rem; }
-  .mock-phone-sub { font-size: 0.5rem; }
-  .mock-phone-body { padding: 6px; }
-  .mock-phone-card { padding: 6px; margin-bottom: 4px; border-radius: 8px; }
-  .mock-phone-card-title { font-size: 0.5rem; margin-bottom: 2px; }
-  .mock-phone-card-value { font-size: 0.65rem; }
-  .mock-phone-card-sub { font-size: 0.4rem; }
-  .mock-phone-btn { padding: 5px; font-size: 0.5rem; border-radius: 6px; }
-  .mock-camera-icon { font-size: 0.7rem; }
-  .mock-phone-banner { padding: 4px 6px; gap: 4px; }
-  .mock-banner-logo { width: 20px; height: 14px; font-size: 0.35rem; }
-  .mock-banner-msg { font-size: 0.4rem; }
-  .mock-banner-link { font-size: 0.35rem; }
-  .mock-banner-arrow { font-size: 0.6rem; }
-  /* Invoice photo — clip on mobile to avoid overly long mockup */
-  .invoice-photo { max-height: 60px; overflow: hidden; border-radius: 6px; }
-
-  /* Chart mockup scaled down */
-  .mock-chart-body { padding: 8px; }
-  .mock-chart-title { font-size: 0.5rem; }
-  .mock-chart-subtitle { font-size: 0.4rem; margin-bottom: 6px; }
-  .mock-chart-bars { height: 40px; gap: 3px; }
-  .mock-chart-labels span { font-size: 0.35rem; }
-  .mock-chart-legend { gap: 6px; margin-top: 4px; }
-  .mock-chart-legend-item { font-size: 0.4rem; }
-  .mock-chart-legend-dot { width: 4px; height: 4px; }
-
-  /* Logo bar */
-  .logo-bar { padding: 30px 24px; }
-  .logo-bar-logos { gap: 24px; }
-  .logo-bar-logos span { font-size: 1.1rem; }
-
-  /* Stats */
-  .stats-section { grid-template-columns: repeat(2, 1fr); margin: 40px 24px; }
-  .stat-block { border-right: none; border-bottom: 1px solid var(--border); padding: 24px 20px; }
-  .stat-block .stat-number { font-size: 1.8rem; }
-
-  /* Features */
-  .features { padding: 60px 24px; }
-  .features-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
-  .feature-card-preview { height: 100px; padding: 10px; }
-  .feature-card-text { padding: 12px; }
-  .feature-card-text h3 { font-size: 0.75rem; margin-bottom: 4px; }
-  .feature-card-text p { font-size: 0.65rem; line-height: 1.4; }
-  .mini-scan { width: 70px; padding: 6px; border-radius: 10px; }
-  .mini-scan-viewfinder { height: 45px; }
-  .mini-scan-viewfinder svg { width: 22px; height: 22px; }
-  .mini-scan-btn { font-size: 0.45rem; padding: 4px; }
-  .mini-mock { max-width: 140px; font-size: 0.5rem; }
-  .mini-mock-row { padding: 3px 0; font-size: 0.5rem; }
-  .mini-export { width: 140px; padding: 8px; }
-  .mini-export-title { font-size: 0.5rem; }
-  .mini-export-item { font-size: 0.5rem; gap: 4px; padding: 3px 0; }
-  .mini-export-icon { width: 18px; height: 18px; font-size: 0.5rem; }
-  .features-header h2 { font-size: 2rem; }
-
-  /* Integration */
-  .integration { padding: 60px 24px; }
-  .integration-inner { grid-template-columns: 1fr; gap: 40px; }
-  .integration-text h2 { font-size: 1.8rem; }
-  .notif-float { right: 0; top: -10px; font-size: 0.7rem; padding: 10px 12px; }
-
-  /* Testimonials */
-  .testimonials { padding: 60px 24px; }
-  .testimonials-grid { grid-template-columns: 1fr; }
-  .testimonials-header h2 { font-size: 1.8rem; }
-
-  /* ROI */
-  .roi-section { padding: 60px 24px; }
-  .roi-cards { grid-template-columns: repeat(3, 1fr); gap: 8px; }
-  .roi-card-item { padding: 16px 12px; }
-  .roi-num { font-size: 1.6rem; }
-  .roi-label { font-size: 0.7rem; }
-  .roi-detail { font-size: 0.6rem; }
-  .roi-comparison { flex-direction: row; gap: 8px; padding: 16px 12px; align-items: center; }
-  .roi-comp-val { font-size: 1.1rem; }
-  .roi-comp-lbl { font-size: 0.55rem; line-height: 1.3; }
-  .roi-comp-arrow { font-size: 0.9rem; }
-  .roi-insight { flex-direction: column; text-align: center; }
-  .roi-header h2 { font-size: 1.8rem; }
-
-  /* Pricing — stay horizontal */
-  .pricing { padding: 60px 24px; }
-  .pricing-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; max-width: 100%; }
-  .pricing-header h2 { font-size: 2rem; }
-  .pricing-card { padding: 16px 12px; }
-  .pricing-card-header h3 { font-size: 0.85rem; }
-  .pricing-desc { font-size: 0.65rem; margin-bottom: 12px; }
-  .price-amount { font-size: 1.6rem; }
-  .price-period { font-size: 0.7rem; }
-  .price-per-client { font-size: 0.6rem; }
-  .price-clients { font-size: 0.65rem; }
-  .pricing-popular { font-size: 0.55rem; padding: 3px 10px; top: -10px; }
-  .pricing-btn { padding: 8px 12px; font-size: 0.65rem; margin-top: 12px; }
-  .included-grid { grid-template-columns: repeat(2, 1fr); gap: 4px 12px; }
-  .included-item { font-size: 0.65rem; padding: 3px 0; gap: 4px; }
-  .included-check { font-size: 0.75rem; }
-  .everything-included { padding: 24px; }
-
-  /* CTA */
-  .cta-section { padding: 60px 24px; }
-  .cta-section h2 { font-size: 2rem; }
-  .cta-steps { flex-direction: row; gap: 12px; }
-  .step-n { width: 28px; height: 28px; font-size: 0.8rem; margin-bottom: 8px; }
-  .step-t { font-size: 0.7rem; margin-bottom: 2px; }
-  .step-d { font-size: 0.6rem; line-height: 1.3; }
-  .cta-section h2 { font-size: 1.6rem; }
-  .cta-sub { font-size: 0.85rem; margin-bottom: 24px; }
-
-  /* Footer */
-  footer { flex-direction: column; gap: 12px; padding: 30px 24px; text-align: center; }
-}
-
-/* RESPONSIVE — Small phones */
-@media (max-width: 480px) {
-  .hero h1 { font-size: 1.8rem; letter-spacing: -0.5px; }
-  .hero p { font-size: 1rem; }
-  .stats-section { grid-template-columns: repeat(2, 1fr); margin: 30px 16px; }
-  .stat-block .stat-number { font-size: 1.6rem; }
-  .features { padding: 40px 16px; }
-  .features-header h2 { font-size: 1.6rem; }
-  .integration { padding: 40px 16px; }
-  .integration-text h2 { font-size: 1.5rem; }
-  .testimonials { padding: 40px 16px; }
-  .pricing { padding: 40px 16px; }
-  .pricing-header h2 { font-size: 1.6rem; }
-  .roi-section { padding: 40px 16px; }
-  .cta-section { padding: 40px 16px; }
-  .cta-section h2 { font-size: 1.6rem; }
-  footer { padding: 24px 16px; }
-  .price-amount { font-size: 1.3rem; }
-  .price-period { font-size: 0.6rem; }
-  .pricing-card { padding: 12px 8px; }
-  .pricing-card-header h3 { font-size: 0.75rem; }
-  .pricing-desc { font-size: 0.55rem; }
-  .price-per-client { font-size: 0.5rem; }
-  .price-clients { font-size: 0.55rem; }
-  .pricing-grid { gap: 6px; }
-  .pricing-btn { padding: 6px 8px; font-size: 0.55rem; margin-top: 8px; }
-  .roi-num { font-size: 2rem; }
-  .mock-stats { grid-template-columns: 1fr; }
-}
-
-/* RECENT ARTICLES */
 .recent-articles {
   padding: 80px 60px;
   background: var(--surface);
@@ -1643,549 +688,276 @@ footer .logo span { color: var(--emerald); }
 </head>
 <body>
 
+
 <!-- NAV -->
-<nav>
-  <a href="https://fakturas.app" class="logo" style="text-decoration:none">fakturas<span>.</span>app</a>
-  <button class="hamburger" onclick="this.classList.toggle('active');document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-  <div class="nav-links">
-    <a href="#features">Funciones</a>
-    <a href="#how-it-works">Como funciona</a>
-    <a href="#pricing">Precios</a>
-    <a href="https://fakturas.app/blog/">Blog</a>
-    <a href="https://app.fakturas.app/login" class="nav-cta">Sign in</a>
+<div class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">fakturas<span>.</span>app</a>
+    <button class="burger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-links">
+      <a href="#features">Funciones</a>
+      <a href="#how">Como funciona</a>
+      <a href="#pricing">Precios</a>
+      <a href="https://fakturas.app/blog/">Blog</a>
+      <a href="https://app.fakturas.app/login" class="nav-cta">Sign in</a>
+    </div>
   </div>
-</nav>
+</div>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="float-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 48 48" fill="#4edea3"><g><path d="M16 33h14.95v2H16zM28.627 41h8.323v2h-8.323zM28 11h-4a1 1 0 1 1 0-2h4a1 1 0 1 1 0 2zM37 15H26a1 1 0 1 1 0-2h11a1 1 0 1 1 0 2zM36 19H23a1 1 0 1 1 0-2h13a1 1 0 1 1 0 2zM37 23H23a1 1 0 1 1 0-2h14a1 1 0 1 1 0 2zM35 27H23a1 1 0 1 1 0-2h12a1 1 0 1 1 0 2zM36 31H22a1 1 0 1 1 0-2h14a1 1 0 1 1 0 2zM20.05 0H45v2H20.05z"></path><path d="M24.95 47H0v-2c.827 0 1.424-.196 1.825-.601.951-.957.935-3.183.921-5.146-.016-2.194-.03-4.268 1.133-5.438C4.417 33.274 5.13 33 6 33h9.174C17.189 22.034 17.002 4.195 17 4.012 17.023 2.605 17.69 0 20.05 0v2C19.093 2 19 3.996 19 4.017c.009.747.2 19.103-2.02 30.18l-.161.803H6c-.428 0-.605.128-.701.225-.577.581-.564 2.405-.553 4.015.014 1.983.03 4.189-.885 5.76H24.95c.827 0 1.424-.196 1.825-.601.951-.957.935-3.183.921-5.146-.016-2.194-.03-4.268 1.133-5.438.538-.541 1.252-.815 2.121-.815 1.014 0 1.806.281 2.356.837.926.936.912 2.326.897 3.671-.012 1.133-.024 2.304.554 2.888.397.401 1.135.604 2.193.604.108 0 .438 0 .889-.463 4.051-4.159 4.341-27.766 4.111-36.511C41.973 2.605 42.64 0 45 0c2.61 0 3 5.013 3 8v1h-3.987c.017 9.426-.492 28.57-4.741 32.933-.69.708-1.471 1.067-2.322 1.067-1.634 0-2.817-.392-3.614-1.198-1.165-1.177-1.147-2.844-1.132-4.314.01-.935.02-1.9-.319-2.243-.2-.203-.618-.245-.935-.245-.428 0-.605.128-.701.225-.577.581-.564 2.405-.553 4.015.016 2.354.035 5.021-1.502 6.569C27.41 46.6 26.318 47 24.95 47zM44.001 7h1.977c-.103-2.446-.561-4.708-1.056-5.019-.879.019-.972 2.015-.972 2.036.013.482.037 1.53.051 2.983z"></path></g></svg></div>
-  <!-- <div class="float-emoji">📱</div> -->
-  <div class="float-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="#4edea3"><path d="M16 1H8C6.34 1 5 2.34 5 4v16c0 1.66 1.34 3 3 3h8c1.66 0 3-1.34 3-3V4c0-1.66-1.34-3-3-3zm-2.5 20h-3c-.28 0-.5-.22-.5-.5s.22-.5.5-.5h3c.28 0 .5.22.5.5s-.22.5-.5.5zm3.5-3H7V4h10v14z"></path></svg></div>
-
-  <h1>Tus facturas, <em>simplificadas</em></h1>
-  <p><span style="display:inline-block;background:var(--emerald);color:var(--emerald-dark);padding:4px 14px;border-radius:50px;font-size:0.8rem;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:12px;">Hecho para estudios contables en Paraguay</span><br>Tus clientes escanean/QR facturas con su celular. Vos las recibis digitalizadas, pre-validadas y listas para Marangatu.</p>
-
-
-  <!-- DASHBOARD MOCKUPS -->
-  <div class="hero-mockups">
-
-    <!-- Left: Monthly chart -->
-    <div class="mockup mockup-chart">
-      <div class="mock-topbar">
-        <div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div>
+  <div class="wrap">
+   <div class="hero-grid">
+    <!-- LEFT: copy -->
+    <div class="hero-left">
+      <div class="eyebrow"><span class="pulse"></span> Hecho para estudios contables en Paraguay</div>
+      <h1>Tus facturas,<br><span class="grad">simplificadas</span>.</h1>
+      <p class="sub">Tus clientes escanean y hacen QR de sus facturas con el celular. Vos las recibis digitalizadas, pre-validadas y listas para Marangatu — sin perseguir a nadie.</p>
+      <div class="hero-cta">
+        <a href="https://app.fakturas.app/login?signup=true" class="btn btn-primary">Empezar ahora →</a>
+        <a href="#how" class="btn btn-ghost">Ver como funciona</a>
       </div>
-      <div class="mock-chart-body">
-        <div class="mock-chart-title">Facturas mensuales</div>
-        <div class="mock-chart-subtitle">2026 — Todos los clientes</div>
-        <div class="mock-chart-bars">
-          <div class="mock-bar emerald" style="height:45%"></div>
-          <div class="mock-bar emerald" style="height:60%"></div>
-          <div class="mock-bar emerald" style="height:40%"></div>
-          <div class="mock-bar emerald" style="height:75%"></div>
-          <div class="mock-bar emerald" style="height:55%"></div>
-          <div class="mock-bar emerald" style="height:90%"></div>
-          <div class="mock-bar blue" style="height:30%"></div>
-          <div class="mock-bar blue" style="height:20%"></div>
-        </div>
-        <div class="mock-chart-labels">
-          <span>Ene</span><span>Feb</span><span>Mar</span><span>Abr</span><span>May</span><span>Jun</span><span>Jul</span><span>Ago</span>
-        </div>
-        <div class="mock-chart-legend">
-          <div class="mock-chart-legend-item"><div class="mock-chart-legend-dot" style="background:var(--emerald)"></div> Validadas</div>
-          <div class="mock-chart-legend-item"><div class="mock-chart-legend-dot" style="background:var(--blue);opacity:0.3"></div> Pendientes</div>
-        </div>
+      <div class="hero-note">
+        <span><span class="tick">✓</span> App movil gratis para tus clientes</span>
+        <span><span class="tick">✓</span> Funciona en 24 horas</span>
+        <span><span class="tick">✓</span> Exportacion Marangatu (DNIT)</span>
       </div>
     </div>
 
-    <!-- Center: Client detail — split panel (matches real dashboard) -->
-    <div class="mockup mockup-main">
-      <div class="mock-topbar">
-        <div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div>
-        <span class="mock-topbar-title">fakturas.app — Portal contable</span>
+    <!-- RIGHT: phone + dashboard stage -->
+    <div class="stage">
+      <!-- dashboard behind -->
+      <div class="dash">
+        <div class="winbar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="wt">fakturas.app — Portal contable</span></div>
+        <div class="dl">Panel del contador · Marzo 2026</div>
+        <div class="dash-stats">
+          <div class="stat"><div class="v green">247</div><div class="l">Facturas validadas</div></div>
+          <div class="stat"><div class="v">₲ 38.4M</div><div class="l">IVA del mes</div></div>
+          <div class="stat"><div class="v">12</div><div class="l">Clientes activos</div></div>
+        </div>
+        <div class="bars">
+          <span style="height:45%"></span><span style="height:62%"></span><span style="height:40%"></span>
+          <span style="height:75%"></span><span style="height:55%"></span><span style="height:92%"></span>
+          <span class="b" style="height:30%"></span><span class="b" style="height:20%"></span>
+        </div>
+        <div style="margin-top:12px">
+          <div class="drow"><span class="pr">Farmacia Catedral</span><span class="am">₲ 89.500</span><span class="badge ok">OK</span></div>
+          <div class="drow"><span class="pr">Copetrol</span><span class="am">₲ 156.200</span><span class="badge pend">Rev.</span></div>
+        </div>
       </div>
-      <div class="mock-body" style="padding:12px">
-        <!-- Client header -->
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px">
-          <div>
-            <div style="font-size:0.85rem;font-weight:700;color:#dde2f6">Juan Perez</div>
-            <div style="font-size:0.5rem;color:#8b95a5;font-family:monospace">9387348-4</div>
-            <div style="font-size:0.45rem;color:var(--emerald);font-family:monospace">Codigo: 4B33-5886</div>
+
+      <!-- phone front -->
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="notch"></div>
+          <div class="statusbar">
+            <span>9:41</span>
+            <span class="sb-r"><span>5G</span><span class="bat"></span></span>
           </div>
-          <div style="background:#e040fb;color:#fff;font-size:0.45rem;font-weight:700;padding:4px 8px;border-radius:6px">+ Subir facturas</div>
-        </div>
-        <!-- Action bar -->
-        <div style="display:flex;gap:4px;margin-bottom:8px;align-items:center;flex-wrap:wrap">
-          <div style="background:#242a39;color:#8b95a5;font-size:0.45rem;padding:3px 8px;border-radius:4px">Marzo 2026 (11)</div>
-          <div style="background:#ef4444;color:#fff;font-size:0.42rem;font-weight:700;padding:3px 8px;border-radius:4px">Validar 11 pendientes</div>
-          <div style="background:#2563eb;color:#fff;font-size:0.42rem;font-weight:700;padding:3px 8px;border-radius:4px">Exportar Marzo</div>
-        </div>
-        <!-- Split panel -->
-        <div style="display:flex;gap:8px">
-          <!-- Left: invoice list -->
-          <div style="flex:1;min-width:0">
-            <div class="mock-table">
-              <div class="mock-table-header">
-                <span>Fecha</span>
-                <span>Proveedor</span>
-                <span>Total</span>
-                <span>Estado</span>
+          <div class="app">
+            <div class="app-top">
+              <div class="icon-btn">🔔<span class="dot">3</span></div>
+              <div class="icon-btn">⚙</div>
+            </div>
+            <div class="hello">¡Hola <span class="wave">👋</span></div>
+            <div class="hello">Soy Maria</div>
+            <div><span class="ruc-pill">RUC 938 7348-4</span></div>
+
+            <div class="acts">
+              <div class="act-big">
+                <div><div class="t">Foto</div><div class="s">Capturar factura</div></div>
+                <div class="ci">📷</div>
               </div>
-              <div class="mock-table-row" style="background:rgba(78,222,163,0.08)">
-                <span>03-21</span>
-                <span class="provider">DELICES DE F...</span>
-                <span>27.000</span>
-                <span><span class="mock-badge pending">Pendiente</span></span>
-              </div>
-              <div class="mock-table-row">
-                <span>03-21</span>
-                <span class="provider">Starbucks</span>
-                <span>26.500</span>
-                <span><span class="mock-badge pending">Pendiente</span></span>
-              </div>
-              <div class="mock-table-row">
-                <span>03-21</span>
-                <span class="provider">LAVA facil</span>
-                <span>74.100</span>
-                <span><span class="mock-badge pending">Pendiente</span></span>
-              </div>
-              <div class="mock-table-row">
-                <span>03-20</span>
-                <span class="provider">BUEN GRILLE</span>
-                <span>49.000</span>
-                <span><span class="mock-badge approved">Validada</span></span>
-              </div>
-              <div class="mock-table-row">
-                <span>03-20</span>
-                <span class="provider">Retail S.A.</span>
-                <span>25.800</span>
-                <span><span class="mock-badge approved">Validada</span></span>
-              </div>
-              <div class="mock-table-row">
-                <span>03-16</span>
-                <span class="provider">NUEVA AMER...</span>
-                <span>99.900</span>
-                <span><span class="mock-badge approved">Validada</span></span>
+              <div class="acts-row">
+                <div class="act-sm qr"><div class="ci">▦</div><div class="t">Escanear QR</div></div>
+                <div class="act-sm gal"><div class="ci">▣</div><div class="t">Galeria</div></div>
               </div>
             </div>
-          </div>
-          <!-- Right: invoice detail -->
-          <div style="flex:1;min-width:0;background:#242a39;border-radius:8px;padding:8px">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-              <div style="font-size:0.6rem;font-weight:700;color:#dde2f6">DELICES DE FRANCE SRL</div>
-              <span class="mock-badge pending" style="font-size:0.4rem">Pendiente</span>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:6px">
-              <div><div style="font-size:0.35rem;color:#8b95a5">Fecha</div><div style="font-size:0.45rem;color:#dde2f6">2026-03-21</div></div>
-              <div><div style="font-size:0.35rem;color:#8b95a5">N&deg; Factura</div><div style="font-size:0.45rem;color:#dde2f6;font-family:monospace">005-002-0002955</div></div>
-            </div>
-            <div style="display:flex;justify-content:flex-end;margin-bottom:6px">
-              <div style="text-align:right"><div style="font-size:0.35rem;color:#8b95a5">Total</div><div style="font-size:0.75rem;font-weight:800;color:#dde2f6">27.000 <span style="font-size:0.4rem;color:#8b95a5">PYG</span></div></div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-bottom:8px">
-              <div><div style="font-size:0.35rem;color:#8b95a5">RUC Prov.</div><div style="font-size:0.4rem;color:#dde2f6;font-family:monospace">80097187-6</div></div>
-              <div><div style="font-size:0.35rem;color:#8b95a5">Timbrado</div><div style="font-size:0.4rem;color:#dde2f6;font-family:monospace">18655092</div></div>
-              <div><div style="font-size:0.35rem;color:#8b95a5">Gravado 10%</div><div style="font-size:0.4rem;color:#dde2f6">27.000</div></div>
-            </div>
-            <!-- Action buttons -->
-            <div class="mock-action-btns" style="display:flex;gap:4px;margin-bottom:6px">
-              <div style="flex:1;background:#2563eb;color:#fff;font-size:0.4rem;font-weight:700;text-align:center;padding:4px;border-radius:4px">Editar</div>
-              <div style="flex:1;background:#10b981;color:#fff;font-size:0.4rem;font-weight:700;text-align:center;padding:4px;border-radius:4px">Validar</div>
-              <div style="flex:1;background:#ef4444;color:#fff;font-size:0.4rem;font-weight:700;text-align:center;padding:4px;border-radius:4px">Rechazar</div>
-            </div>
-            <!-- Invoice photo (large, matching real layout) -->
-            <div class="invoice-photo" style="background:#d5d0c8;border-radius:6px;padding:10px 8px;font-family:monospace;text-align:left;line-height:1.6;min-height:90px">
-              <div style="font-size:0.48rem;color:#1a1a1a;font-weight:700">PANADERIA SAN JOSE SRL</div>
-              <div style="font-size:0.38rem;color:#333">RUC: 80097187-6</div>
-              <div style="font-size:0.38rem;color:#333">Actividad Economica: COMERCIO AL POR</div>
-              <div style="font-size:0.38rem;color:#333">MENOR DE PRODUCTOS DE PANADERIA,</div>
-              <div style="font-size:0.38rem;color:#333">CONFITERIA Y PASTELERIA</div>
-              <div style="font-size:0.38rem;color:#555;margin-top:4px">C MATRIZ: AVDA. MCAL LOPEZ ESQ.</div>
-              <div style="font-size:0.38rem;color:#555">PROF. DELIA GONZALEZ</div>
-              <div style="font-size:0.38rem;color:#555">Tel: 0985912411</div>
-              <div style="font-size:0.38rem;color:#333;margin-top:4px">TIMBRADO: 18655092</div>
-              <div style="font-size:0.38rem;color:#333">Vigencia: 01/03/2026 AL 31/03/2027</div>
-              <div style="font-size:0.38rem;color:#333;font-weight:600">FACTURA CONTADO Nro: 005-002-0002955</div>
-              <div style="font-size:0.38rem;color:#333">Fecha y Hora: 21/03/2026 10:54</div>
+
+            <div class="sc">
+              <div class="sc-card">
+                <div class="n">8</div>
+                <div class="l">Facturas hoy</div>
+                <div class="m">Gs. 1.24M total</div>
+              </div>
+              <div class="sc-side"><div><b>$</b><br><span>Mes</span></div></div>
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- floating notif -->
+      <div class="notif">
+        <div class="nd">📨</div>
+        <div><div class="nt">Nueva factura recibida</div><div class="ns">Maria Lopez · recien</div></div>
       </div>
     </div>
-
-    <!-- Right: Mobile phone (matches actual app layout) -->
-    <div class="mockup mockup-phone">
-      <div class="mock-phone-header">
-        <div class="mock-phone-statusbar">
-          <div class="mock-phone-time">9:41</div>
-          <div class="mock-phone-statusbar-icons">
-            <svg width="14" height="10" viewBox="0 0 18 12"><rect x="0" y="7" width="3" height="5" rx="0.5" fill="#1a1a2e"/><rect x="4" y="4" width="3" height="8" rx="0.5" fill="#1a1a2e"/><rect x="8" y="2" width="3" height="10" rx="0.5" fill="#1a1a2e"/><rect x="12" y="0" width="3" height="12" rx="0.5" fill="#1a1a2e"/></svg>
-            <svg width="13" height="10" viewBox="0 0 16 12"><path d="M8 3.6C9.8 3.6 11.4 4.3 12.6 5.5L14 4.1C12.4 2.5 10.3 1.5 8 1.5S3.6 2.5 2 4.1L3.4 5.5C4.6 4.3 6.2 3.6 8 3.6Z" fill="#1a1a2e"/><path d="M8 7.2C9 7.2 9.9 7.6 10.6 8.3L12 6.9C10.9 5.8 9.5 5.1 8 5.1S5.1 5.8 4 6.9L5.4 8.3C6.1 7.6 7 7.2 8 7.2Z" fill="#1a1a2e"/><circle cx="8" cy="10.5" r="1.5" fill="#1a1a2e"/></svg>
-            <svg width="22" height="10" viewBox="0 0 28 13"><rect x="0" y="1" width="23" height="11" rx="2.5" stroke="#1a1a2e" stroke-width="1.2" fill="none"/><rect x="24" y="4" width="2" height="5" rx="1" fill="#1a1a2e" opacity="0.4"/><rect x="1.5" y="2.5" width="18" height="8" rx="1.5" fill="#4edea3"/></svg>
-          </div>
-        </div>
-        <div class="mock-phone-greeting">Hola! 👋</div>
-        <div class="mock-phone-sub" style="font-weight:700;font-size:0.7rem;color:#1a1a2e">Soy Juan Perez</div>
-        <div style="margin-top:4px;display:inline-block;background:#e2e8f0;border-radius:4px;padding:2px 6px;font-size:0.5rem;color:#1a1a2e;font-family:monospace">RUC 123 4567-8</div>
-      </div>
-      <div class="mock-phone-body">
-        <!-- Photo card -->
-        <div class="mock-phone-card" style="background:#d4e6f1;display:flex;justify-content:space-between;align-items:center">
-          <div>
-            <div class="mock-phone-card-title" style="color:#1a1a2e">Foto</div>
-            <div class="mock-phone-card-sub" style="color:#666">Capturar factura</div>
-          </div>
-          <div style="width:24px;height:24px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center">
-            <span style="font-size:10px">📷</span>
-          </div>
-        </div>
-        <!-- Scan + Gallery row -->
-        <div style="display:flex;gap:6px;margin-bottom:8px">
-          <div class="mock-phone-card" style="flex:1;background:#e8e4a0;margin-bottom:0;min-height:40px">
-            <div style="width:20px;height:20px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:4px">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#1a1a2e" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="3" height="3"/></svg>
-            </div>
-            <div class="mock-phone-card-title" style="color:#1a1a2e;margin-bottom:0">Escanear</div>
-          </div>
-          <div class="mock-phone-card" style="flex:1;background:#c8e6c9;margin-bottom:0;min-height:40px">
-            <div style="width:20px;height:20px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:4px">
-              <span style="font-size:8px">🖼️</span>
-            </div>
-            <div class="mock-phone-card-title" style="color:#1a1a2e;margin-bottom:0">Galeria</div>
-          </div>
-        </div>
-        <!-- Today's invoices -->
-        <div class="mock-phone-card" style="background:#fff;display:flex;align-items:center;gap:8px">
-          <div style="width:22px;height:22px;background:rgba(78,222,163,0.12);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:0.55rem;font-weight:700;color:var(--emerald-hover)">3</div>
-          <div>
-            <div class="mock-phone-card-title" style="color:#1a1a2e;margin-bottom:0">Facturas de hoy</div>
-            <div class="mock-phone-card-sub">₲ 485.000 total</div>
-          </div>
-        </div>
-        <!-- Banner -->
-        <div class="mock-phone-banner">
-          <div class="mock-banner-logo">EC</div>
-          <div class="mock-banner-text">
-            <div class="mock-banner-msg">Transicion SIFEN facil</div>
-            <div class="mock-banner-link">Como te podemos ayudar →</div>
-          </div>
-          <span class="mock-banner-arrow">›</span>
-        </div>
-        <!-- History peek -->
-        <div style="background:#fff;border-radius:10px 10px 0 0;padding:8px 10px;margin-top:8px;border:1px solid #e2e8f0;border-bottom:none">
-          <div style="font-size:0.55rem;font-weight:600;color:var(--emerald-hover)">Historial</div>
-        </div>
-      </div>
-      <!-- iPhone home indicator -->
-      <div style="background:#f0f0f0;padding:6px 0 8px;border-radius:0 0 28px 28px;text-align:center">
-        <div style="width:40%;height:4px;background:rgba(0,0,0,0.15);border-radius:3px;margin:0 auto"></div>
-      </div>
-    </div>
-
+   </div>
   </div>
 </section>
 
-<!-- STATS -->
-<section class="stats-section">
-  <div class="stat-block">
-    <h3>Facturas procesadas</h3>
-    <div class="stat-number">12,000+</div>
-    <p>Facturas escaneadas y digitalizadas por nuestro motor OCR desde el lanzamiento.</p>
+<!-- TRUST -->
+<div class="trust">
+  <div class="wrap">
+    <span class="lbl">Confianza</span>
+    <div class="nums">
+      <div class="num"><b>247K+</b><span>Facturas procesadas</span></div>
+      <div class="num"><b>&lt; 2s</b><span>OCR por factura</span></div>
+      <div class="num"><b>24h</b><span>Para estar operativo</span></div>
+      <div class="num"><b>99.9%</b><span>Uptime del portal</span></div>
+    </div>
   </div>
-  <div class="stat-block">
-    <h3>Precision OCR</h3>
-    <div class="stat-number">97%</div>
-    <p>Campos extraidos via OCR o codigo QR en el primer escaneo, sin carga manual.</p>
-  </div>
-  <div class="stat-block">
-    <h3>Clientes activos</h3>
-    <div class="stat-number">500+</div>
-    <p>Contribuyentes escaneando facturas diariamente desde la app.</p>
-  </div>
-  <div class="stat-block">
-    <h3>Tiempo ahorrado</h3>
-    <div class="stat-number">80%</div>
-    <p>Menos tiempo en carga manual de datos comparado con metodos tradicionales.</p>
-  </div>
-</section>
+</div>
 
 <!-- FEATURES -->
-<section class="features" id="features">
-  <div class="features-header">
-    <h2>Herramientas para <strong>simplificar</strong> tu trabajo</h2>
-    <p>Desde el escaneo de facturas hasta la exportacion Marangatu, cada paso esta disenado para eliminar el trabajo manual.</p>
-  </div>
-  <div class="features-grid">
-
-    <!-- Feature 1: Scan -->
-    <div class="feature-card">
-      <div class="feature-card-preview">
-        <div class="mini-scan">
-          <div class="mini-scan-viewfinder">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 48 48" fill="#4edea3"><g><path d="M16 33h14.95v2H16zM28.627 41h8.323v2h-8.323zM28 11h-4a1 1 0 1 1 0-2h4a1 1 0 1 1 0 2zM37 15H26a1 1 0 1 1 0-2h11a1 1 0 1 1 0 2zM36 19H23a1 1 0 1 1 0-2h13a1 1 0 1 1 0 2zM37 23H23a1 1 0 1 1 0-2h14a1 1 0 1 1 0 2zM35 27H23a1 1 0 1 1 0-2h12a1 1 0 1 1 0 2zM36 31H22a1 1 0 1 1 0-2h14a1 1 0 1 1 0 2zM20.05 0H45v2H20.05z"></path><path d="M24.95 47H0v-2c.827 0 1.424-.196 1.825-.601.951-.957.935-3.183.921-5.146-.016-2.194-.03-4.268 1.133-5.438C4.417 33.274 5.13 33 6 33h9.174C17.189 22.034 17.002 4.195 17 4.012 17.023 2.605 17.69 0 20.05 0v2C19.093 2 19 3.996 19 4.017c.009.747.2 19.103-2.02 30.18l-.161.803H6c-.428 0-.605.128-.701.225-.577.581-.564 2.405-.553 4.015.014 1.983.03 4.189-.885 5.76H24.95c.827 0 1.424-.196 1.825-.601.951-.957.935-3.183.921-5.146-.016-2.194-.03-4.268 1.133-5.438.538-.541 1.252-.815 2.121-.815 1.014 0 1.806.281 2.356.837.926.936.912 2.326.897 3.671-.012 1.133-.024 2.304.554 2.888.397.401 1.135.604 2.193.604.108 0 .438 0 .889-.463 4.051-4.159 4.341-27.766 4.111-36.511C41.973 2.605 42.64 0 45 0c2.61 0 3 5.013 3 8v1h-3.987c.017 9.426-.492 28.57-4.741 32.933-.69.708-1.471 1.067-2.322 1.067-1.634 0-2.817-.392-3.614-1.198-1.165-1.177-1.147-2.844-1.132-4.314.01-.935.02-1.9-.319-2.243-.2-.203-.618-.245-.935-.245-.428 0-.605.128-.701.225-.577.581-.564 2.405-.553 4.015.016 2.354.035 5.021-1.502 6.569C27.41 46.6 26.318 47 24.95 47zM44.001 7h1.977c-.103-2.446-.561-4.708-1.056-5.019-.879.019-.972 2.015-.972 2.036.013.482.037 1.53.051 2.983z"></path></g></svg>
-          </div>
-          <div class="mini-scan-btn">📷 Capturar</div>
-        </div>
-      </div>
-      <div class="feature-card-text">
-        <h3>Captura instantanea de facturas</h3>
-        <p>Tus clientes escanean facturas en la caja con su celular. El OCR extrae RUC, montos y timbrado automaticamente.</p>
-      </div>
+<section class="block features" id="features">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">Funciones</div>
+      <h2>Todo el flujo, <span style="color:var(--emerald-hover)">en un solo lugar</span></h2>
+      <p>Desde el escaneo en la caja hasta la exportacion Marangatu. Cada paso elimina trabajo manual.</p>
     </div>
-
-    <!-- Feature 2: Dashboard -->
-    <div class="feature-card">
-      <div class="feature-card-preview">
-        <div class="mini-mock">
-          <div class="mini-mock-bar">
-            <div class="mini-mock-dot" style="background:#ff5f56"></div>
-            <div class="mini-mock-dot" style="background:#ffbd2e"></div>
-            <div class="mini-mock-dot" style="background:#27c93f"></div>
+    <div class="feat-grid">
+      <div class="feat f-big">
+        <div class="f-big-text">
+          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4edea3" stroke-width="2"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2M7 12h10"/></svg></div>
+          <h3>Captura instantanea con OCR + QR</h3>
+          <p>Tus clientes escanean facturas en la caja con su celular. El OCR extrae RUC, timbrado y montos automaticamente. Las facturas electronicas (e-kuatia) se leen por QR.</p>
+        </div>
+        <div class="ocr-stage">
+          <span class="vf tl"></span><span class="vf tr"></span><span class="vf bl"></span><span class="vf br"></span>
+          <div class="receipt">
+            <div class="rc-head"><div class="b">FARMACIA<br>CENTRAL<span>RUC 80012345-7</span></div></div>
+            <div class="rc-ruc">Timbrado: 12345678<br>Fact. Nº 001-002-000456</div>
+            <div class="rc-bar m"></div>
+            <div class="rc-row"><span>Paracetamol x2</span><span>₲ 18.000</span></div>
+            <div class="rc-row"><span>Vitamina C</span><span>₲ 25.000</span></div>
+            <div class="rc-bar s"></div>
+            <div class="rc-row"><span>Subtotal</span><span>₲ 43.000</span></div>
+            <div class="rc-row tot"><span>TOTAL</span><span>₲ 48.590</span></div>
+            <div class="scanline"></div>
+            <div class="ocr ruc"><span class="lab">RUC</span></div>
+            <div class="ocr tim"><span class="lab">TIMBRADO</span></div>
+            <div class="ocr amt"><span class="lab">TOTAL</span></div>
           </div>
-          <div class="mini-mock-content">
-            <div class="mini-mock-row"><span>Stock SA</span><span class="mini-mock-highlight">₲ 485K</span></div>
-            <div class="mini-mock-row"><span>Farmacia</span><span class="mini-mock-highlight">₲ 125K</span></div>
-            <div class="mini-mock-row"><span>Copetrol</span><span class="mini-mock-highlight">₲ 350K</span></div>
-            <div class="mini-mock-row"><span>Lido Bar</span><span>₲ 210K</span></div>
+          <div class="ocr-fields">
+            <div class="of-row"><span class="chip-d">RUC 80012345-7</span><span class="chip-d">₲ 48.590</span></div>
+            <div class="of-row"><span class="chip-d">Timbrado</span><span class="chip-d">Fecha 14/03</span></div>
           </div>
+          <div class="ocr-cap"><span class="sp"></span> OCR leyendo factura…</div>
         </div>
       </div>
-      <div class="feature-card-text">
+      <div class="feat f-mid">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4edea3" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
         <h3>Dashboard en tiempo real</h3>
-        <p>Ve cada factura cuando llega. Aproba, rechaza o edita en linea. Segui los totales mensuales de todos tus clientes.</p>
+        <p>Ve cada factura cuando llega. Aproba, edita o rechaza en linea.</p>
+      </div>
+      <div class="feat f-sm">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#005BE2" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></div>
+        <h3>Exportacion Marangatu</h3>
+        <p>CSV + ZIP listos para el DNIT, en un clic.</p>
+      </div>
+      <div class="feat f-sm">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#005BE2" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10M12 6v6l4 2"/></svg></div>
+        <h3>Modo offline</h3>
+        <p>Las fotos se guardan y se sincronizan solas al reconectar.</p>
+      </div>
+      <div class="feat f-sm">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#005BE2" stroke-width="2"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2M17 11l2 2 4-4"/></svg></div>
+        <h3>Calculadora IRP</h3>
+        <p>7 campos de ingresos, totalizado por cliente.</p>
+      </div>
+      <div class="feat f-sm">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#005BE2" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>PIN + biometrica</h3>
+        <p>Seguridad de nivel bancario en cada dispositivo.</p>
       </div>
     </div>
-
-    <!-- Feature 3: Export -->
-    <div class="feature-card">
-      <div class="feature-card-preview">
-        <div class="mini-export">
-          <div class="mini-export-title">Exportar a Marangatu</div>
-          <div class="mini-export-item">
-            <div class="mini-export-icon csv">📄</div>
-            <div>
-              <div style="font-weight:600;color:var(--text)">Resumen CSV</div>
-              <div style="font-size:0.55rem;color:var(--text-muted)">247 facturas — Marzo 2026</div>
-            </div>
-          </div>
-          <div class="mini-export-item">
-            <div class="mini-export-icon zip">📦</div>
-            <div>
-              <div style="font-weight:600;color:var(--text)">Marangatu ZIP</div>
-              <div style="font-size:0.55rem;color:var(--text-muted)">Listo para subir al DNIT</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="feature-card-text">
-        <h3>Exportacion fiscal en un clic</h3>
-        <p>Genera archivos CSV y ZIP listos para Marangatu. Sin copiar y pegar, sin Excel. Subi directo al DNIT.</p>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- SEAMLESS INTEGRATION -->
-<section class="integration" id="how-it-works">
-  <div class="integration-inner">
-    <div class="integration-text">
-      <h2>Integracion total</h2>
-      <p>Tus clientes usan la app gratuita. Vos gestionas todo desde el dashboard web. Las facturas se sincronizan en tiempo real, sin carga manual.</p>
-      <a href="/blog/declaracion-iva-mensual-paraguay-contadores">Conoce el flujo de trabajo →</a>
-      <ul class="integration-features">
-        <li>Sincronizacion en tiempo real entre app y dashboard</li>
-        <li>Modo offline: las fotos se guardan y sincronizan al volver a conectar</li>
-        <li>Escaneo QR para facturas e-kuatia + pre-validacion</li>
-        <li>Calculadora IRP con 7 campos de ingresos</li>
-        <li>Gestion multi-cliente desde un solo portal</li>
-      </ul>
+<!-- HOW IT WORKS -->
+<section class="block how" id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">Como funciona</div>
+      <h2>Operativo en <span style="color:var(--emerald-hover)">24 horas</span></h2>
+      <p>Tres pasos. Sin migracion, sin capacitacion larga.</p>
     </div>
-    <div class="integration-mockup">
-      <div class="mockup" style="position:relative; width:100%;">
-        <div class="mock-topbar">
-          <div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div>
-          <span class="mock-topbar-title">Cliente: Maria Lopez</span>
-        </div>
-        <div class="mock-body">
-          <div class="mock-stats" style="grid-template-columns: repeat(2,1fr)">
-            <div class="mock-stat-card">
-              <div class="mock-stat-label">Facturas</div>
-              <div class="mock-stat-value green">34</div>
-            </div>
-            <div class="mock-stat-card">
-              <div class="mock-stat-label">IRP Total</div>
-              <div class="mock-stat-value">₲ 4.8M</div>
-            </div>
-          </div>
-          <div class="mock-table">
-            <div class="mock-table-header" style="grid-template-columns: 2fr 1fr 1fr">
-              <span>Proveedor</span><span>Monto</span><span>Estado</span>
-            </div>
-            <div class="mock-table-row" style="grid-template-columns: 2fr 1fr 1fr">
-              <span class="provider">Farmacia Catedral</span>
-              <span>₲ 89,500</span>
-              <span><span class="mock-badge approved">✓</span></span>
-            </div>
-            <div class="mock-table-row" style="grid-template-columns: 2fr 1fr 1fr">
-              <span class="provider">Biggie SA</span>
-              <span>₲ 312,000</span>
-              <span><span class="mock-badge approved">✓</span></span>
-            </div>
-          </div>
-        </div>
+    <div class="steps">
+      <div class="step-card">
+        <div class="n">1</div>
+        <h3>Elegi tu plan</h3>
+        <p>Segun cuantos clientes manejas. Mini, Pro o Growth.</p>
       </div>
-      <div class="notif-float">
-        <div class="notif-dot"></div>
-        <div>
-          <div class="notif-text">Nueva factura recibida</div>
-          <div class="notif-sub">Maria Lopez — recien</div>
-        </div>
+      <div class="step-card">
+        <div class="n">2</div>
+        <h3>Activamos tu cuenta</h3>
+        <p>Dashboard web listo + codigos de activacion para tus clientes.</p>
+      </div>
+      <div class="step-card">
+        <div class="n">3</div>
+        <h3>Tus clientes escanean</h3>
+        <p>Comparti el codigo y empiezan a enviar facturas desde la app gratis.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- PRICING -->
-<section class="pricing" id="pricing">
-  <div class="pricing-header">
-    <h2>Precios <strong>simples</strong> y transparentes</h2>
-    <p>Una plataforma, todo incluido. Elegi el plan que se adapte a tu estudio.</p>
-  </div>
-
-  <div class="pricing-grid">
-    <!-- Mini -->
-    <div class="pricing-card">
-      <div class="pricing-card-header">
+<section class="block pricing" id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">Precios</div>
+      <h2>Planes <span style="color:var(--emerald-hover)">simples</span> y transparentes</h2>
+      <p>Una plataforma, todo incluido. Elegi segun el tamano de tu estudio.</p>
+    </div>
+    <div class="price-grid">
+      <div class="pcard">
         <h3>Mini</h3>
-        <p class="pricing-desc">Ideal para gabinetes pequenos que estan empezando con facturacion digital.</p>
+        <p class="desc">Ideal para gabinetes pequenos que empiezan con facturacion digital.</p>
+        <div class="price"><b>Gs. 170.000</b><span>/mes</span></div>
+        <div class="pc">Gs. 17.000 por cliente · hasta 10</div>
+        <ul>
+          <li>App movil gratis para cada cliente</li>
+          <li>OCR + QR automatico</li>
+          <li>Exportacion Marangatu</li>
+          <li>Modo offline + auto-sync</li>
+        </ul>
+        <a href="https://app.fakturas.app/login?signup=true" class="btn btn-dark">Empezar</a>
       </div>
-      <div class="pricing-price">
-        <span class="price-amount">Gs. 170.000</span>
-        <span class="price-period">/mes</span>
-      </div>
-      <p class="price-per-client">Gs. 17.000 por cliente</p>
-      <ul class="pricing-features">
-        <li>Hasta 10 clientes activos</li>
-        <li>App movil para cada cliente</li>
-        <li>OCR + QR automatico</li>
-        <li>Exportacion Marangatu</li>
-      </ul>
-      <a href="https://app.fakturas.app/login?signup=true" class="btn-primary pricing-btn">Empezar</a>
-    </div>
-
-    <!-- Pro (featured) -->
-    <div class="pricing-card featured">
-      <div class="pricing-popular">Mas popular</div>
-      <div class="pricing-card-header">
+      <div class="pcard feat">
+        <div class="pop">Mas popular</div>
         <h3>Pro</h3>
-        <p class="pricing-desc">Para gabinetes en crecimiento que necesitan gestionar mas clientes.</p>
+        <p class="desc">Para gabinetes en crecimiento que gestionan mas clientes.</p>
+        <div class="price"><b>Gs. 470.000</b><span>/mes</span></div>
+        <div class="pc">Gs. 9.400 por cliente · hasta 50</div>
+        <ul>
+          <li>Todo lo de Mini</li>
+          <li>Cuenta principal (equipo de contadores)</li>
+          <li>Subida masiva de facturas</li>
+          <li>Calculadora IRP + notas internas</li>
+        </ul>
+        <a href="https://app.fakturas.app/login?signup=true" class="btn btn-primary">Empezar</a>
       </div>
-      <div class="pricing-price">
-        <span class="price-amount">Gs. 470.000</span>
-        <span class="price-period">/mes</span>
-      </div>
-      <p class="price-per-client">Gs. 9.400 por cliente</p>
-      <ul class="pricing-features">
-        <li>Hasta 50 clientes activos</li>
-        <li>Todo lo de Mini</li>
-        <li>Cuenta principal (equipo de contadores)</li>
-        <li>Subida masiva de facturas</li>
-      </ul>
-      <a href="https://app.fakturas.app/login?signup=true" class="btn-primary pricing-btn">Empezar</a>
-    </div>
-
-    <!-- Growth -->
-    <div class="pricing-card">
-      <div class="pricing-card-header">
+      <div class="pcard">
         <h3>Growth</h3>
-        <p class="pricing-desc">Para gabinetes grandes con alto volumen de clientes.</p>
+        <p class="desc">Para gabinetes grandes con alto volumen de clientes.</p>
+        <div class="price"><b>Gs. 700.000</b><span>/mes</span></div>
+        <div class="pc">Gs. 7.000 por cliente · hasta 100</div>
+        <ul>
+          <li>Todo lo de Pro</li>
+          <li>Carga masiva + descarga ZIP de fotos</li>
+          <li>Mensajeria in-app con clientes</li>
+          <li>Historial de correcciones</li>
+        </ul>
+        <a href="https://app.fakturas.app/login?signup=true" class="btn btn-dark">Empezar</a>
       </div>
-      <div class="pricing-price">
-        <span class="price-amount">Gs. 700.000</span>
-        <span class="price-period">/mes</span>
-      </div>
-      <p class="price-per-client">Gs. 7.000 por cliente</p>
-      <ul class="pricing-features">
-        <li>Hasta 100 clientes activos</li>
-        <li>Todo lo de Pro</li>
-      </ul>
-      <a href="https://app.fakturas.app/login?signup=true" class="btn-primary pricing-btn">Empezar</a>
-    </div>
-  </div>
-
-  <!-- Everything Included -->
-  <div class="everything-included">
-    <h3>Todo incluido en cada plan</h3>
-    <div class="included-grid">
-      <div class="included-item"><span class="included-check">✓</span> App movil gratuita para tus clientes</div>
-      <div class="included-item"><span class="included-check">✓</span> Escaneo OCR de facturas (foto + QR)</div>
-      <div class="included-item"><span class="included-check">✓</span> Sincronizacion en tiempo real</div>
-      <div class="included-item"><span class="included-check">✓</span> Modo offline con auto-sync</div>
-      <div class="included-item"><span class="included-check">✓</span> Validacion y edicion en linea</div>
-      <div class="included-item"><span class="included-check">✓</span> Extraccion de RUC, timbrado y montos</div>
-      <div class="included-item"><span class="included-check">✓</span> Flujo de aprobacion / rechazo</div>
-      <div class="included-item"><span class="included-check">✓</span> Gestion multi-cliente</div>
-      <div class="included-item"><span class="included-check">✓</span> Exportacion CSV mensual con totales</div>
-      <div class="included-item"><span class="included-check">✓</span> Exportacion ZIP Marangatu (listo para DNIT)</div>
-      <div class="included-item"><span class="included-check">✓</span> Calculadora IRP (7 campos de ingresos)</div>
-      <div class="included-item"><span class="included-check">✓</span> Deteccion de facturas duplicadas</div>
-      <div class="included-item"><span class="included-check">✓</span> Carga masiva de fotos (Pro y Growth)</div>
-      <div class="included-item"><span class="included-check">✓</span> Descarga ZIP de fotos</div>
-      <div class="included-item"><span class="included-check">✓</span> Historial de correcciones</div>
-      <div class="included-item"><span class="included-check">✓</span> Seguridad PIN + biometrica</div>
-      <div class="included-item"><span class="included-check">✓</span> Notificaciones a clientes</div>
-      <div class="included-item"><span class="included-check">✓</span> Notas internas del contador</div>
-      <div class="included-item"><span class="included-check">✓</span> Mensajeria in-app</div>
     </div>
   </div>
 </section>
 
-<!-- THE MATH IS SIMPLE (hidden for now) -->
-<section class="roi-section" id="roi" style="display: none;">
-  <div class="roi-header">
-    <h2>Las cuentas son <strong>simples</strong></h2>
-    <p>Lo que gastas vs. lo que ahorras. Cada mes.</p>
-  </div>
-
-  <div class="roi-cards">
-    <div class="roi-card-item">
-      <div class="roi-num">36h</div>
-      <div class="roi-label">Horas ahorradas / mes</div>
-      <div class="roi-detail">40h manual → 4h con Fakturas.app (para 50 clientes)</div>
-    </div>
-    <div class="roi-card-item">
-      <div class="roi-num" style="color:#ef4444;">0</div>
-      <div class="roi-label">Rechazos Marangatu</div>
-      <div class="roi-detail">El formato es exacto. Sin errores de columnas ni encoding.</div>
-    </div>
-    <div class="roi-card-item">
-      <div class="roi-num">10x</div>
-      <div class="roi-label">Mas capacidad</div>
-      <div class="roi-detail">Maneja 10x mas clientes con el mismo equipo</div>
-    </div>
-  </div>
-
-  <div class="roi-comparison">
-    <div class="roi-comp-item">
-      <div class="roi-comp-val">₲470.000</div>
-      <div class="roi-comp-lbl">Costo Fakturas.app<br>(50 clientes / mes)</div>
-    </div>
-    <div class="roi-comp-arrow">vs.</div>
-    <div class="roi-comp-item">
-      <div class="roi-comp-val" style="color:#ef4444;">₲670.000+</div>
-      <div class="roi-comp-lbl">Costo empleado<br>(40h x salario minimo)</div>
-    </div>
-    <div class="roi-comp-arrow">=</div>
-    <div class="roi-comp-item">
-      <div class="roi-comp-val">₲200.000+</div>
-      <div class="roi-comp-lbl">Ahorro neto<br>cada mes</div>
-    </div>
-  </div>
-
-</section>
-
+<!-- ARTICULOS RECIENTES -->
 <!-- ARTICULOS RECIENTES -->
 <section class="recent-articles">
   <div class="recent-articles-header">
@@ -2222,29 +994,16 @@ footer .logo span { color: var(--emerald); }
 </section>
 
 <!-- CTA -->
-<section class="cta-section" id="cta">
-  <h2>Empeza a recibir facturas<br><span>sin perseguir a nadie</span></h2>
-  <div class="cta-sub">Tres pasos. Funcionando en 24 horas.</div>
-
-  <div class="cta-steps">
-    <div class="cta-step">
-      <div class="step-n">1</div>
-      <div class="step-t">Elegi tu plan</div>
-      <div class="step-d">Segun cuantos clientes manejas</div>
-    </div>
-    <div class="cta-step">
-      <div class="step-n">2</div>
-      <div class="step-t">Activamos tu cuenta</div>
-      <div class="step-d">Dashboard web listo + codigos de activacion para tus clientes</div>
-    </div>
-    <div class="cta-step">
-      <div class="step-n">3</div>
-      <div class="step-t">Tus clientes empiezan a escanear</div>
-      <div class="step-d">Comparti el codigo y empiezan a enviar facturas desde la app</div>
+<section class="cta">
+  <div class="wrap">
+    <div class="cta-box">
+      <div class="wrap">
+        <h2>Empeza a recibir facturas<br><span class="grad">sin perseguir a nadie.</span></h2>
+        <p>Tres pasos. Funcionando en 24 horas. App movil gratis para todos tus clientes.</p>
+        <a href="https://app.fakturas.app/login?signup=true" class="btn btn-primary">Empezar ahora →</a>
+      </div>
     </div>
   </div>
-
-  <a href="https://app.fakturas.app/login?signup=true" class="btn-primary">Empezar ahora</a>
 </section>
 
 <!-- FOOTER -->
@@ -2254,12 +1013,12 @@ footer .logo span { color: var(--emerald); }
 </footer>
 
 <script>
-document.querySelectorAll('.nav-links a').forEach(function(a) {
-  a.addEventListener('click', function() {
-    document.querySelector('.nav-links').classList.remove('open');
-    document.querySelector('.hamburger').classList.remove('active');
-  });
-});
+// smooth close on nav click (mobile)
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.nav-links').classList.remove('open')));
+// reveal on scroll
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity=1;e.target.style.transform='translateY(0)';io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.feat,.step-card,.pcard').forEach((el,i)=>{el.style.opacity=0;el.style.transform='translateY(22px)';el.style.transition=`opacity .6s ease ${i*40}ms, transform .6s ease ${i*40}ms`;io.observe(el)});
 </script>
+
 </body>
 </html>
