@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Como exportar facturas de compra a Marangatu (2026)</title>
+<meta name="description" content="El formato CSV exacto que exige Marangatu para el libro de compras: los 20 campos oficiales, la nomenclatura del archivo y los errores mas comunes al importar.">
+<meta name="keywords" content="exportar facturas marangatu, subir facturas marangatu, formato CSV marangatu, importar comprobantes marangatu, libro de compras CSV paraguay">
+<meta name="robots" content="index, follow">
+<link rel="alternate" type="application/rss+xml" title="Fakturas.app Blog" href="https://fakturas.app/feed.xml">
+<link rel="canonical" href="https://fakturas.app/blog/exportar-facturas-marangatu">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://fakturas.app/blog/exportar-facturas-marangatu">
+<meta property="og:title" content="Como exportar facturas de compra a Marangatu: guia CSV 2026">
+<meta property="og:description" content="Los 20 campos del CSV oficial de Marangatu para el libro de compras, como nombrar el archivo y por que se rechaza al importar. Guia tecnica 2026.">
+<meta property="og:site_name" content="Fakturas.app">
+<meta property="og:locale" content="es_PY">
+<meta property="og:image" content="https://fakturas.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Fakturas.app, Facturacion electronica en Paraguay para contadores">
+<meta property="article:published_time" content="2026-09-07">
+<meta property="article:modified_time" content="2026-09-07">
+<meta property="article:author" content="Fakturas.app">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Como exportar facturas de compra a Marangatu: guia CSV 2026">
+<meta name="twitter:description" content="El formato CSV exacto del libro de compras en Marangatu: campos, nomenclatura del archivo y errores comunes al importar. Fuente: especificacion tecnica DNIT.">
+<meta name="twitter:image" content="https://fakturas.app/og-image.png">
+
+<!-- Article Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Como exportar facturas de compra a Marangatu: guia paso a paso (2026)",
+  "description": "El formato CSV exacto que exige Marangatu para el libro de compras: los 20 campos oficiales, la nomenclatura del archivo y los errores mas comunes al importar.",
+  "url": "https://fakturas.app/blog/exportar-facturas-marangatu",
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
+  "author": {"@type": "Organization", "name": "Fakturas.app", "url": "https://fakturas.app"},
+  "publisher": {"@type": "Organization", "name": "Fakturas.app", "url": "https://fakturas.app"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://fakturas.app/blog/exportar-facturas-marangatu"},
+  "inLanguage": "es",
+  "keywords": ["exportar facturas marangatu", "formato CSV marangatu", "libro de compras marangatu", "RG 90", "importar comprobantes marangatu"]
+}
+</script>
+
+<!-- HowTo Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Como exportar facturas de compra a Marangatu",
+  "description": "Proceso para armar el archivo CSV del libro de compras segun la especificacion tecnica de la DNIT y subirlo a Marangatu.",
+  "totalTime": "PT45M",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Reunir los datos de cada comprobante",
+      "text": "Junta RUC del proveedor, tipo de comprobante, numero de timbrado, numero del comprobante, fecha de emision y los montos gravados al 10%, al 5% y exentos de cada factura de compra del periodo.",
+      "position": 1
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Armar la planilla en el orden exacto de 20 campos",
+      "text": "Ordena las columnas segun la tabla de Registro de Comprobantes de Compras de la especificacion tecnica DNIT, sin fila de encabezado.",
+      "position": 2
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Guardar como CSV UTF-8 o TXT delimitado por tabulaciones",
+      "text": "Exporta la planilla como CSV delimitado por comas con codificacion UTF-8, o como TXT delimitado por tabulaciones.",
+      "position": 3
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Nombrar el archivo con la convencion oficial",
+      "text": "Usa el formato RUC_REG_MMAAAA_XXXXX, donde RUC es tu RUC sin digito verificador, MMAAAA el periodo fiscal y XXXXX un identificador alfanumerico de hasta 5 posiciones.",
+      "position": 4
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Comprimir en ZIP con el mismo nombre",
+      "text": "Comprime el archivo en formato ZIP usando exactamente el mismo nombre que el archivo CSV o TXT contenido.",
+      "position": 5
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Importar en Marangatu y revisar los errores",
+      "text": "Sube el ZIP en Marangatu, seccion Registro de Comprobantes, e importar. Revisa el detalle de errores por fila si el sistema rechaza el archivo.",
+      "position": 6
+    }
+  ]
+}
+</script>
+
+<!-- FAQPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Cual es el limite de filas por archivo CSV en Marangatu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "5.000 filas de datos por archivo, segun la especificacion tecnica de la DNIT. Si tenes que importar mas de 5.000 comprobantes en el periodo, tenes que dividirlos en varios archivos y subirlos por separado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "El RUC del proveedor va con digito verificador en el CSV?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. En todos los campos donde se registra un RUC, el valor debe cargarse sin el digito verificador (DV). Es uno de los motivos de rechazo mas comunes cuando el dato se copia directo de una factura o de un padron."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Puedo mezclar comprobantes de compras y de ventas en el mismo archivo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Si. El archivo puede contener los distintos tipos de registro (Ventas, Compras, Ingresos, Egresos) mezclados, o podes separarlos en archivos distintos por tipo. Lo que no cambia es el orden de columnas: cada tipo de registro tiene su propia estructura de campos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Que pasa si ya presente el Talon y me falta un comprobante?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Una vez presentado el Talon del libro de compras, la importacion por CSV para ese periodo se cierra. Los comprobantes que falten hay que cargarlos uno por uno, manualmente, dentro de Marangatu. Por eso conviene cerrar y validar el archivo completo antes de presentar el Talon."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Los DTE del SIFEN tambien van en este archivo CSV?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. El archivo de importacion no debe incluir comprobantes emitidos por e-Kuatia (Sistema de Facturacion Electronica Nacional) ni por el Sistema de Comprobantes Virtuales. Esos comprobantes los obtiene Marangatu directamente de esos sistemas. El CSV es para todo lo que no llega asi: facturas preimpresas, autofacturas, y otros comprobantes de compra en papel o fuera del circuito electronico."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --emerald: #4edea3;
+  --emerald-dark: #003824;
+  --emerald-hover: #10b981;
+  --blue: #005BE2;
+  --gold: #FFC402;
+  --navy: #0d1321;
+  --navy-light: #191f2e;
+  --bg: #f8faf9;
+  --white: #ffffff;
+  --text: #1a1a2e;
+  --text-secondary: #5a6577;
+  --text-muted: #8b95a5;
+  --border: #e2e8f0;
+  --surface: #f1f5f3;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border);
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.5px;
+  text-decoration: none;
+}
+.logo span { color: var(--emerald); }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--text); font-weight: 600; }
+.nav-cta {
+  background: var(--emerald) !important;
+  color: var(--emerald-dark) !important;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-weight: 600 !important;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--emerald-hover) !important; }
+
+/* BREADCRUMBS */
+.breadcrumbs {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 20px 24px 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.breadcrumbs a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.breadcrumbs a:hover { color: var(--emerald-hover); }
+.breadcrumbs span { margin: 0 6px; }
+
+/* ARTICLE */
+.article-header {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 24px 0;
+}
+.article-header h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.article-meta time { font-weight: 500; }
+
+.article-body {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+.article-body h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin: 48px 0 16px;
+  color: var(--text);
+}
+.article-body h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 32px 0 12px;
+  color: var(--text);
+}
+.article-body p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.article-body ul, .article-body ol {
+  margin: 0 0 20px 20px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+.article-body li {
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+.article-body strong { color: var(--text); }
+.article-body a {
+  color: var(--emerald-hover);
+  text-decoration: none;
+  font-weight: 500;
+}
+.article-body a:hover { text-decoration: underline; }
+.article-body code {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.88em;
+  font-family: 'SF Mono', Menlo, monospace;
+  color: var(--text);
+}
+
+/* CHAPEAU */
+.chapeau {
+  font-size: 1.1rem !important;
+  color: var(--text) !important;
+  line-height: 1.7 !important;
+  margin-bottom: 32px !important;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* TL;DR BOX */
+.tldr-box {
+  background: linear-gradient(135deg, #f8faf9 0%, #f3f0e8 100%);
+  border-left: 4px solid var(--emerald);
+  padding: 28px 32px;
+  border-radius: 0 14px 14px 0;
+  margin: 32px 0 40px;
+}
+.tldr-box h2 {
+  color: var(--emerald-hover);
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0 0 16px;
+  letter-spacing: -0.3px;
+}
+.tldr-box ul {
+  margin: 0;
+  padding-left: 24px;
+  list-style: disc;
+}
+.tldr-box li {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+.tldr-box li:last-child { margin-bottom: 0; }
+
+/* DEFINITION BLOCK */
+.definition-block {
+  background: var(--surface);
+  border-left: 4px solid var(--emerald);
+  border-radius: 0 10px 10px 0;
+  padding: 20px 24px;
+  margin: 24px 0;
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.75;
+}
+
+/* HIGHLIGHT BOX */
+.highlight-box {
+  background: var(--surface);
+  border-left: 4px solid var(--emerald);
+  border-radius: 0 10px 10px 0;
+  padding: 20px 24px;
+  margin: 24px 0;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.highlight-box strong { color: var(--text); }
+
+/* WARNING BOX */
+.warning-box {
+  background: #fef9ee;
+  border-left: 4px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 20px 24px;
+  margin: 24px 0;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.warning-box strong { color: var(--text); }
+
+/* FLOW STEPS */
+.flow-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 24px 0;
+}
+.flow-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 0;
+}
+.flow-step-number {
+  width: 36px;
+  height: 36px;
+  background: var(--emerald);
+  color: var(--emerald-dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+.flow-step-content {
+  flex: 1;
+}
+.flow-step-content strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+.flow-step-content span {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+.flow-connector {
+  width: 36px;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  color: var(--border);
+  font-size: 0.8rem;
+}
+
+/* NUMBERED TIP */
+.numbered-tip {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  align-items: flex-start;
+}
+.numbered-tip .num {
+  min-width: 32px;
+  height: 32px;
+  background: var(--emerald);
+  color: var(--emerald-dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+.numbered-tip .tip-content h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.numbered-tip .tip-content p {
+  margin-bottom: 0;
+}
+
+/* FIELDS TABLE */
+.table-scroll {
+  overflow-x: auto;
+  margin: 24px 0;
+  border-radius: 12px;
+}
+.fields-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+.fields-table thead th {
+  background: var(--navy);
+  color: #fff;
+  padding: 12px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+.fields-table tbody td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+  vertical-align: top;
+}
+.fields-table tbody td:first-child {
+  color: var(--text);
+  font-weight: 700;
+  text-align: center;
+}
+.fields-table tbody tr:nth-child(even) { background: var(--surface); }
+.fields-table tbody tr:last-child td { border-bottom: none; }
+
+/* FAQ SECTION */
+.faq-section { margin-top: 48px; }
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  padding: 20px 0;
+}
+.faq-item:first-child { border-top: 1px solid var(--border); }
+.faq-question {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.faq-answer {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* CTA BOX */
+.cta-box {
+  background: var(--navy);
+  border-radius: 14px;
+  padding: 36px;
+  text-align: center;
+  margin: 48px 0 24px;
+}
+.cta-box p {
+  color: #c9d1d9 !important;
+  font-size: 1.05rem !important;
+  margin-bottom: 20px !important;
+  line-height: 1.6 !important;
+}
+.cta-box .btn-primary {
+  display: inline-block;
+  background: var(--emerald);
+  color: var(--emerald-dark);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.cta-box .btn-primary:hover { background: var(--emerald-hover); color: #fff; }
+.btn-primary {
+  display: inline-block;
+  background: var(--emerald);
+  color: var(--emerald-dark);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-primary:hover { background: var(--emerald-hover); color: #fff; }
+
+/* RELATED ARTICLES */
+.related-articles {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 32px 0;
+  border: 1px solid var(--border);
+}
+.related-articles h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+.related-articles a {
+  display: block;
+  padding: 8px 0;
+  font-size: 0.9rem;
+  color: var(--emerald-hover);
+  text-decoration: none;
+  font-weight: 500;
+}
+.related-articles a:hover { text-decoration: underline; }
+
+/* FOOTER */
+footer {
+  padding: 40px 60px;
+  background: var(--navy);
+  border-top: 1px solid #242a39;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer p {
+  color: #5a6577;
+  font-size: 0.8rem;
+}
+footer .logo { color: #fff; }
+footer .logo span { color: var(--emerald); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .article-header { padding: 24px 20px 0; }
+  .article-header h1 { font-size: 1.8rem; }
+  .article-body { padding: 0 20px 40px; }
+  footer { flex-direction: column; gap: 12px; padding: 30px 24px; }
+}
+
+/* PREV/NEXT NAV */
+.article-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 32px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.article-nav a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: var(--emerald-hover);
+  font-weight: 500;
+  transition: color 0.2s;
+  max-width: 48%;
+}
+.article-nav a:hover { text-decoration: underline; }
+.article-nav .nav-prev::before { content: "\2190 "; }
+.article-nav .nav-next { margin-left: auto; text-align: right; }
+.article-nav .nav-next::after { content: " \2192"; }
+
+/* HERO ILLUSTRATION */
+.hero-illustration {
+  max-width: 760px;
+  margin: 0 auto 0;
+  padding: 0 24px;
+}
+.hero-illustration svg {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  display: block;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://fakturas.app" class="logo">fakturas<span>.</span>app</a>
+  <div class="nav-links">
+    <a href="https://fakturas.app#features">Funciones</a>
+    <a href="https://fakturas.app#how-it-works">Como funciona</a>
+    <a href="https://fakturas.app#pricing">Precios</a>
+    <a href="https://fakturas.app/blog/" class="active">Blog</a>
+    <a href="https://fakturas.app#pricing" class="nav-cta">Conocer Fakturas</a>
+  </div>
+</nav>
+
+<!-- BREADCRUMBS -->
+<div class="breadcrumbs">
+  <a href="https://fakturas.app">Inicio</a>
+  <span>&rsaquo;</span>
+  <a href="https://fakturas.app/blog/">Blog</a>
+  <span>&rsaquo;</span>
+  Como exportar facturas de compra a Marangatu
+</div>
+
+<!-- ARTICLE HEADER -->
+<header class="article-header">
+  <h1>Como exportar facturas de compra a Marangatu: guia paso a paso (2026)</h1>
+  <div class="article-meta">
+    <time datetime="2026-09-07">7 septiembre 2026</time>
+    <span>&middot;</span>
+    <span>9 min de lectura</span>
+  </div>
+</header>
+
+<!-- HERO ILLUSTRATION -->
+<div class="hero-illustration">
+<svg viewBox="0 0 760 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="760" height="240" rx="16" fill="#f1f5f3"/>
+  <rect x="40" y="60" width="200" height="120" rx="10" fill="white" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="140" y="86" text-anchor="middle" font-size="10" fill="#0d1321" font-family="Inter, sans-serif" font-weight="700">PLANILLA</text>
+  <line x1="56" y1="98" x2="224" y2="98" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="56" y1="114" x2="224" y2="114" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="56" y1="130" x2="224" y2="130" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="56" y1="146" x2="224" y2="146" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="120" y1="98" x2="120" y2="162" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="176" y1="98" x2="176" y2="162" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="140" y="176" text-anchor="middle" font-size="8" fill="#8b95a5" font-family="Inter, sans-serif">20 campos, sin encabezado</text>
+
+  <path d="M255 120 L305 120" stroke="#4edea3" stroke-width="2"/>
+  <polygon points="305,114 317,120 305,126" fill="#4edea3"/>
+  <text x="286" y="106" text-anchor="middle" font-size="8" fill="#5a6577" font-family="Inter, sans-serif" font-weight="600">.CSV UTF-8</text>
+
+  <rect x="330" y="70" width="100" height="100" rx="10" fill="#0d1321"/>
+  <rect x="352" y="94" width="56" height="56" rx="6" fill="none" stroke="#4edea3" stroke-width="2"/>
+  <line x1="352" y1="110" x2="408" y2="110" stroke="#4edea3" stroke-width="1.5"/>
+  <line x1="352" y1="126" x2="408" y2="126" stroke="#4edea3" stroke-width="1.5"/>
+  <line x1="368" y1="94" x2="368" y2="150" stroke="#4edea3" stroke-width="1.5"/>
+  <text x="380" y="164" text-anchor="middle" font-size="7.5" fill="white" font-family="Inter, sans-serif" font-weight="700">.ZIP</text>
+
+  <path d="M445 120 L495 120" stroke="#4edea3" stroke-width="2"/>
+  <polygon points="495,114 507,120 495,126" fill="#4edea3"/>
+  <text x="470" y="106" text-anchor="middle" font-size="8" fill="#5a6577" font-family="Inter, sans-serif" font-weight="600">RUC_REG_MMAAAA</text>
+
+  <rect x="520" y="60" width="200" height="120" rx="10" fill="white" stroke="#4edea3" stroke-width="2"/>
+  <text x="620" y="86" text-anchor="middle" font-size="10" fill="#003824" font-family="Inter, sans-serif" font-weight="800">MARANGATU</text>
+  <line x1="536" y1="98" x2="704" y2="98" stroke="#e2e8f0" stroke-width="1"/>
+  <circle cx="620" cy="130" r="22" fill="#4edea3" opacity="0.15" stroke="#4edea3" stroke-width="1.5"/>
+  <path d="M610 130 L617 137 L631 122" stroke="#4edea3" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="620" y="168" text-anchor="middle" font-size="8" fill="#5a6577" font-family="Inter, sans-serif">Registro de Comprobantes</text>
+</svg>
+</div>
+
+<!-- ARTICLE BODY -->
+<article class="article-body">
+
+  <!-- Chapeau -->
+  <p class="chapeau">
+    Desde 2022, cada comprobante de compra tiene que quedar registrado electronicamente en Marangatu por la RG 90/2021. Digitarlos uno por uno funciona con pocos clientes, pero se vuelve inmanejable cuando el estudio contable procesa cientos de facturas al mes. La salida es el archivo CSV, pero el formato que exige Marangatu es estricto: un campo fuera de orden, un RUC con digito verificador de mas o una fecha mal escrita y el sistema rechaza el archivo entero. Esta guia sigue la <a href="https://www.dnit.gov.py/documents/44828/0/Especificaciones+T%C3%A9cnicas+para+registro+de+comprobantes+en+Marangatu.pdf/fd50732c-4232-750a-b253-5b14843cdccb" target="_blank" rel="noopener">especificacion tecnica oficial de la DNIT</a> (junio 2021) campo por campo.
+  </p>
+
+<!-- ABOVE-FOLD CTA -->
+<div class="cta-box" style="max-width: 760px; margin: 24px auto; padding: 28px 32px; text-align: center;">
+  <p style="margin:0 0 18px; text-align:center;">Fakturas arma este CSV por vos: tus clientes escanean, el sistema valida los 20 campos contra el formato oficial y exporta el ZIP listo para subir.</p>
+  <a href="https://app.fakturas.app" class="btn-primary" style="white-space:nowrap;">Conocer Fakturas</a>
+</div>
+
+  <div class="tldr-box">
+  <h2>Lo esencial:</h2>
+  <ul>
+    <li>El archivo va en formato <strong>.CSV (delimitado por comas)</strong> o <strong>.TXT (delimitado por tabulaciones)</strong>, codificado en UTF-8, sin fila de encabezado.</li>
+    <li>El libro de compras tiene <strong>20 campos en un orden fijo</strong>. Si el orden no coincide con la especificacion, el sistema rechaza el archivo.</li>
+    <li>El archivo se comprime en <strong>ZIP con el mismo nombre</strong> que el CSV, siguiendo la convencion <code>RUC_REG_MMAAAA_XXXXX</code>.</li>
+    <li>Maximo <strong>5.000 filas por archivo</strong>. Mas volumen que eso, hay que dividir en varios archivos.</li>
+    <li>Una vez presentado el Talon del periodo, la importacion por CSV se cierra: lo que falte hay que cargarlo a mano.</li>
+  </ul>
+</div>
+
+  <h2>Que necesitas antes de armar el archivo</h2>
+  <p>Antes de tocar la planilla, confirma estos tres puntos. Sin ellos, el archivo no va a importar aunque el formato este perfecto:</p>
+  <ul>
+    <li><strong>RUC activo con la obligacion de registro habilitada:</strong> la obligacion 955 (mensual) o 956 (anual), segun tu regimen.</li>
+    <li><strong>Los datos de cada comprobante a mano:</strong> RUC del proveedor sin digito verificador, tipo de comprobante, numero de timbrado, numero del comprobante, fecha de emision y los montos gravados al 10%, al 5% y exentos, con el IVA incluido en cada monto.</li>
+    <li><strong>Los comprobantes del SIFEN aparte:</strong> los DTE emitidos por e-Kuatia o por el Sistema de Comprobantes Virtuales <strong>no van en este archivo</strong>. Marangatu los toma directo de esos sistemas.</li>
+  </ul>
+
+  <h2>El formato exacto que exige Marangatu</h2>
+  <p>La <a href="https://www.dnit.gov.py/documents/44828/0/Especificaciones+T%C3%A9cnicas+para+registro+de+comprobantes+en+Marangatu.pdf/fd50732c-4232-750a-b253-5b14843cdccb" target="_blank" rel="noopener">especificacion tecnica de la DNIT</a> fija reglas que no son negociables:</p>
+  <ul>
+    <li>Formato <strong>.CSV</strong> (delimitado por comas) o <strong>.TXT</strong> (delimitado por tabulaciones), codificacion <strong>UTF-8</strong>.</li>
+    <li><strong>Sin fila de encabezado.</strong> Si armaste la planilla en Excel con titulos de columna, hay que excluirlos antes de guardar.</li>
+    <li>Los campos de <strong>RUC</strong> van <strong>sin digito verificador</strong>.</li>
+    <li>Los <strong>montos</strong> van como enteros sin decimales. Podes usar el punto como separador de miles o dejarlo sin separar.</li>
+    <li>El archivo puede contener <strong>Ventas, Compras, Ingresos y Egresos mezclados</strong>, o podes separarlos en archivos distintos por tipo de registro.</li>
+    <li>Maximo <strong>5.000 filas de datos</strong> por archivo.</li>
+  </ul>
+
+  <h3>Como nombrar el archivo</h3>
+  <p>El nombre no es libre. Marangatu espera esta estructura exacta:</p>
+  <div class="definition-block">
+    <code>RUC_REG_MMAAAA_XXXXX</code> para la obligacion 955 (registro mensual)<br>
+    <code>RUC_REG_AAAA_XXXXX</code> para la obligacion 956 (registro anual)
+  </div>
+  <ul>
+    <li><strong>RUC:</strong> tu RUC sin digito verificador.</li>
+    <li><strong>REG:</strong> abreviatura fija de "Registro de Comprobantes".</li>
+    <li><strong>MMAAAA / AAAA:</strong> el periodo fiscal a importar (mes y año, o solo año).</li>
+    <li><strong>XXXXX:</strong> un identificador alfanumerico de hasta 5 posiciones que vos elegis, y que cambia si reenviás una version corregida del mismo periodo.</li>
+  </ul>
+  <div class="highlight-box">
+    <strong>Ejemplo real (del manual DNIT):</strong> <code>80000000_REG_012021_V0001.zip</code> para el periodo enero 2021 del RUC 80000000. Si corregis y volves a subir, el siguiente envio seria <code>80000000_REG_012021_V0002.zip</code>.
+  </div>
+
+  <h2>Los 20 campos del libro de compras, en orden</h2>
+  <p>Esta es la estructura exacta de la tabla "Registro de Comprobantes de Compras" de la especificacion DNIT. El orden de las columnas en tu CSV tiene que coincidir con esta tabla, campo por campo:</p>
+
+  <div class="table-scroll">
+  <table class="fields-table">
+    <thead>
+      <tr><th>#</th><th>Campo</th><th>Tipo</th><th>Notas</th><th>Ejemplo</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Codigo tipo de registro</td><td>NUM</td><td>Requerido. Solo se permite el valor 2 (Compras).</td><td>2</td></tr>
+      <tr><td>2</td><td>Codigo tipo de identificacion del proveedor</td><td>NUM</td><td>Requerido. 11=RUC en casi todos los casos, salvo Autofactura (101) y Despacho de Importacion (107).</td><td>11</td></tr>
+      <tr><td>3</td><td>Numero de identificacion del proveedor</td><td>ALF</td><td>Requerido. RUC sin digito verificador.</td><td>1981234</td></tr>
+      <tr><td>4</td><td>Nombre o razon social del proveedor</td><td>ALF</td><td>Requerido, salvo si el tipo de identificacion es RUC o Cedula.</td><td>EMPRESA S.A.</td></tr>
+      <tr><td>5</td><td>Codigo tipo de comprobante</td><td>NUM</td><td>Requerido. Ver tabla de codigos mas abajo.</td><td>109</td></tr>
+      <tr><td>6</td><td>Fecha de emision del comprobante</td><td>ALF</td><td>Requerido. Formato dd/mm/aaaa. No se permiten fechas anteriores al 01/01/2021 (salvo condicion de compra a credito).</td><td>25/01/2021</td></tr>
+      <tr><td>7</td><td>Numero de timbrado</td><td>NUM</td><td>Requerido, salvo Despacho de Importacion (0).</td><td>81225648</td></tr>
+      <tr><td>8</td><td>Numero del comprobante</td><td>ALF</td><td>Formato ###-###-#######. Requerido salvo tickets de maquina registradora o transporte aereo.</td><td>001-002-0000250</td></tr>
+      <tr><td>9</td><td>Monto gravado al 10% (IVA incluido)</td><td>NUM</td><td>Entero sin decimales. 0 si no aplica.</td><td>1.000.000</td></tr>
+      <tr><td>10</td><td>Monto gravado al 5% (IVA incluido)</td><td>NUM</td><td>Entero sin decimales. 0 si no aplica.</td><td>2.000.000</td></tr>
+      <tr><td>11</td><td>Monto no gravado o exento</td><td>NUM</td><td>Entero sin decimales. 0 si no aplica.</td><td>500.000</td></tr>
+      <tr><td>12</td><td>Monto total del comprobante</td><td>NUM</td><td>Debe ser igual a la suma de los 3 campos de montos anteriores.</td><td>3.500.000</td></tr>
+      <tr><td>13</td><td>Codigo condicion de compra</td><td>NUM</td><td>1=Contado, 2=Credito. Vacio se toma como Contado.</td><td>1</td></tr>
+      <tr><td>14</td><td>Operacion en moneda extranjera</td><td>ALF</td><td>No requerido. S o N. Vacio se toma como N.</td><td>N</td></tr>
+      <tr><td>15</td><td>Imputa al IVA</td><td>ALF</td><td>Requerido. S o N.</td><td>S</td></tr>
+      <tr><td>16</td><td>Imputa al IRE</td><td>ALF</td><td>Requerido. S o N.</td><td>N</td></tr>
+      <tr><td>17</td><td>Imputa al IRP-RSP</td><td>ALF</td><td>Requerido. S o N.</td><td>S</td></tr>
+      <tr><td>18</td><td>No imputa</td><td>ALF</td><td>Requerido. Si es S, la parte restante debe estar imputada a otra obligacion.</td><td>N</td></tr>
+      <tr><td>19</td><td>Numero del comprobante de venta asociado</td><td>ALF</td><td>Solo para Nota de Credito (110) y Nota de Debito (111).</td><td>001-012-0001240</td></tr>
+      <tr><td>20</td><td>Timbrado del comprobante de venta asociado</td><td>NUM</td><td>Solo para Nota de Credito (110) y Nota de Debito (111).</td><td>87232456</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>Codigos de tipo de comprobante mas usados en compras: 101 Autofactura, 103 Boleta de venta, 104 Boleta RESIMPLE, 107 Despacho de Importacion, 109 Factura, 110 Nota de Credito, 111 Nota de Debito, 112 Ticket de maquina registradora.</p>
+
+  <h2>Paso a paso: de la planilla al Talon confirmado</h2>
+
+  <div class="flow-steps">
+    <div class="flow-step">
+      <div class="flow-step-number">1</div>
+      <div class="flow-step-content">
+        <strong>Reuni los datos de cada comprobante</strong>
+        <span>RUC del proveedor sin digito verificador, tipo y numero de comprobante, timbrado, fecha y los tres montos (gravado 10%, gravado 5%, exento), cada uno con el IVA incluido.</span>
+      </div>
+    </div>
+    <div class="flow-connector">|</div>
+    <div class="flow-step">
+      <div class="flow-step-number">2</div>
+      <div class="flow-step-content">
+        <strong>Arma la planilla en el orden exacto de la tabla</strong>
+        <span>20 columnas, en el orden de la tabla de arriba, sin fila de encabezado. Si usas Excel, borra los titulos antes de guardar.</span>
+      </div>
+    </div>
+    <div class="flow-connector">|</div>
+    <div class="flow-step">
+      <div class="flow-step-number">3</div>
+      <div class="flow-step-content">
+        <strong>Guarda como CSV UTF-8 o TXT delimitado por tabulaciones</strong>
+        <span>En Excel: "Guardar como" &rsaquo; "CSV UTF-8 (delimitado por comas)". Si preferis TXT, elegi "Texto (delimitado por tabulaciones)".</span>
+      </div>
+    </div>
+    <div class="flow-connector">|</div>
+    <div class="flow-step">
+      <div class="flow-step-number">4</div>
+      <div class="flow-step-content">
+        <strong>Nombra el archivo con la convencion oficial</strong>
+        <span><code>RUC_REG_MMAAAA_XXXXX</code>, por ejemplo <code>80000000_REG_092026_V0001</code>.</span>
+      </div>
+    </div>
+    <div class="flow-connector">|</div>
+    <div class="flow-step">
+      <div class="flow-step-number">5</div>
+      <div class="flow-step-content">
+        <strong>Comprimi en ZIP con el mismo nombre</strong>
+        <span>El archivo comprimido debe llamarse exactamente igual que el CSV o TXT que contiene, con extension .zip.</span>
+      </div>
+    </div>
+    <div class="flow-connector">|</div>
+    <div class="flow-step">
+      <div class="flow-step-number">6</div>
+      <div class="flow-step-content">
+        <strong>Subi el ZIP en Marangatu e importa</strong>
+        <span>Dentro de Marangatu, anda a Registro de Comprobantes, selecciona Importar y carga el ZIP. Revisa el detalle de errores por fila si el sistema rechaza algo, corregi y volve a subir.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <strong>Detalle critico:</strong> una vez que presentaste el Talon del libro de compras del periodo, la importacion por CSV se cierra para ese periodo. Los comprobantes que falten a partir de ahi hay que cargarlos uno por uno, manualmente. Conviene cerrar y validar el archivo completo <strong>antes</strong> de presentar el Talon.
+  </div>
+
+  <h2>Los errores mas comunes al importar</h2>
+  <p>Estos son los motivos de rechazo mas frecuentes segun la propia estructura del formato. Revisalos antes de subir el archivo:</p>
+
+  <div class="numbered-tip">
+    <div class="num">1</div>
+    <div class="tip-content">
+      <h3>RUC con digito verificador incluido</h3>
+      <p>Si copiaste el RUC directo de una factura o de un padron, probablemente venga con el digito verificador pegado. En el CSV va sin el.</p>
+    </div>
+  </div>
+
+  <div class="numbered-tip">
+    <div class="num">2</div>
+    <div class="tip-content">
+      <h3>Fila de encabezado incluida por error</h3>
+      <p>Si armaste la planilla en Excel con titulos de columna, Marangatu va a leer esa primera fila como un comprobante invalido y va a rechazar el archivo desde el inicio.</p>
+    </div>
+  </div>
+
+  <div class="numbered-tip">
+    <div class="num">3</div>
+    <div class="tip-content">
+      <h3>Montos sin el IVA incluido</h3>
+      <p>Los campos de monto gravado al 10% y al 5% van con el IVA incluido, no el monto neto. Es un error frecuente cuando el dato se saca de un sistema contable que separa base imponible e IVA.</p>
+    </div>
+  </div>
+
+  <div class="numbered-tip">
+    <div class="num">4</div>
+    <div class="tip-content">
+      <h3>Orden de columnas alterado</h3>
+      <p>Si moviste o eliminaste una columna al editar la planilla (por ejemplo, para agregar una nota interna), todo el resto del archivo queda desalineado con la especificacion.</p>
+    </div>
+  </div>
+
+  <div class="numbered-tip">
+    <div class="num">5</div>
+    <div class="tip-content">
+      <h3>Nombre del ZIP distinto al del archivo interno</h3>
+      <p>El ZIP y el CSV o TXT que contiene tienen que llamarse exactamente igual. Un ZIP renombrado despues de comprimido es un rechazo garantizado.</p>
+    </div>
+  </div>
+
+  <h2>Cuando conviene automatizar en vez de armar el CSV a mano</h2>
+  <p>Armar esta planilla a mano es viable con pocos comprobantes al mes. El problema aparece con el volumen: un estudio contable con 30 o 40 clientes activos puede estar frente a miles de facturas de compra por periodo, cada una con 20 campos que tienen que quedar exactos.</p>
+  <p>Fakturas ataca el paso anterior a este: tus clientes escanean sus facturas de compra con el celular, el OCR extrae RUC, timbrado, numero, fecha y montos, y vos validas en el dashboard. Cuando el libro esta listo, el sistema exporta el CSV ya en el orden y el formato que exige Marangatu, sin que tengas que tocar una columna a mano.</p>
+
+  <!-- FAQ -->
+  <h2 class="faq-section">Preguntas frecuentes</h2>
+
+  <div class="faq-item">
+    <div class="faq-question">Cual es el limite de filas por archivo CSV en Marangatu?</div>
+    <div class="faq-answer">5.000 filas de datos por archivo, segun la especificacion tecnica de la DNIT. Si tenes que importar mas de 5.000 comprobantes en el periodo, dividilos en varios archivos y subilos por separado.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">El RUC del proveedor va con digito verificador en el CSV?</div>
+    <div class="faq-answer">No. En todos los campos donde se registra un RUC, el valor debe cargarse sin el digito verificador (DV). Es uno de los motivos de rechazo mas comunes cuando el dato se copia directo de una factura o de un padron.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">Puedo mezclar comprobantes de compras y de ventas en el mismo archivo?</div>
+    <div class="faq-answer">Si. El archivo puede contener los distintos tipos de registro (Ventas, Compras, Ingresos, Egresos) mezclados, o podes separarlos en archivos distintos por tipo. Lo que no cambia es el orden de columnas: cada tipo de registro tiene su propia estructura de campos.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">Que pasa si ya presente el Talon y me falta un comprobante?</div>
+    <div class="faq-answer">Una vez presentado el Talon del libro de compras, la importacion por CSV para ese periodo se cierra. Los comprobantes que falten hay que cargarlos uno por uno, manualmente, dentro de Marangatu. Por eso conviene cerrar y validar el archivo completo antes de presentar el Talon.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">Los DTE del SIFEN tambien van en este archivo CSV?</div>
+    <div class="faq-answer">No. El archivo de importacion no debe incluir comprobantes emitidos por e-Kuatia ni por el Sistema de Comprobantes Virtuales. Esos comprobantes los obtiene Marangatu directamente de esos sistemas. El CSV es para todo lo que no llega asi: facturas preimpresas, autofacturas y otros comprobantes de compra fuera del circuito electronico.</div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <p>Tus clientes escanean sus facturas de compra, Fakturas valida los datos y exporta el CSV listo para Marangatu. Sin armar columnas a mano.</p>
+    <a href="https://app.fakturas.app" class="btn-primary">Conocer Fakturas</a>
+  </div>
+
+  <!-- Related articles -->
+  <div class="related-articles">
+    <h3>Articulos relacionados</h3>
+    <a href="https://fakturas.app/blog/declaracion-iva-mensual-paraguay-contadores">Declaracion IVA mensual en Paraguay: el flujo de trabajo del contador</a>
+    <a href="https://fakturas.app/blog/errores-comunes-sifen-soluciones">Errores comunes del SIFEN y como solucionarlos</a>
+    <a href="https://fakturas.app/blog/facturacion-electronica-multiples-clientes-contadores">Facturacion electronica para contadores que gestionan multiples clientes</a>
+  </div>
+
+  <div class="article-nav">
+    <a href="https://fakturas.app/blog/declaracion-iva-mensual-paraguay-contadores" class="nav-prev">Declaracion IVA mensual: el flujo de trabajo del contador</a>
+    <a href="https://fakturas.app/blog/errores-comunes-sifen-soluciones" class="nav-next">Errores comunes del SIFEN y como solucionarlos</a>
+  </div>
+
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <a href="https://fakturas.app" class="logo">fakturas<span>.</span>app</a>
+  <p>&copy; 2026 Fakturas.app &mdash; Hecho para contadores en Paraguay</p>
+</footer>
+
+</body>
+</html>
