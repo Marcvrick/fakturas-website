@@ -199,6 +199,25 @@ footer a { color: var(--emerald); text-decoration: none; }
 <h3>3.1 Publicidad en la aplicacion movil</h3>
 <p>La aplicacion movil puede mostrar publicidad generica (banner) cuando el Gabinete no ha suscrito un banner personalizado. Esta publicidad <strong>no utiliza datos personales de los Usuarios Finales para segmentacion</strong>. El contenido es generico y no se basa en el comportamiento, las facturas ni los datos fiscales de los usuarios.</p>
 
+<h3>3.7 Integracion opcional con SIFEN / Marangatu</h3>
+<p>
+  Si un administrador del Gabinete decide conectar sus credenciales de Marangatu en <em>Ajustes &rarr; Conexion SIFEN</em>,
+  Fakturas almacenara la contrasena <strong>cifrada con AES-256 (pgsodium en Supabase Vault)</strong>
+  y la utilizara <strong>exclusivamente para consultar, en nombre del Gabinete, las Facturas Recibidas de sus clientes</strong>
+  en el portal oficial de la SET.
+</p>
+<ul>
+  <li>La contrasena cifrada <strong>nunca</strong> se devuelve al navegador ni a la aplicacion movil, ni siquiera al administrador que la ingreso.</li>
+  <li>Las consultas se realizan a traves de una Edge Function autenticada con el rol de servicio de Supabase, nunca desde el cliente.</li>
+  <li>Ninguna otra accion (emision, modificacion, pago, presentacion de declaraciones) se realiza con estas credenciales.</li>
+  <li>Cada sincronizacion queda registrada en un historial de auditoria (<em>sifen_sync_log</em>) que el administrador puede consultar y exportar.</li>
+  <li>El administrador puede <strong>revocar</strong> la conexion en cualquier momento desde el mismo panel de Ajustes, lo que elimina la contrasena cifrada de la base de datos.</li>
+</ul>
+<p>
+  Esta integracion es <strong>opcional</strong>: Fakturas sigue funcionando sin ella, utilizando unicamente las facturas escaneadas por los Usuarios Finales.
+  La conexion puede activarse y desactivarse tantas veces como sea necesario.
+</p>
+
 <h2>4. Almacenamiento y seguridad</h2>
 
 <h3>4.1 Ubicacion de los datos</h3>
@@ -212,6 +231,7 @@ footer a { color: var(--emerald); text-decoration: none; }
   <li>Todas las operaciones de escritura pasan por funciones con verificacion de autorizacion</li>
   <li>URLs de fotos firmadas con expiracion temporal</li>
   <li>Bloqueo automatico tras intentos fallidos de autenticacion</li>
+  <li>Credenciales de terceros (Marangatu) cifradas con AES-256 via pgsodium Vault, descifrables unicamente por la Edge Function de sincronizacion</li>
 </ul>
 
 <h3>4.3 Transferencias internacionales</h3>
