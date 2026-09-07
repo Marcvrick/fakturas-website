@@ -8,7 +8,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Errores comunes en el SIFEN y como solucionarlos</title>
-<meta name="description" content="Guia de referencia para los errores mas comunes del SIFEN en Paraguay. Codigos de rechazo, errores de XML, certificado digital, CDC y como corregirlos paso a paso.">
+<meta name="description" content="Guia de referencia de los errores mas comunes del SIFEN: codigos de rechazo, XML, certificado digital, CDC y como corregirlos paso a paso.">
 <meta name="keywords" content="errores SIFEN, rechazo DTE, validacion fallida, codigo error SIFEN, XML SIFEN, certificado digital Paraguay">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://fakturas.app/blog/errores-comunes-sifen-soluciones">
@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://fakturas.app/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Fakturas.app — Facturacion electronica en Paraguay para contadores">
+<meta property="og:image:alt" content="Fakturas.app, Facturacion electronica en Paraguay para contadores">
 <meta property="article:published_time" content="2026-03-22">
 <meta property="article:modified_time" content="2026-03-22">
 <meta property="article:author" content="Fakturas.app">
@@ -332,7 +332,7 @@ footer .logo span { color: var(--emerald); }
   padding: 24px 28px;
   margin: 24px 0;
 }
-.definition-block h4 {
+.definition-block h3, .definition-block h4 {
   color: var(--emerald);
   font-size: 0.8rem;
   text-transform: uppercase;
@@ -411,7 +411,7 @@ footer .logo span { color: var(--emerald); }
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-.error-card-header h4 {
+.error-card-header h3, .error-card-header h4 {
   font-size: 1rem;
   font-weight: 700;
   color: var(--text);
@@ -459,7 +459,7 @@ footer .logo span { color: var(--emerald); }
   font-size: 0.85rem;
   flex-shrink: 0;
 }
-.numbered-tip .tip-content h4 {
+.numbered-tip .tip-content h3, .tip-content h4 {
   font-size: 1rem;
   font-weight: 700;
   color: var(--text);
@@ -637,7 +637,7 @@ footer .logo span { color: var(--emerald); }
   <circle cx="120" cy="44" r="5" fill="#ef4444"/>
   <circle cx="136" cy="44" r="5" fill="#eab308"/>
   <circle cx="152" cy="44" r="5" fill="#4edea3"/>
-  <text x="380" y="48" text-anchor="middle" font-size="8" fill="#5a6577" font-family="monospace">SIFEN — Respuesta del servidor</text>
+  <text x="380" y="48" text-anchor="middle" font-size="8" fill="#5a6577" font-family="monospace">SIFEN, Respuesta del servidor</text>
   <!-- Error lines -->
   <text x="120" y="80" font-size="10" fill="#ef4444" font-family="monospace">ERROR 0160:</text>
   <text x="230" y="80" font-size="10" fill="#8b95a5" font-family="monospace">CDC no valido para el documento</text>
@@ -771,7 +771,7 @@ footer .logo span { color: var(--emerald); }
   <p>La respuesta de rechazo tiene dos elementos clave: el <strong>codigo de respuesta</strong> (un numero que categoriza el tipo de error) y el <strong>mensaje de respuesta</strong> (una descripcion en texto del problema). A veces, el mensaje incluye el campo especifico que fallo y el valor esperado.</p>
 
   <div class="definition-block">
-    <h4>Consejo practico</h4>
+    <h3>Consejo practico</h3>
     <p>Antes de buscar soluciones, copia el <strong>codigo de error exacto</strong> y el <strong>mensaje completo</strong>. No intentes adivinar el problema solo por el comportamiento. El codigo te dice precisamente que campo o validacion fallo. Si tu software de facturacion no te muestra el codigo, revisa los logs de la comunicacion con el Web Service.</p>
   </div>
 
@@ -784,7 +784,7 @@ footer .logo span { color: var(--emerald); }
   <div class="error-card">
     <div class="error-card-header">
       <span class="error-badge">XML</span>
-      <h4>Tags malformados o fuera de orden</h4>
+      <h3>Tags malformados o fuera de orden</h3>
     </div>
     <p><strong>Que significa:</strong> el XML tiene etiquetas sin cerrar, mal anidadas, o en un orden que no corresponde al esquema XSD. El parser del SIFEN es estricto: no tolera variaciones en la secuencia de elementos.</p>
     <p><strong>Causa tipica:</strong> concatenacion manual de strings para armar el XML en vez de usar un generador de XML validado. Tambien ocurre cuando se copian fragmentos de un documento a otro sin respetar la estructura.</p>
@@ -824,7 +824,7 @@ footer .logo span { color: var(--emerald); }
   <div class="error-card">
     <div class="error-card-header">
       <span class="error-badge">Certificado</span>
-      <h4>Certificado vencido</h4>
+      <h3>Certificado vencido</h3>
     </div>
     <p><strong>Que significa:</strong> tu certificado digital expiro. Los certificados tienen una fecha de validez (generalmente 1 o 2 anhos). Despues de esa fecha, el SIFEN rechaza automaticamente cualquier documento firmado con ese certificado.</p>
     <p><strong>Causa tipica:</strong> falta de seguimiento de la fecha de vencimiento. Muchos contribuyentes se enteran cuando ya no pueden emitir facturas.</p>
@@ -864,7 +864,7 @@ footer .logo span { color: var(--emerald); }
   <div class="error-card">
     <div class="error-card-header">
       <span class="error-badge">CDC</span>
-      <h4>Digito verificador incorrecto</h4>
+      <h3>Digito verificador incorrecto</h3>
     </div>
     <p><strong>Que significa:</strong> el ultimo digito del CDC (digito verificador, calculado con modulo 11) no coincide con los datos del documento. El SIFEN recalcula el digito verificador y lo compara con el que enviaste.</p>
     <p><strong>Causa tipica:</strong> un campo de entrada cambio despues de generar el CDC (por ejemplo, se modifico el numero de documento o la fecha), pero el CDC no se regenero.</p>
@@ -892,7 +892,7 @@ footer .logo span { color: var(--emerald); }
   <div class="error-card">
     <div class="error-card-header">
       <span class="error-badge">Plazo</span>
-      <h4>Documento fuera de plazo (72 horas excedidas)</h4>
+      <h3>Documento fuera de plazo (72 horas excedidas)</h3>
     </div>
     <p><strong>Que significa:</strong> pasaron mas de 72 horas entre la fecha de emision que figura en el DTE y el momento en que lo transmitiste al SIFEN. El sistema rechaza automaticamente cualquier documento fuera de este plazo.</p>
     <p><strong>Causa tipica:</strong> emitir documentos offline y no sincronizar a tiempo. Tambien puede ocurrir si el reloj del servidor local esta desfasado con respecto al reloj del SIFEN, o si hubo problemas de conectividad prolongados.</p>
@@ -912,7 +912,7 @@ footer .logo span { color: var(--emerald); }
   <div class="error-card">
     <div class="error-card-header">
       <span class="error-badge">Validacion</span>
-      <h4>Formato de RUC invalido</h4>
+      <h3>Formato de RUC invalido</h3>
     </div>
     <p><strong>Que significa:</strong> el RUC del emisor o del receptor no cumple con el formato esperado. El RUC paraguayo tiene un formato especifico: numero base + digito verificador separado por guion (por ejemplo, 80012345-6).</p>
     <p><strong>Causa tipica:</strong> incluir puntos de miles en el RUC, omitir el digito verificador, o usar un RUC de prueba en produccion.</p>
@@ -952,7 +952,7 @@ footer .logo span { color: var(--emerald); }
   <div class="error-card">
     <div class="error-card-header">
       <span class="error-badge">Red</span>
-      <h4>Timeout o conexion rechazada</h4>
+      <h3>Timeout o conexion rechazada</h3>
     </div>
     <p><strong>Que significa:</strong> tu sistema no pudo establecer conexion con el Web Service del SIFEN, o la conexion se interrumpio antes de recibir la respuesta.</p>
     <p><strong>Causa tipica:</strong> el SIFEN esta en mantenimiento o con alta demanda, problemas de internet del lado del contribuyente, o firewall que bloquea la comunicacion SSL al endpoint del SIFEN.</p>
@@ -1056,7 +1056,7 @@ footer .logo span { color: var(--emerald); }
   <div class="numbered-tip">
     <div class="num">1</div>
     <div class="tip-content">
-      <h4>Valida antes de enviar</h4>
+      <h3>Valida antes de enviar</h3>
       <p>Toda transmision al SIFEN deberia ser precedida por una validacion local contra el XSD. Si tu XML no pasa la validacion local, no lo envies. Ahorra tiempo, ancho de banda y frustración.</p>
     </div>
   </div>
